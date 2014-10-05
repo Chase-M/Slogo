@@ -2,7 +2,7 @@ package parser;
 
 public class Node {
     /**
-     * Node class takes a command and to put in a tree for parsing
+     * Node class takes a command to puts in a tree for parsing
      * @param com This nodes Command
      */
     public Node(Command com){
