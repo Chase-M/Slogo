@@ -1,5 +1,7 @@
 package actor;
 
+import view.View;
+
 public abstract class Actor {
 	/**
 	 * Creates actor that belongs to a specific view
