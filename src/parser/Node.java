@@ -1,5 +1,7 @@
 package parser;
 
+import command.Command;
+
 public class Node {
     /**
      * Node class takes a command to put in a tree for parsing
