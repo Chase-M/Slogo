@@ -2,6 +2,7 @@ package command;
 
 import java.util.List;
 
+import parser.Node;
 import actor.Actor;
 
 public abstract class Command {
