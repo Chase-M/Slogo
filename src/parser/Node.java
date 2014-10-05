@@ -23,7 +23,7 @@ public class Node {
      * execute
      * ie a forward command would need a child with an int parameter 
      */
-    public void addChild(){
+    public void addChild(Node node){
         
     }
     /**
