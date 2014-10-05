@@ -6,7 +6,7 @@ import command.IntCommand;
 import command.SumCommand;
 import view.View;
 import actor.Actor;
-import actor.ActorInfo;
+import actor.Info;
 import actor.Turtle;
 import actor.TurtleInfo;
 import static org.junit.Assert.*;
@@ -21,7 +21,7 @@ public class TestModel {
 		View view = new View();
 		Actor t=new Turtle(view);
 		parser.parse("forward 50");
-		ActorInfo info=new TurtleInfo(t);
+		Info info=new TurtleInfo(t);
 		assertEquals("50", ((TurtleInfo)info).getY());
 	}
 	/**

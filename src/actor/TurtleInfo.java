@@ -1,6 +1,6 @@
 package actor;
 
-public class TurtleInfo extends ActorInfo {
+public class TurtleInfo extends Info {
 
 	public TurtleInfo(Actor actor) {
 		super(actor);
