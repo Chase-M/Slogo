@@ -1,8 +1,9 @@
 package buttonInput;
 
+import javafx.scene.control.Button;
 import features.Feature;
 
-public abstract class ButtonFactory implements Feature{
+public abstract class ButtonFactory extends Button implements Feature{
 	
 	
 	/**

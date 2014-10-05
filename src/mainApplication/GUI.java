@@ -1,5 +1,8 @@
 package mainApplication;
 
+import parser.Parser;
+import textInput.TextCommand;
+
 public class GUI {
 	
 	
@@ -8,6 +11,10 @@ public class GUI {
 	 */
 	
 	public GUI(){
+		TextCommand exampleCommand = new TextCommand();
+		String command = exampleCommand.readInput();
+		Parser myParser = new Parser();
+		String returnCommand = myParser.parse(command);
 		
 	}
 
