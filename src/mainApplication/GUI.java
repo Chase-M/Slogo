@@ -71,22 +71,7 @@ public class GUI extends Application {
 		return new Scene(myRoot, mySceneHeight, mySceneWidth, Color.GREY);
 	}
 	
-	private BorderPane setBorderPane(Group g){
-		BorderPane pane = new BorderPane();
-		
-		HBox hbox = addHBox();
-		hbox.setStyle("-fx-background-color: #336699;");
-		hbox.getChildren().add(new Label("Name:"));
-		pane.setTop(hbox);
-		pane.setBottom(addCommandHBox());
-		pane.setCenter(addTurtlePane());
-		//hbox.getChildren().add(new Label("Name:"));
-		//pane.setBottom(hbox);
 
-		g.getChildren().add(pane);
-		return pane;
-	}
-	
 	
 	public HBox addHBox() {
 	    HBox hbox = new HBox();
@@ -127,7 +112,7 @@ public class GUI extends Application {
 	private Pane addTurtlePane(){
 		Pane turtleCanvas = new Pane();
 		turtleCanvas.setStyle("-fx-background-color: white");
-		turtleCanvas.setPrefSize(300,300);
+		turtleCanvas.setPrefWidth(900);
 		Polygon triangle = new Polygon();
 		triangle.getPoints().addAll(new Double[]{150.0, 150.0, 140.0, 170.0, 160.0, 170.0});
 		//Rectangle rectangle = new Rectangle (100,100,Color.RED);
@@ -163,8 +148,24 @@ public class GUI extends Application {
 		vcenter.setStyle("-fx-background-color: #FFFFFF;");
 		pane.setLeft(vbox);
 		pane.setRight(vbox2);
-		pane.setCenter(vcenter);
+	//	pane.setCenter(vcenter);
 		myStage.setScene(s);
 		myStage.show();	
 	}
+	
+	private BorderPane setBorderPane(Group g){
+		BorderPane pane = new BorderPane();
+		
+		HBox hbox = addHBox();
+		hbox.setStyle("-fx-background-color: #336699;");
+		hbox.getChildren().add(new Label("Name:"));
+		pane.setTop(hbox);
+		pane.setBottom(addCommandHBox());
+		pane.setCenter(addTurtlePane());
+		//hbox.getChildren().add(new Label("Name:"));
+		//pane.setBottom(hbox);
+		g.getChildren().add(pane);
+		return pane;
+	}
+	
 	}
