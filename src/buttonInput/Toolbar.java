@@ -20,7 +20,7 @@ import javafx.scene.control.MenuItem;
 
 
 
-public class Toolbar extends Node{
+public class Toolbar{
 	public Menu myMenu;
 
 public Toolbar(){
@@ -46,28 +46,4 @@ private void setActions(MenuItem i) {
 	});
 }
 
-@Override
-protected boolean impl_computeContains(double arg0, double arg1) {
-	// TODO Auto-generated method stub
-	return false;
-}
-
-@Override
-public BaseBounds impl_computeGeomBounds(BaseBounds arg0, BaseTransform arg1) {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-@Override
-protected NGNode impl_createPeer() {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-@Override
-public Object impl_processMXNode(MXNodeAlgorithm arg0,
-		MXNodeAlgorithmContext arg1) {
-	// TODO Auto-generated method stub
-	return null;
-}
 }

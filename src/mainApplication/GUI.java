@@ -6,8 +6,11 @@ import java.util.ResourceBundle;
 
 import buttonInput.Toolbar;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.Group;
@@ -18,8 +21,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.control.TextField;
@@ -50,6 +55,10 @@ public class GUI extends Application {
 	private ScrollPane myScrollPane;
 //	public static final Orientation vert = VERTICAL;
 	private FlowPane myFlowPane;
+	private TilePane myTilePane;
+	private StackPane myStackPane;
+	private GridPane myGridPane;
+	private int myCounter = 0;
 	
 	public GUI(){
 		myStage = new Stage();
@@ -103,22 +112,38 @@ public class GUI extends Application {
 
 	   Button buttonProjected = new Button("Run");
 	   buttonProjected.setPrefSize(100, 20);
+	    final int counter = 0;
+	  //  for(int i=0; i<50;i++){
+	   // 	myGridPane.add(new Button("test"), 0, i);	
+	    //}
+	    myScrollPane.setContent(myGridPane);
 	   buttonProjected.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		        System.out.println(myCommand.getText());
-		       // myCommand.clear();
 		        myConsoleHistory.update(myCommand.getText());
-		        myFlowPane.getChildren().add(new Label(myCommand.getText()));
-		        myScrollPane.setContent(myFlowPane);
+		       // myFlowPane.getChildren().add(new Label(myCommand.getText()));
+		        final Button button = new Button(myCommand.getText());
+		        button.setOnAction(new EventHandler<ActionEvent>() {
+				    @Override public void handle(ActionEvent e) {
+				    	myCommand.setText(button.getText());
+				    }	
+				    });
+		      //  myFlowPane.getChildren().add(button);
+		        myGridPane.add(button, 0, myCounter);
+		        myCounter++;
+		        myScrollPane.setContent(myGridPane);
+		 /*       
+		        myScrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
+					  public void changed(ObservableValue<? extends Bounds> bounds, Bounds oldBounds, Bounds newBounds) {
+					    myFlowPane.setPrefWidth(newBounds.getWidth());
+					  }
+					});
+		        */
+		        
 		        myCommand.clear();
-		     //   vbox2.getChildren().add(new Circle(40,40,40,Color.WHEAT));
 		    }
-		});
-	//   EventHandler<ActionEvent> onClick = new EventHandler<ActionEvent>();
-	   
-	   
-	//   buttonProjected.addEventHandler(ActionEvent click, EventHandler onClick);
-	   hbox.getChildren().add(buttonProjected);
+		});	   
+	   	   hbox.getChildren().add(buttonProjected);
 
 	    return hbox;
 	}
@@ -167,9 +192,18 @@ public class GUI extends Application {
 	public void start(Stage stage) throws Exception {
 		myStage = new Stage();
 		myRoot = new Group();
-		myConsoleHistory = new ConsoleHistory();
-		myScrollPane = new ScrollPane();
+		myConsoleHistory = new ConsoleHistory();		
 		myFlowPane = new FlowPane(Orientation.VERTICAL);
+		myScrollPane = new ScrollPane();
+		myScrollPane.setPrefHeight(400);
+		myStackPane = new StackPane();
+		myGridPane = new GridPane();
+	/*	myScrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
+			  public void changed(ObservableValue<? extends Bounds> bounds, Bounds oldBounds, Bounds newBounds) {
+			    myFlowPane.setPrefWidth(newBounds.getWidth());
+			  }
+			});
+*/		myTilePane = new TilePane(Orientation.VERTICAL);
 		//myFlowPane.
 		//myFlowPane.set
 		Scene s = initiate(myRoot);
@@ -199,8 +233,9 @@ public class GUI extends Application {
 		
 		HBox hbox = addHBox();
 		hbox.setStyle("-fx-background-color: #336699;");
-		hbox.getChildren().add(new Label("Name:"));
-		pane.setTop(hbox);
+
+		//hbox.getChildren().add(new Label("Name:"));
+		pane.setBottom(hbox);
 		//pane.setBottom(addCommandHBox());
 		pane.setCenter(addTurtlePane());
 		//hbox.getChildren().add(new Label("Name:"));
