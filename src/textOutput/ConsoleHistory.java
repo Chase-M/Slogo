@@ -3,6 +3,7 @@ package textOutput;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import sun.misc.Queue;
 
@@ -14,9 +15,12 @@ public class ConsoleHistory extends TextDisplayFactory{
 	 */
 	List<String> myCommands;
 	List<Label> myLabels;
+	private int myCounter;
 	public ConsoleHistory(){
+		super();
 		myCommands = new ArrayList<String>();
 		myLabels = new ArrayList<Label>();
+		myCounter = 0;
 	}
 
 	@Override
@@ -25,14 +29,16 @@ public class ConsoleHistory extends TextDisplayFactory{
 		
 	}
 	public void update(String s){
-		myCommands.add(s);
+	//	myCommands.add(s);
+		myTextPane.add(new Button(s), 0, myCounter);
+		myCounter++;
 	}
-	public List<Label> giveLabels(){
+//	public List<Label> giveLabels(){
 		//myLabels = new ArrayList<Label>();
-		for(String s:myCommands){
-			myLabels.add(new Label(s));
-		}
-		return myLabels;
-	}
+//		for(String s:myCommands){
+//			myLabels.add(new Label(s));
+//		}
+//		return myLabels;
+//	}
 
 }

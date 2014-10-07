@@ -51,19 +51,18 @@ public class GUI extends Application {
 	private int mySceneHeight;
 	private int mySceneWidth;
 	private ConsoleHistory myConsoleHistory;
-	private VBox vbox2;
-	private ScrollPane myScrollPane;
-//	public static final Orientation vert = VERTICAL;
-	private FlowPane myFlowPane;
-	private TilePane myTilePane;
-	private StackPane myStackPane;
-	private GridPane myGridPane;
+//	private VBox vbox2;
+	private VBox vbox1;
+	private ScrollPane myScrollPane1;
+	private GridPane myGridPane1;
+//	private ScrollPane myScrollPane;
+//	private GridPane myGridPane;
 	private int myCounter = 0;
 	
 	public GUI(){
 		myStage = new Stage();
 		myRoot = new Group();
-		Scene s = new Scene(myRoot, 50, 50, Color.WHITE);
+		Scene s = new Scene(myRoot, 1000, 700, Color.WHITE);
 		 
 		
 		
@@ -79,8 +78,6 @@ public class GUI extends Application {
 	
 	}
 	public static void main(String[] args){
-	//	Stage s = new Stage();
-	//	start(s);
 		launch(args);
 	}
 	
@@ -97,63 +94,50 @@ public class GUI extends Application {
 	public HBox addHBox() {
 	    HBox hbox = new HBox();
 	    hbox.setPrefWidth(mySceneWidth);
-	  //  hbox.setPrefHeight();
 	    hbox.setPadding(new Insets(15, 12, 15, 12));
 	    hbox.setSpacing(10);
-	   // hbox.setStyle("-fx-background-color: #336699;");
 
 	    
 	    final TextArea myCommand = new TextArea();
-	    //myCommand.setLayoutY(50);
 	    myCommand.setPrefRowCount(3);
 	    hbox.getChildren().add(myCommand);
-	  //  Button buttonCurrent = new Button("Current");
-	   // buttonCurrent.setPrefSize(100, 20);
 
-	   Button buttonProjected = new Button("Run");
-	   buttonProjected.setPrefSize(100, 20);
-	    final int counter = 0;
-	  //  for(int i=0; i<50;i++){
-	   // 	myGridPane.add(new Button("test"), 0, i);	
-	    //}
-	    myScrollPane.setContent(myGridPane);
-	   buttonProjected.setOnAction(new EventHandler<ActionEvent>() {
+	   Button run = new Button("Run");
+	   run.setPrefSize(100, 20);
+
+//	    myScrollPane.setContent(myGridPane);
+	    myScrollPane1.setContent(myGridPane1);
+	   run.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		        System.out.println(myCommand.getText());
 		        myConsoleHistory.update(myCommand.getText());
-		       // myFlowPane.getChildren().add(new Label(myCommand.getText()));
 		        final Button button = new Button(myCommand.getText());
 		        button.setOnAction(new EventHandler<ActionEvent>() {
 				    @Override public void handle(ActionEvent e) {
 				    	myCommand.setText(button.getText());
 				    }	
 				    });
-		      //  myFlowPane.getChildren().add(button);
-		        myGridPane.add(button, 0, myCounter);
+		        Button button2 = button;
+		        myGridPane1.add(button2, 0, myCounter);
+//		        myGridPane.add(button, 0, myCounter);
+		        
 		        myCounter++;
-		        myScrollPane.setContent(myGridPane);
-		 /*       
-		        myScrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
-					  public void changed(ObservableValue<? extends Bounds> bounds, Bounds oldBounds, Bounds newBounds) {
-					    myFlowPane.setPrefWidth(newBounds.getWidth());
-					  }
-					});
-		        */
+//		        myScrollPane.setContent(myGridPane);
+		        myScrollPane1.setContent(myGridPane1);
 		        
 		        myCommand.clear();
 		    }
 		});	   
-	   	   hbox.getChildren().add(buttonProjected);
+	   	   hbox.getChildren().add(run);
 
 	    return hbox;
 	}
 	public VBox addVBox(String s) {
 	    VBox vbox = new VBox();
 	    vbox.setPrefHeight(mySceneHeight-200);
-	  //  hbox.setPrefHeight();
+	    vbox.setPrefWidth(200);
 	    vbox.setPadding(new Insets(15, 12, 15, 12));
 	    vbox.setSpacing(10);
-	   // vbox.setStyle("-fx-background-color: #333399;");
 
 	    Button buttonCurrent = new Button(s);
 	    buttonCurrent.setPrefSize(100, 20);
@@ -165,26 +149,12 @@ public class GUI extends Application {
 	private Pane addTurtlePane(){
 		Pane turtleCanvas = new Pane();
 		turtleCanvas.setStyle("-fx-background-color: white");
-		turtleCanvas.setPrefWidth(900);
 		Polygon triangle = new Polygon();
 		triangle.getPoints().addAll(new Double[]{150.0, 150.0, 140.0, 170.0, 160.0, 170.0});
-		//Rectangle rectangle = new Rectangle (100,100,Color.RED);
-		//rectangle.relocate(0,0);
+		triangle.setFill(Color.GREEN);
 		turtleCanvas.getChildren().addAll(triangle);
 		
 		return turtleCanvas;
-	}
-	
-	private HBox addCommandHBox(){
-		Label commandLabel = new Label("Command: ");
-		TextField commandTextField = new TextField();
-		commandTextField.setPrefWidth(250);
-		commandTextField.setPromptText("Enter your commands here");
-		HBox commandHBox = new HBox();
-		commandHBox.getChildren().addAll(commandLabel, commandTextField);
-		commandHBox.setSpacing(10);
-		
-		return commandHBox;
 	}
 	
 	
@@ -193,52 +163,43 @@ public class GUI extends Application {
 		myStage = new Stage();
 		myRoot = new Group();
 		myConsoleHistory = new ConsoleHistory();		
-		myFlowPane = new FlowPane(Orientation.VERTICAL);
-		myScrollPane = new ScrollPane();
-		myScrollPane.setPrefHeight(400);
-		myStackPane = new StackPane();
-		myGridPane = new GridPane();
-	/*	myScrollPane.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
-			  public void changed(ObservableValue<? extends Bounds> bounds, Bounds oldBounds, Bounds newBounds) {
-			    myFlowPane.setPrefWidth(newBounds.getWidth());
-			  }
-			});
-*/		myTilePane = new TilePane(Orientation.VERTICAL);
-		//myFlowPane.
-		//myFlowPane.set
+//		myScrollPane = new ScrollPane();
+		myConsoleHistory.myScrollPane.setPrefHeight(400);
+		myConsoleHistory.myScrollPane.setPrefWidth(200);
+//		myGridPane = new GridPane();
+		myGridPane1 = new GridPane();
+		myScrollPane1 = new ScrollPane();
+		myScrollPane1.setPrefHeight(400);
+		
 		Scene s = initiate(myRoot);
 		BorderPane pane = setBorderPane(myRoot);
-		VBox vcenter = addVBox("TurtleView");
-		vcenter.setPrefWidth(50);
-		VBox vbox = addVBox("Variables");
-		vbox2 = addVBox("Command History");
-		vbox2.getChildren().addAll(myConsoleHistory.giveLabels());
-		vbox2.getChildren().add(myScrollPane);
-		vcenter.setStyle("-fx-background-color: #FFFFFF;");
-		pane.setLeft(vbox);
-		pane.setRight(vbox2);
+		vbox1 = addVBox("Variables");
+		vbox1.getChildren().add(myScrollPane1);
+//		vbox2 = addVBox("Command History");
+//		vbox2.getChildren().add(myScrollPane);
+		pane.setLeft(vbox1);
+		pane.setRight(myConsoleHistory);
 		
 		
 		
 		
 		
 		
-		pane.setCenter(vcenter);
 		myStage.setScene(s);
 		myStage.show();	
 	}
 	
 	private BorderPane setBorderPane(Group g){
 		BorderPane pane = new BorderPane();
-		
+		Pane topPane = new Pane();
+		topPane.setStyle("-fx-background-color: #225588;");
+		topPane.setPrefWidth(100);
+		topPane.getChildren().add(new Rectangle(0,0,100,100));
+		pane.setTop(topPane);
 		HBox hbox = addHBox();
 		hbox.setStyle("-fx-background-color: #336699;");
-		//hbox.getChildren().add(new Label("Name:"));
 		pane.setBottom(hbox);
-		//pane.setBottom(addCommandHBox());
 		pane.setCenter(addTurtlePane());
-		//hbox.getChildren().add(new Label("Name:"));
-		//pane.setBottom(hbox);
 		g.getChildren().add(pane);
 		return pane;
 	}
