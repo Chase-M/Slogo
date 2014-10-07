@@ -140,7 +140,7 @@ public class GUI extends Application {
 	private Pane addTurtlePane(){
 		Pane turtleCanvas = new Pane();
 		turtleCanvas.setStyle("-fx-background-color: white");
-		turtleCanvas.setPrefWidth(900);
+		//turtleCanvas.setPrefWidth(900);
 		Polygon triangle = new Polygon();
 		triangle.getPoints().addAll(new Double[]{150.0, 150.0, 140.0, 170.0, 160.0, 170.0});
 		//Rectangle rectangle = new Rectangle (100,100,Color.RED);
@@ -189,7 +189,7 @@ public class GUI extends Application {
 		
 		
 		
-		pane.setCenter(vcenter);
+		//pane.setCenter(vcenter);
 		myStage.setScene(s);
 		myStage.show();	
 	}
@@ -201,7 +201,7 @@ public class GUI extends Application {
 		hbox.setStyle("-fx-background-color: #336699;");
 		hbox.getChildren().add(new Label("Name:"));
 		pane.setTop(hbox);
-		pane.setBottom(addCommandHBox());
+		//pane.setBottom(addCommandHBox());
 		pane.setCenter(addTurtlePane());
 		//hbox.getChildren().add(new Label("Name:"));
 		//pane.setBottom(hbox);
