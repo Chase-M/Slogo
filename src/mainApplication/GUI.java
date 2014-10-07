@@ -4,42 +4,25 @@ package mainApplication;
 
 import java.util.ResourceBundle;
 
-import buttonInput.Toolbar;
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import parser.Parser;
-import textInput.TextCommand;
 import textOutput.ConsoleHistory;
-//import javafx.geometry.Orientation;
+import textOutput.VariableDisplay;
 
 public class GUI extends Application {
 
@@ -54,14 +37,7 @@ public class GUI extends Application {
 	private int mySceneHeight;
 	private int mySceneWidth;
 	private ConsoleHistory myConsoleHistory;
-//	private VBox vbox2;
-	private VBox vbox1;
-	private ScrollPane myScrollPane1;
-	private GridPane myGridPane1;
-//	private ScrollPane myScrollPane;
-//	private GridPane myGridPane;
-
-	private int myCounter = 0;
+	private VariableDisplay myVariableDisplay;
 	
 	private ComboBox languageCB;
 	private ComboBox colourCB;
@@ -70,12 +46,6 @@ public class GUI extends Application {
 		myStage = new Stage();
 		myRoot = new Group();
 		Scene s = new Scene(myRoot, 1000, 700, Color.WHITE);
-		 
-		
-		
-		
-		
-		
 
 		/*
 		TextCommand exampleCommand = new TextCommand();
@@ -114,26 +84,17 @@ public class GUI extends Application {
 	   Button run = new Button("Run");
 	   run.setPrefSize(100, 20);
 
-//	    myScrollPane.setContent(myGridPane);
-	    myScrollPane1.setContent(myGridPane1);
 	   run.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		        System.out.println(myCommand.getText());
-		        myConsoleHistory.update(myCommand.getText());
 		        final Button button = new Button(myCommand.getText());
 		        button.setOnAction(new EventHandler<ActionEvent>() {
 				    @Override public void handle(ActionEvent e) {
 				    	myCommand.setText(button.getText());
 				    }	
 				    });
-		        Button button2 = button;
-		        myGridPane1.add(button2, 0, myCounter);
-//		        myGridPane.add(button, 0, myCounter);
-		        
-		        myCounter++;
-//		        myScrollPane.setContent(myGridPane);
-		        myScrollPane1.setContent(myGridPane1);
-		        
+		        myConsoleHistory.update(button);
+		        myVariableDisplay.update(myCommand.getText());		        
 		        myCommand.clear();
 		    }
 		});	   
@@ -167,23 +128,6 @@ public class GUI extends Application {
 		Label colourLabel = new Label("Display Colour:");
 		Label languageLabel = new Label("Language Pack:");
 		
-//		ObservableList<String> colourOptions = 
-//				FXCollections.observableArrayList(
-//						"Black",
-//						"White",
-//						"Yellow"
-//						
-//						);
-//		final ComboBox colourCBox = new ComboBox(colourOptions);
-//		
-//		ObservableList<String> languageOptions = 
-//				FXCollections.observableArrayList(						
-//						"English",
-//						"Spanish",
-//						"Spanish"									
-//						);
-//		final ComboBox languageCBox = new ComboBox(languageOptions);
-		
 		colourCB = new ComboBox();
 		colourCB.getItems().addAll("White", "Yellow", "Green");
 		
@@ -202,7 +146,7 @@ public class GUI extends Application {
 	}
 	
 	
-	
+/*	
 	public VBox addVBox(String s) {
 	    VBox vbox = new VBox();
 	    vbox.setPrefHeight(mySceneHeight-200);
@@ -216,7 +160,7 @@ public class GUI extends Application {
 
 	    return vbox;
 	}
-
+*/
 	private Pane addTurtlePane(){
 		Pane turtleCanvas = new Pane();
 		turtleCanvas.setStyle("-fx-background-color: white");
@@ -233,22 +177,16 @@ public class GUI extends Application {
 	public void start(Stage stage) throws Exception {
 		myStage = new Stage();
 		myRoot = new Group();
-		myConsoleHistory = new ConsoleHistory();		
-//		myScrollPane = new ScrollPane();
-		myConsoleHistory.myScrollPane.setPrefHeight(400);
-		myConsoleHistory.myScrollPane.setPrefWidth(200);
-//		myGridPane = new GridPane();
-		myGridPane1 = new GridPane();
-		myScrollPane1 = new ScrollPane();
-		myScrollPane1.setPrefHeight(400);
-		
 		Scene s = initiate(myRoot);
 		BorderPane pane = setBorderPane(myRoot);
-		vbox1 = addVBox("Variables");
-		vbox1.getChildren().add(myScrollPane1);
-//		vbox2 = addVBox("Command History");
-//		vbox2.getChildren().add(myScrollPane);
-		pane.setLeft(vbox1);
+		
+		myConsoleHistory = new ConsoleHistory();		
+		myConsoleHistory.myScrollPane.setPrefHeight(mySceneHeight-200);
+		myConsoleHistory.myScrollPane.setPrefWidth(200);
+		myVariableDisplay = new VariableDisplay();		
+		myVariableDisplay.myScrollPane.setPrefHeight(mySceneHeight-200);
+		myVariableDisplay.myScrollPane.setPrefWidth(200);
+		pane.setLeft(myVariableDisplay);
 		pane.setRight(myConsoleHistory);
 		
 		
@@ -272,14 +210,7 @@ public class GUI extends Application {
 		pane.setBottom(hbox);
 		pane.setCenter(addTurtlePane());
 
-//		HBox hbox = addHBox();
-//		hbox.setStyle("-fx-background-color: #336699;");
-		//hbox.getChildren().add(new Label("Name:"));
 		pane.setTop(topHBox());
-		//pane.setBottom(addCommandHBox());
-//		pane.setCenter(addTurtlePane());
-		//hbox.getChildren().add(new Label("Name:"));
-//		pane.setBottom(hbox);
 		g.getChildren().add(pane);
 		return pane;
 	}
