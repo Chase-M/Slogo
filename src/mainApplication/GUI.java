@@ -8,6 +8,8 @@ import buttonInput.Toolbar;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
@@ -16,6 +18,7 @@ import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
@@ -39,8 +42,8 @@ import textOutput.ConsoleHistory;
 //import javafx.geometry.Orientation;
 
 public class GUI extends Application {
-	
-	
+
+
 	/**
 	 * Activates the necessary components for GUI
 	 */
@@ -57,8 +60,12 @@ public class GUI extends Application {
 	private GridPane myGridPane1;
 //	private ScrollPane myScrollPane;
 //	private GridPane myGridPane;
+
 	private int myCounter = 0;
 	
+	private ComboBox languageCB;
+	private ComboBox colourCB;
+
 	public GUI(){
 		myStage = new Stage();
 		myRoot = new Group();
@@ -69,28 +76,30 @@ public class GUI extends Application {
 		
 		
 		
+
 		/*
 		TextCommand exampleCommand = new TextCommand();
 		String command = exampleCommand.readInput();
 		Parser myParser = new Parser();
 		String returnCommand = myParser.parse(command);
-		*/
-	
+		 */
+
 	}
 	public static void main(String[] args){
+
 		launch(args);
 	}
-	
-	
+
+
 	private Scene initiate(Group root){
 		myNumberResources = ResourceBundle.getBundle("resources/constants/numbers");
 		mySceneHeight = Integer.parseInt(myNumberResources.getString("Scene_height"));
 		mySceneWidth = Integer.parseInt(myNumberResources.getString("Scene_width"));
 		return new Scene(myRoot, mySceneWidth, mySceneHeight, Color.GREY);
 	}
-	
 
-	
+
+
 	public HBox addHBox() {
 	    HBox hbox = new HBox();
 	    hbox.setPrefWidth(mySceneWidth);
@@ -130,8 +139,70 @@ public class GUI extends Application {
 		});	   
 	   	   hbox.getChildren().add(run);
 
-	    return hbox;
+
+		return hbox;
 	}
+	
+	private HBox topHBox(){
+		
+		HBox topHB = new HBox();
+		topHB.setPrefWidth(mySceneWidth);
+		topHB.setSpacing(10);
+		topHB.setStyle("-fx-background-color: yellow;");
+		
+		Button startButton = new Button("Start");
+		startButton.setPrefSize(100, 20);
+		startButton.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent event) {
+				// TODO Auto-generated method stub
+				System.out.println("start button clicked");
+				System.out.println(languageCB.getValue());
+				System.out.println(colourCB.getValue());
+			}
+			
+		});
+		
+		
+		Label colourLabel = new Label("Display Colour:");
+		Label languageLabel = new Label("Language Pack:");
+		
+//		ObservableList<String> colourOptions = 
+//				FXCollections.observableArrayList(
+//						"Black",
+//						"White",
+//						"Yellow"
+//						
+//						);
+//		final ComboBox colourCBox = new ComboBox(colourOptions);
+//		
+//		ObservableList<String> languageOptions = 
+//				FXCollections.observableArrayList(						
+//						"English",
+//						"Spanish",
+//						"Spanish"									
+//						);
+//		final ComboBox languageCBox = new ComboBox(languageOptions);
+		
+		colourCB = new ComboBox();
+		colourCB.getItems().addAll("White", "Yellow", "Green");
+		
+		languageCB = new ComboBox();
+		languageCB.getItems().addAll("English", "Spanish", "Chinese");
+		
+		
+		
+		topHB.getChildren().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
+		topHB.setPrefHeight(100);
+		return topHB;
+		
+		
+		
+		
+	}
+	
+	
+	
 	public VBox addVBox(String s) {
 	    VBox vbox = new VBox();
 	    vbox.setPrefHeight(mySceneHeight-200);
@@ -149,15 +220,15 @@ public class GUI extends Application {
 	private Pane addTurtlePane(){
 		Pane turtleCanvas = new Pane();
 		turtleCanvas.setStyle("-fx-background-color: white");
+
 		Polygon triangle = new Polygon();
 		triangle.getPoints().addAll(new Double[]{150.0, 150.0, 140.0, 170.0, 160.0, 170.0});
 		triangle.setFill(Color.GREEN);
 		turtleCanvas.getChildren().addAll(triangle);
-		
+
 		return turtleCanvas;
 	}
-	
-	
+
 	@Override
 	public void start(Stage stage) throws Exception {
 		myStage = new Stage();
@@ -188,20 +259,29 @@ public class GUI extends Application {
 		myStage.setScene(s);
 		myStage.show();	
 	}
-	
+
 	private BorderPane setBorderPane(Group g){
 		BorderPane pane = new BorderPane();
-		Pane topPane = new Pane();
-		topPane.setStyle("-fx-background-color: #225588;");
-		topPane.setPrefWidth(100);
-		topPane.getChildren().add(new Rectangle(0,0,100,100));
-		pane.setTop(topPane);
+//		Pane topPane = new Pane();
+//		topPane.setStyle("-fx-background-color: #225588;");
+//		topPane.setPrefWidth(100);
+//		topPane.getChildren().add(new Rectangle(0,0,100,100));
+//		pane.setTop(topPane);
 		HBox hbox = addHBox();
 		hbox.setStyle("-fx-background-color: #336699;");
 		pane.setBottom(hbox);
 		pane.setCenter(addTurtlePane());
+
+//		HBox hbox = addHBox();
+//		hbox.setStyle("-fx-background-color: #336699;");
+		//hbox.getChildren().add(new Label("Name:"));
+		pane.setTop(topHBox());
+		//pane.setBottom(addCommandHBox());
+//		pane.setCenter(addTurtlePane());
+		//hbox.getChildren().add(new Label("Name:"));
+//		pane.setBottom(hbox);
 		g.getChildren().add(pane);
 		return pane;
 	}
-	
-	}
+
+}
