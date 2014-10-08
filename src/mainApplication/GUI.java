@@ -201,8 +201,7 @@ public class GUI extends Application {
 		languageCB = new ComboBox();
 		languageCB.getItems().addAll("English", "Spanish", "Chinese");
 		
-		
-		
+	
 		topHB.getChildren().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
 		return topHB;
 		
