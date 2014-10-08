@@ -4,11 +4,13 @@ package mainApplication;
 
 import java.util.ResourceBundle;
 
+import buttonInput.Menubar;
+import buttonInput.Toolbar;
 import javafx.application.Application;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,6 +18,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -38,6 +41,8 @@ public class GUI extends Application {
 	private int mySceneWidth;
 	private ConsoleHistory myConsoleHistory;
 	private VariableDisplay myVariableDisplay;
+//	private Toolbar myToolbar;
+	private Menubar myMenubar;
 	
 	private ComboBox languageCB;
 	private ComboBox colourCB;
@@ -137,7 +142,7 @@ public class GUI extends Application {
 		
 		
 		topHB.getChildren().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
-		topHB.setPrefHeight(100);
+		topHB.setPrefHeight(34);
 		return topHB;
 		
 		
@@ -189,17 +194,24 @@ public class GUI extends Application {
 		pane.setLeft(myVariableDisplay);
 		pane.setRight(myConsoleHistory);
 		
-		
-		
-		
-		
-		
 		myStage.setScene(s);
 		myStage.show();	
 	}
 
 	private BorderPane setBorderPane(Group g){
 		BorderPane pane = new BorderPane();
+		FlowPane flowPane = new FlowPane(Orientation.VERTICAL);
+		myMenubar = new Menubar();
+		myMenubar.setPrefWidth(mySceneWidth);
+		myMenubar.setPrefHeight(33);
+		Toolbar myToolbar = new Toolbar();
+		myToolbar.setPrefWidth(mySceneWidth);
+		myToolbar.setPrefHeight(33);
+		flowPane.getChildren().add(myMenubar);
+		flowPane.getChildren().add(myToolbar);
+		flowPane.getChildren().add(topHBox());
+		flowPane.setPrefHeight(105);
+		
 //		Pane topPane = new Pane();
 //		topPane.setStyle("-fx-background-color: #225588;");
 //		topPane.setPrefWidth(100);
@@ -210,7 +222,7 @@ public class GUI extends Application {
 		pane.setBottom(hbox);
 		pane.setCenter(addTurtlePane());
 
-		pane.setTop(topHBox());
+		pane.setTop(flowPane);
 		g.getChildren().add(pane);
 		return pane;
 	}
