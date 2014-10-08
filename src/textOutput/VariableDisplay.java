@@ -8,13 +8,13 @@ import javafx.scene.control.Label;
 import sun.misc.Queue;
 
 
-public class ConsoleHistory extends TextDisplayFactory{
+public class VariableDisplay extends TextDisplayFactory{
 	
 	/**
 	 * Initializes the console text display that will display console history
 	 */
 	private int myCounter;
-	public ConsoleHistory(){
+	public VariableDisplay(){
 		super();
 		myCounter = 0;
 	}
@@ -24,10 +24,8 @@ public class ConsoleHistory extends TextDisplayFactory{
 		// TODO Auto-generated method stub
 		
 	}
-	public void update(Button b){
-		
-		myTextPane.add(b, 0, myCounter);
-		
+	public void update(String s){
+		myTextPane.add(new Label(s), 0, myCounter);
 		myCounter++;
 	}
 
