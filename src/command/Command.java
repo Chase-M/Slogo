@@ -6,12 +6,16 @@ import parser.Node;
 import actor.Actor;
 
 public abstract class Command {
+	
+	List<Actor> myActors;
+	int myNumInputs;
 	/**
 	 * Creates a command that will act on the list of actors given
 	 * @param actors
 	 */
 	public Command(List<Actor> actors){
-		
+		myActors = actors;
+		myNumInputs = 0;
 	}
 	
 	
@@ -19,7 +23,7 @@ public abstract class Command {
 	 * Returns the number of inputs for the specific command
 	 */
 	public int getNumInputs(){
-		return 0;
+		return myNumInputs;
 	}
 	
 	/**
@@ -30,6 +34,6 @@ public abstract class Command {
 	 * @param inputs List of inputs for the specific command
 	 * @return appropriate int based on the type of command
 	 */
-	public abstract int execute(List<Node> inputs);
+	public abstract double execute(List<Node> inputs);
 	
 }

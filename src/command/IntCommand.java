@@ -7,14 +7,17 @@ import actor.Actor;
 
 public class IntCommand extends Command {
 
-	public IntCommand(int i){
-		
+	int myValue;
+	public IntCommand(List<Actor> actors, int i){
+		super(actors);
+		myValue = i;
+		myNumInputs = 0;
 	}
 	
 	@Override
-	public int execute(List<Node> inputs, List<Actor> actors) {
+	public double execute(List<Node> inputs) {
 		// TODO Auto-generated method stub
-		return 0;
+		return myValue;
 	}
 
 }
