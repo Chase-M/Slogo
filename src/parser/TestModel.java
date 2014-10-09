@@ -1,8 +1,11 @@
 package parser;
 
+import java.util.List;
+
 import org.junit.Test;
 
 import command.IntCommand;
+import command.LessCommand;
 import command.SumCommand;
 import view.View;
 import actor.Actor;
@@ -12,6 +15,8 @@ import actor.TurtleInfo;
 import static org.junit.Assert.*;
 
 public class TestModel {
+	
+	private final static double PRECISION = 0.0000000001;
 	/**
 	 * Test to make sure it moves within the model properly
 	 */
@@ -34,10 +39,19 @@ public class TestModel {
 	}
 	
 	@Test
-	public void testNodeBehavior(){
-		Node sum = new Node(new SumCommand());
-		sum.addChild(new Node(new IntCommand(5)));
-		sum.addChild(new Node(new IntCommand(3)));
-		assertEquals(8, sum.evaluate());
+	public void testSumCommand(){
+		List<Actor> list = null;
+		Node sum = new Node(new SumCommand(list));
+		sum.addChild(new Node(new IntCommand(list,5)));
+		sum.addChild(new Node(new IntCommand(list,3)));
+		assertEquals(8, sum.evaluate(),PRECISION);
+	}
+	@Test
+	public void testLessCommand(){
+		List<Actor> list = null;
+		Node sum = new Node(new LessCommand(list));
+		sum.addChild(new Node(new IntCommand(list,2)));
+		sum.addChild(new Node(new IntCommand(list,3)));
+		assertEquals(1, sum.evaluate(),PRECISION);
 	}
 }

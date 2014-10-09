@@ -5,19 +5,16 @@ import java.util.List;
 import parser.Node;
 import actor.Actor;
 
-public class SumCommand extends Command {
+public class LessCommand extends Command{
 
-	public SumCommand(List<Actor> actors) {
+	public LessCommand(List<Actor> actors) {
 		super(actors);
 		myNumInputs = 2;
 	}
 
 	@Override
 	public double execute(List<Node> inputs) {
-		double sum = 0;
-		for(Node n: inputs){
-			sum += n.evaluate();
-		}
-		return sum;
+		return (inputs.get(0).evaluate()<inputs.get(1).evaluate())? 1:0;
 	}
+
 }

@@ -1,22 +1,30 @@
 package parser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import command.Command;
 
 public class Node {
+	
+	List<Node> myChildren;
+	Command myCommand;
+	
     /**
      * Node class takes a command to put in a tree for parsing
      * @param com This nodes Command
      */
     public Node(Command com){
-        
+        myChildren = new ArrayList<>();
+        myCommand = com;
     }
     /**
      * returns the value of the this command and executes this command as well 
      * as all its children 
      * @return
      */
-    public int evaluate(){
-        return 0;
+    public double evaluate(){
+        return myCommand.execute(myChildren);
     }
     /**
      * adds a child node which will be another command or int that this command needs to 
@@ -24,13 +32,13 @@ public class Node {
      * ie a forward command would need a child with an int parameter 
      */
     public void addChild(Node node){
-        
+    	myChildren.add(node);
     }
     /**
      * returns this nodes command
      * @return
      */
     public Command getCommand(){
-        return null;
+        return myCommand;
     }
 }
