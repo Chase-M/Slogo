@@ -7,16 +7,15 @@ import actor.Actor;
 
 public class SumCommand extends Command {
 
-	public SumCommand(List<Actor> actors) {
-		super(actors);
+	public SumCommand() {
 		myNumInputs = 2;
 	}
 
 	@Override
-	public double execute(List<Node> inputs) {
+	public double execute(List<Node> inputs, List<Actor> actors) {
 		double sum = 0;
 		for(Node n: inputs){
-			sum += n.evaluate();
+			sum += n.evaluate(actors);
 		}
 		return sum;
 	}

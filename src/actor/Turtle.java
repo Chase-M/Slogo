@@ -1,18 +1,16 @@
 package actor;
 
-import view.View;
+import java.util.Observable;
 
-public class Turtle extends Actor {
 
+public class Turtle extends Observable {
+	private double myX;
+	private double myY;
+	private double myAngle;
+	//private Pen myPen;
 	
-	public Turtle(View view) {
-		super(view);
-	}
-	
-
-	@Override
-	public void updateView() {
-		// TODO Auto-generated method stub
-
+	public void updatePosition(double newX, double newY, double newAngle){
+		notifyObservers();
+		addObserver(null);
 	}
 }

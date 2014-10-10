@@ -7,14 +7,13 @@ import actor.Actor;
 
 public class LessCommand extends Command{
 
-	public LessCommand(List<Actor> actors) {
-		super(actors);
+	public LessCommand() {
+		super();
 		myNumInputs = 2;
 	}
 
 	@Override
-	public double execute(List<Node> inputs) {
-		return (inputs.get(0).evaluate()<inputs.get(1).evaluate())? 1:0;
+	public double execute(List<Node> inputs, List<Actor> actors) {
+		return (inputs.get(0).evaluate(actors)<inputs.get(1).evaluate(actors))? 1:0;
 	}
-
 }

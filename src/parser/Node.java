@@ -3,6 +3,7 @@ package parser;
 import java.util.ArrayList;
 import java.util.List;
 
+import actor.Actor;
 import command.Command;
 
 public class Node {
@@ -23,8 +24,8 @@ public class Node {
      * as all its children 
      * @return
      */
-    public double evaluate(){
-        return myCommand.execute(myChildren);
+    public double evaluate(List<Actor> actors){
+        return myCommand.execute(myChildren,actors);
     }
     /**
      * adds a child node which will be another command or int that this command needs to 
