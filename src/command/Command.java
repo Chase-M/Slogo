@@ -7,14 +7,12 @@ import actor.Actor;
 
 public abstract class Command {
 	
-	List<Actor> myActors;
 	int myNumInputs;
 	/**
 	 * Creates a command that will act on the list of actors given
 	 * @param actors
 	 */
-	public Command(List<Actor> actors){
-		myActors = actors;
+	public Command(){
 		myNumInputs = 0;
 	}
 	
@@ -34,6 +32,6 @@ public abstract class Command {
 	 * @param inputs List of inputs for the specific command
 	 * @return appropriate int based on the type of command
 	 */
-	public abstract double execute(List<Node> inputs);
+	public abstract double execute(List<Node> inputs, List<Actor> actors);
 	
 }
