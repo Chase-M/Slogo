@@ -1,6 +1,7 @@
 package parser;
 
 import command.Command;
+import command.IntCommand;
 
 public class intCommandCreator extends commandFactory{
 
