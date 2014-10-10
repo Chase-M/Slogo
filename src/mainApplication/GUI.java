@@ -2,6 +2,8 @@
 
 package mainApplication;
 
+import graphics.Turtle;
+
 import java.util.ResourceBundle;
 
 import buttonInput.Menubar;
@@ -17,6 +19,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
@@ -43,15 +47,17 @@ public class GUI extends Application {
 	private VariableDisplay myVariableDisplay;
 //	private Toolbar myToolbar;
 	private Menubar myMenubar;
+	private Turtle myTurtle;
 	
 	private ComboBox languageCB;
 	private ComboBox colourCB;
+	private Pane turtleCanvas;
+	private ImageView turtleView;
 
 	public GUI(){
 		myStage = new Stage();
 		myRoot = new Group();
 		Scene s = new Scene(myRoot, 1000, 700, Color.WHITE);
-
 		/*
 		TextCommand exampleCommand = new TextCommand();
 		String command = exampleCommand.readInput();
@@ -166,14 +172,22 @@ public class GUI extends Application {
 	}
 */
 	private Pane addTurtlePane(){
-		Pane turtleCanvas = new Pane();
+		turtleCanvas = new Pane();
 		turtleCanvas.setStyle("-fx-background-color: white");
-
-		Polygon triangle = new Polygon();
-		triangle.getPoints().addAll(new Double[]{150.0, 150.0, 140.0, 170.0, 160.0, 170.0});
-		triangle.setFill(Color.GREEN);
-		turtleCanvas.getChildren().addAll(triangle);
-
+		
+		Image image = new Image("graphics/turtle.png");
+		
+		turtleView = new ImageView (image);
+		turtleView.setFitWidth(50);		
+		turtleView.setFitHeight(80);
+		turtleView.setLayoutX(275);
+		turtleView.setLayoutY(200);
+		//Polygon triangle = new Polygon();
+		//triangle.getPoints().addAll(new Double[]{150.0, 150.0, 140.0, 170.0, 160.0, 170.0});
+		//triangle.setFill(Color.GREEN);
+		
+		turtleCanvas.getChildren().add(turtleView);
+		//turtleCanvas.getChildren().add(turtleView);
 		return turtleCanvas;
 	}
 
@@ -220,6 +234,8 @@ public class GUI extends Application {
 		hbox.setStyle("-fx-background-color: #336699;");
 		pane.setBottom(hbox);
 		pane.setCenter(addTurtlePane());
+		System.out.println(turtleCanvas.getHeight());
+		System.out.println(turtleCanvas.getWidth());
 
 		pane.setTop(flowPane);
 		g.getChildren().add(pane);
