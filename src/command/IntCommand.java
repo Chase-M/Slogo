@@ -3,7 +3,7 @@ package command;
 import java.util.List;
 
 import parser.Node;
-import actor.Actor;
+import actor.Turtle;
 
 public class IntCommand extends Command {
 
@@ -15,7 +15,7 @@ public class IntCommand extends Command {
 	}
 	
 	@Override
-	public double execute(List<Node> inputs, List<Actor> actors) {
+	public double execute(List<Node> inputs, List<Turtle> actors) {
 		return myValue;
 	}
 

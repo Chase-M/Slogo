@@ -2,6 +2,7 @@ package parser;
 import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import actor.Turtle;
 
 public class TestParser {
 	@Test

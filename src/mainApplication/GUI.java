@@ -2,10 +2,17 @@
 
 package mainApplication;
 
-import graphics.Turtle;
+import static org.junit.Assert.assertEquals;
+import actor.Turtle;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 
+import parser.Node;
+import parser.Parser;
 import buttonInput.Menubar;
 import buttonInput.Toolbar;
 import javafx.application.Application;
@@ -13,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
+import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,7 +39,7 @@ import javafx.stage.Stage;
 import textOutput.ConsoleHistory;
 import textOutput.VariableDisplay;
 
-public class GUI extends Application {
+public class GUI extends Application implements Observer{
 
 
 	/**
@@ -58,12 +66,14 @@ public class GUI extends Application {
 		myStage = new Stage();
 		myRoot = new Group();
 		Scene s = new Scene(myRoot, 1000, 700, Color.WHITE);
-		/*
-		TextCommand exampleCommand = new TextCommand();
-		String command = exampleCommand.readInput();
-		Parser myParser = new Parser();
-		String returnCommand = myParser.parse(command);
-		 */
+		
+		// TODO move this
+		myTurtle = new Turtle(0,0,0);
+		myTurtle.addObserver(this);
+		
+		//TextCommand exampleCommand = new TextCommand();
+		//String command = exampleCommand.readInput();
+		
 
 	}
 	public static void main(String[] args){
@@ -98,6 +108,15 @@ public class GUI extends Application {
 	   run.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		        System.out.println(myCommand.getText());
+		        
+		        // TODO move this + don't only have one turtle + it shouldn't even be here
+		        Parser myParser = new Parser();
+				List<Node> list = myParser.parse(myCommand.getText());
+				List<Turtle> tlist = new ArrayList<>();
+				tlist.add(myTurtle);
+				for(Node n: list){
+					System.out.println(n.evaluate(tlist));
+				}
 		        final Button button = new Button(myCommand.getText());
 		        button.setOnAction(new EventHandler<ActionEvent>() {
 				    @Override public void handle(ActionEvent e) {
@@ -240,6 +259,13 @@ public class GUI extends Application {
 		pane.setTop(flowPane);
 		g.getChildren().add(pane);
 		return pane;
+	}
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO change this
+		System.out.println("called");
+		Point2D point = (Point2D)arg1;
+		System.out.println(point.getX() + " " + point.getY());
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import parser.Node;
 import actor.Actor;
+import actor.Turtle;
 
 public abstract class Command {
 	
@@ -32,6 +33,6 @@ public abstract class Command {
 	 * @param inputs List of inputs for the specific command
 	 * @return appropriate int based on the type of command
 	 */
-	public abstract double execute(List<Node> inputs, List<Actor> actors);
+	public abstract double execute(List<Node> inputs, List<Turtle> actors);
 	
 }

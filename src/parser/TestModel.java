@@ -40,19 +40,17 @@ public class TestModel {
 
 	@Test
 	public void testSumCommand(){
-		List<Actor> list = null;
 		Node sum = new Node(new SumCommand());
 		sum.addChild(new Node(new IntCommand(5)));
 		sum.addChild(new Node(new IntCommand(3)));
-		assertEquals(8, sum.evaluate(list),PRECISION);
+		assertEquals(8, sum.evaluate(null),PRECISION);
 	}
 	@Test
 	public void testLessCommand(){
-		List<Actor> list = null;
 		Node sum = new Node(new LessCommand());
 		sum.addChild(new Node(new IntCommand(2)));
 		sum.addChild(new Node(new IntCommand(3)));
-		assertEquals(1, sum.evaluate(list),PRECISION);
+		assertEquals(1, sum.evaluate(null),PRECISION);
 	}
 }
 
