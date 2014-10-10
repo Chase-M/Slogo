@@ -5,20 +5,22 @@ import java.util.List;
 import parser.Node;
 import actor.Turtle;
 
-public class sum extends Command {
-
-
+public class forward extends Command {
+	
 	@Override
 	public double execute(List<Node> inputs, List<Turtle> actors) {
-		double sum = 0;
-		for(Node n: inputs){
-			sum += n.evaluate(actors);
+		double distance = inputs.get(0).evaluate(actors);
+		
+		for(Turtle t: actors){
+			t.updatePosition(distance, 0);
 		}
-		return sum;
+		
+		return distance;
 	}
 
 	@Override
 	protected int setNumInputs() {
-		return 2;
+		return 1;
 	}
+
 }

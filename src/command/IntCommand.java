@@ -11,12 +11,16 @@ public class IntCommand extends Command {
 	public IntCommand(int i){
 		super();
 		myValue = i;
-		myNumInputs = 0;
 	}
 	
 	@Override
 	public double execute(List<Node> inputs, List<Turtle> actors) {
 		return myValue;
+	}
+
+	@Override
+	protected int setNumInputs() {
+		return 0;
 	}
 
 }

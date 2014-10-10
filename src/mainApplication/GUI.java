@@ -72,7 +72,7 @@ public class GUI extends Application implements Observer{
 		Scene s = new Scene(myRoot, 1000, 700, Color.WHITE);
 		
 		// TODO move this
-		myTurtle = new Turtle(0,0,0);
+		myTurtle = new Turtle(0,0,Math.PI/2);
 		myTurtle.addObserver(this);
 		
 		//TextCommand exampleCommand = new TextCommand();

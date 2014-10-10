@@ -3,7 +3,6 @@ package parser;
 import java.util.ArrayList;
 import java.util.List;
 
-import actor.Actor;
 import actor.Turtle;
 import command.Command;
 

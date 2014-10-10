@@ -3,7 +3,6 @@ package command;
 import java.util.List;
 
 import parser.Node;
-import actor.Actor;
 import actor.Turtle;
 
 public abstract class Command {
@@ -14,10 +13,13 @@ public abstract class Command {
 	 * @param actors
 	 */
 	public Command(){
-		myNumInputs = 0;
+		myNumInputs = setNumInputs();
 	}
 	
 	
+	protected abstract int setNumInputs();
+
+
 	/**
 	 * Returns the number of inputs for the specific command
 	 */
