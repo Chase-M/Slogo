@@ -1,14 +1,15 @@
 package parser;
+import java.util.List;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestParser {
     @Test
-    public void TestSplit(){
+    public void TestSum(){
     Parser p=new Parser();
-    p.parse("hello     world");
-    System.out.println();
-    p.parse("adshfl;adsfa  \n  hsadfkjadhsf");
-    assertEquals(" "," ");
+    List<Node> list=p.parse("sum sum 20 15 15");
+    for(Node n: list){
+        assertEquals(50,n.evaluate(null), .00000001);
+    }
 }
 }

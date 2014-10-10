@@ -11,7 +11,7 @@ public class Parser {
     private List<Node> myTreeHeads;
     private int myIndex;
     private ResourceBundle myLanguage;
-    private static final String RESOURCE_BUNDLE="resources.languages";
+    private static final String RESOURCE_BUNDLE="resources.languages/";
     private static final String DEFAULT_LANGUAGE="English";
     public Parser(){
         myTreeHeads=new ArrayList<Node>();
@@ -65,18 +65,21 @@ public class Parser {
    }
    private Node makeTree(String[] s){
        Node node=new Node(makeCommand(s[myIndex]));
+       myIndex++;
        for(int i=0; i<node.getCommand().getNumInputs(); i++){
-           myIndex++;
            node.addChild(makeTree(s));
        }
+       
        return node;
    }
    private Command makeCommand(String command){
        commandFactory factory=null;
        if(isInteger(command)){
            factory=new intCommandCreator();
-       }else
+       }else{
            factory=new basicCommandCreator();
+     //      command=myLanguage.getString(command);
+       }
        return factory.createCommand(command);
 }
    public static boolean isInteger(String s) {
