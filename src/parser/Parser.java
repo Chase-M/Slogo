@@ -13,10 +13,9 @@ public class Parser {
     private ResourceBundle myLanguage;
     private static final String RESOURCE_BUNDLE="resources.languages";
     private static final String DEFAULT_LANGUAGE="English";
-    private static final String COMMAND_PATH="command.";
     public Parser(){
         myTreeHeads=new ArrayList<Node>();
-        setLanguage(DEFAULT_LANGUAGE);
+        changeLanguage(DEFAULT_LANGUAGE);
         
     }
     /**
@@ -32,7 +31,7 @@ public class Parser {
      * @throws InstantiationException 
      * @throws ClassNotFoundException 
      */
-   public List<Node> parse(String string) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
+   public List<Node> parse(String string){
        myTreeHeads.clear();
        string=string.replaceAll("[\\\t|\\\n|\\\r]"," ");
        String[] commands=string.split("\\s+");
@@ -62,9 +61,9 @@ public class Parser {
     * @param language
     */
    public void changeLanguage(String language){
-       
+       myLanguage=ResourceBundle.getBundle(RESOURCE_BUNDLE+language);
    }
-   private Node makeTree(String[] s) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
+   private Node makeTree(String[] s){
        Node node=new Node(makeCommand(s[myIndex]));
        for(int i=0; i<node.getCommand().getNumInputs(); i++){
            myIndex++;
@@ -72,15 +71,22 @@ public class Parser {
        }
        return node;
    }
-   private Command makeCommand(String command) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException{
-       
-       String className=COMMAND_PATH+command;
-       Class<?> classType=Class.forName(className);
-       Command c=(Command)classType.getConstructor().newInstance();
-       return c;
-               
-   }
-   public void setLanguage(String language){
-       myLanguage=ResourceBundle.getBundle(RESOURCE_BUNDLE+language);
+   private Command makeCommand(String command){
+       commandFactory factory=null;
+       if(isInteger(command)){
+           factory=new intCommandCreator();
+       }else
+           factory=new basicCommandCreator();
+       return factory.createCommand(command);
+}
+   public static boolean isInteger(String s) {
+       try { 
+           Integer.parseInt(s); 
+       } catch(NumberFormatException e) { 
+           return false; 
+       }
+       // only got here if we didn't return false
+       return true;
    }
 }
+   
