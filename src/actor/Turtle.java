@@ -27,6 +27,10 @@ public class Turtle extends Observable {
 		return myPosition.getAngle();
 	}
 	
+	public Point2D getPoint(){
+		return myPosition.getPoint();
+	}
+	
 	public void updatePosition(double newX, double newY, double newAngle){
 		myPosition = new Position(newX,newY,newAngle);
 		setChanged();

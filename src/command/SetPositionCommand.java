@@ -2,6 +2,7 @@ package command;
 
 import java.util.List;
 
+import javafx.geometry.Point2D;
 import parser.Node;
 import actor.Turtle;
 
@@ -21,8 +22,9 @@ public class SetPositionCommand extends Command {
 	public double execute(List<Node> inputs, Turtle turtle) {
 		double newX = inputs.get(0).evaluate(turtle);
 		double newY = inputs.get(1).evaluate(turtle);
+		Point2D oldP = turtle.getPoint();
 		turtle.updatePosition(newX,newY,turtle.getAngle());
-		return 0;
+		return oldP.distance(newX,newY);
 	}
 
 }
