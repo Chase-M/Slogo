@@ -5,10 +5,10 @@ import java.util.List;
 import parser.Node;
 import actor.Turtle;
 
-public class IntCommand extends Command {
+public class ConstCommand extends Command {
 
 	int myValue;
-	public IntCommand(String s){
+	public ConstCommand(String s){
 		super();
 		myValue = Integer.parseInt(s);
 		myNumInputs = 0;
