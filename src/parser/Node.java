@@ -3,7 +3,7 @@ package parser;
 import java.util.ArrayList;
 import java.util.List;
 
-import actor.Actor;
+import actor.Turtle;
 import command.Command;
 
 public class Node {
@@ -24,7 +24,7 @@ public class Node {
      * as all its children 
      * @return
      */
-    public double evaluate(List<Actor> actors){
+    public double evaluate(List<Turtle> actors){
         return myCommand.execute(myChildren,actors);
     }
     /**
