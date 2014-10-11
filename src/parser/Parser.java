@@ -2,34 +2,34 @@ package parser;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 import command.Command;
+import command.MakeCommand;
 import javafx.scene.input.KeyCode;
 
 public class Parser {
     private List<Node> myTreeHeads;
     private int myIndex;
     private ResourceBundle myLanguage;
+    private ResourceBundle myCommands;
     private static final String RESOURCE_BUNDLE="resources.languages/";
+    private static final String COMMAND_BUNDLE="resources.languages/Command";
     private static final String DEFAULT_LANGUAGE="English";
+    public static final VarMemory myVarMem=new VarMemory();
     public Parser(){
         myTreeHeads=new ArrayList<Node>();
         changeLanguage(DEFAULT_LANGUAGE);
-        
+        myCommands=ResourceBundle.getBundle(COMMAND_BUNDLE);
     }
     /**
      * takes in a string and parses it by puts all commands into a graph 
      * of Nodes 
      * @param string
-     * @return the string used if the commands were successful 
-     * @throws SecurityException 
-     * @throws NoSuchMethodException 
-     * @throws InvocationTargetException 
-     * @throws IllegalArgumentException 
-     * @throws IllegalAccessException 
-     * @throws InstantiationException 
-     * @throws ClassNotFoundException 
+     * @return the string used if the commands were successful
      */
    public List<Node> parse(String string){
        myTreeHeads.clear();
@@ -37,7 +37,10 @@ public class Parser {
        String[] commands=string.split("\\s+");
        myIndex=0;
        while(myIndex<commands.length){
-           myTreeHeads.add(makeTree(commands));
+           Node n=makeTree(commands);
+           myTreeHeads.add(n);
+           if(n.myCommand instanceof MakeCommand)
+               n.evaluate(null);
        }
        return myTreeHeads;
    }
@@ -64,32 +67,44 @@ public class Parser {
        myLanguage=ResourceBundle.getBundle(RESOURCE_BUNDLE+language);
    }
    private Node makeTree(String[] s){
-       Node node=new Node(makeCommand(s[myIndex]));
+       Node node=makeNode(s[myIndex]);
+       
        myIndex++;
        for(int i=0; i<node.getCommand().getNumInputs(); i++){
-           node.addChild(makeTree(s));
+           if(!(node.myChildren.size()>i))
+               node.addChild(makeTree(s));
        }
        
        return node;
    }
-   private Command makeCommand(String command){
-       commandFactory factory=null;
-       if(isInteger(command)){
-           factory=new intCommandCreator();
-       }else{
-           factory=new basicCommandCreator();
-     //      command=myLanguage.getString(command);
+   private Node makeNode(String command){
+       if(myVarMem.checkMem(command)){
+           return myVarMem.getNode(command);
        }
-       return factory.createCommand(command);
+       commandFactory factory=new basicCommandCreator();
+       Enumeration<String> keys=myLanguage.getKeys();
+       String name="Error";
+       while(keys.hasMoreElements()){
+           String key = (String)keys.nextElement();
+           String value = myLanguage.getString(key);
+           if(value.contains(command) || ( isRegex(value) && command.matches(value))){
+               factory=new basicCommandCreator();
+               name=myCommands.getString(key);
+           }
+       }
+
+       return new Node(factory.createCommand(name, command));
 }
-   public static boolean isInteger(String s) {
-       try { 
-           Integer.parseInt(s); 
-       } catch(NumberFormatException e) { 
-           return false; 
+   public static boolean isRegex(String input) {
+       boolean isEx;
+       try {
+         Pattern.compile(input);
+         isEx = true;
+       } catch (PatternSyntaxException e) {
+         isEx = false;
        }
-       // only got here if we didn't return false
-       return true;
+       return isEx;
    }
+  
 }
    
