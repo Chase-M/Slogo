@@ -21,4 +21,12 @@ public class TestParser {
 		assertEquals(40,list.get(0).evaluate(null), .00000001);
 		assertEquals(30,list.get(1).evaluate(null), .00000001);
 	}
+        @Test
+        public void TestMake(){
+                Parser p=new Parser();
+                List<Node> list=p.parse("make :var sum sum 1 1 20 sum :var 15");
+                assertEquals(0,list.get(0).evaluate(null), .00000001);
+                assertEquals(37,list.get(1).evaluate(null), .00000001);
+        }
+        
 }

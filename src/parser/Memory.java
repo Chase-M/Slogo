@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Memory {
-    private Map<String, Node> myMem;
+    static Map<String, Node> myMem=new HashMap<String, Node>();
     public Memory(){
-        myMem=new HashMap<String, Node>();
+ 
         
     }
     

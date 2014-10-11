@@ -18,11 +18,11 @@ public class Parser {
     private static final String RESOURCE_BUNDLE="resources.languages/";
     private static final String COMMAND_BUNDLE="resources.languages/Command";
     private static final String DEFAULT_LANGUAGE="English";
+    public static final Memory myMem=new Memory();
     public Parser(){
         myTreeHeads=new ArrayList<Node>();
         changeLanguage(DEFAULT_LANGUAGE);
         myCommands=ResourceBundle.getBundle(COMMAND_BUNDLE);
-        
     }
     /**
      * takes in a string and parses it by puts all commands into a graph 
@@ -43,7 +43,9 @@ public class Parser {
        String[] commands=string.split("\\s+");
        myIndex=0;
        while(myIndex<commands.length){
-           myTreeHeads.add(makeTree(commands));
+           Node n=makeTree(commands);
+           myTreeHeads.add(n);
+           n.evaluate(null);
        }
        return myTreeHeads;
    }
@@ -70,16 +72,20 @@ public class Parser {
        myLanguage=ResourceBundle.getBundle(RESOURCE_BUNDLE+language);
    }
    private Node makeTree(String[] s){
-       Node node=new Node(makeCommand(s[myIndex]));
+       Node node=makeNode(s[myIndex]);
        
        myIndex++;
        for(int i=0; i<node.getCommand().getNumInputs(); i++){
-           node.addChild(makeTree(s));
+           if(!(node.myChildren.size()>i))
+               node.addChild(makeTree(s));
        }
        
        return node;
    }
-   private Command makeCommand(String command){
+   private Node makeNode(String command){
+       if(myMem.checkMem(command)){
+           return myMem.getNode(command);
+       }
        commandFactory factory=new basicCommandCreator();
        Enumeration<String> keys=myLanguage.getKeys();
        String name="Error";
@@ -92,7 +98,7 @@ public class Parser {
            }
        }
 
-       return factory.createCommand(name, command);
+       return new Node(factory.createCommand(name, command));
 }
    public static boolean isRegex(String input) {
        boolean isEx;
