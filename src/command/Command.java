@@ -15,7 +15,9 @@ public abstract class Command {
 	public Command(){
 		myNumInputs = 0;
 	}
-	
+	public Command(String s){
+	    this();
+	}
 	
 	/**
 	 * Returns the number of inputs for the specific command

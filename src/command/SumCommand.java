@@ -10,7 +10,9 @@ public class SumCommand extends Command {
 	public SumCommand() {
 		myNumInputs = 2;
 	}
-
+	public SumCommand(String s){
+	   this(); 
+	}
 	@Override
 	public double execute(List<Node> inputs, List<Actor> actors) {
 		double sum = 0;

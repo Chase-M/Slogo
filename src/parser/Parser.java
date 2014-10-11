@@ -2,8 +2,11 @@ package parser;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 import command.Command;
 import javafx.scene.input.KeyCode;
 
@@ -11,11 +14,14 @@ public class Parser {
     private List<Node> myTreeHeads;
     private int myIndex;
     private ResourceBundle myLanguage;
+    private ResourceBundle myCommands;
     private static final String RESOURCE_BUNDLE="resources.languages/";
+    private static final String COMMAND_BUNDLE="resources.languages/Command";
     private static final String DEFAULT_LANGUAGE="English";
     public Parser(){
         myTreeHeads=new ArrayList<Node>();
         changeLanguage(DEFAULT_LANGUAGE);
+        myCommands=ResourceBundle.getBundle(COMMAND_BUNDLE);
         
     }
     /**
@@ -65,6 +71,7 @@ public class Parser {
    }
    private Node makeTree(String[] s){
        Node node=new Node(makeCommand(s[myIndex]));
+       
        myIndex++;
        for(int i=0; i<node.getCommand().getNumInputs(); i++){
            node.addChild(makeTree(s));
@@ -73,23 +80,30 @@ public class Parser {
        return node;
    }
    private Command makeCommand(String command){
-       commandFactory factory=null;
-       if(isInteger(command)){
-           factory=new intCommandCreator();
-       }else{
-           factory=new basicCommandCreator();
-     //      command=myLanguage.getString(command);
+       commandFactory factory=new basicCommandCreator();
+       Enumeration<String> keys=myLanguage.getKeys();
+       String name="Error";
+       while(keys.hasMoreElements()){
+           String key = (String)keys.nextElement();
+           String value = myLanguage.getString(key);
+           if(value.contains(command) || ( isRegex(value) && command.matches(value))){
+               factory=new basicCommandCreator();
+               name=myCommands.getString(key);
+           }
        }
-       return factory.createCommand(command);
+
+       return factory.createCommand(name, command);
 }
-   public static boolean isInteger(String s) {
-       try { 
-           Integer.parseInt(s); 
-       } catch(NumberFormatException e) { 
-           return false; 
+   public static boolean isRegex(String input) {
+       boolean isEx;
+       try {
+         Pattern.compile(input);
+         isEx = true;
+       } catch (PatternSyntaxException e) {
+         isEx = false;
        }
-       // only got here if we didn't return false
-       return true;
+       return isEx;
    }
+  
 }
    
