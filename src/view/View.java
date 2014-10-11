@@ -2,7 +2,8 @@ package view;
 
 import java.util.List;
 
-import actor.Info;
+import javafx.scene.Scene;
+import mainApplication.Controller;
 
 public class View {
 
@@ -12,21 +13,11 @@ public class View {
 	}
 	
 	
-	/**
-	 * passes list of turtle info to be updated in the GUI
-	 * @param list: contains information on the actor
-	 */
-	public void updateActors(List<Info> list){
-		
+	public View(Controller controller) {
+		// TODO Auto-generated constructor stub
 	}
-	
-	/**
-	 * updates the background color using information
-	 * @param info: background information
-	 */
-	public void updateStage(Info info){
-		
-	}
+
+
 	
 	/**
 	 * displays the error message
@@ -41,6 +32,12 @@ public class View {
 	 */
 	public void clearScreen(){
 		
+	}
+
+
+	public Scene getScene() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
