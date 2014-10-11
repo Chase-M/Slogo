@@ -15,7 +15,9 @@ public abstract class Command {
 	public Command(){
 		myNumInputs = setNumInputs();
 	}
-	
+	public Command(String s){
+	    this();
+	}
 	
 	protected abstract int setNumInputs();
 

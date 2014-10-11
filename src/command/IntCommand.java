@@ -8,9 +8,11 @@ import actor.Turtle;
 public class IntCommand extends Command {
 
 	int myValue;
-	public IntCommand(int i){
+	public IntCommand(String s){
 		super();
-		myValue = i;
+		myValue = Integer.parseInt(s);
+		myNumInputs = 0;
+
 	}
 	
 	@Override
