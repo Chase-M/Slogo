@@ -3,9 +3,9 @@ package parser;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Memory {
+public class VarMemory {
     static Map<String, Node> myMem=new HashMap<String, Node>();
-    public Memory(){
+    public VarMemory(){
  
         
     }

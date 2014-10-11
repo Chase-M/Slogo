@@ -19,7 +19,7 @@ public class Parser {
     private static final String RESOURCE_BUNDLE="resources.languages/";
     private static final String COMMAND_BUNDLE="resources.languages/Command";
     private static final String DEFAULT_LANGUAGE="English";
-    public static final Memory myMem=new Memory();
+    public static final VarMemory myVarMem=new VarMemory();
     public Parser(){
         myTreeHeads=new ArrayList<Node>();
         changeLanguage(DEFAULT_LANGUAGE);
@@ -29,14 +29,7 @@ public class Parser {
      * takes in a string and parses it by puts all commands into a graph 
      * of Nodes 
      * @param string
-     * @return the string used if the commands were successful 
-     * @throws SecurityException 
-     * @throws NoSuchMethodException 
-     * @throws InvocationTargetException 
-     * @throws IllegalArgumentException 
-     * @throws IllegalAccessException 
-     * @throws InstantiationException 
-     * @throws ClassNotFoundException 
+     * @return the string used if the commands were successful
      */
    public List<Node> parse(String string){
        myTreeHeads.clear();
@@ -85,8 +78,8 @@ public class Parser {
        return node;
    }
    private Node makeNode(String command){
-       if(myMem.checkMem(command)){
-           return myMem.getNode(command);
+       if(myVarMem.checkMem(command)){
+           return myVarMem.getNode(command);
        }
        commandFactory factory=new basicCommandCreator();
        Enumeration<String> keys=myLanguage.getKeys();

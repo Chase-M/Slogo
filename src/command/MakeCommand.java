@@ -1,7 +1,7 @@
 package command;
 
 import java.util.List;
-import parser.Memory;
+import parser.VarMemory;
 import parser.Node;
 import actor.Actor;
 
@@ -17,7 +17,7 @@ public class MakeCommand extends Command{
     @Override
     public double execute (List<Node> inputs, List<Actor> actors) {
         // TODO Auto-generated method stub
-        Memory mem=new Memory();
+        VarMemory mem=new VarMemory();
         String name=((StringCommand)inputs.get(0).getCommand()).getString();
         mem.add(name, inputs.get(1));
         return 0;
