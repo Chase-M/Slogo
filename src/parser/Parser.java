@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import command.Command;
+import command.MakeCommand;
 import javafx.scene.input.KeyCode;
 
 public class Parser {
@@ -45,7 +46,8 @@ public class Parser {
        while(myIndex<commands.length){
            Node n=makeTree(commands);
            myTreeHeads.add(n);
-           n.evaluate(null);
+           if(n.myCommand instanceof MakeCommand)
+               n.evaluate(null);
        }
        return myTreeHeads;
    }
