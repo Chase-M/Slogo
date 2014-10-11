@@ -53,8 +53,8 @@ public class GUI extends Pane implements Observer{
 	private double currentY;
 	private double newX;
 	private double newY;
-	private int turtleWidth = 26;
-	private int turtleHeight = 50;
+	private int turtleWidth;
+	private int turtleHeight;
 
 	public GUI(){
 		// TODO move this
@@ -66,6 +66,8 @@ public class GUI extends Pane implements Observer{
 		myNumberResources = ResourceBundle.getBundle("resources/constants/numbers");
 		mySceneHeight = Integer.parseInt(myNumberResources.getString("Scene_height"));
 		mySceneWidth = Integer.parseInt(myNumberResources.getString("Scene_width"));
+		turtleWidth = Integer.parseInt(myNumberResources.getString("turtle_width"));
+		turtleHeight = Integer.parseInt(myNumberResources.getString("turtle_height"));
 		loadPanes();
 	}
 
