@@ -17,7 +17,7 @@ public class MakeCommand extends Command{
     public double execute (List<Node> inputs, Turtle turtle) {
         // TODO Auto-generated method stub
         VarMemory mem=new VarMemory();
-        String name=((StringCommand)inputs.get(0).getCommand()).getString();
+        String name=inputs.get(0).getCommand().toString();
         mem.add(name, inputs.get(1));
         return 0;
     }
