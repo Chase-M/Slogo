@@ -22,10 +22,8 @@ public class TestModel {
 	public void testPosition(){
 		Parser parser=new Parser();
 		Turtle t=new Turtle(0,0,Math.PI/2);
-		List<Turtle> tList = new ArrayList<>();
-		tList.add(t);
 		List<Node> list = parser.parse("forward 50");
-		assertEquals(50, list.get(0).evaluate(tList), PRECISION);
+		assertEquals(50, list.get(0).evaluate(t), PRECISION);
 	}
 	/**
 	 * Test to make sure it throws exceptions properly

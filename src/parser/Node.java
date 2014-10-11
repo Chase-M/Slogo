@@ -24,8 +24,8 @@ public class Node {
      * as all its children 
      * @return
      */
-    public double evaluate(List<Turtle> actors){
-        return myCommand.execute(myChildren,actors);
+    public double evaluate(Turtle turtle){
+        return myCommand.execute(myChildren,turtle);
     }
     /**
      * adds a child node which will be another command or int that this command needs to 

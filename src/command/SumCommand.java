@@ -15,10 +15,10 @@ public class SumCommand extends Command {
 	   this(); 
 	}
 	@Override
-	public double execute(List<Node> inputs, List<Turtle> actors) {
+	public double execute(List<Node> inputs, Turtle turtle) {
 		double sum = 0;
 		for(Node n: inputs){
-			sum += n.evaluate(actors);
+			sum += n.evaluate(turtle);
 		}
 		return sum;
 	}

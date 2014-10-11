@@ -31,11 +31,9 @@ public class TestParser {
 	public void TestForward(){
 		Parser p=new Parser();
 		Turtle turtle = new Turtle(0,0,Math.PI/2);
-		List<Turtle> turtleList = new ArrayList<>();
-		turtleList.add(turtle);
 		List<Node> list=p.parse("forward 50");
 		
-		assertEquals(50,list.get(0).evaluate(turtleList), .00000001);
+		assertEquals(50,list.get(0).evaluate(turtle), .00000001);
 	}
 
         @Test

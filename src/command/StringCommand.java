@@ -23,7 +23,7 @@ public class StringCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, List<Turtle> actors) {
+    public double execute (List<Node> inputs, Turtle turtle) {
         // TODO Auto-generated method stub
         return 0;
     }

@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 
 import parser.Node;
 import parser.Parser;
+import properties.Position;
 import buttonInput.Menubar;
 import buttonInput.Toolbar;
 import javafx.application.Application;
@@ -111,10 +112,8 @@ public class GUI extends Application implements Observer{
 		        // TODO move this + don't only have one turtle + it shouldn't even be here
 		        Parser myParser = new Parser();
 				List<Node> list = myParser.parse(myCommand.getText());
-				List<Turtle> tlist = new ArrayList<>();
-				tlist.add(myTurtle);
 				for(Node n: list){
-					System.out.println(n.evaluate(tlist));
+					System.out.println(n.evaluate(myTurtle));
 				}
 		        final Button button = new Button(myCommand.getText());
 		        button.setOnAction(new EventHandler<ActionEvent>() {
@@ -211,15 +210,16 @@ public class GUI extends Application implements Observer{
 		return pane;
 	}
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable obs, Object props) {
 		// TODO change this
 		//System.out.println("called");
-		Point2D point = (Point2D)arg1;
-		//System.out.println(point.getX() + " " + point.getY());
-		newX = currentX+point.getX();
-		newY = currentY-point.getY();
-		updateTurtlePosition();
-		drawLine();	
+		if(props instanceof Position){
+			Position pos = (Position)props;
+			newX = currentX + pos.getPoint().getX();
+			newY = currentY - pos.getPoint().getY();
+			updateTurtlePosition();
+			drawLine();
+		}
 	}
 
 }

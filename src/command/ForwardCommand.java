@@ -10,12 +10,11 @@ public class ForwardCommand extends Command {
 	    super();
 	}
 	@Override
-	public double execute(List<Node> inputs, List<Turtle> actors) {
-		double distance = inputs.get(0).evaluate(actors);
-		
-		for(Turtle t: actors){
-			t.updatePosition(distance, 0);
-		}
+	public double execute(List<Node> inputs, Turtle turtle) {
+		double distance = inputs.get(0).evaluate(turtle);
+		double newX = turtle.getX() + Math.cos(turtle.getAngle())*distance;
+		double newY = turtle.getY() + Math.sin(turtle.getAngle())*distance;
+		turtle.updatePosition(newX,newY,turtle.getAngle());
 		
 		return distance;
 	}

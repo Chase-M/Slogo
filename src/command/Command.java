@@ -43,6 +43,6 @@ public abstract class Command {
 	 * @param inputs List of inputs for the specific command
 	 * @return appropriate int based on the type of command
 	 */
-	public abstract double execute(List<Node> inputs, List<Turtle> actors);
+	public abstract double execute(List<Node> inputs, Turtle turtle);
 	
 }

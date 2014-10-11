@@ -2,39 +2,34 @@ package actor;
 
 import java.util.Observable;
 
+import properties.Position;
 import javafx.geometry.Point2D;
 
 
 public class Turtle extends Observable {
-	private double myX;
-	private double myY;
-	private double myAngle;
+	private Position myPosition;
+	private int myID;
 	//private Pen myPen;
 	
 	public Turtle(double x, double y, double angle){
-		myX = x;
-		myY = y;
-		myAngle = angle;
+		myPosition = new Position(x,y,angle);
 	}
 	
 	public double getX(){
-		return myX;
+		return myPosition.getPoint().getX();
 	}
 	
 	public double getY(){
-		return myY;
+		return myPosition.getPoint().getY();
 	}
 	
 	public double getAngle(){
-		return myAngle;
+		return myPosition.getAngle();
 	}
 	
-	public void updatePosition(double forward, double changeAngle){
-		double newX = myX + Math.cos(myAngle)*forward;
-		double newY = myY + Math.sin(myAngle)*forward;
-		double newAngle = myAngle + changeAngle; // Not sure
-		Point2D point = new Point2D(newX,newY);
+	public void updatePosition(double newX, double newY, double newAngle){
+		myPosition = new Position(newX,newY,newAngle);
 		setChanged();
-		notifyObservers(point);
+		notifyObservers(myPosition);
 	}
 }

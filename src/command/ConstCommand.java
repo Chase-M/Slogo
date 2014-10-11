@@ -16,7 +16,7 @@ public class ConstCommand extends Command {
 	}
 	
 	@Override
-	public double execute(List<Node> inputs, List<Turtle> actors) {
+	public double execute(List<Node> inputs, Turtle turtle) {
 		return myValue;
 	}
 
