@@ -20,7 +20,7 @@ public class TestParser {
 	@Test
 	public void TestSum2(){
 		Parser p=new Parser();
-		List<Node> list=p.parse("sum 20 20 sum 15 15");
+		List<Node> list=p.parse("+ 20 20 sum 15 15");
 		
 		assertEquals(40,list.get(0).evaluate(null), .00000001);
 		assertEquals(30,list.get(1).evaluate(null), .00000001);

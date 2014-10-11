@@ -87,7 +87,7 @@ public class Parser {
        while(keys.hasMoreElements()){
            String key = (String)keys.nextElement();
            String value = myLanguage.getString(key);
-           if(value.contains(command) || ( isRegex(value) && command.matches(value))){
+           if(isCommand(value, command) || ( isRegex(value) && command.matches(value))){
                factory=new basicCommandCreator();
                name=myCommands.getString(key);
            }
@@ -105,6 +105,13 @@ public class Parser {
        }
        return isEx;
    }
-  
+  public boolean isCommand(String value, String command){
+      String[] strings=value.split(",");
+      for(String s: strings){
+          if(s.equals(command))
+              return true;
+      }
+      return false;
+  }
 }
    

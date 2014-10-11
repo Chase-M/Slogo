@@ -8,7 +8,6 @@ public class basicCommandCreator extends commandFactory{
     @Override
     public Command createCommand (String name, String command) {
         // TODO Auto-generated method stub
-        
         String className=COMMAND_PATH+name;
         Class<?> classType;
      try {

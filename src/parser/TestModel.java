@@ -39,15 +39,15 @@ public class TestModel {
 	@Test
 	public void testSumCommand(){
 		Node sum = new Node(new SumCommand());
-		sum.addChild(new Node(new ConstCommand(5)));
-		sum.addChild(new Node(new ConstCommand(3)));
+		sum.addChild(new Node(new ConstCommand("5")));
+		sum.addChild(new Node(new ConstCommand("3")));
 		assertEquals(8, sum.evaluate(null),PRECISION);
 	}
 	@Test
 	public void testLessCommand(){
 		Node sum = new Node(new LessCommand());
-		sum.addChild(new Node(new ConstCommand(2)));
-		sum.addChild(new Node(new ConstCommand(3)));
+		sum.addChild(new Node(new ConstCommand("2")));
+		sum.addChild(new Node(new ConstCommand("3")));
 		assertEquals(1, sum.evaluate(null),PRECISION);
 	}
 }
