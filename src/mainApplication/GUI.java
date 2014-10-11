@@ -2,7 +2,6 @@
 
 package mainApplication;
 
-import static org.junit.Assert.assertEquals;
 import actor.Turtle;
 
 import java.util.ArrayList;
@@ -15,17 +14,12 @@ import parser.Node;
 import parser.Parser;
 import buttonInput.Menubar;
 import buttonInput.Toolbar;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Point2D;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,26 +29,22 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Polygon;
-import javafx.stage.Stage;
 import textOutput.ConsoleHistory;
 import textOutput.VariableDisplay;
 
-public class GUI extends Application implements Observer{
+public class GUI extends Pane implements Observer{
 
 
 	/**
 	 * Activates the necessary components for GUI
 	 */
 
-	private Stage myStage;
-	private Group myRoot;
 	private ResourceBundle myNumberResources;
 	private int mySceneHeight;
 	private int mySceneWidth;
 	private ConsoleHistory myConsoleHistory;
 	private VariableDisplay myVariableDisplay;
-//	private Toolbar myToolbar;
+	private Toolbar myToolbar;
 	private Menubar myMenubar;
 	private Turtle myTurtle;
 	private Pane turtleCanvas;
@@ -67,29 +57,16 @@ public class GUI extends Application implements Observer{
 	private int turtleHeight = 50;
 
 	public GUI(){
-		myStage = new Stage();
-		myRoot = new Group();
-		Scene s = new Scene(myRoot, 1000, 700, Color.WHITE);
-		
 		// TODO move this
 		myTurtle = new Turtle(0,0,Math.PI/2);
 		myTurtle.addObserver(this);
-		
-		//TextCommand exampleCommand = new TextCommand();
-		//String command = exampleCommand.readInput();
-		
-
-	}
-	public static void main(String[] args){
-		launch(args);
 	}
 
-
-	private Scene initiate(Group root){
+	 void initiate(){
 		myNumberResources = ResourceBundle.getBundle("resources/constants/numbers");
 		mySceneHeight = Integer.parseInt(myNumberResources.getString("Scene_height"));
 		mySceneWidth = Integer.parseInt(myNumberResources.getString("Scene_width"));
-		return new Scene(myRoot, mySceneWidth, mySceneHeight, Color.GREY);
+		loadPanes();
 	}
 
 	private HBox addHBox() {
@@ -106,8 +83,7 @@ public class GUI extends Application implements Observer{
 
 	   run.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
-		        //System.out.println(myCommand.getText());
-		        
+
 		        // TODO move this + don't only have one turtle + it shouldn't even be here
 		        Parser myParser = new Parser();
 				List<Node> list = myParser.parse(myCommand.getText());
@@ -165,16 +141,8 @@ public class GUI extends Application implements Observer{
 		
 	}
 	
-	//private void drawLine(double x, double)
-	
-
-	@Override
-	public void start(Stage stage) throws Exception {
-		myStage = new Stage();
-		myRoot = new Group();
-		Scene s = initiate(myRoot);
-		BorderPane pane = setBorderPane(myRoot);
-		
+	protected void loadPanes(){
+		BorderPane pane = setBorderPane();		
 		myConsoleHistory = new ConsoleHistory();		
 		myConsoleHistory.myScrollPane.setPrefHeight(mySceneHeight-200);
 		myConsoleHistory.myScrollPane.setPrefWidth(200);
@@ -183,18 +151,15 @@ public class GUI extends Application implements Observer{
 		myVariableDisplay.myScrollPane.setPrefWidth(200);
 		pane.setLeft(myVariableDisplay);
 		pane.setRight(myConsoleHistory);
-		
-		myStage.setScene(s);
-		myStage.show();	
 	}
 
-	private BorderPane setBorderPane(Group g){
+	private BorderPane setBorderPane(){
 		BorderPane pane = new BorderPane();
 		FlowPane flowPane = new FlowPane(Orientation.VERTICAL);
 		myMenubar = new Menubar();
 		myMenubar.setPrefWidth(mySceneWidth);
 		myMenubar.setPrefHeight(33);
-		Toolbar myToolbar = new Toolbar();
+		myToolbar = new Toolbar();
 		myToolbar.setPrefWidth(mySceneWidth);
 		myToolbar.setPrefHeight(33);
 		flowPane.getChildren().add(myMenubar);
@@ -207,15 +172,13 @@ public class GUI extends Application implements Observer{
 		pane.setBottom(hbox);
 		pane.setCenter(addTurtlePane());
 		pane.setTop(flowPane);
-		g.getChildren().add(pane);
+		this.getChildren().add(pane);
 		return pane;
 	}
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO change this
-		//System.out.println("called");
 		Point2D point = (Point2D)arg1;
-		//System.out.println(point.getX() + " " + point.getY());
 		newX = currentX+point.getX();
 		newY = currentY-point.getY();
 		updateTurtlePosition();
