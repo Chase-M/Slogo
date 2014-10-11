@@ -8,6 +8,7 @@ import actor.Turtle;
 public abstract class Command {
 	
 	int myNumInputs;
+	String myString;
 	/**
 	 * Creates a command that will act on the list of actors given
 	 * @param actors
@@ -17,6 +18,7 @@ public abstract class Command {
 	}
 	public Command(String s){
 	    this();
+	    myString = s;
 	}
 	
 	protected abstract int setNumInputs();
@@ -27,6 +29,10 @@ public abstract class Command {
 	 */
 	public int getNumInputs(){
 		return myNumInputs;
+	}
+	
+	public String toString(){
+		return myString;
 	}
 	
 	/**
