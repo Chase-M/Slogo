@@ -7,12 +7,8 @@ import actor.Turtle;
 
 public class SumCommand extends Command {
 
-
-	public SumCommand() {
-		myNumInputs = 2;
-	}
 	public SumCommand(String s){
-	   this(); 
+	   super(s); 
 	}
 	@Override
 	public double execute(List<Node> inputs, Turtle turtle) {
