@@ -7,10 +7,10 @@ import actor.Turtle;
 
 public class ConstCommand extends Command {
 
-	int myValue;
+	double myValue;
 	public ConstCommand(String s){
 		super();
-		myValue = Integer.parseInt(s);
+		myValue = Double.parseDouble(s);
 		myNumInputs = 0;
 
 	}
