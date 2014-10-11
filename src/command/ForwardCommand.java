@@ -5,8 +5,10 @@ import java.util.List;
 import parser.Node;
 import actor.Turtle;
 
-public class forward extends Command {
-	
+public class ForwardCommand extends Command {
+	public ForwardCommand(String s){
+	    super();
+	}
 	@Override
 	public double execute(List<Node> inputs, List<Turtle> actors) {
 		double distance = inputs.get(0).evaluate(actors);
