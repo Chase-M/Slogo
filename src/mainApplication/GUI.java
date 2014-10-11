@@ -146,10 +146,9 @@ public class GUI extends Application implements Observer{
 		return turtleCanvas;
 	}
 	
-	private void updateTurtlePosition(double newAngle){		
+	private void updateTurtlePosition(){		
 		turtleView.setLayoutX(newX);
 		turtleView.setLayoutY(newY);
-		turtleView.setRotate(newAngle);
 	}
 	
 	private void drawLine(){
@@ -216,10 +215,9 @@ public class GUI extends Application implements Observer{
 		//System.out.println("called");
 		if(props instanceof Position){
 			Position pos = (Position)props;
-			newX = currentX + pos.getPoint().getX();
-			newY = currentY - pos.getPoint().getY();
-			double newAngle = Math.toDegrees(pos.getAngle());
-			updateTurtlePosition(newAngle);
+			newX = 275+pos.getPoint().getX();
+			newY = 200-pos.getPoint().getY();
+			updateTurtlePosition();
 			drawLine();
 		}
 	}
