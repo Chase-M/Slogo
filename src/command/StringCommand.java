@@ -7,14 +7,11 @@ import actor.Turtle;
 public class StringCommand extends Command{
     String myString;
     public StringCommand(String s){
-            super();
-            myString = s;
+            super(s);
+  
 
     }
     
-    public String getString(){
-        return myString;
-    }
 
     @Override
     protected int setNumInputs () {
