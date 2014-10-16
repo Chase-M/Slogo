@@ -1,4 +1,5 @@
-package buttonInput;
+package frontEnd;
+
 
 public class SceneButton extends ButtonFactory{
 

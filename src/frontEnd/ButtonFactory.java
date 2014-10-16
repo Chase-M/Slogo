@@ -1,7 +1,6 @@
-package buttonInput;
+package frontEnd;
 
 import javafx.scene.control.Button;
-import features.Feature;
 
 public abstract class ButtonFactory extends Button implements Feature{
 	
