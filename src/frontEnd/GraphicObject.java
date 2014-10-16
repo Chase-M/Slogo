@@ -1,6 +1,5 @@
-package graphics;
+package frontEnd;
 
-import features.Feature;
 
 public abstract class GraphicObject implements Feature{
 	

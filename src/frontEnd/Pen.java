@@ -1,4 +1,4 @@
-package graphics;
+package frontEnd;
 
 
 public class Pen extends GraphicObject{

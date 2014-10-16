@@ -1,4 +1,4 @@
-package features;
+package frontEnd;
 
 public abstract interface Feature {
 	public abstract void update();

@@ -1,9 +1,8 @@
-package textOutput;
+package frontEnd;
 
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import features.Feature;
 
 public abstract class TextDisplayFactory extends VBox implements Feature {
 	
@@ -11,12 +10,14 @@ public abstract class TextDisplayFactory extends VBox implements Feature {
 	 * Initializes the display area for console history as well as error display
 	 */
 	GridPane myTextPane;
-	public ScrollPane myScrollPane;
+	private ScrollPane myScrollPane;
 	public TextDisplayFactory(){
 		super();
 		myTextPane = new GridPane();
 		myScrollPane = new ScrollPane();
 		myScrollPane.setContent(myTextPane);
+		myScrollPane.setPrefHeight(500);
+		myScrollPane.setPrefWidth(200);
 		super.getChildren().add(myScrollPane);
 	}
 	public void clear(){

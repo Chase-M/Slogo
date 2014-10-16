@@ -1,4 +1,4 @@
-package textOutput;
+package frontEnd;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +8,13 @@ import javafx.scene.control.Label;
 import sun.misc.Queue;
 
 
-public class ConsoleHistory extends TextDisplayFactory{
+public class RightPane extends TextDisplayFactory{
 	
 	/**
 	 * Initializes the console text display that will display console history
 	 */
 	private int myCounter;
-	public ConsoleHistory(){
+	public RightPane(){
 		super();
 		myCounter = 0;
 	}
