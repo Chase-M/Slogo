@@ -56,6 +56,8 @@ public class GUI extends Pane implements Observer{
 	private double newY;
 	private int turtleWidth = 26;
 	private int turtleHeight = 50;
+	private double rotateByRadian;
+	private double currentAngle;
 
 	public GUI(){
 		// TODO move this
@@ -118,6 +120,7 @@ public class GUI extends Pane implements Observer{
 		turtleView.setLayoutY(200);	
 		currentX = 275;
 		currentY = 200;
+		currentAngle = 90;
 		turtleCanvas.getChildren().add(turtleView);
 		return turtleCanvas;
 	}
@@ -137,6 +140,12 @@ public class GUI extends Pane implements Observer{
 		turtleCanvas.getChildren().add(line);
 		currentX = newX;
 		currentY = newY;
+		
+	}
+	
+	private void updateTurtleAngle(){
+		turtleView.setRotate(rotateByRadian);
+		currentAngle = rotateByRadian;
 		
 	}
 	
@@ -182,6 +191,9 @@ public class GUI extends Pane implements Observer{
 			Position pos = (Position)props;
 			newX = 275+pos.getPoint().getX();
 			newY = 200-pos.getPoint().getY();
+			rotateByRadian = currentAngle - pos.getAngle();
+			System.out.println(rotateByRadian);
+			updateTurtleAngle();
 			updateTurtlePosition();
 			drawLine();
 		}
