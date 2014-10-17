@@ -1,4 +1,4 @@
-package frontEnd;
+package features;
 
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
@@ -9,7 +9,7 @@ public abstract class TextDisplayFactory extends VBox implements Feature {
 	/**
 	 * Initializes the display area for console history as well as error display
 	 */
-	GridPane myTextPane;
+	protected GridPane myTextPane;
 	private ScrollPane myScrollPane;
 	public TextDisplayFactory(){
 		super();

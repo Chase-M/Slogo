@@ -4,21 +4,26 @@ package mainApplication;
 
 import actor.Turtle;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import frontEnd.BottomPane;
-import frontEnd.LeftPane;
-import frontEnd.RightPane;
-import frontEnd.TopPane;
-import frontEnd.TurtleWindow;
+import components.BottomPane;
+import components.LeftPane;
+import components.RightPane;
+import components.TopPane;
+import components.CenterPane;
+import features.Feature;
+import features.FeatureSetUp;
+import features.RunButtonFeature;
 import parser.Node;
 import parser.Parser;
 import properties.Position;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -37,7 +42,7 @@ public class GUI extends Pane implements Observer{
 	private RightPane myRightPane;
 	private LeftPane myLeftPane;
 	private Turtle myTurtle;
-	private TurtleWindow myTurtleWindow;
+	private CenterPane myCenterPane;
 	private double currentX;
 	private double currentY;
 	private int turtleWidth = 26;
@@ -59,7 +64,7 @@ public class GUI extends Pane implements Observer{
 		myParser = new Parser();
 		loadPanes();
 	}
-
+/*
 	private Button createButton() {
 	   Button run = new Button("Run");
 	   run.setPrefSize(100, 20);
@@ -85,12 +90,12 @@ public class GUI extends Pane implements Observer{
 		});	   
 		return run;
 	}
-	
-	private Pane addTurtlePane(){
-		myTurtleWindow = new TurtleWindow();	
+*/	
+	private CenterPane addTurtlePane(){
+		myCenterPane = new CenterPane();	
 		currentX = 275;
 		currentY = 200;
-		return myTurtleWindow;
+		return myCenterPane;
 	}
 	
 	private void drawLine(double newX, double newY){
@@ -100,7 +105,7 @@ public class GUI extends Pane implements Observer{
 		line.setStartY(currentY+(turtleHeight));
 		line.setEndX(newX+(turtleWidth/2));
 		line.setEndY(newY+turtleHeight);
-		myTurtleWindow.getChildren().add(line);
+		myCenterPane.getChildren().add(line);
 		currentX = newX;
 		currentY = newY;
 		
@@ -112,12 +117,29 @@ public class GUI extends Pane implements Observer{
 		myLeftPane = new LeftPane();
 		myTopPane = new TopPane();
 		myBottomPane = new BottomPane();
+		myCenterPane = addTurtlePane();
 		pane.setLeft(myLeftPane);
 		pane.setRight(myRightPane);
-		Button run = createButton();
+		List<Pane> components = new ArrayList<Pane>();
+		
+		components.add(myRightPane);
+		components.add(myLeftPane);
+		components.add(myTopPane);
+		components.add(myBottomPane);
+		components.add(myCenterPane);		
+		
+		FeatureSetUp features = new FeatureSetUp(components, myParser, myTurtle);
+		//Button run = createButton();
+		//Button run = new RunButtonFeature(myBottomPane, myLeftPane, myRightPane, myParser, myTurtle);
+		Button run = (Button) features.myFeatureMap.get("RUN");
+		ColorPicker CP = (ColorPicker) features.myFeatureMap.get("COLORPICK");
+		myBottomPane.getChildren().add(CP);
 		myBottomPane.updateButton(run);
 		pane.setBottom(myBottomPane);
-		pane.setCenter(addTurtlePane());
+		
+
+		pane.setCenter(myCenterPane);
+		
 		pane.setTop(myTopPane);
 		this.getChildren().add(pane);
 	}
@@ -129,7 +151,7 @@ public class GUI extends Pane implements Observer{
 			Position pos = (Position)props;
 			double newX = 275+pos.getPoint().getX();
 			double newY = 200-pos.getPoint().getY();
-			myTurtleWindow.updateTurtlePosition(newX, newY);
+			myCenterPane.updateTurtlePosition(newX, newY);
 			drawLine(newX, newY);
 		}
 	}

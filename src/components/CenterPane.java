@@ -1,14 +1,15 @@
-package frontEnd;
+package components;
 
+import features.Feature;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class TurtleWindow extends Pane implements Feature{
+public class CenterPane extends Pane implements Feature{
 
 	private ImageView turtleView;
 	
-	public TurtleWindow(){
+	public CenterPane(){
 		super();
 		this.setStyle("-fx-background-color: white");	
 		Image image = new Image("frontEnd/turtle.png");		
@@ -27,5 +28,7 @@ public class TurtleWindow extends Pane implements Feature{
 		turtleView.setLayoutX(newX);
 		turtleView.setLayoutY(newY);
 	}
+	
+	
 
 }

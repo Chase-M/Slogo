@@ -1,5 +1,8 @@
-package frontEnd;
+package components;
 
+import features.Feature;
+import features.SettingsBar;
+import features.Toolbar;
 import javafx.geometry.Orientation;
 import javafx.scene.layout.FlowPane;
 

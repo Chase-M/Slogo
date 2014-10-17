@@ -1,9 +1,11 @@
-package frontEnd;
+package features;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import components.LeftPane;
+import components.RightPane;
 import parser.Node;
 import parser.Parser;
 import actor.Turtle;
