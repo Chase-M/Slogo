@@ -7,11 +7,9 @@ import actor.Turtle;
 
 public class MakeCommand extends Command{
     
-    public MakeCommand(){
-        super();
-    }
+
     public MakeCommand(String s){
-        this();
+        super(s);
     }
     @Override
     public double execute (List<Node> inputs, Turtle turtle) {

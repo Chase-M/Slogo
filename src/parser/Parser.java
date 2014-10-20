@@ -70,9 +70,13 @@ public class Parser {
        Node node=makeNode(s[myIndex]);
        
        myIndex++;
-       for(int i=0; i<node.getCommand().getNumInputs(); i++){
-           if(!(node.myChildren.size()>i))
-               node.addChild(makeTree(s));
+       Node next=null;
+       for(int i=0; i<node.getCommand().getNumInputs(next); i++){
+           if(!(node.myChildren.size()>i)){
+              next=makeTree(s);
+              node.addChild(next);
+           }
+          
        }
        
        return node;
