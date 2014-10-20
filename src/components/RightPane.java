@@ -14,10 +14,10 @@ public class RightPane extends TextDisplayFactory{
 	/**
 	 * Initializes the console text display that will display console history
 	 */
-	private int myCounter;
+	//private int myCommandIndex;
 	public RightPane(){
 		super();
-		myCounter = 0;
+	//	myCommandIndex = 0;
 	}
 
 	@Override
@@ -25,11 +25,10 @@ public class RightPane extends TextDisplayFactory{
 		// TODO Auto-generated method stub
 		
 	}
-	public void update(Button b){
+/*	public void update(Button b){
 		
-		myTextPane.add(b, 0, myCounter);
-		
-		myCounter++;
+		super.myTextPane.add(b, 0, super.myTextIndex);
+		super.myTextIndex++;
 	}
-
+*/
 }

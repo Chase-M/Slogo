@@ -16,42 +16,38 @@ import components.TopPane;
 
 public class FeatureSetUp{
 	public Map<String, Feature> myFeatureMap;
+	public Map<String, Pane> myComponentMap;
+
 	public FeatureSetUp(List<Pane> myComponents, Parser parser, Turtle turtle){
-		
-		Pane bottomPane = new BottomPane();
-		Pane centerPane = new CenterPane();
-		Pane topPane = new TopPane();
-		Pane leftPane = new LeftPane();
-		Pane rightPane = new RightPane();
-		   for(Pane p: myComponents){
-			   if(p instanceof BottomPane){
-				   bottomPane = p;
-			   }
-			   if(p instanceof CenterPane){
-				   centerPane = p;
-			   }
-			   if(p instanceof LeftPane){
-				   leftPane = p;
-			   }
-			   if(p instanceof RightPane){
-				   rightPane = p;
-			   }
-			   if(p instanceof TopPane){
-				   topPane = p;
-			   }
-		   }
-		
-		
-		
+		myComponentMap = createComponentMap(myComponents);
 		myFeatureMap = new HashMap<String, Feature>();
-		RunButtonFeature run = new RunButtonFeature((BottomPane)bottomPane, 
-													(LeftPane)leftPane, 
-													(RightPane)rightPane, 
+		RunButtonFeature run = new RunButtonFeature(myComponentMap, 
 													parser, turtle);
 		myFeatureMap.put("RUN", run);
+		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
+		myFeatureMap.put("COLORPICK", colorPick);	
 		
-		ColorPickerFeature colorPick = new ColorPickerFeature((CenterPane) centerPane);
-		myFeatureMap.put("COLORPICK", colorPick);
-		
+	}
+	
+	public Map<String,Pane> createComponentMap(List<Pane> myComponents){
+		Map<String, Pane> componentMap = new HashMap<String, Pane>();
+		  for(Pane p: myComponents){
+			   if(p instanceof BottomPane){
+				   componentMap.put("BOTTOM", p);
+			   }
+			   else if(p instanceof CenterPane){
+				   componentMap.put("CENTER", p);	
+				   }
+			   else if(p instanceof LeftPane){
+				   componentMap.put("LEFT", p);
+				   }
+			   else if(p instanceof RightPane){
+				   componentMap.put("RIGHT", p);
+				   }
+			   else if(p instanceof TopPane){
+				   componentMap.put("TOP", p);
+				   }
+		   }
+		return componentMap;
 	}
 }

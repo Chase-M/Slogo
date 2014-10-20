@@ -1,17 +1,23 @@
 package features;
 
+import java.util.Map;
+
 import components.CenterPane;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.layout.Pane;
 
 public class ColorPickerFeature extends ColorPicker implements Feature {
-	public ColorPickerFeature(CenterPane centerPane){
+	public ColorPickerFeature(Map<String, Pane> componentMap){
 		super();
-		this.setOnAction(new EventHandler(){
+		CenterPane centerPane = (CenterPane)componentMap.get("CENTER");
+		
+		this.setOnAction(new EventHandler<ActionEvent>(){
 
 			@Override
-			public void handle(Event event) {
+			public void handle(ActionEvent event) {
 				System.out.println(ColorPickerFeature.super.getValue());
 				
 				centerPane.setStyle("-fx-background-color: green");

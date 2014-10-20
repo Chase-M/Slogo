@@ -19,7 +19,7 @@ public class TopPane extends FlowPane implements Feature {
 		mySettingsBar = new SettingsBar();
 		this.getChildren().add(myToolbar);
 		this.getChildren().add(mySettingsBar);
-		this.setPrefHeight(105);
+		this.setPrefHeight(76);
 	}
 
 	@Override

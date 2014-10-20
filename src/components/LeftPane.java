@@ -14,10 +14,10 @@ public class LeftPane extends TextDisplayFactory{
 	/**
 	 * Initializes the console text display that will display console history
 	 */
-	private int myCounter;
+	//private int myCounter;
 	public LeftPane(){
 		super();
-		myCounter = 0;
+	//	myCounter = 0;
 	}
 
 	@Override
@@ -25,9 +25,10 @@ public class LeftPane extends TextDisplayFactory{
 		// TODO Auto-generated method stub
 		
 	}
+/*
 	public void update(String s){
-		myTextPane.add(new Label(s), 0, myCounter);
-		myCounter++;
+		super.myTextPane.add(new Label(s), 0, super.myTextIndex);
+		super.myTextIndex++;
 	}
-
+*/
 }

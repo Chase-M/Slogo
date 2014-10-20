@@ -40,7 +40,7 @@ public SettingsBar(){
 	super();
 	setPrefWidth(mySceneWidth);
 	setSpacing(10);
-	setStyle("-fx-background-color: yellow;");
+	setStyle("-fx-background-color: lightgray");
 	
 	Button startButton = new Button("Start");
 	startButton.setPrefSize(100, 20);
@@ -63,10 +63,14 @@ public SettingsBar(){
 	
 	languageCB = new ComboBox<String>();
 	languageCB.getItems().addAll("English", "Spanish", "Chinese");
-	
+	setMargin(languageCB, new Insets(6));
+	setMargin(colourCB, new Insets(6));
+	setMargin(colourLabel, new Insets(6));
+	setMargin(languageLabel, new Insets(6));
+	setMargin(startButton, new Insets(6));
 
 	this.getChildren().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
-	this.setPrefHeight(34);
+	//this.setPrefHeight(34);
 }
 	
 	
