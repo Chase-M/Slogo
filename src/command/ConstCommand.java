@@ -9,7 +9,7 @@ public class ConstCommand extends Command {
 
 	double myValue;
 	public ConstCommand(String s){
-		super();
+		super(s);
 		myValue = Double.parseDouble(s);
 		myNumInputs = 0;
 
