@@ -9,10 +9,11 @@ import javafx.geometry.Point2D;
 public class Turtle extends Observable {
 	private Position myPosition;
 	private int myID;
-	//private Pen myPen;
+	private Pen myPen;
 	
-	public Turtle(double x, double y, double angle){
-		myPosition = new Position(x,y,angle);
+	public Turtle(Position pos, Pen pen, int id){
+		myPosition = pos;
+		myPen = pen;
 	}
 	
 	public double getX(){
@@ -35,5 +36,9 @@ public class Turtle extends Observable {
 		myPosition = new Position(newX,newY,newAngle);
 		setChanged();
 		notifyObservers(myPosition);
+	}
+
+	public boolean isActive() {
+		return true;
 	}
 }

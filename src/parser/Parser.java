@@ -70,9 +70,13 @@ public class Parser {
        Node node=makeNode(s[myIndex]);
        
        myIndex++;
-       for(int i=0; i<node.getCommand().getNumInputs(); i++){
-           if(!(node.myChildren.size()>i))
-               node.addChild(makeTree(s));
+       Node next=null;
+       for(int i=0; i<node.getCommand().getNumInputs(next); i++){
+           if(!(node.myChildren.size()>i)){
+              next=makeTree(s);
+              node.addChild(next);
+           }
+          
        }
        
        return node;
@@ -87,31 +91,15 @@ public class Parser {
        while(keys.hasMoreElements()){
            String key = (String)keys.nextElement();
            String value = myLanguage.getString(key);
-           if(isCommand(value, command) || ( isRegex(value) && command.matches(value))){
+           if(command.matches(value)){
                factory=new basicCommandCreator();
                name=myCommands.getString(key);
+               if(!key.equals("Command")){
+                   break;
+               }
            }
        }
 
        return new Node(factory.createCommand(name, command));
 }
-   public static boolean isRegex(String input) {
-       boolean isEx;
-       try {
-         Pattern.compile(input);
-         isEx = true;
-       } catch (PatternSyntaxException e) {
-         isEx = false;
-       }
-       return isEx;
-   }
-  public boolean isCommand(String value, String command){
-      String[] strings=value.split(",");
-      for(String s: strings){
-          if(s.equals(command))
-              return true;
-      }
-      return false;
-  }
-}
-   
+}   

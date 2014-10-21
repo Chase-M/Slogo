@@ -37,10 +37,11 @@ public class GUI extends Pane implements Observer{
 	private BottomPane myBottomPane;
 	private TopPane myTopPane;
 
-	public GUI(){
-		// TODO move this
-		myTurtle = new Turtle(0,0,Math.PI/2);
-		myTurtle.addObserver(this);
+	private Controller myController;
+
+	public GUI(Controller controller){
+		myController = controller;
+		
 	}
 
 	 void initiate(){
