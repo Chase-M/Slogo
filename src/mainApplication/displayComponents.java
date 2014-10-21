@@ -30,7 +30,6 @@ public class displayComponents{
 	private ConsoleHistory myConsoleHistory;
 	private VariableDisplay myVariableDisplay;
 	private ResourceBundle myNumberResources;
-	private Turtle myTurtle;
 	private static ComboBox languageCB;
 	private static ComboBox colourCB;
 	
@@ -39,8 +38,6 @@ public class displayComponents{
 		myNumberResources = ResourceBundle.getBundle("resources/constants/numbers");
 		mySceneHeight = Integer.parseInt(myNumberResources.getString("Scene_height"));
 		mySceneWidth = Integer.parseInt(myNumberResources.getString("Scene_width"));
-		myTurtle = new Turtle(0,0,0);
-		//myTurtle.addObserver(this);
 	}
 	
 	

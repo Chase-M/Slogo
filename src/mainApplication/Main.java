@@ -30,7 +30,8 @@ public class Main extends Application{
 		stage = new Stage();
 		Group root = new Group();
 		Scene s = initiate(root);
-		GUI userFace = new GUI();
+		Controller controller = new Controller();
+		GUI userFace = new GUI(controller);
 		userFace.initiate();
 		root.getChildren().add(userFace);
 		stage.setScene(s);
