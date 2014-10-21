@@ -19,16 +19,13 @@ public class ColorPickerFeature extends ColorPicker implements Feature {
 			@Override
 			public void handle(ActionEvent event) {
 				System.out.println(ColorPickerFeature.super.getValue());
-				
-				centerPane.setStyle("-fx-background-color: green");
-				
-				
+				// TODO Fix this: poor solution
+				centerPane.setStyle("-fx-background-color: #"	
+									+ColorPickerFeature.super.getValue().toString().substring(2));
+
 			}
 		});
-		
-		
-			
-			
+	
 		}
 
 	@Override

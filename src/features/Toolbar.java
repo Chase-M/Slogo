@@ -14,6 +14,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuButton;
@@ -38,7 +40,21 @@ public Toolbar(){
 		     new Separator(),
 		     new Button("Debug"),
 		     new Button("Profile"));
+	Label languageLabel = new Label("Language Pack:");
+	ComboBox<String> languageCB = new ComboBox<String>();
+	languageCB.getItems().addAll("English", "Spanish", "Chinese");
+	super.getItems().addAll(languageLabel, languageCB);
+	languageCB.setOnAction(new EventHandler<ActionEvent>(){
+
+		@Override
+		public void handle(ActionEvent arg0) {
+			System.out.println(languageCB.getSelectionModel().getSelectedItem());	
+		}
 	
+		
+	});
+	//super.getChildren().add(new Button("test"));
+	//super.getItems().add(new Button("test"));
 	//this.getChildren().add(myMenu);
 }
 

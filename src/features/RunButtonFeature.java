@@ -45,10 +45,6 @@ public class RunButtonFeature extends Button implements Feature{
 		    }
 		});	   
 	
-	
-	
-	
-	
 	}
 	@Override
 	public void update() {
