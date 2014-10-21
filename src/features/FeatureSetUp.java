@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import mainApplication.Controller;
 import parser.Parser;
 import actor.Turtle;
 import javafx.scene.layout.Pane;
@@ -18,11 +19,11 @@ public class FeatureSetUp{
 	public Map<String, Feature> myFeatureMap;
 	public Map<String, Pane> myComponentMap;
 
-	public FeatureSetUp(List<Pane> myComponents, Parser parser, Turtle turtle){
+	public FeatureSetUp(List<Pane> myComponents, Controller myController){
 		myComponentMap = createComponentMap(myComponents);
 		myFeatureMap = new HashMap<String, Feature>();
 		RunButtonFeature run = new RunButtonFeature(myComponentMap, 
-													parser, turtle);
+													myController);
 		myFeatureMap.put("RUN", run);
 		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
 		myFeatureMap.put("COLORPICK", colorPick);	

@@ -65,7 +65,7 @@ public class GUI extends Pane implements Observer{
 		components.add(myBottomPane);
 		components.add(myCenterPane);		
 		
-		FeatureSetUp features = new FeatureSetUp(components, myParser, myTurtle);
+		FeatureSetUp features = new FeatureSetUp(components, myController);
 		Button run = (Button) features.myFeatureMap.get("RUN");
 		ColorPicker CP = (ColorPicker) features.myFeatureMap.get("COLORPICK");
 		myBottomPane.getChildren().add(CP);

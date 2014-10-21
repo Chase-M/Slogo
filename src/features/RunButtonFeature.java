@@ -3,6 +3,7 @@ package features;
 import java.util.List;
 import java.util.Map;
 
+import mainApplication.Controller;
 import components.BottomPane;
 import components.CenterPane;
 import components.LeftPane;
@@ -18,7 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 public class RunButtonFeature extends Button implements Feature{
-	public RunButtonFeature(Map<String, Pane> componentMap, Parser parser, Turtle turtle){
+	public RunButtonFeature(Map<String, Pane> componentMap, Controller myController){
 	super("Run");
 	   this.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
@@ -27,10 +28,11 @@ public class RunButtonFeature extends Button implements Feature{
 		    	LeftPane leftPane = (LeftPane)componentMap.get("LEFT");
 
 		        // TODO move this + don't only have one turtle + it shouldn't even be here
-				List<Node> list = parser.parse(bottomPane.myCommand.getText());
-				for(Node n: list){
-					System.out.println(n.evaluate(turtle));
-				}
+			//	List<Node> list = parser.parse(bottomPane.myCommand.getText());
+			//	for(Node n: list){
+			//		System.out.println(n.evaluate(turtle));
+			//	}
+				myController.parseAndEvaluate(bottomPane.myCommand.getText());
 		        final Button button = new Button(bottomPane.myCommand.getText());
 		        final Label label = new Label(bottomPane.myCommand.getText());
 		        button.setOnAction(new EventHandler<ActionEvent>() {

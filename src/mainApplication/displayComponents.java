@@ -6,8 +6,8 @@ import java.util.ResourceBundle;
 
 import parser.Node;
 import parser.Parser;
-import textOutput.ConsoleHistory;
-import textOutput.VariableDisplay;
+//import textOutput.ConsoleHistory;
+//import textOutput.VariableDisplay;
 import actor.Turtle;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -27,8 +27,8 @@ public class displayComponents{
 	
 	private int mySceneHeight;
 	private static int mySceneWidth;
-	private ConsoleHistory myConsoleHistory;
-	private VariableDisplay myVariableDisplay;
+//	private ConsoleHistory myConsoleHistory;
+//	private VariableDisplay myVariableDisplay;
 	private ResourceBundle myNumberResources;
 	private static ComboBox languageCB;
 	private static ComboBox colourCB;

@@ -21,7 +21,7 @@ public class CenterPane extends Pane implements Feature{
 	public CenterPane(){
 		super();
 		this.setStyle("-fx-background-color: white");	
-		Image image = new Image("frontEnd/turtle.png");		
+		Image image = new Image("mainApplication/turtle.png");		
 		turtleView = new ImageView (image);
 		turtleView.setFitWidth(26);		
 		turtleView.setFitHeight(50);
