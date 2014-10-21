@@ -11,14 +11,18 @@ import java.util.Observer;
 import frontEnd.BottomPane;
 import frontEnd.LeftPane;
 import frontEnd.RightPane;
+import frontEnd.SettingsBar;
 import frontEnd.TopPane;
 import frontEnd.TurtleWindow;
 import parser.Node;
 import parser.Parser;
 import properties.Position;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -50,6 +54,8 @@ public class GUI extends Pane implements Observer{
 	private BottomPane myBottomPane;
 	private TopPane myTopPane;
 
+	private ColorPicker displayColorPicker;
+
 
 	public GUI(){
 		// TODO move this
@@ -57,7 +63,7 @@ public class GUI extends Pane implements Observer{
 		myTurtle.addObserver(this);
 	}
 
-	 void initiate(){
+	void initiate(){
 		//myNumberResources = ResourceBundle.getBundle("resources/constants/numbers");
 		//mySceneHeight = Integer.parseInt(myNumberResources.getString("Scene_height"));
 		//mySceneWidth = Integer.parseInt(myNumberResources.getString("Scene_width"));
@@ -66,38 +72,56 @@ public class GUI extends Pane implements Observer{
 	}
 
 	private Button createButton() {
-	   Button run = new Button("Run");
-	   run.setPrefSize(100, 20);
+		Button run = new Button("Run");
+		run.setPrefSize(100, 20);
 
-	   run.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override public void handle(ActionEvent e) {
+		run.setOnAction(new EventHandler<ActionEvent>() {
+			@Override public void handle(ActionEvent e) {
 
-		        // TODO move this + don't only have one turtle + it shouldn't even be here
+				// TODO move this + don't only have one turtle + it shouldn't even be here
 				List<Node> list = myParser.parse(myBottomPane.myCommand.getText());
-				for(Node n: list){
-					System.out.println(n.evaluate(myTurtle));
-				}
-		        final Button button = new Button(myBottomPane.myCommand.getText());
-		        button.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override public void handle(ActionEvent e) {
-				    	myBottomPane.myCommand.setText(button.getText());
-				    }	
-				    });
-		        myRightPane.update(button);
-		        myLeftPane.update(myBottomPane.myCommand.getText());		        
-		        myBottomPane.myCommand.clear();
-		    }
+					for(Node n: list){
+						System.out.println(n.evaluate(myTurtle));
+					}
+				final Button button = new Button(myBottomPane.myCommand.getText());
+				button.setOnAction(new EventHandler<ActionEvent>() {
+					@Override public void handle(ActionEvent e) {
+						myBottomPane.myCommand.setText(button.getText());
+					}	
+				});
+				myRightPane.update(button);
+				myLeftPane.update(myBottomPane.myCommand.getText());		        
+				myBottomPane.myCommand.clear();
+			}
 		});	   
 		return run;
 	}
-	
+
+	private ColorPicker createColorPicker(){
+
+		displayColorPicker = new ColorPicker();
+		displayColorPicker.setOnAction(new EventHandler(){
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				System.out.println(displayColorPicker.getValue());
+
+				//can't seem to figure out a way to actually get the display to change colour
+				myTurtleWindow.setStyle("-fx-background-color:" +displayColorPicker.getValue());
+				
+			}
+		});
+
+		return displayColorPicker;		
+	}
+
 	private Pane addTurtlePane(){
 		myTurtleWindow = new TurtleWindow();	
 		currentX = 275;
 		currentY = 200;
 		return myTurtleWindow;
 	}
-	
+
 	private void drawLine(double newX, double newY){
 		Line line = new Line();
 		line.setStroke(Color.BLACK);
@@ -108,9 +132,8 @@ public class GUI extends Pane implements Observer{
 		myTurtleWindow.getChildren().add(line);
 		currentX = newX;
 		currentY = newY;
-		
 	}
-	
+
 
 
 
@@ -122,11 +145,20 @@ public class GUI extends Pane implements Observer{
 		myBottomPane = new BottomPane();
 		pane.setLeft(myLeftPane);
 		pane.setRight(myRightPane);
+		
+		
 		Button run = createButton();
 		myBottomPane.updateButton(run);
 		pane.setBottom(myBottomPane);
-		pane.setCenter(addTurtlePane());
+		
+		ColorPicker newCP = createColorPicker();
+		myTopPane.mySettingsBar.updateColorPicker(newCP);
 		pane.setTop(myTopPane);
+		
+		pane.setCenter(addTurtlePane());
+
+		
+
 		this.getChildren().add(pane);
 	}
 	@Override
@@ -136,8 +168,8 @@ public class GUI extends Pane implements Observer{
 		if(props instanceof Position){
 			Position pos = (Position)props;
 
-			double newX = 275+pos.getPoint().getX();
-			double newY = 200-pos.getPoint().getY();
+			double newX = currentX+pos.getPoint().getX();
+			double newY = currentY-pos.getPoint().getY();
 			myTurtleWindow.updateTurtlePosition(newX, newY);
 			drawLine(newX, newY);
 		}

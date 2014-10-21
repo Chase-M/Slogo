@@ -14,6 +14,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -31,6 +32,7 @@ public class SettingsBar extends HBox implements Feature{
 	private Turtle myTurtle;
 	private static ComboBox<String> languageCB;
 	private static ComboBox<String> colourCB;
+	private ColorPicker displayColourPicker;
 	
 	
 public SettingsBar(){
@@ -38,7 +40,7 @@ public SettingsBar(){
 	super();
 	setPrefWidth(mySceneWidth);
 	setSpacing(10);
-	setStyle("-fx-background-color: yellow;");
+	setStyle("-fx-background-color: cornsilk;");
 	
 	Button startButton = new Button("Start");
 	startButton.setPrefSize(100, 20);
@@ -47,27 +49,29 @@ public SettingsBar(){
 		public void handle(ActionEvent event) {
 			System.out.println("start button clicked");
 			System.out.println(languageCB.getValue());
-			System.out.println(colourCB.getValue());
+			System.out.println(displayColourPicker.getValue());
 		}
 		
 	});
 	
 	
-	Label colourLabel = new Label("Display Colour:");
+	Label colourLabel = new Label("Pen Colour:");
 	Label languageLabel = new Label("Language Pack:");
 	
-	colourCB = new ComboBox<String>();
-	colourCB.getItems().addAll("White", "Yellow", "Green");
+	//displayColourPicker = new ColorPicker();
+	
 	
 	languageCB = new ComboBox<String>();
 	languageCB.getItems().addAll("English", "Spanish", "Chinese");
 	
 
-	this.getChildren().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
+	this.getChildren().addAll(languageLabel, languageCB, colourLabel);
 	this.setPrefHeight(34);
 }
 	
-	
+public void updateColorPicker(ColorPicker cp){
+	this.getChildren().add(cp);
+}
 
 
 @Override

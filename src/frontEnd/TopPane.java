@@ -6,7 +6,7 @@ import javafx.scene.layout.FlowPane;
 public class TopPane extends FlowPane implements Feature {
 	
 	Toolbar myToolbar;
-	SettingsBar mySettingsBar;
+	public SettingsBar mySettingsBar;
 	
 	public TopPane(){
 		super(Orientation.VERTICAL);
