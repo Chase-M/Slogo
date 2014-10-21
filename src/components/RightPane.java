@@ -1,4 +1,4 @@
-package frontEnd;
+package components;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,15 +9,15 @@ import javafx.scene.control.Label;
 import sun.misc.Queue;
 
 
-public class LeftPane extends TextDisplayFactory{
+public class RightPane extends TextDisplayFactory{
 	
 	/**
 	 * Initializes the console text display that will display console history
 	 */
-	private int myCounter;
-	public LeftPane(){
+	//private int myCommandIndex;
+	public RightPane(){
 		super();
-		myCounter = 0;
+	//	myCommandIndex = 0;
 	}
 
 	@Override
@@ -25,9 +25,10 @@ public class LeftPane extends TextDisplayFactory{
 		// TODO Auto-generated method stub
 		
 	}
-	public void update(String s){
-		myTextPane.add(new Label(s), 0, myCounter);
-		myCounter++;
+/*	public void update(Button b){
+		
+		super.myTextPane.add(b, 0, super.myTextIndex);
+		super.myTextIndex++;
 	}
-
+*/
 }

@@ -1,9 +1,11 @@
-package frontEnd;
+package features;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import components.LeftPane;
+import components.RightPane;
 import parser.Node;
 import parser.Parser;
 import actor.Turtle;
@@ -40,7 +42,8 @@ public SettingsBar(){
 	super();
 	setPrefWidth(mySceneWidth);
 	setSpacing(10);
-	setStyle("-fx-background-color: cornsilk;");
+
+	setStyle("-fx-background-color: lightgray");
 	
 	Button startButton = new Button("Start");
 	startButton.setPrefSize(100, 20);
@@ -60,13 +63,21 @@ public SettingsBar(){
 	
 	//displayColourPicker = new ColorPicker();
 	
+	colourCB = new ComboBox<String>();
+	colourCB.getItems().addAll("White", "Yellow", "Green");
+	
 	
 	languageCB = new ComboBox<String>();
 	languageCB.getItems().addAll("English", "Spanish", "Chinese");
-	
+	setMargin(languageCB, new Insets(6));
+	setMargin(colourCB, new Insets(6));
+	setMargin(colourLabel, new Insets(6));
+	setMargin(languageLabel, new Insets(6));
+	setMargin(startButton, new Insets(6));
 
-	this.getChildren().addAll(languageLabel, languageCB, colourLabel);
-	this.setPrefHeight(34);
+
+	this.getChildren().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
+	//this.setPrefHeight(34);
 }
 	
 public void updateColorPicker(ColorPicker cp){

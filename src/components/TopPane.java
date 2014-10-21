@@ -1,5 +1,8 @@
-package frontEnd;
+package components;
 
+import features.Feature;
+import features.SettingsBar;
+import features.Toolbar;
 import javafx.geometry.Orientation;
 import javafx.scene.layout.FlowPane;
 
@@ -16,7 +19,7 @@ public class TopPane extends FlowPane implements Feature {
 		mySettingsBar = new SettingsBar();
 		this.getChildren().add(myToolbar);
 		this.getChildren().add(mySettingsBar);
-		this.setPrefHeight(105);
+		this.setPrefHeight(76);
 	}
 
 	@Override

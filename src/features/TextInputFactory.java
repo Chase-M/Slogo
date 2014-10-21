@@ -1,4 +1,4 @@
-package frontEnd;
+package features;
 
 import javafx.scene.control.TextArea;
 

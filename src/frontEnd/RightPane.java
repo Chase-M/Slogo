@@ -3,6 +3,7 @@ package frontEnd;
 import java.util.ArrayList;
 import java.util.List;
 
+import features.TextDisplayFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import sun.misc.Queue;
