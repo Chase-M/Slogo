@@ -32,7 +32,6 @@ public class TestParser {
 		Parser p=new Parser();
 		Turtle turtle = new Turtle(0,0,Math.PI/2);
 		List<Node> list=p.parse("forward 50");
-		
 		assertEquals(50,list.get(0).evaluate(turtle), .00000001);
 	}
 
@@ -40,8 +39,22 @@ public class TestParser {
         public void TestMake(){
                 Parser p=new Parser();
                 List<Node> list=p.parse("make :var sum sum 1 1 20 sum :var 15");
+
                 assertEquals(0,list.get(0).evaluate(null), .00000001);
                 assertEquals(37,list.get(1).evaluate(null), .00000001);
         }
+        @Test
+        public void TestRepeat(){
+                Parser p=new Parser();
+                List<Node> list=p.parse("make :a 0 repeat 5 [ sum 5 5 ] sum 10 10");
+                assertEquals(20,list.get(2).evaluate(null), .00000001);
+        }
+        @Test
+        public void TestFor(){
+                Parser p=new Parser();
+                List<Node> list=p.parse("for [ 0 10 1 ] [ sum 5 5 ] sum 10 10");
+                assertEquals(20,list.get(1).evaluate(null), .00000001);
+        }
+
 
 }

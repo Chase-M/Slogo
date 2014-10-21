@@ -7,7 +7,7 @@ import actor.Turtle;
 
 public class ForwardCommand extends Command {
 	public ForwardCommand(String s){
-	    super();
+	    super(s);
 	}
 	@Override
 	public double execute(List<Node> inputs, Turtle turtle) {
