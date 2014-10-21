@@ -32,7 +32,6 @@ public class TestParser {
 		Parser p=new Parser();
 		Turtle turtle = new Turtle(0,0,Math.PI/2);
 		List<Node> list=p.parse("forward 50");
-		
 		assertEquals(50,list.get(0).evaluate(turtle), .00000001);
 	}
 
