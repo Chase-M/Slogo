@@ -9,14 +9,9 @@ import workspace.Workspace;
 public class SetPositionCommand extends Command {
 
 	public SetPositionCommand(String s){
-		super(s);
+		super(s,2);
 	}
 	
-	
-	@Override
-	protected int setNumInputs() {
-		return 2;
-	}
 
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {

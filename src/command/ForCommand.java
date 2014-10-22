@@ -7,13 +7,8 @@ import workspace.Workspace;
 public class ForCommand extends Command{
     
     public ForCommand(String s){
-        super(s);
+        super(s,2);
         myNumLists=2;
-    }
-    @Override
-    protected int setNumInputs () {
-        // TODO Auto-generated method stub
-        return 2;
     }
 
     @Override

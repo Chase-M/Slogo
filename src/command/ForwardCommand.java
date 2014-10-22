@@ -7,7 +7,7 @@ import workspace.Workspace;
 
 public class ForwardCommand extends Command {
 	public ForwardCommand(String s){
-	    super(s);
+	    super(s,1);
 	}
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
@@ -18,11 +18,6 @@ public class ForwardCommand extends Command {
 		turtle.updatePosition(newX,newY,turtle.getAngle());
 		
 		return distance;
-	}
-
-	@Override
-	protected int setNumInputs() {
-		return 1;
 	}
 
 }

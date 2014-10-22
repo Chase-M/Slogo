@@ -7,12 +7,7 @@ import workspace.Workspace;
 public class ListStartCommand extends Command {
     
     public ListStartCommand(String s){
-        super(s);
-    }
-    @Override
-    protected int setNumInputs () {
-        // TODO Auto-generated method stub
-        return 0;
+        super(s,0);
     }
 
     @Override

@@ -6,12 +6,7 @@ import workspace.Workspace;
 
 public class GroupEndCommand extends Command{
     public GroupEndCommand(String s){
-        super(s);
-    }
-    @Override
-    protected int setNumInputs () {
-        // TODO Auto-generated method stub
-        return 0;
+        super(s,0);
     }
 
     @Override

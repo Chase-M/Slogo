@@ -7,7 +7,7 @@ import workspace.Workspace;
 public class SumCommand extends Command {
 
 	public SumCommand(String s){
-	   super(s); 
+	   super(s,2); 
 	}
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
@@ -16,10 +16,5 @@ public class SumCommand extends Command {
 			sum += n.evaluate(workspace);
 		}
 		return sum;
-	}
-
-	@Override
-	protected int setNumInputs() {
-		return 2;
 	}
 }

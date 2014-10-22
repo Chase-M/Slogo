@@ -9,13 +9,8 @@ import workspace.Workspace;
 public class StoredCommand extends Command{
     
     public StoredCommand(String s){
-        super(s);
+        super(s,1);
         myNumLists=1;
-    }
-    @Override
-    protected int setNumInputs () {
-        // TODO Auto-generated method stub
-        return 1;
     }
 
     @Override

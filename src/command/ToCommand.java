@@ -9,13 +9,8 @@ import workspace.Workspace;
 public class ToCommand extends Command{
     
     public ToCommand(String s){
-        super(s);
+        super(s,2);
         myNumLists=1;
-    }
-    @Override
-    protected int setNumInputs () {
-        // TODO Auto-generated method stub
-        return 2;
     }
 
     @Override

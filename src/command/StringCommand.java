@@ -7,16 +7,9 @@ import workspace.Workspace;
 public class StringCommand extends Command{
     String myString;
     public StringCommand(String s){
-            super(s);
+            super(s,0);
   
 
-    }
-    
-
-    @Override
-    protected int setNumInputs () {
-        // TODO Auto-generated method stub
-        return 0;
     }
 
     @Override

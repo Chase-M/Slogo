@@ -8,12 +8,7 @@ import workspace.Workspace;
 public class LeftCommand extends Command {
 
 	public LeftCommand(String s){
-		super(s);
-	}
-		
-	@Override
-	protected int setNumInputs() {
-		return 1;
+		super(s,1);
 	}
 
 	@Override

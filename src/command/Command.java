@@ -18,7 +18,6 @@ public abstract class Command {
      * @param actors
      */
     public Command () {
-        myNumInputs = setNumInputs();
         myNumLists=0;
         myListFlag = 0;
     }
@@ -27,8 +26,11 @@ public abstract class Command {
         this();
         myString = s;
     }
-
-    protected abstract int setNumInputs ();
+    
+    protected Command(String s, int i){
+    	this(s);
+    	myNumInputs = i;
+    }
 
     /**
      * Returns the number of inputs for the specific command
