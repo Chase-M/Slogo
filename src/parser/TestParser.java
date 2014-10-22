@@ -14,6 +14,43 @@ public class TestParser {
 			assertEquals(50,n.evaluate(null), .00000001);
 		}
 	}
+	@Test
+	public void TestDif(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("difference - 20 15 15");
+		for(Node n: list){
+			assertEquals(-10,n.evaluate(null), .00000001);
+		}
+	}
+	@Test
+	public void TestProd(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("* product 2 5 -3");
+		for(Node n: list){
+			assertEquals(-30,n.evaluate(null), .00000001);
+		}
+	}
+	@Test
+	public void TestQuotient(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("quotient / 20 5 2");
+		for(Node n: list){
+			assertEquals(2,n.evaluate(null), .00000001);
+		}
+	}
+	@Test
+	public void TestRemainder(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("remainder 20 5");
+		for(Node n: list){
+			assertEquals(0,n.evaluate(null), .00000001);
+		}
+		List<Node> list2=p.parse("% % 58 17 4");
+		for(Node n: list2){
+			assertEquals(3,n.evaluate(null), .00000001);
+		}
+	}
+	
 	
 	@Test
 	public void TestSum2(){
