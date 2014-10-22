@@ -1,9 +1,8 @@
 package command;
 
 import java.util.List;
-
 import parser.Node;
-import actor.Turtle;
+import workspace.Workspace;
 
 public class SumCommand extends Command {
 
@@ -11,10 +10,10 @@ public class SumCommand extends Command {
 	   super(s); 
 	}
 	@Override
-	public double execute(List<Node> inputs, Turtle turtle) {
+	public double execute(List<Node> inputs, Workspace workspace) {
 		double sum = 0;
 		for(Node n: inputs){
-			sum += n.evaluate(turtle);
+			sum += n.evaluate(workspace);
 		}
 		return sum;
 	}

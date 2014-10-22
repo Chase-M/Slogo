@@ -1,17 +1,18 @@
 package command;
 
 import java.util.List;
-
-import parser.Node;
 import actor.Turtle;
+import parser.Node;
+import workspace.Workspace;
 
 public class ForwardCommand extends Command {
 	public ForwardCommand(String s){
 	    super(s);
 	}
 	@Override
-	public double execute(List<Node> inputs, Turtle turtle) {
-		double distance = inputs.get(0).evaluate(turtle);
+	public double execute(List<Node> inputs, Workspace workspace) {
+		double distance = inputs.get(0).evaluate(workspace);
+		Turtle turtle=workspace.getTurtles().get(0);
 		double newX = turtle.getX() + Math.cos(turtle.getAngle())*distance;
 		double newY = turtle.getY() + Math.sin(turtle.getAngle())*distance;
 		turtle.updatePosition(newX,newY,turtle.getAngle());

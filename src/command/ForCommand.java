@@ -2,7 +2,7 @@ package command;
 
 import java.util.List;
 import parser.Node;
-import actor.Turtle;
+import workspace.Workspace;
 
 public class ForCommand extends Command{
     
@@ -17,11 +17,11 @@ public class ForCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, Turtle turtle) {
+    public double execute (List<Node> inputs, Workspace workspace) {
         // TODO Auto-generated method stub
-        for(int i=(int) inputs.get(1).evaluate(turtle); i<inputs.get(2).evaluate(turtle); i=(int) (i+inputs.get(3).evaluate(turtle))){
+        for(int i=(int) inputs.get(1).evaluate(workspace); i<inputs.get(2).evaluate(workspace); i=(int) (i+inputs.get(3).evaluate(workspace))){
            for(int j=4; j<inputs.size(); j++){ 
-               inputs.get(j).evaluate(turtle);
+               inputs.get(j).evaluate(workspace);
            }
         }
         return 0;

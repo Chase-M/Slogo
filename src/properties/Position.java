@@ -17,4 +17,7 @@ public class Position {
 	public double getAngle(){
 		return myAngle;
 	}
+	public void setAngle(int angle){
+	        myAngle=angle;
+	}
 }

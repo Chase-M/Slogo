@@ -1,9 +1,9 @@
 package command;
 
 import java.util.List;
-
-import parser.Node;
 import actor.Turtle;
+import parser.Node;
+import workspace.Workspace;
 
 public class LeftCommand extends Command {
 
@@ -17,9 +17,10 @@ public class LeftCommand extends Command {
 	}
 
 	@Override
-	public double execute(List<Node> inputs, Turtle turtle) {
-		double delta = inputs.get(0).evaluate(turtle);
+	public double execute(List<Node> inputs, Workspace workspace) {
+		double delta = inputs.get(0).evaluate(workspace);
 		double deltaRadians = Math.toRadians(delta);
+		Turtle turtle=workspace.getTurtles().get(0);
 		double oldAngle = turtle.getAngle();
 		turtle.updatePosition(turtle.getX(), turtle.getY(), oldAngle+deltaRadians);
 		return delta;

@@ -2,7 +2,7 @@ package command;
 
 import java.util.List;
 import parser.Node;
-import actor.Turtle;
+import workspace.Workspace;
 
 
 public abstract class Command {
@@ -58,6 +58,6 @@ public abstract class Command {
      * @param inputs List of inputs for the specific command
      * @return appropriate int based on the type of command
      */
-    public abstract double execute (List<Node> inputs, Turtle turtle);
+    public abstract double execute (List<Node> inputs, Workspace workspace);
 
 }
