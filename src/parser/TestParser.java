@@ -102,6 +102,22 @@ public class TestParser {
 		double ans2 = list2.get(0).evaluate(null);
 		assertEquals(32,ans2, .00000001);
 	}
+        @Test
+        public void TestIfElse(){
+                Parser p=new Parser();
+                Workspace workspace=new Workspace(0);
+                List<Node> list=p.parse("ifelse greater? sum 1 0 - 5 5 [ make :a 5 ] [ make :a 10 ] sum :a 0");
+                for(Node n: list){
+                    n.evaluate(workspace);
+                }
+                assertEquals(5,list.get(1).evaluate(workspace), .00000001);
+                list=p.parse("ifelse greater? sum 1 0 - 5 3 [ make :a 5 ] [ make :a 10 ] sum :a 0");
+                for(Node n: list){
+                    n.evaluate(workspace);
+                }
+                assertEquals(10,list.get(1).evaluate(workspace), .00000001);
+                
+        }
 	@Test
 	public void TestSum2(){
 		Parser p=new Parser();
@@ -157,6 +173,17 @@ public class TestParser {
                 n.evaluate(workspace);
             }
             assertEquals(150, list.get(3).evaluate(workspace), .000001);
+        }
+        @Test
+        public void TestRecursion(){
+            Parser p=new Parser();
+            List<Node> list=p.parse("make :a 0 make :b 0 to r [ :var ] [ make :b sum :b 1 make :a sum :var :a if greater? :var 1 [ r [ - :var 1 ] ] ] r [ 10 ] sum :a 0 ");
+            Workspace workspace=new Workspace(0);
+            for(Node n: list){
+                n.evaluate(workspace);
+            }
+            assertEquals(55,list.get(4).evaluate(workspace),.000000001);
+           
         }
 
 }
