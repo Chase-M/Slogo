@@ -5,7 +5,9 @@ package mainApplication;
 import actor.Turtle;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -87,6 +89,15 @@ public class GUI extends Pane implements Observer{
 		
 
 		this.getChildren().add(pane);
+		/**
+		 * Don't delete this stuff
+		 */
+/*		Map<String, Double> myMap = new HashMap<String, Double>();
+		myMap.put("this", 5.);
+		myMap.put("that", 6.);
+		myMap.put("the other", 6.7);
+		myLeftPane.updateVars(myMap);
+		*/
 	}
 	@Override
 	public void update(Observable obs, Object props) {
@@ -95,5 +106,6 @@ public class GUI extends Pane implements Observer{
 
 			myCenterPane.updateTurtlePosition((Position)props);
 		}
+		
 	}
 }

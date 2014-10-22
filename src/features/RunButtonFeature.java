@@ -21,18 +21,21 @@ import javafx.scene.layout.Pane;
 public class RunButtonFeature extends Button implements Feature{
 	public RunButtonFeature(Map<String, Pane> componentMap, Controller myController){
 	super("Run");
+	//setDisabled(true);
 	   this.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
-		    	BottomPane bottomPane = (BottomPane)componentMap.get("BOTTOM");
-		    	RightPane rightPane = (RightPane)componentMap.get("RIGHT");
-		    	LeftPane leftPane = (LeftPane)componentMap.get("LEFT");
+		    	BottomPane bottomPane = (BottomPane)componentMap.get("class components.BottomPane");
+		    	RightPane rightPane = (RightPane)componentMap.get("class components.RightPane");
+		    	LeftPane leftPane = (LeftPane)componentMap.get("class components.LeftPane");
 
 		        // TODO move this + don't only have one turtle + it shouldn't even be here
 			//	List<Node> list = parser.parse(bottomPane.myCommand.getText());
 			//	for(Node n: list){
 			//		System.out.println(n.evaluate(turtle));
 			//	}
+		    	if(!bottomPane.myCommand.getText().isEmpty()){
 				myController.parseAndEvaluate(bottomPane.myCommand.getText());
+		    	
 		        final Button button = new Button(bottomPane.myCommand.getText());
 		        final Label label = new Label(bottomPane.myCommand.getText());
 		        button.setOnAction(new EventHandler<ActionEvent>() {
@@ -43,6 +46,7 @@ public class RunButtonFeature extends Button implements Feature{
 		        rightPane.update(button);
 		        leftPane.update(label);		        
 		        bottomPane.myCommand.clear();
+		    	}
 		        //bottomPane.update();
 		    }
 		});	   
