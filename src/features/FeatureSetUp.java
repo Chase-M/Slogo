@@ -26,7 +26,10 @@ public class FeatureSetUp{
 													myController);
 		myFeatureMap.put("RUN", run);
 		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
-		myFeatureMap.put("COLORPICK", colorPick);	
+		myFeatureMap.put("COLORPICK", colorPick);
+		
+		newTurtleButtonFeature newTurtle = new newTurtleButtonFeature(myComponentMap);
+		myFeatureMap.put("NEWTURTLE", newTurtle);
 		
 	}
 	

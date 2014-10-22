@@ -9,18 +9,17 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-
 import components.BottomPane;
 import components.LeftPane;
 import components.RightPane;
 import components.TopPane;
 import components.CenterPane;
+import features.DisplayTurtle;
 import features.FeatureSetUp;
 import parser.Parser;
 import properties.Position;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
-
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -34,9 +33,6 @@ public class GUI extends Pane implements Observer{
 	private RightPane myRightPane;
 	private LeftPane myLeftPane;
 	private Turtle myTurtle;
-
-
-
 	private CenterPane myCenterPane;
 	private Parser myParser;
 	private BottomPane myBottomPane;
@@ -44,11 +40,13 @@ public class GUI extends Pane implements Observer{
 
 
 	private Controller myController;
+	
+	public static List<DisplayTurtle> myObjects;
+	
+	
 
 	public GUI(Controller controller){
 		myController = controller;
-		
-
 	}
 
 
@@ -74,19 +72,18 @@ public class GUI extends Pane implements Observer{
 		components.add(myLeftPane);
 		components.add(myTopPane);
 		components.add(myBottomPane);
-		components.add(myCenterPane);		
+		components.add(myCenterPane);	
 		
 		FeatureSetUp features = new FeatureSetUp(components, myController);
 		Button run = (Button) features.myFeatureMap.get("RUN");
 		ColorPicker CP = (ColorPicker) features.myFeatureMap.get("COLORPICK");
+		Button newTurtle = (Button) features.myFeatureMap.get("NEWTURTLE");
 		myBottomPane.getChildren().add(CP);
 		myBottomPane.updateButton(run);
+		myBottomPane.getChildren().add(newTurtle);
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myCenterPane);	
-		pane.setTop(myTopPane);
-		
-
-
+		pane.setTop(myTopPane);	
 		
 
 		this.getChildren().add(pane);

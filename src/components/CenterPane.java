@@ -1,6 +1,8 @@
 package components;
 
+import mainApplication.GUI;
 import properties.Position;
+import features.DisplayTurtle;
 import features.Feature;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -11,7 +13,7 @@ import javafx.scene.shape.Line;
 
 public class CenterPane extends Pane implements Feature{
 
-	private ImageView turtleView;
+	private ImageView turtleGraphic;
 	private double turtleX;
 	private double turtleY;
 	private int turtleWidth = 26;
@@ -21,18 +23,22 @@ public class CenterPane extends Pane implements Feature{
 	public CenterPane(){
 		super();
 		this.setStyle("-fx-background-color: white");	
-		Image image = new Image("mainApplication/turtle.png");		
-		turtleView = new ImageView (image);
-		turtleView.setFitWidth(26);		
-		turtleView.setFitHeight(50);
-		turtleView.setLayoutX(275);
-		turtleView.setLayoutY(200);		
-		turtleX = 275;
-		turtleY = 200;
+//		Image image = new Image("mainApplication/turtle.png");		
+//		turtleView = new ImageView (image);
+//		turtleView.setFitWidth(26);		
+//		turtleView.setFitHeight(50);
+//		turtleView.setLayoutX(275);
+//		turtleView.setLayoutY(200);		
+//		turtleX = 275;
+//		turtleY = 200;
 		
+		DisplayTurtle firstTurtle = new DisplayTurtle();		
+		firstTurtle.setTurtleID(0);		
+		turtleGraphic = firstTurtle.makeNewTurtle();
+		//GUI.myObjects.add(firstTurtle);
 		myLabel = new Label("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
 		this.getChildren().add(myLabel);
-		this.getChildren().add(turtleView);
+		this.getChildren().add(turtleGraphic);
 
 	}
 	@Override
@@ -43,8 +49,8 @@ public class CenterPane extends Pane implements Feature{
 		double tempX = 275+pos.getPoint().getX();
 		double tempY = 200-pos.getPoint().getY();
 		drawLine(tempX, tempY);
-		turtleView.setLayoutX(turtleX);
-		turtleView.setLayoutY(turtleY);
+//		turtleView.setLayoutX(turtleX);
+//		turtleView.setLayoutY(turtleY);
 		myLabel.setText("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
 	}
 	
