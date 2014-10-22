@@ -90,6 +90,18 @@ public class TestParser {
 		assertEquals(1,p.parse("equal? 1 less? 4 * 2 pi").get(0).evaluate(null),0.0000001);
 		assertEquals(1,p.parse("notequal? and 0 3 and 5 4").get(0).evaluate(null),0.0000001);
 	}
+	
+	@Test
+	public void TestIf(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("if greater? sum 1 0 - 5 5 [ sum 5 5 ]");
+		double ans = list.get(0).evaluate(null);
+		assertEquals(10,ans, .00000001);
+		// TODO this shows that sin(0) < cos(90) due to issues with doubles is that ok?
+		List<Node> list2=p.parse("if less? sin 0 cos 90 [ sum 5 5 difference 55 23 ]");
+		double ans2 = list2.get(0).evaluate(null);
+		assertEquals(32,ans2, .00000001);
+	}
 	@Test
 	public void TestSum2(){
 		Parser p=new Parser();
