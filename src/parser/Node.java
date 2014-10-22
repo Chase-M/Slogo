@@ -42,4 +42,7 @@ public class Node {
     public Command getCommand(){
         return myCommand;
     }
+    public List<Node> getChildren(){
+        return myChildren;
+    }
 }

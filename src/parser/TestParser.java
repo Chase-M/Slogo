@@ -57,6 +57,16 @@ public class TestParser {
                 List<Node> list=p.parse("for [ 0 10 1 ] [ sum 5 5 ] sum 10 10");
                 assertEquals(20,list.get(1).evaluate(null), .00000001);
         }
-
+        @Test
+        public void TestTo(){
+            Parser p=new Parser();
+            List<Node> list=p.parse("to square [ :var ] [ repeat 4 [ forward :var left 90 ] ] square [ 50 ] ");
+            Workspace workspace=new Workspace(0);
+            assertEquals(0,list.get(0).evaluate(workspace), .00000001);
+            list.get(1).evaluate(workspace);
+            Turtle t=workspace.getTurtles().get(0);
+            assertEquals(0,t.getX(),.000000001);
+            
+    }
 
 }
