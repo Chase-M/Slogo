@@ -80,6 +80,17 @@ public class TestParser {
 		assertEquals(1,p.parse("log 2.718281828").get(0).evaluate(null),0.0000001);
 	}
 	@Test
+	public void TestBoolean(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("less? 5 2");
+		double ans = list.get(0).evaluate(null);
+		assertEquals(0,ans, .00000001);
+		assertEquals(1,p.parse("greaterp 5 2").get(0).evaluate(null),0.0000001);
+		assertEquals(1,p.parse("or 0 not 0").get(0).evaluate(null),0.0000001);
+		assertEquals(1,p.parse("equal? 1 less? 4 * 2 pi").get(0).evaluate(null),0.0000001);
+		assertEquals(1,p.parse("notequal? and 0 3 and 5 4").get(0).evaluate(null),0.0000001);
+	}
+	@Test
 	public void TestSum2(){
 		Parser p=new Parser();
 		List<Node> list=p.parse("+ 20 20 sum 15 15");
