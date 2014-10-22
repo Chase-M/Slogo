@@ -1,14 +1,9 @@
 package parser;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
-import command.Command;
-import command.MakeCommand;
 import javafx.scene.input.KeyCode;
 
 public class Parser {
