@@ -66,7 +66,11 @@ public class TestParser {
             list.get(1).evaluate(workspace);
             Turtle t=workspace.getTurtles().get(0);
             assertEquals(0,t.getX(),.000000001);
-            
-    }
+            list=p.parse("make :a 0 to r [ :var :b ] [ repeat :var [ make :a sum ( :b :var :a ) ] ] r [ 10 5 ] sum :a 0");
+            for(Node n: list){
+                n.evaluate(workspace);
+            }
+            assertEquals(150, list.get(3).evaluate(workspace), .000001);
+        }
 
 }
