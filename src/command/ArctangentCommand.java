@@ -12,7 +12,7 @@ public class ArctangentCommand extends Command {
 	}
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
-		double radians = Math.toRadians(inputs.get(0).evaluate(workspace));
-		return Math.atan(radians);
+		double radians = Math.atan(inputs.get(0).evaluate(workspace));
+		return Math.toDegrees(radians);
 	}
 }

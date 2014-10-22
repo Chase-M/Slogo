@@ -18,40 +18,67 @@ public class TestParser {
 	public void TestDif(){
 		Parser p=new Parser();
 		List<Node> list=p.parse("difference - 20 15 15");
-		for(Node n: list){
-			assertEquals(-10,n.evaluate(null), .00000001);
-		}
+		assertEquals(-10,list.get(0).evaluate(null), .00000001);
+		
 	}
 	@Test
 	public void TestProd(){
 		Parser p=new Parser();
 		List<Node> list=p.parse("* product 2 5 -3");
-		for(Node n: list){
-			assertEquals(-30,n.evaluate(null), .00000001);
-		}
+		assertEquals(-30,list.get(0).evaluate(null), .00000001);
+		
 	}
 	@Test
 	public void TestQuotient(){
 		Parser p=new Parser();
 		List<Node> list=p.parse("quotient / 20 5 2");
-		for(Node n: list){
-			assertEquals(2,n.evaluate(null), .00000001);
-		}
+		assertEquals(2,list.get(0).evaluate(null), .00000001);
+		
 	}
 	@Test
 	public void TestRemainder(){
 		Parser p=new Parser();
 		List<Node> list=p.parse("remainder 20 5");
-		for(Node n: list){
-			assertEquals(0,n.evaluate(null), .00000001);
-		}
+		assertEquals(0,list.get(0).evaluate(null), .00000001);
+		
 		List<Node> list2=p.parse("% % 58 17 4");
-		for(Node n: list2){
-			assertEquals(3,n.evaluate(null), .00000001);
-		}
+		assertEquals(3,list2.get(0).evaluate(null), .00000001);
+		
+	}
+	@Test
+	public void TestMinus(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("minus ~ 2 ~ 44");
+		assertEquals(2,list.get(0).evaluate(null), .00000001);
+		assertEquals(-44,list.get(1).evaluate(null), .00000001);
 	}
 	
-	
+	@Test
+	public void TestRandom(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("random sum 5 5");
+		double ans = list.get(0).evaluate(null);
+		assertTrue(ans <= 10);
+		assertTrue(ans >= 0);
+	}
+	@Test
+	public void TestTrig(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("sin 90");
+		double ans = list.get(0).evaluate(null);
+		assertEquals(1,ans, .00000001);
+		assertEquals(-1,p.parse("cos * pi / 180 pi").get(0).evaluate(null),0.0000001);
+		assertEquals(1,p.parse("tan 45").get(0).evaluate(null),0.0000001);
+		assertEquals(45,p.parse("atan tan 45").get(0).evaluate(null),0.0000001);
+	}
+	@Test
+	public void TestPow(){
+		Parser p=new Parser();
+		List<Node> list=p.parse("pow 2 3");
+		double ans = list.get(0).evaluate(null);
+		assertEquals(8,ans, .00000001);
+		assertEquals(1,p.parse("log 2.718281828").get(0).evaluate(null),0.0000001);
+	}
 	@Test
 	public void TestSum2(){
 		Parser p=new Parser();
