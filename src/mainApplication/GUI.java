@@ -47,6 +47,7 @@ public class GUI extends Pane implements Observer{
 
 	public GUI(Controller controller){
 		myController = controller;
+		myObjects = new ArrayList<DisplayTurtle>();
 	}
 
 
@@ -93,7 +94,7 @@ public class GUI extends Pane implements Observer{
 		// TODO change this
 		if(props instanceof Position){
 
-			myCenterPane.updateTurtlePosition((Position)props);
+			//myCenterPane.updateTurtlePosition((Position)props);
 		}
 	}
 }

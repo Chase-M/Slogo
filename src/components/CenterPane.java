@@ -35,7 +35,7 @@ public class CenterPane extends Pane implements Feature{
 		DisplayTurtle firstTurtle = new DisplayTurtle();		
 		firstTurtle.setTurtleID(0);		
 		turtleGraphic = firstTurtle.makeNewTurtle();
-		//GUI.myObjects.add(firstTurtle);
+		GUI.myObjects.add(firstTurtle);
 		myLabel = new Label("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
 		this.getChildren().add(myLabel);
 		this.getChildren().add(turtleGraphic);
@@ -45,26 +45,26 @@ public class CenterPane extends Pane implements Feature{
 	public void update() {
 		
 	}
-	public void updateTurtlePosition(Position pos){
-		double tempX = 275+pos.getPoint().getX();
-		double tempY = 200-pos.getPoint().getY();
-		drawLine(tempX, tempY);
-//		turtleView.setLayoutX(turtleX);
-//		turtleView.setLayoutY(turtleY);
-		myLabel.setText("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
-	}
-	
-	private void drawLine(double newX, double newY){
-		Line line = new Line();
-		line.setStroke(Color.BLACK);
-		line.setStartX(turtleX+(turtleWidth/2));
-		line.setStartY(turtleY+(turtleHeight));
-		line.setEndX(newX+(turtleWidth/2));
-		line.setEndY(newY+turtleHeight);
-		this.getChildren().add(line);
-		turtleX = newX;
-		turtleY = newY;
-	}
-	
+//	public void updateTurtlePosition(Position pos){
+//		double tempX = 275+pos.getPoint().getX();
+//		double tempY = 200-pos.getPoint().getY();
+//		drawLine(tempX, tempY);
+////		turtleView.setLayoutX(turtleX);
+////		turtleView.setLayoutY(turtleY);
+//		myLabel.setText("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
+//	}
+//	
+//	private void drawLine(double newX, double newY){
+//		Line line = new Line();
+//		line.setStroke(Color.BLACK);
+//		line.setStartX(turtleX+(turtleWidth/2));
+//		line.setStartY(turtleY+(turtleHeight));
+//		line.setEndX(newX+(turtleWidth/2));
+//		line.setEndY(newY+turtleHeight);
+//		this.getChildren().add(line);
+//		turtleX = newX;
+//		turtleY = newY;
+//	}
+//	
 
 }

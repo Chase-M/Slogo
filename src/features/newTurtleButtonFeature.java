@@ -34,14 +34,14 @@ public class newTurtleButtonFeature extends Button implements Feature {
 				System.out.println("new turtle added");
 				
 				DisplayTurtle newDisplayTurtle = new DisplayTurtle();
-				newDisplayTurtle.setTurtleID(50);
+				newDisplayTurtle.setTurtleID(50); //keep a count of turtles somewhere?
 				ImageView newTurtleGraphic = new ImageView();
 				newTurtleGraphic = newDisplayTurtle.makeNewTurtle();
-				//GUI.myObjects.add(newDisplayTurtle);
+				GUI.myObjects.add(newDisplayTurtle);
 			
 				centerPane.getChildren().add(newTurtleGraphic);		
 				
-				//System.out.println(GUI.myObjects.size());
+				System.out.println(GUI.myObjects.size());
 
 
 			}
