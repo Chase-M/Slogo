@@ -19,6 +19,7 @@ public class StoredCommand extends Command{
         CommandObject command=workspace.getCommands().get(myString);
         List<String> names=command.getMyVarNames();
         List<Node> commands=command.getMyCommands();
+        double ans=0;
         if(command.getMyNumVars()==inputs.size()-2){
             for(int i=1; i<inputs.size()-1; i++){
                 Command make=new MakeCommand("make");
@@ -29,11 +30,12 @@ public class StoredCommand extends Command{
                 varInputs.add(n2);
                 make.execute(varInputs, workspace);
             }
-            for(Node n: commands){
-                n.evaluate(workspace);
+        
+            for(int i=0; i<commands.size()-1; i++){
+                ans=commands.get(i).evaluate(workspace);
             }
         }
-        return 0;
+        return ans;
     }
 
 }
