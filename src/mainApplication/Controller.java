@@ -24,9 +24,10 @@ public class Controller {
 	
 	public Controller(Stage s){//TEMPORARY
 		myStage = s;
-		myView = new GUI(this);
-
 		myWorkspaces = new ArrayList<>();
+		//myView = new GUI(this);
+
+		
 		myActiveWS = new Workspace(0);
 		myWorkspaces.add(myActiveWS);
 		myParser = new Parser();

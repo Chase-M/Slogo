@@ -15,8 +15,18 @@ public class TurtleManager {
 	}
 	public void update(TurtleProperties props){
 		int ID = props.myId;
-		DisplayTurtle turt = (myTurtleMap.containsKey(ID)) ? myTurtleMap.get(ID) : new DisplayTurtle();
+		DisplayTurtle turt;
+		if(myTurtleMap.containsKey(ID)){
+			turt = myTurtleMap.get(ID);
+		}
+		else{
+			turt = new DisplayTurtle();
+			myTurtleMap.put(ID, turt);
+			//turt.updatePosition
+		}
+		
 		turt.updatePosition(props.myPosition);
+
 		//turt.updateHeading(p);
 		//turt.update();
 		
