@@ -2,8 +2,7 @@ package parser;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import actor.Turtle;
+import workspace.Workspace;
 import command.Command;
 
 public class Node {
@@ -24,8 +23,8 @@ public class Node {
      * as all its children 
      * @return
      */
-    public double evaluate(Turtle turtle){
-        return myCommand.execute(myChildren,turtle);
+    public double evaluate(Workspace workspace){
+        return myCommand.execute(myChildren,workspace);
     }
     /**
      * adds a child node which will be another command or int that this command needs to 
@@ -41,5 +40,8 @@ public class Node {
      */
     public Command getCommand(){
         return myCommand;
+    }
+    public List<Node> getChildren(){
+        return myChildren;
     }
 }

@@ -1,16 +1,15 @@
 package parser;
 
-import java.util.ArrayList;
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import org.junit.Test;
 
+import workspace.Workspace;
 import command.ConstCommand;
 import command.LessCommand;
 import command.SumCommand;
-import view.View;
-import actor.Turtle;
-import static org.junit.Assert.*;
 
 public class TestModel {
 
@@ -21,9 +20,9 @@ public class TestModel {
 	@Test
 	public void testPosition(){
 		Parser parser=new Parser();
-		Turtle t=new Turtle(0,0,Math.PI/2);
+		Workspace workspace=new Workspace(0);
 		List<Node> list = parser.parse("forward 50");
-		assertEquals(50, list.get(0).evaluate(t), PRECISION);
+		assertEquals(50, list.get(0).evaluate(workspace), PRECISION);
 	}
 	/**
 	 * Test to make sure it throws exceptions properly

@@ -1,14 +1,9 @@
 package parser;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
-import command.Command;
-import command.MakeCommand;
 import javafx.scene.input.KeyCode;
 
 public class Parser {
@@ -19,7 +14,6 @@ public class Parser {
     private static final String RESOURCE_BUNDLE="resources.languages/";
     private static final String COMMAND_BUNDLE="resources.languages/Command";
     private static final String DEFAULT_LANGUAGE="English";
-    public static final VarMemory myVarMem=new VarMemory();
     public Parser(){
         myTreeHeads=new ArrayList<Node>();
         changeLanguage(DEFAULT_LANGUAGE);
@@ -39,8 +33,7 @@ public class Parser {
        while(myIndex<commands.length){
            Node n=makeTree(commands);
            myTreeHeads.add(n);
-           if(n.myCommand instanceof MakeCommand)
-               n.evaluate(null);
+
        }
        return myTreeHeads;
    }
@@ -72,19 +65,13 @@ public class Parser {
        myIndex++;
        Node next=null;
        for(int i=0; i<node.getCommand().getNumInputs(next); i++){
-           if(!(node.myChildren.size()>i)){
               next=makeTree(s);
-              node.addChild(next);
-           }
-          
+              node.addChild(next);          
        }
        
        return node;
    }
    private Node makeNode(String command){
-       if(myVarMem.checkMem(command)){
-           return myVarMem.getNode(command);
-       }
        commandFactory factory=new basicCommandCreator();
        Enumeration<String> keys=myLanguage.getKeys();
        String name="Error";

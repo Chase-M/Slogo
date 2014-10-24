@@ -2,7 +2,7 @@ package command;
 
 import java.util.List;
 import parser.Node;
-import actor.Turtle;
+import workspace.Workspace;
 
 
 public abstract class Command {
@@ -17,18 +17,16 @@ public abstract class Command {
      * 
      * @param actors
      */
-    public Command () {
-        myNumInputs = setNumInputs();
+    public Command (String s) {
         myNumLists=0;
         myListFlag = 0;
-    }
-
-    public Command (String s) {
-        this();
         myString = s;
     }
-
-    protected abstract int setNumInputs ();
+    
+    protected Command(String s, int i){
+    	this(s);
+    	myNumInputs = i;
+    }
 
     /**
      * Returns the number of inputs for the specific command
@@ -58,6 +56,6 @@ public abstract class Command {
      * @param inputs List of inputs for the specific command
      * @return appropriate int based on the type of command
      */
-    public abstract double execute (List<Node> inputs, Turtle turtle);
+    public abstract double execute (List<Node> inputs, Workspace workspace);
 
 }

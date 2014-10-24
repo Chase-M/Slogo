@@ -8,6 +8,7 @@ import mainApplication.Controller;
 import parser.Parser;
 import actor.Turtle;
 import javafx.scene.layout.Pane;
+import command.Command;
 import components.BottomPane;
 import components.CenterPane;
 import components.LeftPane;
@@ -22,20 +23,53 @@ public class FeatureSetUp{
 	public FeatureSetUp(List<Pane> myComponents, Controller myController){
 		myComponentMap = createComponentMap(myComponents);
 		myFeatureMap = new HashMap<String, Feature>();
-		RunButtonFeature run = new RunButtonFeature(myComponentMap, 
-													myController);
+		
+		RunButtonFeature run = new RunButtonFeature(myComponentMap, myController);
 		myFeatureMap.put("RUN", run);
+		
 		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
 		myFeatureMap.put("COLORPICK", colorPick);
 		
 		newTurtleButtonFeature newTurtle = new newTurtleButtonFeature(myComponentMap);
 		myFeatureMap.put("NEWTURTLE", newTurtle);
 		
+		OpenButtonFeature open = new OpenButtonFeature(myController);
+		myFeatureMap.put("OPEN", open);
+		
+		SaveButtonFeature save = new SaveButtonFeature(myController);
+		myFeatureMap.put("SAVE", save);
+		
+		ToggleGridButtonFeature gridButton = new ToggleGridButtonFeature(myComponentMap);
+		myFeatureMap.put("GRID", gridButton);
+		
 	}
 	
 	public Map<String,Pane> createComponentMap(List<Pane> myComponents){
 		Map<String, Pane> componentMap = new HashMap<String, Pane>();
-		  for(Pane p: myComponents){
+		  
+		for(Pane p:myComponents){
+			//String name = p.getClass().toString();
+			componentMap.put(p.getClass().toString(), p);	//Not a great solution
+			System.out.println(p.getClass().toString());
+			//TODO fix this ish
+			//Class<?> classType = Class.forName
+		}
+		     //   String className=COMMAND_PATH+name;
+		       // Class<?> classType;
+		  //   try {
+		       //  classType = Class.forName(className);
+
+		     //   Command c = (Command)classType.getConstructor(String.class).newInstance(command);
+		       // return c;
+		  //   }
+		//     catch (ClassNotFoundException e1) {
+		         // TODO Auto-generated catch block
+		 //        e1.printStackTrace();
+		//     }
+		
+	/*	
+		for(Pane p: myComponents){
+			  
 			   if(p instanceof BottomPane){
 				   componentMap.put("BOTTOM", p);
 			   }
@@ -52,6 +86,7 @@ public class FeatureSetUp{
 				   componentMap.put("TOP", p);
 				   }
 		   }
+		   */
 		return componentMap;
 	}
 }

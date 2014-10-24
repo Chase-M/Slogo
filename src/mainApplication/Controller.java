@@ -8,6 +8,7 @@ import java.util.Map;
 import parser.Node;
 import parser.Parser;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import view.View;
 import workspace.Workspace;
 
@@ -18,12 +19,13 @@ public class Controller {
 	private int myActive;
 	private Workspace myActiveWS;
 	private GUI myView;
+	//TEMPORARY, REMOVE STAGE
+	public Stage myStage;
 	
-	public Controller(){
-		myView = new GUI(this);
+	public Controller(Stage s){//TEMPORARY
+		myStage = s;
 		myWorkspaces = new ArrayList<>();
-		myActiveWS = new Workspace(0);
-		myWorkspaces.add(myActiveWS);
+
 		myParser = new Parser();
 	}
 	
@@ -32,9 +34,15 @@ public class Controller {
 		myActiveWS.evaluate(list);
 	}
 	
-	public int createWorkspace(){
+	public int createWorkspace(GUI gui){
+		int i = 0;
+		if(myWorkspaces != null)
+			i = myWorkspaces.size();
+		myActiveWS=new Workspace(i);
+		myActiveWS.addObserver(gui);
+		myActiveWS.createTurtle();
+		myWorkspaces.add(myActiveWS);
 		
-		myWorkspaces.add(new Workspace(myWorkspaces.size()));
 		return myWorkspaces.size()-1;
 	}
 	

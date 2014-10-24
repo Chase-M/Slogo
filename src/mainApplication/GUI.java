@@ -5,7 +5,9 @@ package mainApplication;
 import actor.Turtle;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -18,6 +20,7 @@ import features.DisplayTurtle;
 import features.FeatureSetUp;
 import parser.Parser;
 import properties.Position;
+import properties.TurtleProperties;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.BorderPane;
@@ -47,7 +50,7 @@ public class GUI extends Pane implements Observer{
 
 	public GUI(Controller controller){
 		myController = controller;
-		myObjects = new ArrayList<DisplayTurtle>();
+
 	}
 
 
@@ -55,6 +58,7 @@ public class GUI extends Pane implements Observer{
 
 		myParser = new Parser();
 		loadPanes();
+		myController.createWorkspace(this);
 	}
 
 
@@ -79,6 +83,13 @@ public class GUI extends Pane implements Observer{
 		Button run = (Button) features.myFeatureMap.get("RUN");
 		ColorPicker CP = (ColorPicker) features.myFeatureMap.get("COLORPICK");
 		Button newTurtle = (Button) features.myFeatureMap.get("NEWTURTLE");
+		Button open = (Button) features.myFeatureMap.get("OPEN");
+		Button save = (Button) features.myFeatureMap.get("SAVE");
+		Button grid = (Button) features.myFeatureMap.get("GRID");
+
+		myTopPane.addButton(open);
+		myTopPane.addButton(save);
+		myTopPane.addButton(grid);
 		myBottomPane.getChildren().add(CP);
 		myBottomPane.updateButton(run);
 		myBottomPane.getChildren().add(newTurtle);
@@ -88,13 +99,32 @@ public class GUI extends Pane implements Observer{
 		
 
 		this.getChildren().add(pane);
+		/**
+		 * Don't delete this stuff
+		 */
+/*		Map<String, Double> myMap = new HashMap<String, Double>();
+		myMap.put("this", 5.);
+		myMap.put("that", 6.);
+		myMap.put("the other", 6.7);
+		myLeftPane.updateVars(myMap);
+		*/
 	}
 	@Override
 	public void update(Observable obs, Object props) {
 		// TODO change this
+		System.out.println("test2");
+		if(props instanceof TurtleProperties){
+			System.out.println("test");
+			myCenterPane.updateTurtlePosition((TurtleProperties) props);
+		}
+	/*	if(props instanceof PenProperties){
+			myCenterPane.updateTurtlePosition((Position)props);
+		}
 		if(props instanceof Position){
 
-			//myCenterPane.updateTurtlePosition((Position)props);
+			myCenterPane.updateTurtlePosition((Position)props);
 		}
+		*/
+		
 	}
 }

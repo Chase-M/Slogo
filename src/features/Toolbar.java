@@ -31,16 +31,11 @@ public class Toolbar extends ToolBar implements Feature{
 
 public Toolbar(){
 	super(new Button("New"),
+			new Separator(),
 		     new Button("Open"),
-		     new Button("Save"),
 		     new Separator(),
-		     new Button("Clean"),
-		     new Button("Compile"),
-		     new Button("Run"),
-		     new Separator(),
-		     new Button("Debug"),
-		     new Button("Profile"));
-	Label languageLabel = new Label("Language Pack:");
+		     new Button("Save"));
+/*	Label languageLabel = new Label("Language Pack:");
 	ComboBox<String> languageCB = new ComboBox<String>();
 	languageCB.getItems().addAll("English", "Spanish", "Chinese");
 	super.getItems().addAll(languageLabel, languageCB);
@@ -53,6 +48,7 @@ public Toolbar(){
 	
 		
 	});
+	*/
 	//super.getChildren().add(new Button("test"));
 	//super.getItems().add(new Button("test"));
 	//this.getChildren().add(myMenu);

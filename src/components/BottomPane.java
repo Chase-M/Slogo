@@ -26,14 +26,11 @@ public class BottomPane extends HBox implements Feature {
 	    		+ "-fx-border-width: 2;-fx-border-color: black;");
 	    errorDisplay.setPadding(new Insets(15, 12, 15, 12));
 	    errorDisplay.setPrefWidth(300);
-	    TabPane tabs = new TabPane();
+	    errorDisplay.setPrefHeight(100);
+	  //  TabPane tabs = new TabPane();
 	    //tabs.setStyle(arg0);
 	    //tabs.set
-	    Tab errorsTemp = new Tab("test");
-	    errorsTemp.setClosable(false);
-	    errorsTemp.setContent(errorDisplay);
-	    tabs.getTabs().add(errorsTemp);
-	    this.getChildren().addAll(myCommand, tabs);//errorDisplay);
+	    this.getChildren().addAll(myCommand, errorDisplay);//errorDisplay);
 	}
 	public void updateButton(Button run){
 	   	   this.getChildren().add(run);

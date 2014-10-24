@@ -1,28 +1,21 @@
 package command;
 
 import java.util.List;
-
 import parser.Node;
-import actor.Turtle;
+import workspace.Workspace;
 
 public class ConstCommand extends Command {
 
 	double myValue;
 	public ConstCommand(String s){
-		super(s);
+		super(s,0);
 		myValue = Double.parseDouble(s);
-		myNumInputs = 0;
 
 	}
 	
 	@Override
-	public double execute(List<Node> inputs, Turtle turtle) {
+	public double execute(List<Node> inputs, Workspace workspace) {
 		return myValue;
-	}
-
-	@Override
-	protected int setNumInputs() {
-		return 0;
 	}
 
 }

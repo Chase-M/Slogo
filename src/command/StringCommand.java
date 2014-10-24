@@ -2,25 +2,18 @@ package command;
 
 import java.util.List;
 import parser.Node;
-import actor.Turtle;
+import workspace.Workspace;
 
 public class StringCommand extends Command{
     String myString;
     public StringCommand(String s){
-            super(s);
+            super(s,0);
   
 
     }
-    
 
     @Override
-    protected int setNumInputs () {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public double execute (List<Node> inputs, Turtle turtle) {
+    public double execute (List<Node> inputs, Workspace workspace) {
         // TODO Auto-generated method stub
         return 0;
     }

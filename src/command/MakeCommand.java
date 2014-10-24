@@ -1,28 +1,21 @@
 package command;
 
 import java.util.List;
-import parser.VarMemory;
 import parser.Node;
-import actor.Turtle;
+import workspace.Workspace;
 
 public class MakeCommand extends Command{
     
 
     public MakeCommand(String s){
-        super(s);
+        super(s,2);
     }
     @Override
-    public double execute (List<Node> inputs, Turtle turtle) {
+    public double execute (List<Node> inputs, Workspace workspace) {
         // TODO Auto-generated method stub
-        VarMemory mem=new VarMemory();
         String name=inputs.get(0).getCommand().toString();
-        mem.add(name, inputs.get(1));
+        workspace.getVariables().put(name, inputs.get(1).evaluate(workspace));
         return 0;
-    }
-    @Override
-    protected int setNumInputs () {
-        // TODO Auto-generated method stub
-        return 2;
     }
 
 }
