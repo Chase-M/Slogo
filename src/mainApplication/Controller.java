@@ -37,8 +37,10 @@ public class Controller {
 	}
 	
 	public int createWorkspace(){
+		Workspace workspace=new Workspace(myWorkspaces.size());
+	//	workspace.addObserver();
+		myWorkspaces.add(workspace);
 		
-		myWorkspaces.add(new Workspace(myWorkspaces.size()));
 		return myWorkspaces.size()-1;
 	}
 	

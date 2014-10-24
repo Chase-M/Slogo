@@ -2,56 +2,83 @@ package workspace;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
-
+import java.util.Observable;
+import java.util.Observer;
+import javafx.scene.paint.Color;
 import actor.Pen;
 import actor.Turtle;
 import parser.CommandObject;
 import parser.Node;
 import properties.Position;
+import properties.StageProperties;
+import properties.TurtleProperties;
 
-public class Workspace {
-	private static final Position DEFAULT_POSITION = new Position(0,0,Math.PI/2);
-	private int myID;
-	private List<Turtle> myTurtles;
-	private String myLanguage;
-	private Properties myProperties;
-	private Map<String,Double> myVariables;
-	private Map<String,CommandObject> myCommands; 
-	
-	
-	public Workspace(int id){
-		myTurtles = new ArrayList<>();
-		myTurtles.add(new Turtle(DEFAULT_POSITION,new Pen(),0));
-		myID = id;
-	}
-	public Workspace(File f) {
-		// TODO Auto-generated constructor stub
-	}
-	
-	//TODO this won't work because it will reassign variables incorrectly
-	public void evaluate(List<Node> list) {
-		for(int i = 0; i<list.size();i++){
-			for(Turtle t : myTurtles){
-				if(t.isActive()){
-					list.get(i).evaluate(t);
-				}
-			}
-		}
-	}
-	
-	public Map<String, Double> getVariables() {
-		// TODO Auto-generated method stub
-		return myVariables;
-	}
-	public void clear() {
-		// TODO Auto-generated method stub
-		
-	}
-	public void save(String s) {
-		// TODO Auto-generated method stub
-		
-	}
+
+public class Workspace extends Observable implements Observer {
+    private static final Position DEFAULT_POSITION = new Position(0, 0, Math.PI / 2);
+    private int myID;
+    private Map<Integer, Turtle> myTurtles;
+    private String myLanguage;
+    private StageProperties myStageProperties;
+    private Map<String, Double> myVariables;
+    private Map<String, CommandObject> myCommands;
+    private List<Color> myColors;
+    public Workspace (int id) {
+        myTurtles = new HashMap<>();
+        myID = id;
+        Turtle turtle = new Turtle(DEFAULT_POSITION, new Pen(), 0);
+        myTurtles.put(0, turtle);
+        turtle.addObserver(this);
+        myVariables = new HashMap<String, Double>();
+        myCommands = new HashMap<String, CommandObject>();
+        myColors=new ArrayList<Color>();
+        myColors.add(Color.BLACK);
+        myTurtles.get(0).setChangedandNotify(new TurtleProperties(turtle));
+    }
+
+    public Workspace (File f) {
+        // TODO Auto-generated constructor stub
+    }
+
+    // TODO this won't work because it will reassign variables incorrectly
+    public void evaluate (List<Node> list) {
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).evaluate(this);
+
+        }
+    }
+
+    public Map<String, Double> getVariables () {
+        // TODO Auto-generated method stub
+        return myVariables;
+    }
+
+    public Map<String, CommandObject> getCommands () {
+        return myCommands;
+    }
+
+    public void clear () {
+        // TODO Auto-generated method stub
+
+    }
+
+    public void save (String s) {
+        // TODO Auto-generated method stub
+
+    }
+
+    public Map<Integer,Turtle> getTurtles () {
+        // TODO Auto-generated method stub
+        return myTurtles;
+    }
+
+    @Override
+    public void update (Observable arg0, Object arg1) {
+        // TODO Auto-generated method stub
+        setChanged();
+        notifyObservers(arg1);
+    }
 }

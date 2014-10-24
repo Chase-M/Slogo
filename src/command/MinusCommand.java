@@ -1,21 +1,18 @@
 package command;
 
 import java.util.List;
+
 import parser.Node;
 import workspace.Workspace;
 
-public class ConstCommand extends Command {
+public class MinusCommand extends Command {
 
-	double myValue;
-	public ConstCommand(String s){
-		super(s,0);
-		myValue = Double.parseDouble(s);
-
+	public MinusCommand(String s){
+		super(s,1); 
 	}
-	
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
-		return myValue;
+		return -inputs.get(0).evaluate(workspace);
 	}
 
 }

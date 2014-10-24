@@ -10,10 +10,13 @@ public class Turtle extends Observable {
 	private Position myPosition;
 	private int myID;
 	private Pen myPen;
+	private boolean isActive;
 	
 	public Turtle(Position pos, Pen pen, int id){
 		myPosition = pos;
 		myPen = pen;
+		myID = id;
+		isActive = true;
 	}
 	
 	public double getX(){
@@ -32,12 +35,28 @@ public class Turtle extends Observable {
 		return myPosition.getPoint();
 	}
 	
+	public int getID(){
+		return myID;
+	}
+	
+	public Position getPosition(){
+		return myPosition;
+	}
+	
+	public Pen getPen(){
+		return myPen;
+	}
+	
 	public void updatePosition(double newX, double newY, double newAngle){
 		myPosition = new Position(newX,newY,newAngle);
-		setChanged();
-		notifyObservers(myPosition);
+		setChangedandNotify(myPosition);
 	}
 
+	public void setChangedandNotify(Object obj){
+		setChanged();
+		notifyObservers(obj);
+	}
+	
 	public boolean isActive() {
 		return true;
 	}

@@ -5,17 +5,18 @@ import java.util.List;
 import parser.Node;
 import workspace.Workspace;
 
-public class SumCommand extends Command {
+public class ProductCommand extends Command {
 
-	public SumCommand(String s){
-	   super(s,2); 
+	public ProductCommand(String s){
+		super(s,2); 
 	}
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
-		double sum = 0;
+		double prod = 1;
 		for(Node n: inputs){
-			sum += n.evaluate(workspace);
+			prod *= n.evaluate(workspace);
 		}
-		return sum;
+		return prod;
+
 	}
 }
