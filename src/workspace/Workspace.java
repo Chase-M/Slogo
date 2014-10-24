@@ -14,6 +14,7 @@ import actor.Turtle;
 import parser.CommandObject;
 import parser.Node;
 import properties.Position;
+import properties.StageProperties;
 import properties.TurtleProperties;
 
 
@@ -22,7 +23,7 @@ public class Workspace extends Observable implements Observer {
     private int myID;
     private List<Turtle> myTurtles;
     private String myLanguage;
-    private Properties myProperties;
+    private StageProperties myStageProperties;
     private Map<String, Double> myVariables;
     private Map<String, CommandObject> myCommands;
     private List<Color> myColors;
@@ -35,7 +36,6 @@ public class Workspace extends Observable implements Observer {
         myCommands = new HashMap<String, CommandObject>();
         myColors=new ArrayList<Color>();
         myColors.add(Color.BLACK);
-        myTurtles.get(0).notifyObservers(new TurtleProperties(myTurtles.get(0)));
     }
 
     public Workspace (File f) {
@@ -77,6 +77,7 @@ public class Workspace extends Observable implements Observer {
     @Override
     public void update (Observable arg0, Object arg1) {
         // TODO Auto-generated method stub
+        setChanged();
         notifyObservers(arg1);
     }
 }
