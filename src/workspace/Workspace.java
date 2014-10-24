@@ -75,13 +75,12 @@ public class Workspace extends Observable implements Observer {
     @Override
     public void update (Observable arg0, Object arg1) {
         // TODO Auto-generated method stub
-    	System.out.println("hey2");
         setChanged();
         notifyObservers(arg1);
     }
     
     public void createTurtle(){
-        Turtle turtle = new Turtle(DEFAULT_POSITION, new Pen(), 0);
+        Turtle turtle = new Turtle(DEFAULT_POSITION, 0);
         myTurtles.put(0, turtle);
         turtle.addObserver(this);
         myTurtles.get(0).setChangedandNotify(new TurtleProperties(turtle));
