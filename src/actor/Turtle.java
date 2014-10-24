@@ -1,12 +1,14 @@
 package actor;
 
 import java.util.Observable;
+
 import properties.Position;
 import properties.TurtleProperties;
 import javafx.geometry.Point2D;
 
 
 public class Turtle extends Observable {
+    private static final Position DEFAULT_POSITION = new Position(0, 0, Math.PI / 2);
 	private Position myPosition;
 	private int myID;
 	private Pen myPen;
@@ -19,6 +21,10 @@ public class Turtle extends Observable {
 		myPen = new Pen(myID);
 		isActive = true;
 		isShowing = true;
+	}
+	
+	public Turtle(int id){
+		this(DEFAULT_POSITION,id);
 	}
 	
 	public double getX(){

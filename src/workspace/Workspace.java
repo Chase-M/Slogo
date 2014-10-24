@@ -20,82 +20,78 @@ import properties.TurtleProperties;
 
 
 public class Workspace extends Observable implements Observer {
-    private static final Position DEFAULT_POSITION = new Position(0, 0, Math.PI / 2);
-    private int myID;
-    private Map<Integer, Turtle> myTurtles;
-    private String myLanguage;
-    private StageProperties myStageProperties;
-    private Map<String, Double> myVariables;
-    private Map<String, CommandObject> myCommands;
-    private List<Color> myColors;
-    public Workspace (int id) {
-        myTurtles = new HashMap<>();
-        myID = id;
-        myVariables = new HashMap<String, Double>();
-        myCommands = new HashMap<String, CommandObject>();
-        myColors=new ArrayList<Color>();
-        myColors.add(Color.BLACK);
+	private int myID;
+	private Map<Integer, Turtle> myTurtles;
+	private String myLanguage;
+	private StageProperties myStageProperties;
+	private Map<String, Double> myVariables;
+	private Map<String, CommandObject> myCommands;
+	private List<Color> myColors;
+	public Workspace (int id) {
+		myTurtles = new HashMap<>();
+		myID = id;
+		myVariables = new HashMap<String, Double>();
+		myCommands = new HashMap<String, CommandObject>();
+		myColors=new ArrayList<Color>();
+		myColors.add(Color.BLACK);
 
-    }
+	}
 
-    public Workspace (File f) {
-        // TODO Auto-generated constructor stub
-    }
+	public Workspace (File f) {
+		// TODO Auto-generated constructor stub
+	}
 
-    // TODO this won't work because it will reassign variables incorrectly
-    public void evaluate (List<Node> list) {
-        for (int i = 0; i < list.size(); i++) {
-            list.get(i).evaluate(this);
+	// TODO this won't work because it will reassign variables incorrectly
+	public void evaluate (List<Node> list) {
+		for (int i = 0; i < list.size(); i++) {
+			list.get(i).evaluate(this);
 
-        }
-    }
+		}
+	}
 
-    public Map<String, Double> getVariables () {
-        // TODO Auto-generated method stub
-        return myVariables;
-    }
+	public Map<String, Double> getVariables () {
+		// TODO Auto-generated method stub
+		return myVariables;
+	}
 
-    public Map<String, CommandObject> getCommands () {
-        return myCommands;
-    }
+	public Map<String, CommandObject> getCommands () {
+		return myCommands;
+	}
 
-    public void clear () {
-        // TODO Auto-generated method stub
+	public void clear () {
+		// TODO Auto-generated method stub
 
-    }
+	}
 
-    public void save (String s) {
-        // TODO Auto-generated method stub
+	public void save (String s) {
+		// TODO Auto-generated method stub
 
-    }
+	}
 
-    public List<Turtle> getActiveTurtles () {
-        // TODO Auto-generated method stub
-        List<Turtle> list=getTurtles();
-        for(Turtle t: list){
-            if(!t.isActive())
-                list.remove(t);
-        }
-        return list;
-    }
-    public List<Turtle> getTurtles(){
-        List<Turtle> list=new ArrayList<Turtle>();
-        for(Integer i: myTurtles.keySet())
-            list.add(myTurtles.get(i));
-        return list;
-    }
+	public List<Turtle> getActiveTurtles () {
+		// TODO Auto-generated method stub
+		List<Turtle> list=new ArrayList<Turtle>();
+		for(Integer i: myTurtles.keySet()){
+			if(myTurtles.get(i).isActive())
+				list.add(myTurtles.get(i));
+		}
+		return list;
+	}
+	public Map<Integer, Turtle> getTurtles(){
+		return myTurtles;
+	}
 
-    @Override
-    public void update (Observable arg0, Object arg1) {
-        // TODO Auto-generated method stub
-        setChanged();
-        notifyObservers(arg1);
-    }
-    
-    public void createTurtle(){
-        Turtle turtle = new Turtle(DEFAULT_POSITION, 0);
-        myTurtles.put(0, turtle);
-        turtle.addObserver(this);
-        myTurtles.get(0).setChangedandNotify(new TurtleProperties(turtle));
-    }
+	@Override
+	public void update (Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		setChanged();
+		notifyObservers(arg1);
+	}
+
+	public void createTurtle(int id){
+		Turtle turtle = new Turtle(id);
+		myTurtles.put(id, turtle);
+		turtle.addObserver(this);
+		myTurtles.get(id).setChangedandNotify(new TurtleProperties(turtle));
+	}
 }
