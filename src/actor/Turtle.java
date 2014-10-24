@@ -20,21 +20,20 @@ public class Turtle extends Observable {
 	}
 	
 	public double getX(){
-		return myPosition.getPoint().getX();
+		return myPosition.getX();
 	}
 	
 	public double getY(){
-		return myPosition.getPoint().getY();
+		return myPosition.getY();
 	}
-	
+	public Point2D getPoint(){
+	    return myPosition.getPoint();
+	}
 	public double getAngle(){
 		return myPosition.getAngle();
 	}
 	
-	public Point2D getPoint(){
-		return myPosition.getPoint();
-	}
-	
+
 	public int getID(){
 		return myID;
 	}
