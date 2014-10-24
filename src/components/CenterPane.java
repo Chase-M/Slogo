@@ -38,7 +38,7 @@ public class CenterPane extends Pane implements Feature{
 		GUI.myObjects.add(firstTurtle);
 		myLabel = new Label("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
 		this.getChildren().add(myLabel);
-		this.getChildren().add(turtleGraphic);
+		//this.getChildren().add(turtleGraphic);
 
 	}
 	@Override

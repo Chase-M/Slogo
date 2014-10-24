@@ -73,8 +73,7 @@ public class DisplayTurtle {
 	public void newTurtleAngle(double num){
 		
 		//radians? what is default. lefts and rights.
-		turtleGraphic.setRotate(num);
-		
+		turtleGraphic.setRotate(num);		
 	}
 	
 	
