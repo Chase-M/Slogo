@@ -17,13 +17,9 @@ public abstract class Command {
      * 
      * @param actors
      */
-    public Command () {
+    public Command (String s) {
         myNumLists=0;
         myListFlag = 0;
-    }
-
-    public Command (String s) {
-        this();
         myString = s;
     }
     
