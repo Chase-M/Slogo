@@ -36,6 +36,7 @@ public class Workspace extends Observable implements Observer {
         myCommands = new HashMap<String, CommandObject>();
         myColors=new ArrayList<Color>();
         myColors.add(Color.BLACK);
+        myTurtles.get(0).setChangedandNotify(new TurtleProperties(myTurtles.get(0)));
     }
 
     public Workspace (File f) {
