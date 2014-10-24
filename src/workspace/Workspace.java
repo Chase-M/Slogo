@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Properties;
 import javafx.scene.paint.Color;
 import actor.Pen;
 import actor.Turtle;
@@ -21,22 +20,23 @@ import properties.TurtleProperties;
 public class Workspace extends Observable implements Observer {
     private static final Position DEFAULT_POSITION = new Position(0, 0, Math.PI / 2);
     private int myID;
-    private List<Turtle> myTurtles;
+    private Map<Integer, Turtle> myTurtles;
     private String myLanguage;
     private StageProperties myStageProperties;
     private Map<String, Double> myVariables;
     private Map<String, CommandObject> myCommands;
     private List<Color> myColors;
     public Workspace (int id) {
-        myTurtles = new ArrayList<>();
+        myTurtles = new HashMap<>();
         myID = id;
-        myTurtles.add(new Turtle(DEFAULT_POSITION, new Pen(), 0));
-        myTurtles.get(0).addObserver(this);
+        Turtle turtle = new Turtle(DEFAULT_POSITION, new Pen(), 0);
+        myTurtles.put(0, turtle);
+        turtle.addObserver(this);
         myVariables = new HashMap<String, Double>();
         myCommands = new HashMap<String, CommandObject>();
         myColors=new ArrayList<Color>();
         myColors.add(Color.BLACK);
-        myTurtles.get(0).setChangedandNotify(new TurtleProperties(myTurtles.get(0)));
+        myTurtles.get(0).setChangedandNotify(new TurtleProperties(turtle));
     }
 
     public Workspace (File f) {
@@ -70,7 +70,7 @@ public class Workspace extends Observable implements Observer {
 
     }
 
-    public List<Turtle> getTurtles () {
+    public Map<Integer,Turtle> getTurtles () {
         // TODO Auto-generated method stub
         return myTurtles;
     }
