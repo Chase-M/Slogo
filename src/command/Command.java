@@ -37,7 +37,7 @@ public abstract class Command {
         }
         
         if (myListFlag > 0) {
-            if ((node.getCommand() instanceof ListEndCommand && (myNumLists=myNumLists-1)==0) || node.getCommand() instanceof GroupEndCommand){
+            if ((node.getCommand() instanceof ListEndCommand && (myNumLists-=1)==0) || node.getCommand() instanceof GroupEndCommand){
                 return 0;
             }else return Integer.MAX_VALUE;
         }
