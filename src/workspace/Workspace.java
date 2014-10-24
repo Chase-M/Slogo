@@ -29,14 +29,11 @@ public class Workspace extends Observable implements Observer {
     public Workspace (int id) {
         myTurtles = new HashMap<>();
         myID = id;
-        Turtle turtle = new Turtle(DEFAULT_POSITION, new Pen(), 0);
-        myTurtles.put(0, turtle);
-        turtle.addObserver(this);
         myVariables = new HashMap<String, Double>();
         myCommands = new HashMap<String, CommandObject>();
         myColors=new ArrayList<Color>();
         myColors.add(Color.BLACK);
-        myTurtles.get(0).setChangedandNotify(new TurtleProperties(turtle));
+
     }
 
     public Workspace (File f) {
@@ -81,5 +78,12 @@ public class Workspace extends Observable implements Observer {
     	System.out.println("hey2");
         setChanged();
         notifyObservers(arg1);
+    }
+    
+    public void createTurtle(){
+        Turtle turtle = new Turtle(DEFAULT_POSITION, new Pen(), 0);
+        myTurtles.put(0, turtle);
+        turtle.addObserver(this);
+        myTurtles.get(0).setChangedandNotify(new TurtleProperties(turtle));
     }
 }
