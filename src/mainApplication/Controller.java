@@ -17,10 +17,8 @@ public class Controller {
 	private Parser myParser;
 	private int myActive;
 	private Workspace myActiveWS;
-	private GUI myView;
 	
 	public Controller(){
-		myView = new GUI(this);
 		myWorkspaces = new ArrayList<>();
 		myActiveWS = new Workspace(0);
 		myWorkspaces.add(myActiveWS);
@@ -32,9 +30,9 @@ public class Controller {
 		myActiveWS.evaluate(list);
 	}
 	
-	public int createWorkspace(){
+	public int createWorkspace(GUI gui){
 		Workspace workspace=new Workspace(myWorkspaces.size());
-	//	workspace.addObserver();
+		workspace.addObserver(gui);
 		myWorkspaces.add(workspace);
 		
 		return myWorkspaces.size()-1;
