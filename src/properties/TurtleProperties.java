@@ -9,7 +9,7 @@ public class TurtleProperties {
     public Position myPosition;
     
     public TurtleProperties(Turtle turtle){
-        myId=turtle.getId();
+        myId=turtle.getID();
         myPen=turtle.getPen();
         myPosition=turtle.getPosition();
     }
