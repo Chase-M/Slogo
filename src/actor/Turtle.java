@@ -1,8 +1,8 @@
 package actor;
 
 import java.util.Observable;
-
 import properties.Position;
+import properties.TurtleProperties;
 import javafx.geometry.Point2D;
 
 
@@ -20,21 +20,20 @@ public class Turtle extends Observable {
 	}
 	
 	public double getX(){
-		return myPosition.getPoint().getX();
+		return myPosition.getX();
 	}
 	
 	public double getY(){
-		return myPosition.getPoint().getY();
+		return myPosition.getY();
 	}
-	
+	public Point2D getPoint(){
+	    return myPosition.getPoint();
+	}
 	public double getAngle(){
 		return myPosition.getAngle();
 	}
 	
-	public Point2D getPoint(){
-		return myPosition.getPoint();
-	}
-	
+
 	public int getID(){
 		return myID;
 	}
@@ -49,7 +48,7 @@ public class Turtle extends Observable {
 	
 	public void updatePosition(double newX, double newY, double newAngle){
 		myPosition = new Position(newX,newY,newAngle);
-		setChangedandNotify(myPosition);
+		setChangedandNotify(new TurtleProperties(this));
 	}
 
 	public void setChangedandNotify(Object obj){

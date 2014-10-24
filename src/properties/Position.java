@@ -10,10 +10,22 @@ public class Position {
 		myAngle = angle;
 	}
 	
-	public Point2D getPoint(){
-		return myPoint;
-	}
+
 	public double getAngle(){
 		return myAngle;
 	}
+	 
+	public double getX(){
+	    return myPoint.getX();
+	    
+	}
+	public double getY(){
+	    return myPoint.getY();
+	}
+
+
+    public Point2D getPoint () {
+        // TODO Auto-generated method stub
+        return myPoint;
+    }
 }
