@@ -11,15 +11,17 @@ public class SetPositionCommand extends Command {
 	public SetPositionCommand(String s){
 		super(s,2);
 	}
-	
+
 
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
 		double newX = inputs.get(0).evaluate(workspace);
 		double newY = inputs.get(1).evaluate(workspace);
-		Turtle turtle=workspace.getTurtles().get(0);
-		Point2D oldP = turtle.getPoint();
-		turtle.updatePosition(newX,newY,turtle.getAngle());
+		Point2D oldP = null;
+		for(Turtle turtle :workspace.getActiveTurtles()){
+			oldP = turtle.getPoint();
+			turtle.updatePosition(newX,newY,turtle.getAngle());
+		}
 		return oldP.distance(newX,newY);
 	}
 

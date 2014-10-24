@@ -12,11 +12,11 @@ public class ForwardCommand extends Command {
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
 		double distance = inputs.get(0).evaluate(workspace);
-		Turtle turtle=workspace.getTurtles().get(0);
+		for(Turtle turtle :workspace.getActiveTurtles()){
 		double newX = turtle.getX() + Math.cos(turtle.getAngle())*distance;
 		double newY = turtle.getY() + Math.sin(turtle.getAngle())*distance;
 		turtle.updatePosition(newX,newY,turtle.getAngle());
-		
+		}
 		return distance;
 	}
 

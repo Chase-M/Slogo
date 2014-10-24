@@ -8,12 +8,13 @@ import workspace.Workspace;
 
 public class HideTurtleCommand extends Command {
 	public HideTurtleCommand(String s){
-	    super(s,0);
+		super(s,0);
 	}
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
-		Turtle turtle=workspace.getTurtles().get(0);
-		turtle.setShowing(false);
+		for(Turtle turtle :workspace.getActiveTurtles()){
+			turtle.setShowing(false);
+		}
 		return 0;
 	}
 

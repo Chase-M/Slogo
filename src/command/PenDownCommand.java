@@ -9,13 +9,14 @@ import workspace.Workspace;
 
 public class PenDownCommand extends Command {
 	public PenDownCommand(String s){
-	    super(s,0);
+		super(s,0);
 	}
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
-		Turtle turtle=workspace.getTurtles().get(0);
-		turtle.getPen().isDown = true;
-		turtle.setChangedandNotify(new PenProperties(turtle.getPen()));
+		for(Turtle turtle :workspace.getActiveTurtles()){
+			turtle.getPen().isDown = true;
+			turtle.setChangedandNotify(new PenProperties(turtle.getPen()));
+		}
 		return 1;
 	}
 

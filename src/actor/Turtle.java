@@ -18,6 +18,7 @@ public class Turtle extends Observable {
 		myID = id;
 		myPen = new Pen(myID);
 		isActive = true;
+		isShowing = true;
 	}
 	
 	public double getX(){

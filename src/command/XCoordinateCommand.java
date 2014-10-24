@@ -11,7 +11,8 @@ public class XCoordinateCommand extends Command {
 	}
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
-		Turtle turtle=workspace.getTurtles().get(0);
+		List<Turtle> turtles=workspace.getActiveTurtles();
+		Turtle turtle = turtles.get(turtles.size()-1);
 		return turtle.getX();
 	}
 
