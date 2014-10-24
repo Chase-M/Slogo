@@ -49,10 +49,14 @@ public class Turtle extends Observable {
 	
 	public void updatePosition(double newX, double newY, double newAngle){
 		myPosition = new Position(newX,newY,newAngle);
-		setChanged();
-		notifyObservers(myPosition);
+		setChangedandNotify(myPosition);
 	}
 
+	public void setChangedandNotify(Object obj){
+		setChanged();
+		notifyObservers(obj);
+	}
+	
 	public boolean isActive() {
 		return true;
 	}
