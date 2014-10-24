@@ -23,14 +23,21 @@ public class FeatureSetUp{
 	public FeatureSetUp(List<Pane> myComponents, Controller myController){
 		myComponentMap = createComponentMap(myComponents);
 		myFeatureMap = new HashMap<String, Feature>();
-		RunButtonFeature run = new RunButtonFeature(myComponentMap, 
-													myController);
+		
+		RunButtonFeature run = new RunButtonFeature(myComponentMap, myController);
 		myFeatureMap.put("RUN", run);
+		
 		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
 		myFeatureMap.put("COLORPICK", colorPick);
 		
 		newTurtleButtonFeature newTurtle = new newTurtleButtonFeature(myComponentMap);
 		myFeatureMap.put("NEWTURTLE", newTurtle);
+		
+		OpenButtonFeature open = new OpenButtonFeature(myController);
+		myFeatureMap.put("OPEN", open);
+		
+		SaveButtonFeature save = new SaveButtonFeature(myController);
+		myFeatureMap.put("SAVE", save);
 		
 	}
 	

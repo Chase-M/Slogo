@@ -8,6 +8,7 @@ import java.util.Map;
 import parser.Node;
 import parser.Parser;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import view.View;
 import workspace.Workspace;
 
@@ -18,8 +19,11 @@ public class Controller {
 	private int myActive;
 	private Workspace myActiveWS;
 	private GUI myView;
+	//TEMPORARY, REMOVE STAGE
+	public Stage myStage;
 	
-	public Controller(){
+	public Controller(Stage s){//TEMPORARY
+		myStage = s;
 		myView = new GUI(this);
 		myWorkspaces = new ArrayList<>();
 		myActiveWS = new Workspace(0);

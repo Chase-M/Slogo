@@ -44,7 +44,8 @@ public class RunButtonFeature extends Button implements Feature{
 				    }	
 				    });
 		        rightPane.update(button);
-		        leftPane.update(label);		        
+		        leftPane.tempTabThing.update(label);
+		        leftPane.tempTabThing2.update(button);
 		        bottomPane.myCommand.clear();
 		    	}
 		        //bottomPane.update();

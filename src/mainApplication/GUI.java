@@ -80,6 +80,11 @@ public class GUI extends Pane implements Observer{
 		Button run = (Button) features.myFeatureMap.get("RUN");
 		ColorPicker CP = (ColorPicker) features.myFeatureMap.get("COLORPICK");
 		Button newTurtle = (Button) features.myFeatureMap.get("NEWTURTLE");
+		Button open = (Button) features.myFeatureMap.get("OPEN");
+		Button save = (Button) features.myFeatureMap.get("SAVE");
+
+		myTopPane.addButton(open);
+		myTopPane.addButton(save);
 		myBottomPane.getChildren().add(CP);
 		myBottomPane.updateButton(run);
 		myBottomPane.getChildren().add(newTurtle);

@@ -34,7 +34,7 @@ public class Main extends Application{
 		Group root = new Group();
 		Scene s = initiate(root);
 
-		Controller controller = new Controller();
+		Controller controller = new Controller(stage);
 		GUI userFace = new GUI(controller);
 		userFace.initiate();
 
