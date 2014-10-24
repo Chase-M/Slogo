@@ -25,11 +25,7 @@ public class Controller {
 	public Controller(Stage s){//TEMPORARY
 		myStage = s;
 		myWorkspaces = new ArrayList<>();
-		//myView = new GUI(this);
 
-		
-		myActiveWS = new Workspace(0);
-		myWorkspaces.add(myActiveWS);
 		myParser = new Parser();
 	}
 	
@@ -39,9 +35,12 @@ public class Controller {
 	}
 	
 	public int createWorkspace(GUI gui){
-		Workspace workspace=new Workspace(myWorkspaces.size());
-		workspace.addObserver(gui);
-		myWorkspaces.add(workspace);
+		int i = 0;
+		if(myWorkspaces != null)
+			i = myWorkspaces.size();
+		myActiveWS=new Workspace(i);
+		myActiveWS.addObserver(gui);
+		myWorkspaces.add(myActiveWS);
 		
 		return myWorkspaces.size()-1;
 	}

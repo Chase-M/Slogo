@@ -52,6 +52,7 @@ public class Turtle extends Observable {
 	}
 
 	public void setChangedandNotify(Object obj){
+		System.out.println("hey");
 		setChanged();
 		notifyObservers(obj);
 	}
