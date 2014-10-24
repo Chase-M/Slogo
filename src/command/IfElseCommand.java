@@ -19,14 +19,15 @@ public class IfElseCommand extends Command {
                 break;
             }
         }
+        double ans=0;
         if(inputs.get(0).evaluate(workspace)!=0){
             for(int i=0; i<index; i++)
-                inputs.get(i).evaluate(workspace);
+                ans=inputs.get(i).evaluate(workspace);
         }else{
-            for(int i=index; i<inputs.size(); i++)
-                inputs.get(i).evaluate(workspace);
+            for(int i=index; i<inputs.size()-1; i++)
+                ans=inputs.get(i).evaluate(workspace);
         }
-        return 0;
+        return ans;
     }
 
 }
