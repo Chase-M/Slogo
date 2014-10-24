@@ -50,6 +50,7 @@ public class GUI extends Pane implements Observer{
 
 	public GUI(Controller controller){
 		myController = controller;
+		myController.createWorkspace(this);
 	}
 
 
