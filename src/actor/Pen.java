@@ -7,10 +7,15 @@ public class Pen {
 	public boolean isDown;
 	public double size;
 	public int colorIndex;
+	private int myID;
 	
-	public Pen(){
+	public Pen(int id){
 		isDown = true;
 		size = DEFAULT_SIZE;
 		colorIndex = DEFAULT_COLOR_INDEX;
+		myID = id;
+	}
+	public int getID(){
+		return myID;
 	}
 }

@@ -11,11 +11,12 @@ public class Turtle extends Observable {
 	private int myID;
 	private Pen myPen;
 	private boolean isActive;
+	private boolean isShowing;
 	
-	public Turtle(Position pos, Pen pen, int id){
+	public Turtle(Position pos, int id){
 		myPosition = pos;
-		myPen = pen;
 		myID = id;
+		myPen = new Pen(myID);
 		isActive = true;
 	}
 	
@@ -50,14 +51,26 @@ public class Turtle extends Observable {
 		myPosition = new Position(newX,newY,newAngle);
 		setChangedandNotify(new TurtleProperties(this));
 	}
+	
+	public void setShowing(boolean showing){
+		isShowing = showing;
+		setChangedandNotify(new TurtleProperties(this));
+	}
 
 	public void setChangedandNotify(Object obj){
-		System.out.println("hey");
 		setChanged();
 		notifyObservers(obj);
 	}
 	
 	public boolean isActive() {
-		return true;
+		return isActive;
+	}
+	
+	public void setActive(boolean active) {
+		isActive = active;
+	}
+
+	public boolean isShowing() {
+		return isShowing;
 	}
 }
