@@ -8,11 +8,13 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Properties;
+import javafx.scene.paint.Color;
 import actor.Pen;
 import actor.Turtle;
 import parser.CommandObject;
 import parser.Node;
 import properties.Position;
+import properties.TurtleProperties;
 
 
 public class Workspace extends Observable implements Observer {
@@ -23,14 +25,17 @@ public class Workspace extends Observable implements Observer {
     private Properties myProperties;
     private Map<String, Double> myVariables;
     private Map<String, CommandObject> myCommands;
-
+    private List<Color> myColors;
     public Workspace (int id) {
         myTurtles = new ArrayList<>();
+        myID = id;
         myTurtles.add(new Turtle(DEFAULT_POSITION, new Pen(), 0));
         myTurtles.get(0).addObserver(this);
-        myID = id;
         myVariables = new HashMap<String, Double>();
         myCommands = new HashMap<String, CommandObject>();
+        myColors=new ArrayList<Color>();
+        myColors.add(Color.BLACK);
+        myTurtles.get(0).notifyObservers(new TurtleProperties(myTurtles.get(0)));
     }
 
     public Workspace (File f) {

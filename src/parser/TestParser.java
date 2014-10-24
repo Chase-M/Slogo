@@ -177,12 +177,12 @@ public class TestParser {
         @Test
         public void TestRecursion(){
             Parser p=new Parser();
-            List<Node> list=p.parse("make :a 0 make :b 0 to r [ :var ] [ make :b sum :b 1 make :a sum :var :a if greater? :var 1 [ r [ - :var 1 ] ] ] r [ 10 ] sum :a 0 ");
+            List<Node> list=p.parse("make :a 0 to r [ :var ] [ make :a sum :var :a if greater? :var 1 [ r [ - :var 1 ] ] ] r [ 10 ] sum :a 0 ");
             Workspace workspace=new Workspace(0);
             for(Node n: list){
                 n.evaluate(workspace);
             }
-            assertEquals(55,list.get(4).evaluate(workspace),.000000001);
+            assertEquals(55,list.get(3).evaluate(workspace),.000000001);
            
         }
 
