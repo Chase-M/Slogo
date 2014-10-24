@@ -2,7 +2,9 @@ package workspace;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
@@ -67,9 +69,20 @@ public class Workspace extends Observable implements Observer {
 
     }
 
-    public Map<Integer,Turtle> getTurtles () {
+    public List<Turtle> getActiveTurtles () {
         // TODO Auto-generated method stub
-        return myTurtles;
+        List<Turtle> list=getTurtles();
+        for(Turtle t: list){
+            if(!t.isActive())
+                list.remove(t);
+        }
+        return list;
+    }
+    public List<Turtle> getTurtles(){
+        List<Turtle> list=new ArrayList<Turtle>();
+        for(Integer i: myTurtles.keySet())
+            list.add(myTurtles.get(i));
+        return list;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package command;
 
 import java.util.List;
+import actor.Turtle;
 import parser.Node;
 import workspace.Workspace;
 
@@ -14,7 +15,11 @@ public class IDCommand extends Command{
     @Override
     public double execute (List<Node> inputs, Workspace workspace) {
         // TODO Auto-generated method stub
-        return 0;
+        double ans=0;
+        for(Turtle t: workspace.getActiveTurtles()){
+            ans=t.getID();
+        }
+        return ans;
     }
 
 }
