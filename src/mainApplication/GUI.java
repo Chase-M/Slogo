@@ -20,6 +20,7 @@ import features.DisplayTurtle;
 import features.FeatureSetUp;
 import parser.Parser;
 import properties.Position;
+import properties.TurtleProperties;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.BorderPane;
@@ -107,10 +108,18 @@ public class GUI extends Pane implements Observer{
 	@Override
 	public void update(Observable obs, Object props) {
 		// TODO change this
-		if(props instanceof Position){
-
+		System.out.println("test2");
+		if(props instanceof TurtleProperties){
+			System.out.println("test");
+			myCenterPane.updateTurtlePosition((TurtleProperties) props);
+		}
+	/*	if(props instanceof PenProperties){
 			myCenterPane.updateTurtlePosition((Position)props);
 		}
+		if(props instanceof Position){
+			myCenterPane.updateTurtlePosition((Position)props);
+		}
+		*/
 		
 	}
 }

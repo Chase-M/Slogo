@@ -2,6 +2,7 @@ package components;
 
 import mainApplication.GUI;
 import properties.Position;
+import properties.TurtleProperties;
 import features.DisplayTurtle;
 import features.Feature;
 import javafx.scene.control.Label;
@@ -19,6 +20,7 @@ public class CenterPane extends Pane implements Feature{
 	private int turtleWidth = 26;
 	private int turtleHeight = 50;
 	private Label myLabel;
+	private TurtleManager myTurtleManager = new TurtleManager();
 	
 	public CenterPane(){
 		super();
@@ -34,21 +36,29 @@ public class CenterPane extends Pane implements Feature{
 		
 		DisplayTurtle firstTurtle = new DisplayTurtle();		
 		firstTurtle.setTurtleID(0);		
-		turtleGraphic = firstTurtle.makeNewTurtle();
+		//turtleGraphic = firstTurtle.makeNewTurtle();
 		//GUI.myObjects.add(firstTurtle);
 		myLabel = new Label("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
 		this.getChildren().add(myLabel);
-		this.getChildren().add(turtleGraphic);
+		//this.getChildren().add(turtleGraphic);
+		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
+			this.getChildren().add(t.myImage);
+		}
 
 	}
 	@Override
 	public void update() {
 		
 	}
-	public void updateTurtlePosition(Position pos){
-		double tempX = 275+pos.getPoint().getX();
-		double tempY = 200-pos.getPoint().getY();
-		drawLine(tempX, tempY);
+	public void updateTurtlePosition(TurtleProperties pos){
+		myTurtleManager.update(pos);
+		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
+			this.getChildren().add(t.myImage);
+		}
+	//	int ID = pos.myId;
+	//	double tempX = 275+pos.getPoint().getX();
+	//	double tempY = 200-pos.getPoint().getY();
+	//	drawLine(tempX, tempY);
 //		turtleView.setLayoutX(turtleX);
 //		turtleView.setLayoutY(turtleY);
 		myLabel.setText("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));

@@ -17,6 +17,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 
 public class RunButtonFeature extends Button implements Feature{
 	public RunButtonFeature(Map<String, Pane> componentMap, Controller myController){

@@ -62,7 +62,7 @@ public class TempTabForPanes extends VBox implements Feature {
 		myTextPane.add(b, 0, myTextIndex);
 		myTextIndex++;
 	}
-	
+	//Code specific to a type of tab
 	public void updateVars(Map<String, Double> vars){
 		myTextIndex = 0;
 		for(String s:vars.keySet()){

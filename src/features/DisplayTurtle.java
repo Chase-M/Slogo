@@ -1,5 +1,6 @@
 package features;
 
+import properties.Position;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -12,28 +13,42 @@ public class DisplayTurtle {
 	private static int turtleHeight;
 	
 	private int turtleID;
+	public ImageView myImage;
 	
 
 	public DisplayTurtle(){
 		turtleWidth = 26;
 		turtleHeight = 50;
-	}
-	
-	public static ImageView makeNewTurtle(){
+		turtleX = 0;
+		turtleY = 0;
+
 		Image image = new Image("features/turtle.png");	
 		
-		ImageView turtleGraphic = new ImageView (image);
-		turtleGraphic.setFitWidth(26);		
-		turtleGraphic.setFitHeight(50);
-		turtleGraphic.setLayoutX(275);
-		turtleGraphic.setLayoutY(200);
+		myImage = new ImageView (image);
+		myImage.setFitWidth(26);		
+		myImage.setFitHeight(50);
 		
-		return turtleGraphic;
+		updateImage(turtleX, turtleY);
+		//myImage.setLayoutX(275);
+		//myImage.setLayoutY(200);
+		
+		//return turtleGraphic;
 		
 	}
 	
 	public void setTurtleID(int ID){
 		turtleID = ID;	
+	}
+	public void updatePosition(Position pos){
+		turtleX = pos.getX();
+		turtleY = pos.getY();
+		updateImage(turtleX, turtleY);
+		
+		
+	}
+	public void updateImage(double turtleX2, double turtleY2){
+		myImage.setLayoutX(200-turtleX2);
+		myImage.setLayoutY(275-turtleY2);
 	}
 	
 	
