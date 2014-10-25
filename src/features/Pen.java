@@ -12,31 +12,37 @@ public class Pen extends GraphicObject{
 	private double penX;
 	private double penY;
 	private double penWidth;
+	private double turtleWidth;
+	private double turtleHeight;
+	public double middleX;
+	public double middleY;
 	private Color penColor;
 	
 	
 	public Pen(){
 		penWidth = 1;
 		penColor = Color.BLACK;
-		penX = 275;
-		penY = 200;
+		middleX = 275;
+		middleY = 200;
+		penX = middleX;
+		penY = middleY;	
 		
 	}
-	public Line drawLine(double x, double y){
+	public Line drawLine(double x, double y, double tWidth, double tHeight){
 		
 		System.out.println("drawn");
 		
 		Line line = new Line();		
 		line.setStroke(penColor);		
-		//line.setStrokeWidth(penWidth);		
-		line.setStartX(penX+13);		
-		line.setStartY(penY+25);		
-		line.setEndX(275+x+13);		
-		line.setEndY(200-y+25);		
+		line.setStrokeWidth(penWidth);		
+		line.setStartX(penX+(tWidth/2));		
+		line.setStartY(penY+(tHeight/2));		
+		line.setEndX(middleX+x+(tWidth/2));		
+		line.setEndY(middleY-y+(tHeight/2));		
 		//default pen width is 1
 		
-		penX = 275+x;		
-		penY = 200-y;		
+		penX = middleX+x;		
+		penY = middleY-y;		
 		return line;
 		
 	}
@@ -48,8 +54,7 @@ public class Pen extends GraphicObject{
 	}
 	
 	public void updatePenWidth(double width){
-		//default is 1
-		
+		//default is 1	
 		penWidth = width;
 	}
 

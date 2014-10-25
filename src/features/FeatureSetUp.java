@@ -30,8 +30,6 @@ public class FeatureSetUp{
 		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
 		myFeatureMap.put("COLORPICK", colorPick);
 		
-
-
 		OpenButtonFeature open = new OpenButtonFeature(myController);
 		myFeatureMap.put("OPEN", open);
 		

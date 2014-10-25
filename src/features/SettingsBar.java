@@ -77,7 +77,7 @@ public SettingsBar(){
 //	setMargin(startButton, new Insets(6));
 
 
-	this.getItems().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
+	this.getItems().addAll(colourLabel,  languageLabel,startButton);
 	//this.setPrefHeight(34);
 }
 	

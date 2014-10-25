@@ -27,6 +27,7 @@ public class Main extends Application{
 		return new Scene(root, sceneWidth, sceneHeight, Color.GREY);
 	}	
 
+	
 	@Override
 	public void start(Stage stage) throws Exception {
 		
@@ -38,6 +39,7 @@ public class Main extends Application{
 		GUI userFace = new GUI(controller);
 		//controller.updateGUI(userFace);
 		userFace.initiate();
+		userFace.initiateKeyPress(s);
 
 /**
  * Below is prelim code for creating multiple tabs		

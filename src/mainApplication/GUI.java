@@ -24,10 +24,14 @@ import parser.Parser;
 import properties.PenProperties;
 import properties.Position;
 import properties.TurtleProperties;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 
 public class GUI extends Pane implements Observer{
 
@@ -43,8 +47,6 @@ public class GUI extends Pane implements Observer{
 	private Parser myParser;
 	private BottomPane myBottomPane;
 	private TopPane myTopPane;
-
-
 	private Controller myController;
 	
 	public static List<DisplayTurtle> myObjects;
@@ -115,6 +117,33 @@ public class GUI extends Pane implements Observer{
 		myLeftPane.updateVars(myMap);
 		*/
 	}
+	
+	
+	public void initiateKeyPress(Scene s) {
+		s.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override public void handle(KeyEvent event) {
+				switch (event.getCode()) {
+				case W: 
+					System.out.println("up");
+					myController.parseAndEvaluate("setheading 90 fd 25");break;					
+				case S:
+					System.out.println("down");
+					myController.parseAndEvaluate("setheading 270 fd 25");break;					
+				case D:
+					System.out.println("right");
+					myController.parseAndEvaluate("setheading 0 fd 25");break;					
+				case A:
+					System.out.println("left");
+					myController.parseAndEvaluate("setheading 180 fd 25"); break;
+				}
+
+			}	
+		});
+	}
+
+	
+	
+	
 	@Override
 	public void update(Observable obs, Object props) {
 		// TODO change this
