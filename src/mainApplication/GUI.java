@@ -23,6 +23,7 @@ import features.FeatureSetUp;
 import parser.Parser;
 import properties.PenProperties;
 import properties.Position;
+import properties.StageProperties;
 import properties.TurtleProperties;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
@@ -126,15 +127,14 @@ public class GUI extends Pane implements Observer{
 			//TODO Implement this based on pen given back
 			
 			myCenterPane.updatePenProperties((PenProperties) props);
-			System.out.println("Pen Prop Runs");
 			
 			//myCenterPane.updateTurtlePosition((Position)props);
 		}
-/*		if(props instanceof Position){
-
-			myCenterPane.updateTurtlePosition((Position)props);
+		if(props instanceof StageProperties){
+			System.out.println("Stage Prop runs");
+			boolean b = ((StageProperties) props).isClear;
 		}
-		*/
+		
 		
 	}
 }
