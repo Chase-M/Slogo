@@ -30,8 +30,6 @@ public class FeatureSetUp{
 		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
 		myFeatureMap.put("COLORPICK", colorPick);
 		
-
-
 		OpenButtonFeature open = new OpenButtonFeature(myController);
 		myFeatureMap.put("OPEN", open);
 		
@@ -40,6 +38,9 @@ public class FeatureSetUp{
 		
 		ToggleGridButtonFeature gridButton = new ToggleGridButtonFeature(myComponentMap);
 		myFeatureMap.put("GRID", gridButton);
+		
+		PenWidthSliderFeature penSlider = new PenWidthSliderFeature(myComponentMap, myController);
+		myFeatureMap.put("PENSLIDER", penSlider);
 		
 	}
 	

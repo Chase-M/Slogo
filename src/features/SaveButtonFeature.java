@@ -1,6 +1,9 @@
 package features;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -29,12 +32,12 @@ public class SaveButtonFeature extends Button implements Feature{
 	   this.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	//myController.
+		    	//fileChooser.
 		    	 File file = fileChooser.showSaveDialog(myController.myStage);
-                if (file != null) {
-                   // openFile(file);
-                }
-		        //bottomPane.update();
-		    }
+		    	 myController.saveMem(file);
+		        //bottomPane.update();*/
+		    	 
+		    } 
 		});	   
 	
 	}

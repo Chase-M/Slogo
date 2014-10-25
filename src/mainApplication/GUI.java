@@ -14,6 +14,7 @@ import java.util.Observer;
 import components.BottomPane;
 import components.InfoPane;
 import components.InfoPane2;
+import components.InfoTab;
 import components.LeftPane;
 import components.RightPane;
 import components.TopPane;
@@ -25,10 +26,15 @@ import properties.PenProperties;
 import properties.Position;
 import properties.StageProperties;
 import properties.TurtleProperties;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Slider;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 
 public class GUI extends Pane implements Observer{
 
@@ -44,6 +50,8 @@ public class GUI extends Pane implements Observer{
 	private Parser myParser;
 	private BottomPane myBottomPane;
 	private TopPane myTopPane;
+
+	private InfoPane myInfoPane;
 
 
 	private Controller myController;
@@ -71,17 +79,17 @@ public class GUI extends Pane implements Observer{
 		BorderPane pane = new BorderPane();
 	//	myRightPane = new RightPane();		
 		//myLeftPane = new LeftPane();
-		InfoPane infoPane = new InfoPane("Variables", "History");
+		myInfoPane = new InfoPane(myController, "VariableTab", "HistoryTab");
 		InfoPane2 rightPane = new InfoPane2("Colors", "Images");
 		myTopPane = new TopPane();
 		myBottomPane = new BottomPane();
 		myCenterPane = new CenterPane();
-		pane.setLeft(infoPane);
+		pane.setLeft(myInfoPane);
 		pane.setRight(rightPane);
 
 		List<Pane> components = new ArrayList<Pane>();
 		components.add(rightPane);
-		components.add(infoPane);
+		components.add(myInfoPane);
 		components.add(myTopPane);
 		components.add(myBottomPane);
 		components.add(myCenterPane);	
@@ -93,45 +101,85 @@ public class GUI extends Pane implements Observer{
 		Button open = (Button) features.myFeatureMap.get("OPEN");
 		Button save = (Button) features.myFeatureMap.get("SAVE");
 		Button grid = (Button) features.myFeatureMap.get("GRID");
+		Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
 
-		myTopPane.addButton(open);
-		myTopPane.addButton(save);
-		myTopPane.addButton(grid);
-		myBottomPane.getChildren().add(CP);
+		//String[] stringFeatures = new String[]{"OPEN", "SAVE", "GRID", "COLORPICK"};
+		//for(String s: stringFeatures){
+		//	myTopPane.addItems(features.myFeatureMap.get(s));
+		//}
+		myTopPane.addItems(open, save, grid, CP);
 		myBottomPane.updateButton(run);
-		//myBottomPane.getChildren().add(newTurtle);
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myCenterPane);	
 		pane.setTop(myTopPane);	
 		
 
 		this.getChildren().add(pane);
-		/**
-		 * Don't delete this stuff
-		 */
-/*		Map<String, Double> myMap = new HashMap<String, Double>();
-		myMap.put("this", 5.);
-		myMap.put("that", 6.);
-		myMap.put("the other", 6.7);
-		myLeftPane.updateVars(myMap);
-		*/
 	}
+	
+	
+	public void initiateKeyPress(Scene s) {
+		s.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			@Override public void handle(KeyEvent event) {
+				switch (event.getCode()) {
+				case W: 
+					System.out.println("up");
+					try {
+						myController.parseAndEvaluate("setheading 90 fd 25");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}break;					
+				case S:
+					System.out.println("down");
+					try {
+						myController.parseAndEvaluate("setheading 270 fd 25");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}break;					
+				case D:
+					System.out.println("right");
+					try {
+						myController.parseAndEvaluate("setheading 0 fd 25");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}break;					
+				case A:
+					System.out.println("left");
+					try {
+						myController.parseAndEvaluate("setheading 180 fd 25");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} break;
+				}
+
+			}	
+		});
+	}
+
+	
+	
+	
 	@Override
 	public void update(Observable obs, Object props) {
-		// TODO change this
 		if(props instanceof TurtleProperties){
 			myCenterPane.updateTurtlePosition((TurtleProperties) props);
 		}
-		if(props instanceof PenProperties){
-				
+		if(props instanceof PenProperties){			
 			//TODO Implement this based on pen given back
+			System.out.println("Pen Prop runs");
 			
 			myCenterPane.updatePenProperties((PenProperties) props);
+			System.out.println("pen prop size: "+ ((PenProperties) props).size());
 			
 			//myCenterPane.updateTurtlePosition((Position)props);
 		}
 		if(props instanceof StageProperties){
 			System.out.println("Stage Prop runs");
+			myCenterPane.clearScreen(((StageProperties) props).isClear);
 			boolean b = ((StageProperties) props).isClear;
 		}
 		

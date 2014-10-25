@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import mainApplication.Controller;
 import features.Feature;
 import features.TextDisplayFactory;
 import javafx.beans.value.ChangeListener;
@@ -34,19 +35,31 @@ public class InfoPane extends FlowPane implements Feature {
 	 * Initializes the display area for console history as well as error display
 	 */
 	//private TabPane myTabPane;
-	public InfoTab historyTab;
-	public InfoTab variableTab;
+	//public InfoTab historyTab;
+	//public InfoTab variableTab;
+	public List<InfoTab> myTabs;
 
-	public InfoPane(String s, String t){
+	public InfoPane(Controller c, String ... s){
+		//Add properties file with map of header name to class name
 		super(Orientation.VERTICAL);
 		TabPane tabPane = new TabPane();
+		TabFactory tabFac = new TabFactory();
+		
 		setStyle("-fx-background-color: #336666");
 		setPrefHeight(500);
 		setPrefWidth(200);
-		historyTab = new InfoTab(s);
-		variableTab = new InfoTab(t);		
-		tabPane.getTabs().add(historyTab);
-		tabPane.getTabs().add(variableTab);
+		myTabs = new ArrayList<InfoTab>();
+		for(String i:s){
+			InfoTab tab = tabFac.makeTab(i, c);
+			myTabs.add(tab);
+		}
+		//historyTab = tabFac.makeTab(className, tabHeader);
+		//variableTab = new InfoTab(t);
+		for(InfoTab tab:myTabs){
+			tabPane.getTabs().add(tab);
+		}
+		//tabPane.getTabs().add(historyTab);
+		//tabPane.getTabs().add(variableTab);
 		ToolBar myToolBar = initiateToolBar(tabPane);		
 		this.getChildren().addAll(myToolBar, tabPane);
 	}

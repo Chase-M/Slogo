@@ -16,13 +16,16 @@ public class DisplayTurtle {
 	private static double turtleX;
 	private static double turtleY;
 	private static double turtleAngle;
-	private static int turtleWidth;
-	private static int turtleHeight;
+	private static double turtleWidth;
+	private static double turtleHeight;
 	private static ImageView turtleGraphic;
-	private Pen myPen;
+	public Pen myPen;
 	private CenterPane myCenterPane;
 	public boolean isTurtleShowing;
 	private boolean penDown;
+	private List linesDrawn;
+	private double middleX;
+	private double middleY;
 	
 	public Line myLine; 
 	
@@ -36,16 +39,17 @@ public class DisplayTurtle {
 		turtleX = 0;
 		turtleY = 0;
 		turtleAngle = 90;
+		middleX = 275;
+		middleY = 200;
 		penDown =true;
-
 		Image image = new Image("features/turtle.png");		
 		myImage = new ImageView (image);
-		myImage.setFitWidth(26);		
-		myImage.setFitHeight(50);
-		//myLines = new ArrayList<Line>();		
+		myImage.setFitWidth(turtleWidth);		
+		myImage.setFitHeight(turtleHeight);	
 		updateImage(turtleX, turtleY, turtleAngle);
 		myPen = new Pen();
 		myCenterPane = pane;
+		linesDrawn = new ArrayList<Line>();
 	}
 	
 	public void setTurtleID(int ID){
@@ -72,21 +76,28 @@ public class DisplayTurtle {
 	}
 	
 	public void updateImage(double turtleX2, double turtleY2, double turtleAngle2){
-		myImage.setLayoutX(275+turtleX2);
-		myImage.setLayoutY(200-turtleY2);
+		myImage.setLayoutX(middleX+turtleX2);
+		myImage.setLayoutY(middleY-turtleY2);
 		myImage.setRotate(90-Math.toDegrees(turtleAngle2));
 	}
 	
 	private void updateLine(double x, double y){
-		myLine = myPen.drawLine(turtleX, turtleY);
+		myLine = myPen.drawLine(turtleX, turtleY, turtleWidth, turtleHeight);
 		if(penDown == true){
 		myCenterPane.getChildren().add(myLine);	
+		linesDrawn.add(myLine);
+		System.out.println("linesDrawn Size:" +linesDrawn.size());
 		}
 	}
 	
 	public void updatePenShow(boolean isPenDown){
 		System.out.println("PenDown:" +isPenDown);
 		penDown = isPenDown;		
+	}
+	
+	private void updateTurtleSize(double width, double height){
+		turtleWidth = width;
+		turtleHeight = height;
 	}
 	
 }

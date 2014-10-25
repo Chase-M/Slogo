@@ -25,6 +25,8 @@ import properties.TurtleProperties;
 
 public class Workspace extends Observable implements Observer {
 	private static final String COLOR_PATH = "resources.constants/Color";
+	private static final int DEFAULT_STAGE_COLOR = 0;
+	private static final boolean NOT_CLEAR = false;
 	private int myID;
 	private Map<Integer, Turtle> myTurtles;
 	private String myLanguage;
@@ -39,6 +41,7 @@ public class Workspace extends Observable implements Observer {
 		myCommands = new HashMap<String, CommandObject>();
 		myColors=new HashMap<>();
 		initializeColors();
+		myStageProperties = new StageProperties(NOT_CLEAR,DEFAULT_STAGE_COLOR);
 	}
 
 	private void initializeColors() {
@@ -84,8 +87,15 @@ public class Workspace extends Observable implements Observer {
 	public void clear () {
 		// TODO give GUI appropriate notification
 		myTurtles.clear();
-		setChangedandNotify(new StageProperties(true));
+		myStageProperties.isClear = true;
+		setChangedandNotify(myStageProperties);
+		myStageProperties.isClear = false;
 		createTurtle(0);
+	}
+	
+	public void changeBackground(int i) {
+		myStageProperties.index = i;
+		setChangedandNotify(myStageProperties);
 	}
 
 	public void save (String s) {

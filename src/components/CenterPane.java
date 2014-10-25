@@ -78,10 +78,12 @@ public class CenterPane extends Pane implements Feature{
 	}
 	
 	public void updatePenProperties(PenProperties props){
-		myTurtleManager.updatePenProperties(props);
-		
+		myTurtleManager.updatePenProperties(props);		
 	}
 
+	public void clearScreen(boolean clear){
+		myTurtleManager.clearScreen(clear);
+	}
 
 	private GridPane createReferenceGrid(){
 		
