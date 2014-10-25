@@ -14,7 +14,10 @@ public class QuotientCommand extends Command {
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		double q = inputs.get(0).evaluate(workspace);
+		
 		q = q/inputs.get(1).evaluate(workspace);
+		if(Double.isInfinite(q)) return 0;
+		
 		return q;
 	}
 }

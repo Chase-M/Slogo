@@ -8,19 +8,20 @@ import actor.Turtle;
 import parser.Node;
 import workspace.Workspace;
 
-public class TellCommand extends Command {
+public class TellCommand extends BasicListCommand {
 
 	public TellCommand(String s) {
-		super(s,1);
-		myNumLists = 1;
+		super(s,1,1);
+
 	}
 
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
-		Map<Integer,Turtle> map = workspace.getTurtles();
+		checkListException(inputs);
+	        Map<Integer,Turtle> map = workspace.getTurtles();
 		Set<Integer> ids = new HashSet<>();
 		int id = 0;
-		for(int i = 1; i<inputs.size()-1; i++){
+		for(int i = 1; i<getBracketIndex(inputs); i++){
 			id = (int) inputs.get(i).evaluate(workspace);
 			if(!map.containsKey(id)){
 				workspace.createTurtle(id);

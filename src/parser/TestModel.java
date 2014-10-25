@@ -1,6 +1,7 @@
 package parser;
 
 import static org.junit.Assert.assertEquals;
+import java.io.File;
 import java.util.List;
 import org.junit.Test;
 import workspace.Workspace;
@@ -45,5 +46,19 @@ public class TestModel {
 		sum.addChild(new Node(new ConstCommand("3")));
 		assertEquals(1, sum.evaluate(null),PRECISION);
 	}
+	@Test
+	public void testWrite() throws Exception{
+	    Workspace workspace=new Workspace(0);
+	    Parser parser=new Parser();
+	    List<Node> list=parser.parse("make :a 1 make :b 2 to square [ :var ] [ sum ( 90 101 10 )  fd 50 ]");
+	    for(Node n: list){
+	        n.evaluate(workspace);
+	    }
+	    File f=new File("writeTest.txt");
+	    f.createNewFile();
+	    workspace.writeMem(f);
+	    
+	}
 }
+
 

@@ -2,6 +2,7 @@ package actor;
 
 import java.util.Observable;
 
+import properties.PenProperties;
 import properties.Position;
 import properties.TurtleProperties;
 import javafx.geometry.Point2D;
@@ -79,5 +80,8 @@ public class Turtle extends Observable {
 
 	public boolean isShowing() {
 		return isShowing;
+	}
+	public void changedPen(){
+		setChangedandNotify(new PenProperties(myPen));
 	}
 }

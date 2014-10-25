@@ -8,6 +8,7 @@ import java.util.Map;
 import parser.Node;
 import parser.Parser;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import view.View;
 import workspace.Workspace;
@@ -56,13 +57,17 @@ public class Controller {
 		return myActiveWS.getVariables();
 	}
 	
+	public Map<Integer, Color> getColors(){
+		return myActiveWS.getColors();
+	}
 	public void clear(){
 		myActiveWS.clear();
 	}
 	
-	public void load(File f){
-		myActiveWS = new Workspace(f);
-	}
+	
+//	public void load(File f){
+//		myActiveWS = new Workspace(f);
+//	}
 	
 	public void save(String s){
 		myActiveWS.save(s);
