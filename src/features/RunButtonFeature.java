@@ -6,6 +6,8 @@ import java.util.Map;
 import mainApplication.Controller;
 import components.BottomPane;
 import components.CenterPane;
+import components.InfoPane;
+import components.InfoPane2;
 import components.LeftPane;
 import components.RightPane;
 import components.TopPane;
@@ -27,14 +29,9 @@ public class RunButtonFeature extends Button implements Feature{
 	   this.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	BottomPane bottomPane = (BottomPane)componentMap.get("class components.BottomPane");
-		    	RightPane rightPane = (RightPane)componentMap.get("class components.RightPane");
-		    	LeftPane leftPane = (LeftPane)componentMap.get("class components.LeftPane");
+		    	InfoPane2 rightPane = (InfoPane2)componentMap.get("class components.InfoPane2");
+		    	InfoPane infoPane = (InfoPane)componentMap.get("class components.InfoPane");
 
-		        // TODO move this + don't only have one turtle + it shouldn't even be here
-			//	List<Node> list = parser.parse(bottomPane.myCommand.getText());
-			//	for(Node n: list){
-			//		System.out.println(n.evaluate(turtle));
-			//	}
 		    	if(!bottomPane.myCommand.getText().isEmpty()){
 				myController.parseAndEvaluate(bottomPane.myCommand.getText());
 		    	
@@ -45,9 +42,10 @@ public class RunButtonFeature extends Button implements Feature{
 				    	bottomPane.myCommand.setText(button.getText());
 				    }	
 				    });
-		        rightPane.update(button);
-		        leftPane.tempTabThing.update(label);
-		        leftPane.tempTabThing2.update(button);
+		      //  rightPane.variableTab.update(label2);
+		      //  rightPane.historyTab.update(button);
+		        infoPane.variableTab.update(label);
+		        infoPane.historyTab.update(button);
 		        bottomPane.myCommand.clear();
 		    	}
 		        //bottomPane.update();

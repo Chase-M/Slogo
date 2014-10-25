@@ -69,6 +69,7 @@ public class DisplayTurtle {
 	private void updateLine(double x, double y){
 		myLine = myPen.drawLine(turtleX, turtleY);
 		myCenterPane.getChildren().add(myLine);		
+
 	}
 			
 	

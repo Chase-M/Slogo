@@ -63,7 +63,7 @@ public class CenterPane extends Pane implements Feature{
 		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
 			if(!this.getChildren().contains(t.myImage)){
 			this.getChildren().add(t.myImage);
-			//this.getChildren().add(t.myLine);
+
 			}
 		}
 		//	int ID = pos.myId;
