@@ -11,7 +11,7 @@ public class MakeCommand extends Command{
         super(s,2);
     }
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         String name=inputs.get(0).getCommand().toString();
         workspace.getVariables().put(name, inputs.get(1).evaluate(workspace));

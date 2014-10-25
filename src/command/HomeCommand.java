@@ -1,7 +1,6 @@
 package command;
 
 import java.util.List;
-
 import javafx.geometry.Point2D;
 import actor.Turtle;
 import parser.Node;
@@ -15,7 +14,7 @@ public class HomeCommand extends Command {
 		super(s,0);
 	}
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		Point2D oldP = null;
 		for(Turtle turtle :workspace.getActiveTurtles()){
 			oldP = turtle.getPoint();

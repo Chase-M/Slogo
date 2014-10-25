@@ -1,5 +1,11 @@
 package properties;
 
-public class StageProperties {
+import workspace.Workspace;
 
+public class StageProperties {
+	
+	public boolean isClear;
+	public StageProperties(boolean b){
+		isClear = b;
+	}
 }

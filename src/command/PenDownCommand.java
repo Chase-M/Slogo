@@ -1,7 +1,6 @@
 package command;
 
 import java.util.List;
-
 import actor.Turtle;
 import parser.Node;
 import properties.PenProperties;
@@ -12,7 +11,7 @@ public class PenDownCommand extends Command {
 		super(s,0);
 	}
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		for(Turtle turtle :workspace.getActiveTurtles()){
 			turtle.getPen().isDown = true;
 			turtle.setChangedandNotify(new PenProperties(turtle.getPen()));

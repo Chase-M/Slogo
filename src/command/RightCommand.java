@@ -12,7 +12,7 @@ public class RightCommand extends Command {
 	}
 
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		double delta = inputs.get(0).evaluate(workspace);
 		double deltaRadians = Math.toRadians(delta);
 		for(Turtle turtle :workspace.getActiveTurtles()){

@@ -14,7 +14,7 @@ public class ConstCommand extends Command {
 	}
 	
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		return myValue;
 	}
 

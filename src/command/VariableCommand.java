@@ -11,7 +11,7 @@ public class VariableCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         if(workspace.getVariables().containsKey(toString()))
             return workspace.getVariables().get(toString());

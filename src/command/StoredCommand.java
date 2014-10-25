@@ -2,6 +2,7 @@ package command;
 
 import java.util.ArrayList;
 import java.util.List;
+import exceptions.NotEnoughInputsException;
 import parser.CommandObject;
 import parser.Node;
 import workspace.Workspace;
@@ -14,7 +15,7 @@ public class StoredCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         CommandObject command=workspace.getCommands().get(myString);
         List<String> names=command.getMyVarNames();
@@ -34,7 +35,8 @@ public class StoredCommand extends Command{
             for(int i=0; i<commands.size()-1; i++){
                 ans=commands.get(i).evaluate(workspace);
             }
-        }
+        }else
+            throw new NotEnoughInputsException(toString());
         return ans;
     }
 
