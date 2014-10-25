@@ -39,6 +39,9 @@ public class FeatureSetUp{
 		SaveButtonFeature save = new SaveButtonFeature(myController);
 		myFeatureMap.put("SAVE", save);
 		
+		ToggleGridButtonFeature gridButton = new ToggleGridButtonFeature(myComponentMap);
+		myFeatureMap.put("GRID", gridButton);
+		
 	}
 	
 	public Map<String,Pane> createComponentMap(List<Pane> myComponents){

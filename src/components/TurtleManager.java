@@ -10,8 +10,12 @@ import features.DisplayTurtle;
 
 public class TurtleManager {
 	Map<Integer, DisplayTurtle> myTurtleMap;
-	public TurtleManager(){
+	private CenterPane myCenterPane;
+	
+	public TurtleManager(CenterPane pane){
 		myTurtleMap = new HashMap<Integer, DisplayTurtle>();
+		myCenterPane = pane;
+		
 	}
 	public void update(TurtleProperties props){
 		int ID = props.myId;
@@ -20,7 +24,7 @@ public class TurtleManager {
 			turt = myTurtleMap.get(ID);
 		}
 		else{
-			turt = new DisplayTurtle();
+			turt = new DisplayTurtle(myCenterPane);
 			myTurtleMap.put(ID, turt);
 			//turt.updatePosition
 		}

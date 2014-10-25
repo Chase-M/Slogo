@@ -19,6 +19,7 @@ import components.CenterPane;
 import features.DisplayTurtle;
 import features.FeatureSetUp;
 import parser.Parser;
+import properties.PenProperties;
 import properties.Position;
 import properties.TurtleProperties;
 import javafx.scene.control.Button;
@@ -50,6 +51,7 @@ public class GUI extends Pane implements Observer{
 
 	public GUI(Controller controller){
 		myController = controller;
+
 	}
 
 
@@ -85,9 +87,11 @@ public class GUI extends Pane implements Observer{
 		Button newTurtle = (Button) features.myFeatureMap.get("NEWTURTLE");
 		Button open = (Button) features.myFeatureMap.get("OPEN");
 		Button save = (Button) features.myFeatureMap.get("SAVE");
+		Button grid = (Button) features.myFeatureMap.get("GRID");
 
 		myTopPane.addButton(open);
 		myTopPane.addButton(save);
+		myTopPane.addButton(grid);
 		myBottomPane.getChildren().add(CP);
 		myBottomPane.updateButton(run);
 		myBottomPane.getChildren().add(newTurtle);
@@ -110,15 +114,18 @@ public class GUI extends Pane implements Observer{
 	@Override
 	public void update(Observable obs, Object props) {
 		// TODO change this
-		System.out.println("test2");
 		if(props instanceof TurtleProperties){
-			System.out.println("test");
 			myCenterPane.updateTurtlePosition((TurtleProperties) props);
 		}
-	/*	if(props instanceof PenProperties){
-			myCenterPane.updateTurtlePosition((Position)props);
+		if(props instanceof PenProperties){
+			
+			//TODO Implement this based on pen given back
+			System.out.println("Pen Prop Runs");
+			
+			//myCenterPane.updateTurtlePosition((Position)props);
 		}
-		if(props instanceof Position){
+/*		if(props instanceof Position){
+
 			myCenterPane.updateTurtlePosition((Position)props);
 		}
 		*/

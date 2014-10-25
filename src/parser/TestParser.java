@@ -132,6 +132,7 @@ public class TestParser {
 	public void TestForward(){
 		Parser p=new Parser();
 		Workspace workspace=new Workspace(0);
+		workspace.createTurtle(0);
 		List<Node> list=p.parse("forward 50");
 		assertEquals(50,list.get(0).evaluate(workspace), .00000001);
 	}
@@ -164,6 +165,7 @@ public class TestParser {
             Parser p=new Parser();
             List<Node> list=p.parse("to square [ :var ] [ repeat 4 [ forward :var left 90 ] ] square [ 50 ] ");
             Workspace workspace=new Workspace(0);
+            workspace.createTurtle(0);
             assertEquals(0,list.get(0).evaluate(workspace), .00000001);
             list.get(1).evaluate(workspace);
             Turtle t=workspace.getTurtles().get(0);

@@ -1,9 +1,9 @@
 package parser;
 
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import javafx.scene.input.KeyCode;
 
 public class Parser {
@@ -73,10 +73,9 @@ public class Parser {
    }
    private Node makeNode(String command){
        commandFactory factory=new basicCommandCreator();
-       Enumeration<String> keys=myLanguage.getKeys();
+       Set<String> keys=myLanguage.keySet();
        String name="Error";
-       while(keys.hasMoreElements()){
-           String key = (String)keys.nextElement();
+       for(String key : keys){
            String value = myLanguage.getString(key);
            if(command.matches(value)){
                factory=new basicCommandCreator();
