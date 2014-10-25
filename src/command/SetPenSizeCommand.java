@@ -6,9 +6,9 @@ import actor.Turtle;
 import parser.Node;
 import workspace.Workspace;
 
-public class SetPenSize extends Command {
+public class SetPenSizeCommand extends Command {
 
-	public SetPenSize(String s) {
+	public SetPenSizeCommand(String s) {
 		super(s,1);
 	}
 
