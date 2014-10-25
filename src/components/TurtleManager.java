@@ -39,6 +39,7 @@ public class TurtleManager {
 	
 	public void updatePenProperties(PenProperties props){
 		int ID = props.getID();
+		System.out.println("updatePenProperties");
 		DisplayTurtle turt;
 			turt = myTurtleMap.get(ID);		
 		turt.updatePenShow(props.isDown());

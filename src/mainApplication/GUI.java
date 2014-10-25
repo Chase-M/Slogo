@@ -174,8 +174,10 @@ public class GUI extends Pane implements Observer{
 		if(props instanceof PenProperties){
 				
 			//TODO Implement this based on pen given back
+			System.out.println("Pen Prop runs");
 			
 			myCenterPane.updatePenProperties((PenProperties) props);
+			System.out.println("pen prop size: "+ ((PenProperties) props).size());
 			
 			//myCenterPane.updateTurtlePosition((Position)props);
 		}

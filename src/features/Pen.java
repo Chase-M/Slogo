@@ -56,6 +56,7 @@ public class Pen extends GraphicObject{
 	public void updatePenWidth(double width){
 		//default is 1	
 		penWidth = width;
+		System.out.println("PenWidth is:" +width);
 	}
 
 	public Color returnPenColor(){
