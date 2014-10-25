@@ -1,10 +1,12 @@
 package mainApplication;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import parser.Node;
 import parser.Parser;
 import javafx.scene.Scene;
@@ -65,12 +67,19 @@ public class Controller {
 	}
 	
 	
-	public void load(File f){
-		myActiveWS = new Workspace(f);
-	}
+
 	
-	public void save(String s){
-		myActiveWS.save(s);
+	public void saveMem(String s){
+	    File f=new File(s+".logo");
+	    try {
+            f.createNewFile();
+       
+            myActiveWS.writeMem(f);
+        }
+        catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 	}
 	
 	
