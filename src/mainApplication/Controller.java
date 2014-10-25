@@ -66,13 +66,10 @@ public class Controller {
 		myActiveWS.clear();
 	}
 	
-	
 
 	
-	public void saveMem(String s){
-	    File f=new File(s+".logo");
+	public void saveMem(File f){
 	    try {
-            f.createNewFile();
        
             myActiveWS.writeMem(f);
         }

@@ -14,6 +14,7 @@ import java.util.Observer;
 import components.BottomPane;
 import components.InfoPane;
 import components.InfoPane2;
+import components.InfoTab;
 import components.LeftPane;
 import components.RightPane;
 import components.TopPane;
@@ -49,6 +50,10 @@ public class GUI extends Pane implements Observer{
 	private Parser myParser;
 	private BottomPane myBottomPane;
 	private TopPane myTopPane;
+
+	private InfoPane myInfoPane;
+
+
 	private Controller myController;
 	
 	public static List<DisplayTurtle> myObjects;
@@ -74,17 +79,17 @@ public class GUI extends Pane implements Observer{
 		BorderPane pane = new BorderPane();
 	//	myRightPane = new RightPane();		
 		//myLeftPane = new LeftPane();
-		InfoPane infoPane = new InfoPane("Variables", "History");
+		myInfoPane = new InfoPane(myController, "VariableTab", "HistoryTab");
 		InfoPane2 rightPane = new InfoPane2("Colors", "Images");
 		myTopPane = new TopPane();
 		myBottomPane = new BottomPane();
 		myCenterPane = new CenterPane();
-		pane.setLeft(infoPane);
+		pane.setLeft(myInfoPane);
 		pane.setRight(rightPane);
 
 		List<Pane> components = new ArrayList<Pane>();
 		components.add(rightPane);
-		components.add(infoPane);
+		components.add(myInfoPane);
 		components.add(myTopPane);
 		components.add(myBottomPane);
 		components.add(myCenterPane);	
@@ -98,29 +103,18 @@ public class GUI extends Pane implements Observer{
 		Button grid = (Button) features.myFeatureMap.get("GRID");
 		Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
 
-		myTopPane.addButton(open);
-		myTopPane.addButton(save);
-		myTopPane.addButton(grid);
-		myBottomPane.getChildren().add(CP);
+		//String[] stringFeatures = new String[]{"OPEN", "SAVE", "GRID", "COLORPICK"};
+		//for(String s: stringFeatures){
+		//	myTopPane.addItems(features.myFeatureMap.get(s));
+		//}
+		myTopPane.addItems(open, save, grid, CP);
 		myBottomPane.updateButton(run);
-		//myBottomPane.getChildren().add(penSlider);
-//		myTopPane.mySettingsBar.addSlider(penSlider);
-		//myBottomPane.getChildren().add(newTurtle);
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myCenterPane);	
 		pane.setTop(myTopPane);	
 		
 
 		this.getChildren().add(pane);
-		/**
-		 * Don't delete this stuff
-		 */
-/*		Map<String, Double> myMap = new HashMap<String, Double>();
-		myMap.put("this", 5.);
-		myMap.put("that", 6.);
-		myMap.put("the other", 6.7);
-		myLeftPane.updateVars(myMap);
-		*/
 	}
 	
 	
@@ -171,12 +165,10 @@ public class GUI extends Pane implements Observer{
 	
 	@Override
 	public void update(Observable obs, Object props) {
-		// TODO change this
 		if(props instanceof TurtleProperties){
 			myCenterPane.updateTurtlePosition((TurtleProperties) props);
 		}
-		if(props instanceof PenProperties){
-				
+		if(props instanceof PenProperties){			
 			//TODO Implement this based on pen given back
 			System.out.println("Pen Prop runs");
 			

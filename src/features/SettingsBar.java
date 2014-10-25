@@ -34,8 +34,8 @@ public class SettingsBar extends ToolBar implements Feature{
 	private LeftPane myLeftPane;
 	private ResourceBundle myNumberResources;
 	private Turtle myTurtle;
-	private static ComboBox<String> languageCB;
-	private static ComboBox<String> colourCB;
+	private ComboBox<String> languageCB;
+	private ComboBox<String> colourCB;
 	private ColorPicker displayColourPicker;
 	
 	
@@ -46,30 +46,35 @@ public SettingsBar(){
 //	setSpacing(10);
 
 //	setStyle("-fx-background-color: lightgray");
-//	
-	Button startButton = new Button("Start");
-//	startButton.setPrefSize(100, 20);
-//	startButton.setOnAction(new EventHandler<ActionEvent>(){
-//		@Override
-//		public void handle(ActionEvent event) {
-//			System.out.println("start button clicked");
-//			System.out.println(languageCB.getValue());
-//			System.out.println(displayColourPicker.getValue());
-//		}
-//		
-//	});
-//	
-//	
-//	Label languageLabel = new Label("Language Pack:");
-//	
-//	displayColourPicker = new ColorPicker();
-//	
-//	colourCB = new ComboBox<String>();
-//	colourCB.getItems().addAll("White", "Yellow", "Green");
-//	
-//	
-//	languageCB = new ComboBox<String>();
-//	languageCB.getItems().addAll("English", "Spanish", "Chinese");
+	
+	//Button startButton = new Button("Start");
+	//startButton.setPrefSize(100, 20);
+	//startButton.setOnAction(new EventHandler<ActionEvent>(){
+/*		@Override
+		public void handle(ActionEvent event) {
+			System.out.println("start button clicked");
+			System.out.println(languageCB.getValue());
+			System.out.println(displayColourPicker.getValue());
+		}
+		
+	});
+	
+*/	
+	Label colourLabel = new Label("Pen Colour:");
+	Label languageLabel = new Label("Language Pack:");
+	
+	//displayColourPicker = new ColorPicker();
+	
+	colourCB = new ComboBox<String>();
+	colourCB.getItems().addAll("White", "Yellow", "Green");
+	
+	
+	languageCB = new ComboBox<String>();
+	languageCB.getItems().addAll("English", "Spanish", "Chinese");
+	languageCB.setOnAction((event) -> {
+	    System.out.println(languageCB.getSelectionModel().getSelectedItem());
+	   // System.out.println("ComboBox Action (selected: " + selectedPerson.toString() + ")");
+	});
 //	setMargin(languageCB, new Insets(6));
 //	setMargin(colourCB, new Insets(6));
 //	setMargin(colourLabel, new Insets(6));
@@ -78,7 +83,8 @@ public SettingsBar(){
 
 	Label settingsBarLabel = new Label("Settings Bar:");
 
-	this.getItems().addAll(settingsBarLabel);
+
+	this.getItems().addAll(colourLabel, colourCB, languageLabel, languageCB);
 	//this.setPrefHeight(34);
 }
 	
