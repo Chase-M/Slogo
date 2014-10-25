@@ -26,7 +26,7 @@ import javafx.scene.layout.VBox;
 import sun.misc.Queue;
 
 
-public class InfoTab extends Tab implements Feature {
+public abstract class InfoTab extends Tab implements Feature{
 	
 	/**
 	 * Initializes the display area for console history as well as error display
@@ -61,19 +61,19 @@ public class InfoTab extends Tab implements Feature {
 		myTextIndex = 0;
 	}
 	//Code specific to implementation
-	public void update(Node b){
-		myTextPane.add(b, 0, myTextIndex);
-		myTextIndex++;
-	}
+//	public void update(Node b){
+//		myTextPane.add(b, 0, myTextIndex);
+//		myTextIndex++;
+//	}
 	//Code specific to a type of tab
-	public void updateVars(Map<String, Double> vars){
-		myTextIndex = 0;
-		for(String s:vars.keySet()){
-			myTextPane.add(new Label(s), 0, myTextIndex);
-			myTextPane.add(new Label(vars.get(s).toString()), 1, myTextIndex);
-			myTextIndex++;
-		}
-	}
+//	public void updateVars(Map<String, Double> vars){
+//		myTextIndex = 0;
+//		for(String s:vars.keySet()){
+//			myTextPane.add(new Label(s), 0, myTextIndex);
+//			myTextPane.add(new Label(vars.get(s).toString()), 1, myTextIndex);
+//			myTextIndex++;
+//		}
+//	}
 	private void addClear(VBox box){
 		Button clear = new Button("Clear");
 		clear.setOnAction(new EventHandler<ActionEvent>() {
@@ -88,6 +88,8 @@ public class InfoTab extends Tab implements Feature {
 	public void update() {
 		// TODO Auto-generated method stub
 		
+	}
+	public void update(Object o){
 	}
 
 }

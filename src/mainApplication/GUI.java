@@ -14,6 +14,7 @@ import java.util.Observer;
 import components.BottomPane;
 import components.InfoPane;
 import components.InfoPane2;
+import components.InfoTab;
 import components.LeftPane;
 import components.RightPane;
 import components.TopPane;
@@ -43,6 +44,7 @@ public class GUI extends Pane implements Observer{
 	private Parser myParser;
 	private BottomPane myBottomPane;
 	private TopPane myTopPane;
+	private InfoPane myInfoPane;
 
 
 	private Controller myController;
@@ -70,17 +72,17 @@ public class GUI extends Pane implements Observer{
 		BorderPane pane = new BorderPane();
 	//	myRightPane = new RightPane();		
 		//myLeftPane = new LeftPane();
-		InfoPane infoPane = new InfoPane("Variables", "History");
+		myInfoPane = new InfoPane("VariableTab", "HistoryTab");
 		InfoPane2 rightPane = new InfoPane2("Colors", "Images");
 		myTopPane = new TopPane();
 		myBottomPane = new BottomPane();
 		myCenterPane = new CenterPane();
-		pane.setLeft(infoPane);
+		pane.setLeft(myInfoPane);
 		pane.setRight(rightPane);
 
 		List<Pane> components = new ArrayList<Pane>();
 		components.add(rightPane);
-		components.add(infoPane);
+		components.add(myInfoPane);
 		components.add(myTopPane);
 		components.add(myBottomPane);
 		components.add(myCenterPane);	
@@ -111,13 +113,22 @@ public class GUI extends Pane implements Observer{
 /*		Map<String, Double> myMap = new HashMap<String, Double>();
 		myMap.put("this", 5.);
 		myMap.put("that", 6.);
-		myMap.put("the other", 6.7);
-		myLeftPane.updateVars(myMap);
-		*/
+		myMap.put("the other", 6.7);*/
+	//	List<InfoTab> list = myInfoPane.myTabs;
+	//	for(InfoTab t:list){
+	//		t.update(myMap);
+	//	}
+		//myInfoPane.historyTab.update(myMap);
+		
 	}
 	@Override
 	public void update(Observable obs, Object props) {
 		// TODO change this
+		//myInfoPane.historyTab.update(myController.getVariables());
+//		List<InfoTab> list = myInfoPane.myTabs;
+//		for(InfoTab t:list){
+//			t.update(myController.getVariables());
+//		}
 		if(props instanceof TurtleProperties){
 			myCenterPane.updateTurtlePosition((TurtleProperties) props);
 		}

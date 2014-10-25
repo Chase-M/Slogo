@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 
 public class BottomPane extends HBox implements Feature {
 	public final TextArea myCommand;
+	private final Label myErrors;
 	
 	public BottomPane(){
 	    setPrefWidth(1000);
@@ -21,16 +22,16 @@ public class BottomPane extends HBox implements Feature {
 	    myCommand = new TextArea();
 	    myCommand.setPrefRowCount(3);
 	    setStyle("-fx-background-color: #336699;");
-	    Label errorDisplay = new Label("ERRORS:\ntest");
-	    errorDisplay.setStyle("-fx-background-color: #ffffff;"
+	    myErrors = new Label("ERRORS:\ntest");
+	    myErrors.setStyle("-fx-background-color: #ffffff;"
 	    		+ "-fx-border-width: 2;-fx-border-color: black;");
-	    errorDisplay.setPadding(new Insets(15, 12, 15, 12));
-	    errorDisplay.setPrefWidth(300);
-	    errorDisplay.setPrefHeight(100);
+	    myErrors.setPadding(new Insets(15, 12, 15, 12));
+	    myErrors.setPrefWidth(300);
+	    myErrors.setPrefHeight(100);
 	  //  TabPane tabs = new TabPane();
 	    //tabs.setStyle(arg0);
 	    //tabs.set
-	    this.getChildren().addAll(myCommand, errorDisplay);//errorDisplay);
+	    this.getChildren().addAll(myCommand, myErrors);//myErrors);
 	}
 	public void updateButton(Button run){
 	   	   this.getChildren().add(run);
@@ -39,6 +40,10 @@ public class BottomPane extends HBox implements Feature {
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
+		
+	}
+	public void updateErrors(Exception e){
+		myErrors.setText("ERRORS:\n"+e.toString());
 		
 	}
 }
