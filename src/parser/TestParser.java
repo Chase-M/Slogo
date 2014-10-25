@@ -33,7 +33,8 @@ public class TestParser {
 		Parser p=new Parser();
 		List<Node> list=p.parse("quotient / 20 5 2");
 		assertEquals(2,list.get(0).evaluate(null), .00000001);
-		
+		list=p.parse("/ 5 0 ");
+		System.out.println(list.get(0).evaluate(null));
 	}
 	@Test
 	public void TestRemainder(){
@@ -142,7 +143,7 @@ public class TestParser {
                 Parser p=new Parser();
                 List<Node> list=p.parse("make :var sum sum 1 1 20 sum :var 15");
                 Workspace workspace=new Workspace(0);
-                assertEquals(0,list.get(0).evaluate(workspace), .00000001);
+                assertEquals(22,list.get(0).evaluate(workspace), .00000001);
                 assertEquals(37,list.get(1).evaluate(workspace), .00000001);
         }
         @Test
