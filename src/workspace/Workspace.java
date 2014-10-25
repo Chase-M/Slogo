@@ -1,6 +1,9 @@
 package workspace;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,7 +13,6 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
-
 import javafx.scene.paint.Color;
 import actor.Pen;
 import actor.Turtle;
@@ -23,6 +25,8 @@ import properties.TurtleProperties;
 
 public class Workspace extends Observable implements Observer {
 	private static final String COLOR_PATH = "resources.constants/Color";
+	private static final int DEFAULT_STAGE_COLOR = 0;
+	private static final boolean NOT_CLEAR = false;
 	private int myID;
 	private Map<Integer, Turtle> myTurtles;
 	private String myLanguage;
@@ -37,6 +41,7 @@ public class Workspace extends Observable implements Observer {
 		myCommands = new HashMap<String, CommandObject>();
 		myColors=new HashMap<>();
 		initializeColors();
+		myStageProperties = new StageProperties(NOT_CLEAR,DEFAULT_STAGE_COLOR);
 	}
 
 	private void initializeColors() {
@@ -49,10 +54,19 @@ public class Workspace extends Observable implements Observer {
 	public Map<Integer, Color> getColors(){
 		return myColors;
 	}
-	public Workspace (File f) {
-		// TODO Auto-generated constructor stub
+	public void writeMem(File f) throws FileNotFoundException, UnsupportedEncodingException {
+	    PrintWriter writer = new PrintWriter(f, "UTF-8");
+	    for(String s: myVariables.keySet()){
+		writer.println("make "+s+" "+myVariables.get(s));    
+		}
+	    
+	    for(String s: myCommands.keySet()){
+	        writer.println("to "+s);
+	        writer.println(myCommands.get(s));
+	    }
+	    writer.close();
+	    
 	}
-
 	// TODO this won't work because it will reassign variables incorrectly
 	public void evaluate (List<Node> list) throws Exception {
 		for (int i = 0; i < list.size(); i++) {
@@ -73,8 +87,15 @@ public class Workspace extends Observable implements Observer {
 	public void clear () {
 		// TODO give GUI appropriate notification
 		myTurtles.clear();
-		setChangedandNotify(new StageProperties(true));
+		myStageProperties.isClear = true;
+		setChangedandNotify(myStageProperties);
+		myStageProperties.isClear = false;
 		createTurtle(0);
+	}
+	
+	public void changeBackground(int i) {
+		myStageProperties.index = i;
+		setChangedandNotify(myStageProperties);
 	}
 
 	public void save (String s) {

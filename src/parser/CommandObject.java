@@ -30,5 +30,16 @@ public class CommandObject {
     public void setMyCommands (List<Node> myCommands) {
         this.myCommands = myCommands;
     }
-    
+    public String toString(){
+        String string="[ ";
+        for(String s: myVarNames){
+            string=" "+string + s+" ";
+        }
+        string=string +" ]  ";
+        for(Node n : myCommands){
+            System.out.println(n.toString());
+            string= " "+string+" "+n.toString();
+        }
+        return string;
+    }
 }

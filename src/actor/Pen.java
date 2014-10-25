@@ -3,7 +3,7 @@ package actor;
 public class Pen {
 	
 	private static final double DEFAULT_SIZE  = 1;
-	private static final int DEFAULT_COLOR_INDEX  = 0;
+	private static final int DEFAULT_COLOR_INDEX  = 1;
 	private boolean isDown;
 	private double mySize;
 	private int myColorIndex;

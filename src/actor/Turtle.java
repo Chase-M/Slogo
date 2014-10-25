@@ -10,11 +10,13 @@ import javafx.geometry.Point2D;
 
 public class Turtle extends Observable {
     private static final Position DEFAULT_POSITION = new Position(0, 0, Math.PI / 2);
+    private static final int DEFAULT_SHAPE = 0;
 	private Position myPosition;
 	private int myID;
 	private Pen myPen;
 	private boolean isActive;
 	private boolean isShowing;
+	private int myShape;
 	
 	public Turtle(Position pos, int id){
 		myPosition = pos;
@@ -22,6 +24,7 @@ public class Turtle extends Observable {
 		myPen = new Pen(myID);
 		isActive = true;
 		isShowing = true;
+		myShape = DEFAULT_SHAPE;
 	}
 	
 	public Turtle(int id){
@@ -41,7 +44,6 @@ public class Turtle extends Observable {
 	public double getAngle(){
 		return myPosition.getAngle();
 	}
-	
 
 	public int getID(){
 		return myID;
@@ -83,5 +85,13 @@ public class Turtle extends Observable {
 	}
 	public void changedPen(){
 		setChangedandNotify(new PenProperties(myPen));
+	}
+	public void changeShape(int index){
+		myShape = index;
+		setChangedandNotify(new TurtleProperties(this));
+	}
+
+	public int getShape() {
+		return myShape;
 	}
 }

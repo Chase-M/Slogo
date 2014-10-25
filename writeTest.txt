@@ -1,0 +1,4 @@
+make :a 1.0
+make :b 2.0
+to square
+     [ :var  ]    [  sum ( 90 101 10 )  fd 50  ]

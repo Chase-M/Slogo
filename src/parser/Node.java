@@ -45,4 +45,12 @@ public class Node {
     public List<Node> getChildren(){
         return myChildren;
     }
+    public String toString(){
+        String string="";
+        for(Node n: myChildren){
+            string= string+n.toString();
+        }
+        string= " "+getCommand().toString()+string;
+        return string;
+    }
 }

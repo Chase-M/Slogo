@@ -4,8 +4,9 @@ import workspace.Workspace;
 
 public class StageProperties {
 	
-	public boolean isClear;
-	public StageProperties(boolean b){
+	public boolean isClear = false;
+	public int index = 0;
+	public StageProperties(boolean b, int index){
 		isClear = b;
 	}
 }
