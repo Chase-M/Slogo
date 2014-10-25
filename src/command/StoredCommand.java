@@ -14,7 +14,7 @@ public class StoredCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         CommandObject command=workspace.getCommands().get(myString);
         List<String> names=command.getMyVarNames();

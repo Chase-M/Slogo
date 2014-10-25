@@ -14,7 +14,7 @@ public class AskCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         int index=0;
         for(int i=0; i<inputs.size(); i++ ){

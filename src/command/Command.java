@@ -55,7 +55,8 @@ public abstract class Command {
      * 
      * @param inputs List of inputs for the specific command
      * @return appropriate int based on the type of command
+     * @throws Exception TODO
      */
-    public abstract double execute (List<Node> inputs, Workspace workspace);
+    public abstract double execute (List<Node> inputs, Workspace workspace) throws Exception;
 
 }

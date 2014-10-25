@@ -29,7 +29,7 @@ public class Controller {
 		myParser = new Parser();
 	}
 	
-	public void parseAndEvaluate(String s){
+	public void parseAndEvaluate(String s) throws Exception{
 		List<Node> list = myParser.parse(s);
 		myActiveWS.evaluate(list);
 	}

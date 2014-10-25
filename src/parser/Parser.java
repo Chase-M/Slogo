@@ -25,7 +25,7 @@ public class Parser {
      * @param string
      * @return the string used if the commands were successful
      */
-   public List<Node> parse(String string){
+   public List<Node> parse(String string) throws Exception{
        myTreeHeads.clear();
        string=string.toLowerCase();
        string=string.replaceAll("[\\\t|\\\n|\\\r]"," ");
@@ -60,7 +60,7 @@ public class Parser {
    public void changeLanguage(String language){
        myLanguage=ResourceBundle.getBundle(RESOURCE_BUNDLE+language);
    }
-   private Node makeTree(String[] s){
+   private Node makeTree(String[] s) throws Exception{
        Node node=makeNode(s[myIndex]);
        
        myIndex++;
@@ -72,7 +72,7 @@ public class Parser {
        
        return node;
    }
-   private Node makeNode(String command){
+   private Node makeNode(String command) throws Exception{
        commandFactory factory=new basicCommandCreator();
        Set<String> keys=myLanguage.keySet();
        String name="Error";
@@ -86,7 +86,7 @@ public class Parser {
                }
            }
        }
-
+       
        return new Node(factory.createCommand(name, command));
 }
 }   

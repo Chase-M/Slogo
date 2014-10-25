@@ -1,7 +1,6 @@
 package command;
 
 import java.util.List;
-
 import parser.Node;
 import workspace.Workspace;
 
@@ -13,7 +12,7 @@ public class IfCommand extends Command {
     }    
 
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
     	double ans = 0;
     	if(inputs.get(0).evaluate(workspace)!=0){
     		// TODO don't execute on the last input as it is a closing bracket and will cause 0 to be returned

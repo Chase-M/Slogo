@@ -14,7 +14,7 @@ public class DoTimesCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         List<Node> varInputs=new ArrayList<Node>();
         varInputs.add(inputs.get(1));

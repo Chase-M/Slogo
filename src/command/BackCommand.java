@@ -10,7 +10,7 @@ public class BackCommand extends Command {
 		super(s,1);
 	}
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		double distance = inputs.get(0).evaluate(workspace);
 		for(Turtle turtle :workspace.getActiveTurtles()){
 			double newX = turtle.getX() - Math.cos(turtle.getAngle())*distance;
