@@ -4,6 +4,7 @@ import java.util.List;
 
 import actor.Turtle;
 import parser.Node;
+import properties.PenProperties;
 import workspace.Workspace;
 
 public class SetPenSizeCommand extends Command {
@@ -18,6 +19,7 @@ public class SetPenSizeCommand extends Command {
 		double size = inputs.get(0).evaluate(workspace);
 		for(Turtle turtle :workspace.getActiveTurtles()){
 			turtle.getPen().setSize(size);
+			turtle.changedPen();
 		}
 		return size;
 	}

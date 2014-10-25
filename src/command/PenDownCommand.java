@@ -14,7 +14,7 @@ public class PenDownCommand extends Command {
 	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		for(Turtle turtle :workspace.getActiveTurtles()){
 			turtle.getPen().setDown(true);
-			turtle.setChangedandNotify(new PenProperties(turtle.getPen()));
+			turtle.changedPen();
 		}
 		return 1;
 	}
