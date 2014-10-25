@@ -24,21 +24,30 @@ public class AskCommand extends Command{
             }
         }
         List<Turtle> tellList=workspace.getActiveTurtles();
+        List<Node> oldList=new ArrayList<Node>();
+        oldList.add(new Node(new ConstCommand("0")));
+        for(Turtle t: tellList){
+            oldList.add(new Node(new ConstCommand(Integer.toString(t.getID()))));
+        }
+        oldList.add(new Node(new ConstCommand("0")));
         List<Node> list=new ArrayList<Node>();
+        list.add(new Node(new ConstCommand("0")));
         for(int i=1; i<index;i++){
             list.add(inputs.get(i));
+            
         }
+        list.add(new Node(new ConstCommand("0")));
+        
         Command tell=new TellCommand("tell");
         tell.execute(list, workspace);
-        double ans=0;
-        for(int i=index; i<inputs.size()-1; i++)
+               double ans=0;
+        for(int i=index; i<inputs.size()-1; i++){
             ans=inputs.get(i).evaluate(workspace);
-        
-        list.clear();
-        for(Turtle t: tellList){
-            list.add(new Node(new ConstCommand(Integer.toString(t.getID()))));
+       
         }
-        tell.execute(list, workspace);
+
+        tell.execute(oldList, workspace);
+       
         return ans;
     }
 }
