@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.ResourceBundle;
+
 import javafx.scene.paint.Color;
 import actor.Pen;
 import actor.Turtle;
@@ -20,23 +22,33 @@ import properties.TurtleProperties;
 
 
 public class Workspace extends Observable implements Observer {
+	private static final String COLOR_PATH = "resources.constants/Color";
 	private int myID;
 	private Map<Integer, Turtle> myTurtles;
 	private String myLanguage;
 	private StageProperties myStageProperties;
 	private Map<String, Double> myVariables;
 	private Map<String, CommandObject> myCommands;
-	private List<Color> myColors;
+	private Map<Integer,Color> myColors;
 	public Workspace (int id) {
 		myTurtles = new HashMap<>();
 		myID = id;
 		myVariables = new HashMap<String, Double>();
 		myCommands = new HashMap<String, CommandObject>();
-		myColors=new ArrayList<Color>();
-		myColors.add(Color.BLACK);
-
+		myColors=new HashMap<>();
+		initializeColors();
 	}
 
+	private void initializeColors() {
+		ResourceBundle bundle = ResourceBundle.getBundle(COLOR_PATH);
+		for(String index : bundle.keySet()){
+			myColors.put(Integer.parseInt(index),Color.valueOf(bundle.getString(index)));
+		}
+	}
+	
+	public Map<Integer, Color> getColors(){
+		return myColors;
+	}
 	public Workspace (File f) {
 		// TODO Auto-generated constructor stub
 	}
@@ -61,6 +73,7 @@ public class Workspace extends Observable implements Observer {
 	public void clear () {
 		// TODO give GUI appropriate notification
 		myTurtles.clear();
+		setChangedandNotify(new StageProperties(true));
 		createTurtle(0);
 	}
 
@@ -84,9 +97,13 @@ public class Workspace extends Observable implements Observer {
 
 	@Override
 	public void update (Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
+		setChangedandNotify(arg1);
+	}
+
+	private void setChangedandNotify(Object arg1) {
 		setChanged();
 		notifyObservers(arg1);
+		
 	}
 
 	public void createTurtle(int id){
