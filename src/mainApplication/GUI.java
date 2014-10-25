@@ -12,6 +12,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 import components.BottomPane;
+import components.InfoPane;
+import components.InfoPane2;
 import components.LeftPane;
 import components.RightPane;
 import components.TopPane;
@@ -34,7 +36,7 @@ public class GUI extends Pane implements Observer{
 	 * Activates the necessary components for GUI
 	 */
 
-	private RightPane myRightPane;
+	//private RightPane myRightPane;
 	private LeftPane myLeftPane;
 	private Turtle myTurtle;
 	private CenterPane myCenterPane;
@@ -60,22 +62,25 @@ public class GUI extends Pane implements Observer{
 		myParser = new Parser();
 		loadPanes();
 		myController.createWorkspace(this);
+
 	}
 
 
 	private void loadPanes(){
 		BorderPane pane = new BorderPane();
-		myRightPane = new RightPane();		
-		myLeftPane = new LeftPane();
+	//	myRightPane = new RightPane();		
+		//myLeftPane = new LeftPane();
+		InfoPane infoPane = new InfoPane("Variables", "History");
+		InfoPane2 rightPane = new InfoPane2("Colors", "Images");
 		myTopPane = new TopPane();
 		myBottomPane = new BottomPane();
 		myCenterPane = new CenterPane();
-		pane.setLeft(myLeftPane);
-		pane.setRight(myRightPane);
+		pane.setLeft(infoPane);
+		pane.setRight(rightPane);
 
 		List<Pane> components = new ArrayList<Pane>();
-		components.add(myRightPane);
-		components.add(myLeftPane);
+		components.add(rightPane);
+		components.add(infoPane);
 		components.add(myTopPane);
 		components.add(myBottomPane);
 		components.add(myCenterPane);	
@@ -83,7 +88,7 @@ public class GUI extends Pane implements Observer{
 		FeatureSetUp features = new FeatureSetUp(components, myController);
 		Button run = (Button) features.myFeatureMap.get("RUN");
 		ColorPicker CP = (ColorPicker) features.myFeatureMap.get("COLORPICK");
-		Button newTurtle = (Button) features.myFeatureMap.get("NEWTURTLE");
+		//Button newTurtle = (Button) features.myFeatureMap.get("NEWTURTLE");
 		Button open = (Button) features.myFeatureMap.get("OPEN");
 		Button save = (Button) features.myFeatureMap.get("SAVE");
 		Button grid = (Button) features.myFeatureMap.get("GRID");
@@ -93,7 +98,7 @@ public class GUI extends Pane implements Observer{
 		myTopPane.addButton(grid);
 		myBottomPane.getChildren().add(CP);
 		myBottomPane.updateButton(run);
-		myBottomPane.getChildren().add(newTurtle);
+		//myBottomPane.getChildren().add(newTurtle);
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myCenterPane);	
 		pane.setTop(myTopPane);	
@@ -119,6 +124,8 @@ public class GUI extends Pane implements Observer{
 		if(props instanceof PenProperties){
 			
 			//TODO Implement this based on pen given back
+			
+			myCenterPane.updatePenProperties((PenProperties) props);
 			System.out.println("Pen Prop Runs");
 			
 			//myCenterPane.updateTurtlePosition((Position)props);

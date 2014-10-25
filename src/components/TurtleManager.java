@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import properties.PenProperties;
 import properties.TurtleProperties;
 import features.DisplayTurtle;
 
@@ -30,10 +31,19 @@ public class TurtleManager {
 		}
 		
 		turt.updatePosition(props.myPosition);
+		turt.updateTurtleShow(props.isShowing);
+		//turt.updatePenShow(penProps.isDown());
 
-		//turt.updateHeading(p);
-		//turt.update();
+
+	}
+	
+	public void updatePenProperties(PenProperties props){
+		int ID = props.getID();
+		DisplayTurtle turt;
+			turt = myTurtleMap.get(ID);		
+		turt.updatePenShow(props.isDown());
 		
 	}
+	
 
 }

@@ -59,8 +59,9 @@ public class Workspace extends Observable implements Observer {
 	}
 
 	public void clear () {
-		// TODO Auto-generated method stub
-
+		// TODO give GUI appropriate notification
+		myTurtles.clear();
+		createTurtle(0);
 	}
 
 	public void save (String s) {

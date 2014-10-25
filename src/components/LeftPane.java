@@ -34,8 +34,8 @@ public class LeftPane extends VBox implements Feature {
 	private Tab tabTemp;
 	private Tab tabTemp2;
 	private Map<String, Double> myVariables;
-	public TempTabForPanes tempTabThing;
-	public TempTabForPanes tempTabThing2;
+//	public TempTabForPanes tempTabThing;
+//	public TempTabForPanes tempTabThing2;
 
 	public LeftPane(){
 		super();
@@ -48,7 +48,7 @@ public class LeftPane extends VBox implements Feature {
 		ToolBar myToolBar = initiateToolBar();		
 		super.getChildren().addAll(myToolBar, myTabPane);
 		Pane paneTemp = new Pane();
-		tempTabThing = new TempTabForPanes();
+/*		tempTabThing = new TempTabForPanes();
 		tempTabThing2 = new TempTabForPanes();
 		//paneTemp.getChildren().add(tempTabThing);
 		tabTemp = new Tab("Variables");
@@ -59,7 +59,7 @@ public class LeftPane extends VBox implements Feature {
 		tabTemp2.setContent(tempTabThing2);
 		tabTemp2.setClosable(false);
 		myTabPane.getTabs().add(tabTemp2);
-	}
+*/	}
 	
 /*	public void updateVars(Map<String, Double> vars){
 		myTextIndex = 0;
