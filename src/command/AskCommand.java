@@ -6,23 +6,17 @@ import actor.Turtle;
 import parser.Node;
 import workspace.Workspace;
 
-public class AskCommand extends Command{
+public class AskCommand extends BasicListCommand{
     public AskCommand(String s){
-        super(s,2);
-        myNumLists=2;
+        super(s,2,2);
         
     }
 
     @Override
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
-        int index=0;
-        for(int i=0; i<inputs.size(); i++ ){
-            if(inputs.get(i).getCommand() instanceof ListEndCommand){
-                index=i;
-                break;
-            }
-        }
+        checkListException(inputs);
+        int index=getBracketIndex(inputs);
         List<Turtle> tellList=workspace.getActiveTurtles();
         List<Node> oldList=new ArrayList<Node>();
         oldList.add(new Node(new ConstCommand("0")));

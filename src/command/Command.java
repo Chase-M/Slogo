@@ -8,8 +8,7 @@ import workspace.Workspace;
 public abstract class Command {
 
     protected int myNumInputs;
-    private int myListFlag;
-    protected int myNumLists;
+    protected int myListFlag;
     protected String myString;
 
     /**
@@ -18,7 +17,6 @@ public abstract class Command {
      * @param actors
      */
     public Command (String s) {
-        myNumLists=0;
         myListFlag = 0;
         myString = s;
     }
@@ -37,13 +35,15 @@ public abstract class Command {
         }
         
         if (myListFlag > 0) {
-            if ((node.getCommand() instanceof ListEndCommand && (myNumLists-=1)==0) || node.getCommand() instanceof GroupEndCommand){
+            if ( checkListExit(node)){
                 return 0;
             }else return Integer.MAX_VALUE;
         }
         else return myNumInputs;
     }
-
+    public boolean checkListExit(Node node){
+       return  node.getCommand() instanceof GroupEndCommand;
+    }
     public String toString () {
         return myString;
     }

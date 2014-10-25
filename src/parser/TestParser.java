@@ -180,7 +180,7 @@ public class TestParser {
         @Test
         public void TestRecursion() throws Exception{
             Parser p=new Parser();
-            List<Node> list=p.parse("make :a 0 to r [ :var ] [ make :a sum :var :a if greater? :var 1 [ r [ - :var 1 ] ] ] r [ 10 ] sum :a 0 ");
+            List<Node> list=p.parse("make :a 0 to r [ :var ] [ make :a sum :var :a if greater? :var 1 [ r [ - :var 1 ] ]  ] r [ 10 ] sum :a 0 ");
             Workspace workspace=new Workspace(0);
             for(Node n: list){
                 n.evaluate(workspace);
