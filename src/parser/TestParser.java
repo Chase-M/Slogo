@@ -33,8 +33,7 @@ public class TestParser {
 		Parser p=new Parser();
 		List<Node> list=p.parse("quotient / 20 5 2");
 		assertEquals(2,list.get(0).evaluate(null), .00000001);
-		list=p.parse("/ 5 0 ");
-		System.out.println(list.get(0).evaluate(null));
+
 	}
 	@Test
 	public void TestRemainder() throws Exception{

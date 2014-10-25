@@ -1,6 +1,9 @@
 package workspace;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -10,7 +13,6 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
-
 import javafx.scene.paint.Color;
 import actor.Pen;
 import actor.Turtle;
@@ -49,10 +51,19 @@ public class Workspace extends Observable implements Observer {
 	public Map<Integer, Color> getColors(){
 		return myColors;
 	}
-	public Workspace (File f) {
-		// TODO Auto-generated constructor stub
+	public void writeMem(File f) throws FileNotFoundException, UnsupportedEncodingException {
+	    PrintWriter writer = new PrintWriter(f, "UTF-8");
+	    for(String s: myVariables.keySet()){
+		writer.println("make "+s+" "+myVariables.get(s));    
+		}
+	    
+	    for(String s: myCommands.keySet()){
+	        writer.println("to "+s);
+	        writer.println(myCommands.get(s));
+	    }
+	    writer.close();
+	    
 	}
-
 	// TODO this won't work because it will reassign variables incorrectly
 	public void evaluate (List<Node> list) throws Exception {
 		for (int i = 0; i < list.size(); i++) {
