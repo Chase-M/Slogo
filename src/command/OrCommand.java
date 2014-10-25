@@ -13,7 +13,13 @@ public class OrCommand extends Command {
 	
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) {
-		return (inputs.get(0).evaluate(workspace)!=0 || inputs.get(1).evaluate(workspace)!=0)? 1:0;
+		double ans = 0;
+		// Must execute all commands
+		for(Node n : inputs){
+			if(n.evaluate(workspace) != 0)
+				ans = 1;
+		}
+		return ans;
 	}
 
 
