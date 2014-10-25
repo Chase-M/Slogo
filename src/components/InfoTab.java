@@ -1,3 +1,4 @@
+
 package components;
 
 import java.util.ArrayList;
@@ -25,39 +26,41 @@ import javafx.scene.layout.VBox;
 import sun.misc.Queue;
 
 
-public class TempTabForPanes extends VBox implements Feature {
+public class InfoTab extends Tab implements Feature {
 	
 	/**
 	 * Initializes the display area for console history as well as error display
 	 */
 	protected GridPane myTextPane;
 	private ScrollPane myScrollPane;
+	//private VBox drawer;
 	protected int myTextIndex;
-	public TempTabForPanes(){
-		super();
-		
-		setStyle("-fx-background-color: #336666");
-		setPrefHeight(425);
-		setPrefWidth(200);
-		Label dummy = new Label("Label for Text Display");
-		setMargin(dummy, new Insets(5));
-
+	public InfoTab(String s){
+		super(s);
+		setClosable(false);
+		VBox drawer = new VBox();
+		drawer.setStyle("-fx-background-color: #336666");
+		drawer.setPrefHeight(425);
+		drawer.setPrefWidth(200);
 		myTextIndex = 0;
 		myTextPane = new GridPane();
 		myScrollPane = new ScrollPane();
 		myScrollPane.setContent(myTextPane);
 		myScrollPane.setPrefHeight(450);
-		myScrollPane.setPrefWidth(180);
+		myScrollPane.setPrefWidth(200);
 				
-		super.getChildren().addAll(dummy, myScrollPane);
-		setMargin(myScrollPane, new Insets(20));
-		this.addClear();
+		drawer.getChildren().add(myScrollPane);
+		VBox.setMargin(myScrollPane, new Insets(20));
+		addClear(drawer);
+		this.setContent(drawer);
+		
 
 	}
 	public void clear(){
 		myTextPane.getChildren().clear();
 		myTextIndex = 0;
 	}
+	//Code specific to implementation
 	public void update(Node b){
 		myTextPane.add(b, 0, myTextIndex);
 		myTextIndex++;
@@ -71,15 +74,15 @@ public class TempTabForPanes extends VBox implements Feature {
 			myTextIndex++;
 		}
 	}
-	private void addClear(){
+	private void addClear(VBox box){
 		Button clear = new Button("Clear");
 		clear.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				TempTabForPanes.this.clear();
+				InfoTab.this.clear();
 			}		
 		});
-		this.getChildren().add(clear);
+		box.getChildren().add(clear);
 	}
 	@Override
 	public void update() {

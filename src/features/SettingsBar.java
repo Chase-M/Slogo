@@ -20,11 +20,12 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToolBar;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
 
-public class SettingsBar extends HBox implements Feature{
+public class SettingsBar extends ToolBar implements Feature{
 	
 	private int mySceneHeight;
 	private static int mySceneWidth;
@@ -40,10 +41,10 @@ public class SettingsBar extends HBox implements Feature{
 public SettingsBar(){
 	
 	super();
-	setPrefWidth(mySceneWidth);
-	setSpacing(10);
+//	setPrefWidth(mySceneWidth);
+//	setSpacing(10);
 
-	setStyle("-fx-background-color: lightgray");
+//	setStyle("-fx-background-color: lightgray");
 	
 	Button startButton = new Button("Start");
 	startButton.setPrefSize(100, 20);
@@ -69,19 +70,19 @@ public SettingsBar(){
 	
 	languageCB = new ComboBox<String>();
 	languageCB.getItems().addAll("English", "Spanish", "Chinese");
-	setMargin(languageCB, new Insets(6));
-	setMargin(colourCB, new Insets(6));
-	setMargin(colourLabel, new Insets(6));
-	setMargin(languageLabel, new Insets(6));
-	setMargin(startButton, new Insets(6));
+//	setMargin(languageCB, new Insets(6));
+//	setMargin(colourCB, new Insets(6));
+//	setMargin(colourLabel, new Insets(6));
+//	setMargin(languageLabel, new Insets(6));
+//	setMargin(startButton, new Insets(6));
 
 
-	this.getChildren().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
+	this.getItems().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
 	//this.setPrefHeight(34);
 }
 	
 public void updateColorPicker(ColorPicker cp){
-	this.getChildren().add(cp);
+	this.getItems().add(cp);
 }
 
 

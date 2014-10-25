@@ -1,6 +1,7 @@
 package components;
 
 import mainApplication.GUI;
+import properties.PenProperties;
 import properties.Position;
 import properties.TurtleProperties;
 import features.DisplayTurtle;
@@ -48,8 +49,7 @@ public class CenterPane extends Pane implements Feature{
 		this.getChildren().add(referenceGrid);
 		//this.getChildren().add(turtleGraphic);
 		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
-				this.getChildren().add(t.myImage);
-				//this.getChildren().add(t.myLine);			
+				this.getChildren().add(t.myImage);		
 		}
 
 	}
@@ -62,8 +62,10 @@ public class CenterPane extends Pane implements Feature{
 		myTurtleManager.update(pos);
 		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
 			if(!this.getChildren().contains(t.myImage)){
+				if(t.isTurtleShowing == true){
 			this.getChildren().add(t.myImage);
-			//this.getChildren().add(t.myLine);
+				}
+
 			}
 		}
 		//	int ID = pos.myId;
@@ -73,6 +75,11 @@ public class CenterPane extends Pane implements Feature{
 		//		turtleView.setLayoutX(turtleX);
 		//		turtleView.setLayoutY(turtleY);
 		myLabel.setText("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
+	}
+	
+	public void updatePenProperties(PenProperties props){
+		myTurtleManager.updatePenProperties(props);
+		
 	}
 
 
