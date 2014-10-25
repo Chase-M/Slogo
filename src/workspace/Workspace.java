@@ -42,7 +42,7 @@ public class Workspace extends Observable implements Observer {
 	}
 
 	// TODO this won't work because it will reassign variables incorrectly
-	public void evaluate (List<Node> list) {
+	public void evaluate (List<Node> list) throws Exception {
 		for (int i = 0; i < list.size(); i++) {
 			list.get(i).evaluate(this);
 
