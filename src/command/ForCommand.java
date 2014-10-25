@@ -5,16 +5,17 @@ import java.util.List;
 import parser.Node;
 import workspace.Workspace;
 
-public class ForCommand extends Command{
+public class ForCommand extends BasicListCommand{
     
     public ForCommand(String s){
-        super(s,2);
-        myNumLists=2;
+        super(s,2,2);
+
     }
 
     @Override
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
+        checkListException(inputs);
         double ans=0;
         List<Node> varInputs=new ArrayList<Node>();
         varInputs.add(inputs.get(1));
@@ -22,7 +23,7 @@ public class ForCommand extends Command{
         Command make=new MakeCommand("make");
         make.execute(varInputs, workspace);
         for(int i=(int) inputs.get(2).evaluate(workspace); i<inputs.get(3).evaluate(workspace); i=(int) (i+inputs.get(4).evaluate(workspace))){
-            for(int j=5; j<inputs.size()-1; j++){
+            for(int j=5; j<getBracketIndex(inputs); j++){
                varInputs.remove(1);
                varInputs.add(new Node(new ConstCommand(Integer.toString(i))));
                make.execute(varInputs,workspace); 

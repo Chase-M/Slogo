@@ -6,16 +6,16 @@ import parser.CommandObject;
 import parser.Node;
 import workspace.Workspace;
 
-public class ToCommand extends Command{
+public class ToCommand extends BasicListCommand{
     
     public ToCommand(String s){
-        super(s,2);
-        myNumLists=1;
+        super(s,2,1);
     }
 
     @Override
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
+        checkListException(inputs);
         List<Node> varList=inputs.get(0).getChildren();
         List<String> names=new ArrayList<String>();
         int numVars=varList.size()-2;

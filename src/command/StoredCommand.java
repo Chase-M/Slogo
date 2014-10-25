@@ -2,21 +2,21 @@ package command;
 
 import java.util.ArrayList;
 import java.util.List;
-import exceptions.NotEnoughInputsException;
+import exceptions.IncorrectNumInputsException;
 import parser.CommandObject;
 import parser.Node;
 import workspace.Workspace;
 
-public class StoredCommand extends Command{
+public class StoredCommand extends BasicListCommand{
     
     public StoredCommand(String s){
-        super(s,1);
-        myNumLists=1;
+        super(s,1,1);
     }
 
     @Override
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
+        checkListException(inputs);
         CommandObject command=workspace.getCommands().get(myString);
         List<String> names=command.getMyVarNames();
         List<Node> commands=command.getMyCommands();
@@ -36,7 +36,7 @@ public class StoredCommand extends Command{
                 ans=commands.get(i).evaluate(workspace);
             }
         }else
-            throw new NotEnoughInputsException(toString());
+            throw new IncorrectNumInputsException(toString());
         return ans;
     }
 
