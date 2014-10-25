@@ -19,7 +19,7 @@ public class DisplayTurtle {
 	private static double turtleWidth;
 	private static double turtleHeight;
 	private static ImageView turtleGraphic;
-	private Pen myPen;
+	public Pen myPen;
 	private CenterPane myCenterPane;
 	public boolean isTurtleShowing;
 	private boolean penDown;

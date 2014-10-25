@@ -42,6 +42,7 @@ public class TurtleManager {
 		DisplayTurtle turt;
 			turt = myTurtleMap.get(ID);		
 		turt.updatePenShow(props.isDown());
+		turt.myPen.updatePenWidth(props.size());
 		
 	}
 	
