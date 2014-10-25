@@ -31,6 +31,7 @@ public class TellCommand extends Command {
 		for(Integer i: map.keySet()){
 			map.get(i).setActive(ids.contains(i));
 		}
+
 		return id;
 	}
 

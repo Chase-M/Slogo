@@ -27,6 +27,7 @@ public class Parser {
      */
    public List<Node> parse(String string){
        myTreeHeads.clear();
+       string=string.toLowerCase();
        string=string.replaceAll("[\\\t|\\\n|\\\r]"," ");
        String[] commands=string.split("\\s+");
        myIndex=0;

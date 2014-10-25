@@ -16,4 +16,8 @@ public class PenProperties{
 	public int getColorIndex(){
 		return myPen.colorIndex;
 	}
+	public int getID(){
+		return myPen.getID();
+	}
+	
 }
