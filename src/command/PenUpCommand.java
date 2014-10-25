@@ -13,8 +13,8 @@ public class PenUpCommand extends Command {
 	@Override
 	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		for(Turtle turtle :workspace.getActiveTurtles()){
-			turtle.getPen().isDown = false;
-			turtle.setChangedandNotify(new PenProperties(turtle.getPen()));
+			turtle.getPen().setDown(false);
+			turtle.changedPen();
 		}
 		return 0;
 	}

@@ -8,13 +8,13 @@ public class PenProperties{
 		myPen = pen;
 	}
 	public boolean isDown(){
-		return myPen.isDown;
+		return myPen.isDown();
 	}
 	public double size(){
-		return myPen.size;
+		return myPen.getSize();
 	}
 	public int getColorIndex(){
-		return myPen.colorIndex;
+		return myPen.getColorIndex();
 	}
 	public int getID(){
 		return myPen.getID();

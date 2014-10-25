@@ -123,7 +123,7 @@ public class GUI extends Pane implements Observer{
 			myCenterPane.updateTurtlePosition((TurtleProperties) props);
 		}
 		if(props instanceof PenProperties){
-			
+				
 			//TODO Implement this based on pen given back
 			
 			myCenterPane.updatePenProperties((PenProperties) props);
