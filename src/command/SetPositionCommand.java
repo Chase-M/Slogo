@@ -14,7 +14,7 @@ public class SetPositionCommand extends Command {
 
 
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		double newX = inputs.get(0).evaluate(workspace);
 		double newY = inputs.get(1).evaluate(workspace);
 		Point2D oldP = null;

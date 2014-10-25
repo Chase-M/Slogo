@@ -4,6 +4,7 @@ import features.Feature;
 import features.SettingsBar;
 import features.Toolbar;
 import javafx.geometry.Orientation;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 
@@ -28,8 +29,8 @@ public class TopPane extends FlowPane implements Feature {
 		// TODO Auto-generated method stub
 		
 	}
-	public void addButton(Button b){
-		myToolbar.getItems().add(b);
+	public void addItems(Node ... n){
+		myToolbar.getItems().addAll(n);
 	}
 	
 }

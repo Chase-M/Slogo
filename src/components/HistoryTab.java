@@ -1,11 +1,12 @@
 package components;
 
+import mainApplication.Controller;
 import javafx.scene.control.Button;
 
 public class HistoryTab extends InfoTab{
 
-	public HistoryTab(String s) {
-		super(s);
+	public HistoryTab(String s, Controller c) {
+		super(s, c);
 	}
 	
 	@Override

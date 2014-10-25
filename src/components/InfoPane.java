@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import mainApplication.Controller;
 import features.Feature;
 import features.TextDisplayFactory;
 import javafx.beans.value.ChangeListener;
@@ -38,7 +39,7 @@ public class InfoPane extends FlowPane implements Feature {
 	//public InfoTab variableTab;
 	public List<InfoTab> myTabs;
 
-	public InfoPane(String ... s){
+	public InfoPane(Controller c, String ... s){
 		//Add properties file with map of header name to class name
 		super(Orientation.VERTICAL);
 		TabPane tabPane = new TabPane();
@@ -49,7 +50,7 @@ public class InfoPane extends FlowPane implements Feature {
 		setPrefWidth(200);
 		myTabs = new ArrayList<InfoTab>();
 		for(String i:s){
-			InfoTab tab = tabFac.makeTab(i);
+			InfoTab tab = tabFac.makeTab(i, c);
 			myTabs.add(tab);
 		}
 		//historyTab = tabFac.makeTab(className, tabHeader);

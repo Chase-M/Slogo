@@ -72,7 +72,7 @@ public class GUI extends Pane implements Observer{
 		BorderPane pane = new BorderPane();
 	//	myRightPane = new RightPane();		
 		//myLeftPane = new LeftPane();
-		myInfoPane = new InfoPane("VariableTab", "HistoryTab");
+		myInfoPane = new InfoPane(myController, "VariableTab", "HistoryTab");
 		InfoPane2 rightPane = new InfoPane2("Colors", "Images");
 		myTopPane = new TopPane();
 		myBottomPane = new BottomPane();
@@ -94,56 +94,27 @@ public class GUI extends Pane implements Observer{
 		Button open = (Button) features.myFeatureMap.get("OPEN");
 		Button save = (Button) features.myFeatureMap.get("SAVE");
 		Button grid = (Button) features.myFeatureMap.get("GRID");
-
-		myTopPane.addButton(open);
-		myTopPane.addButton(save);
-		myTopPane.addButton(grid);
-		myBottomPane.getChildren().add(CP);
+		//String[] stringFeatures = new String[]{"OPEN", "SAVE", "GRID", "COLORPICK"};
+		//for(String s: stringFeatures){
+		//	myTopPane.addItems(features.myFeatureMap.get(s));
+		//}
+		myTopPane.addItems(open, save, grid, CP);
 		myBottomPane.updateButton(run);
-		//myBottomPane.getChildren().add(newTurtle);
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myCenterPane);	
 		pane.setTop(myTopPane);	
 		
 
 		this.getChildren().add(pane);
-		/**
-		 * Don't delete this stuff
-		 */
-/*		Map<String, Double> myMap = new HashMap<String, Double>();
-		myMap.put("this", 5.);
-		myMap.put("that", 6.);
-		myMap.put("the other", 6.7);*/
-	//	List<InfoTab> list = myInfoPane.myTabs;
-	//	for(InfoTab t:list){
-	//		t.update(myMap);
-	//	}
-		//myInfoPane.historyTab.update(myMap);
-		
 	}
 	@Override
 	public void update(Observable obs, Object props) {
-		// TODO change this
-		//myInfoPane.historyTab.update(myController.getVariables());
-//		List<InfoTab> list = myInfoPane.myTabs;
-//		for(InfoTab t:list){
-//			t.update(myController.getVariables());
-//		}
 		if(props instanceof TurtleProperties){
 			myCenterPane.updateTurtlePosition((TurtleProperties) props);
 		}
 		if(props instanceof PenProperties){
-			
-			//TODO Implement this based on pen given back
-			System.out.println("Pen Prop Runs");
-			
-			//myCenterPane.updateTurtlePosition((Position)props);
+			myCenterPane.updatePenProperties((PenProperties) props);
 		}
-/*		if(props instanceof Position){
-
-			myCenterPane.updateTurtlePosition((Position)props);
-		}
-		*/
 		
 	}
 }

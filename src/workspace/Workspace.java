@@ -42,7 +42,7 @@ public class Workspace extends Observable implements Observer {
 	}
 
 	// TODO this won't work because it will reassign variables incorrectly
-	public void evaluate (List<Node> list) {
+	public void evaluate (List<Node> list) throws Exception {
 		for (int i = 0; i < list.size(); i++) {
 			list.get(i).evaluate(this);
 
@@ -59,8 +59,9 @@ public class Workspace extends Observable implements Observer {
 	}
 
 	public void clear () {
-		// TODO Auto-generated method stub
-
+		// TODO give GUI appropriate notification
+		myTurtles.clear();
+		createTurtle(0);
 	}
 
 	public void save (String s) {

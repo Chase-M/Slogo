@@ -4,10 +4,11 @@ import java.util.List;
 import parser.Node;
 import workspace.Workspace;
 
-public class ListEndCommand extends Command{
-    
-    public ListEndCommand(String s){
-        super(s,0);
+public class BasicListCommand extends Command{
+
+    public BasicListCommand (String s) {
+        super(s);
+        // TODO Auto-generated constructor stub
     }
 
     @Override

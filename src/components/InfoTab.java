@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import mainApplication.Controller;
 import features.Feature;
 import features.TextDisplayFactory;
 import javafx.beans.value.ChangeListener;
@@ -33,15 +34,18 @@ public abstract class InfoTab extends Tab implements Feature{
 	 */
 	protected GridPane myTextPane;
 	private ScrollPane myScrollPane;
-	//private VBox drawer;
+	protected VBox myDrawer;
+	//private VBox myDrawer;
 	protected int myTextIndex;
-	public InfoTab(String s){
+	protected Controller myController;
+	public InfoTab(String s, Controller c){
 		super(s);
+		myController = c;
 		setClosable(false);
-		VBox drawer = new VBox();
-		drawer.setStyle("-fx-background-color: #336666");
-		drawer.setPrefHeight(425);
-		drawer.setPrefWidth(200);
+		myDrawer = new VBox();
+		myDrawer.setStyle("-fx-background-color: #336666");
+		myDrawer.setPrefHeight(425);
+		myDrawer.setPrefWidth(200);
 		myTextIndex = 0;
 		myTextPane = new GridPane();
 		myScrollPane = new ScrollPane();
@@ -49,10 +53,10 @@ public abstract class InfoTab extends Tab implements Feature{
 		myScrollPane.setPrefHeight(450);
 		myScrollPane.setPrefWidth(200);
 				
-		drawer.getChildren().add(myScrollPane);
+		myDrawer.getChildren().add(myScrollPane);
 		VBox.setMargin(myScrollPane, new Insets(20));
-		addClear(drawer);
-		this.setContent(drawer);
+		addClear(myDrawer);
+		this.setContent(myDrawer);
 		
 
 	}

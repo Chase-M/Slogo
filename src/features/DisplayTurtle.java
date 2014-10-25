@@ -21,6 +21,8 @@ public class DisplayTurtle {
 	private static ImageView turtleGraphic;
 	private Pen myPen;
 	private CenterPane myCenterPane;
+	public boolean isTurtleShowing;
+	private boolean penDown;
 	
 	public Line myLine; 
 	
@@ -34,19 +36,16 @@ public class DisplayTurtle {
 		turtleX = 0;
 		turtleY = 0;
 		turtleAngle = 90;
+		penDown =true;
 
 		Image image = new Image("features/turtle.png");		
 		myImage = new ImageView (image);
 		myImage.setFitWidth(26);		
 		myImage.setFitHeight(50);
-		//myLines = new ArrayList<Line>();
-		
+		//myLines = new ArrayList<Line>();		
 		updateImage(turtleX, turtleY, turtleAngle);
 		myPen = new Pen();
 		myCenterPane = pane;
-		
-		
-
 	}
 	
 	public void setTurtleID(int ID){
@@ -55,11 +54,23 @@ public class DisplayTurtle {
 	public void updatePosition(Position pos){
 		turtleX = pos.getX();
 		turtleY = pos.getY();
-		turtleAngle = pos.getAngle();		
+		turtleAngle = pos.getAngle();
 		System.out.println("angle:" + turtleAngle);
 		updateImage(turtleX, turtleY, turtleAngle);	
-		updateLine(turtleX, turtleY);		
+		updateLine(turtleX, turtleY);	
+		
 	}
+	
+	public void updateTurtleShow(boolean show){	
+		System.out.println("show:" +show);		
+		isTurtleShowing = show;		
+		if(show == false){
+			myCenterPane.getChildren().remove(myImage);
+			System.out.println("removed");
+		}
+		
+	}
+	
 	public void updateImage(double turtleX2, double turtleY2, double turtleAngle2){
 		myImage.setLayoutX(275+turtleX2);
 		myImage.setLayoutY(200-turtleY2);
@@ -68,12 +79,14 @@ public class DisplayTurtle {
 	
 	private void updateLine(double x, double y){
 		myLine = myPen.drawLine(turtleX, turtleY);
-		myCenterPane.getChildren().add(myLine);		
-
+		if(penDown == true){
+		myCenterPane.getChildren().add(myLine);	
+		}
 	}
-			
 	
-	
-	
+	public void updatePenShow(boolean isPenDown){
+		System.out.println("PenDown:" +isPenDown);
+		penDown = isPenDown;		
+	}
 	
 }

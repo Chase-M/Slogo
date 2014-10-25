@@ -10,7 +10,7 @@ public class TowardsCommand extends Command {
 		super(s,2);
 	}
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		double pointX = inputs.get(0).evaluate(workspace);
 		double pointY = inputs.get(1).evaluate(workspace);
 		double ans = 0;

@@ -1,7 +1,6 @@
 package command;
 
 import java.util.List;
-
 import parser.Node;
 import workspace.Workspace;
 
@@ -11,7 +10,7 @@ public class PiCommand extends Command {
 		super(s,0); 
 	}
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		return Math.PI;
 	}
 

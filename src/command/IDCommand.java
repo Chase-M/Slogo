@@ -13,7 +13,7 @@ public class IDCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         double ans=0;
         for(Turtle t: workspace.getActiveTurtles()){

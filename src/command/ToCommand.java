@@ -14,7 +14,7 @@ public class ToCommand extends Command{
     }
 
     @Override
-    public double execute (List<Node> inputs, Workspace workspace) {
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         List<Node> varList=inputs.get(0).getChildren();
         List<String> names=new ArrayList<String>();

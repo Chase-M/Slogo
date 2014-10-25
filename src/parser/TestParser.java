@@ -7,7 +7,7 @@ import actor.Turtle;
 
 public class TestParser {
 	@Test
-	public void TestSum(){
+	public void TestSum() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("sum sum 20 15 15");
 		for(Node n: list){
@@ -15,28 +15,29 @@ public class TestParser {
 		}
 	}
 	@Test
-	public void TestDif(){
+	public void TestDif() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("difference - 20 15 15");
 		assertEquals(-10,list.get(0).evaluate(null), .00000001);
 		
 	}
 	@Test
-	public void TestProd(){
+	public void TestProd() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("* product 2 5 -3");
 		assertEquals(-30,list.get(0).evaluate(null), .00000001);
 		
 	}
 	@Test
-	public void TestQuotient(){
+	public void TestQuotient() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("quotient / 20 5 2");
 		assertEquals(2,list.get(0).evaluate(null), .00000001);
-		
+		list=p.parse("/ 5 0 ");
+		System.out.println(list.get(0).evaluate(null));
 	}
 	@Test
-	public void TestRemainder(){
+	public void TestRemainder() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("remainder 20 5");
 		assertEquals(0,list.get(0).evaluate(null), .00000001);
@@ -46,7 +47,7 @@ public class TestParser {
 		
 	}
 	@Test
-	public void TestMinus(){
+	public void TestMinus() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("minus ~ 2 ~ 44");
 		assertEquals(2,list.get(0).evaluate(null), .00000001);
@@ -54,7 +55,7 @@ public class TestParser {
 	}
 	
 	@Test
-	public void TestRandom(){
+	public void TestRandom() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("random sum 5 5");
 		double ans = list.get(0).evaluate(null);
@@ -62,7 +63,7 @@ public class TestParser {
 		assertTrue(ans >= 0);
 	}
 	@Test
-	public void TestTrig(){
+	public void TestTrig() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("sin 90");
 		double ans = list.get(0).evaluate(null);
@@ -72,7 +73,7 @@ public class TestParser {
 		assertEquals(45,p.parse("atan tan 45").get(0).evaluate(null),0.0000001);
 	}
 	@Test
-	public void TestPow(){
+	public void TestPow() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("pow 2 3");
 		double ans = list.get(0).evaluate(null);
@@ -80,7 +81,7 @@ public class TestParser {
 		assertEquals(1,p.parse("log 2.718281828").get(0).evaluate(null),0.0000001);
 	}
 	@Test
-	public void TestBoolean(){
+	public void TestBoolean() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("less? 5 2");
 		double ans = list.get(0).evaluate(null);
@@ -92,7 +93,7 @@ public class TestParser {
 	}
 	
 	@Test
-	public void TestIf(){
+	public void TestIf() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("if greater? sum 1 0 - 5 5 [ sum 5 5 ]");
 		double ans = list.get(0).evaluate(null);
@@ -103,7 +104,7 @@ public class TestParser {
 		assertEquals(32,ans2, .00000001);
 	}
         @Test
-        public void TestIfElse(){
+        public void TestIfElse() throws Exception{
                 Parser p=new Parser();
                 Workspace workspace=new Workspace(0);
                 List<Node> list=p.parse("ifelse greater? sum 1 0 - 5 5 [ make :a 5 ] [ make :a 10 ] sum :a 0");
@@ -119,7 +120,7 @@ public class TestParser {
                 
         }
 	@Test
-	public void TestSum2(){
+	public void TestSum2() throws Exception{
 		Parser p=new Parser();
 		List<Node> list=p.parse("+ 20 20 sum 15 15");
 		
@@ -129,7 +130,7 @@ public class TestParser {
 
 	
 	@Test
-	public void TestForward(){
+	public void TestForward() throws Exception{
 		Parser p=new Parser();
 		Workspace workspace=new Workspace(0);
 		workspace.createTurtle(0);
@@ -138,15 +139,15 @@ public class TestParser {
 	}
 
         @Test
-        public void TestMake(){
+        public void TestMake() throws Exception{
                 Parser p=new Parser();
                 List<Node> list=p.parse("make :var sum sum 1 1 20 sum :var 15");
                 Workspace workspace=new Workspace(0);
-                assertEquals(0,list.get(0).evaluate(workspace), .00000001);
+                assertEquals(22,list.get(0).evaluate(workspace), .00000001);
                 assertEquals(37,list.get(1).evaluate(workspace), .00000001);
         }
         @Test
-        public void TestRepeat(){
+        public void TestRepeat() throws Exception{
                 Parser p=new Parser();
                 Workspace workspace=new Workspace(0);
                 List<Node> list=p.parse("make :a 0 repeat 5 [ make :a sum :a 5 ] sum :a 0");
@@ -155,13 +156,13 @@ public class TestParser {
                 assertEquals(25,list.get(2).evaluate(workspace), .00000001);
         }
         @Test
-        public void TestFor(){
+        public void TestFor() throws Exception{
                 Parser p=new Parser();
                 List<Node> list=p.parse("for [ 0 10 1 ] [ sum 5 5 ] sum 10 10");
                 assertEquals(20,list.get(1).evaluate(null), .00000001);
         }
         @Test
-        public void TestTo(){
+        public void TestTo() throws Exception{
             Parser p=new Parser();
             List<Node> list=p.parse("to square [ :var ] [ repeat 4 [ forward :var left 90 ] ] square [ 50 ] ");
             Workspace workspace=new Workspace(0);
@@ -177,7 +178,7 @@ public class TestParser {
             assertEquals(150, list.get(3).evaluate(workspace), .000001);
         }
         @Test
-        public void TestRecursion(){
+        public void TestRecursion() throws Exception{
             Parser p=new Parser();
             List<Node> list=p.parse("make :a 0 to r [ :var ] [ make :a sum :var :a if greater? :var 1 [ r [ - :var 1 ] ] ] r [ 10 ] sum :a 0 ");
             Workspace workspace=new Workspace(0);

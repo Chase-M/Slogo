@@ -22,8 +22,9 @@ public class Node {
      * returns the value of the this command and executes this command as well 
      * as all its children 
      * @return
+     * @throws Exception 
      */
-    public double evaluate(Workspace workspace){
+    public double evaluate(Workspace workspace) throws Exception{
         return myCommand.execute(myChildren,workspace);
     }
     /**

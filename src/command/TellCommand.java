@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import actor.Turtle;
 import parser.Node;
 import workspace.Workspace;
@@ -17,7 +16,7 @@ public class TellCommand extends Command {
 	}
 
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		Map<Integer,Turtle> map = workspace.getTurtles();
 		Set<Integer> ids = new HashSet<>();
 		int id = 0;
@@ -31,6 +30,7 @@ public class TellCommand extends Command {
 		for(Integer i: map.keySet()){
 			map.get(i).setActive(ids.contains(i));
 		}
+
 		return id;
 	}
 

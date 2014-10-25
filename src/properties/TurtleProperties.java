@@ -14,6 +14,7 @@ public class TurtleProperties {
         myPen=turtle.getPen();
         myPosition=turtle.getPosition();
         isShowing = turtle.isShowing();
+        
     }
     
     

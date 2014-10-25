@@ -33,8 +33,8 @@ public class SettingsBar extends ToolBar implements Feature{
 	private LeftPane myLeftPane;
 	private ResourceBundle myNumberResources;
 	private Turtle myTurtle;
-	private static ComboBox<String> languageCB;
-	private static ComboBox<String> colourCB;
+	private ComboBox<String> languageCB;
+	private ComboBox<String> colourCB;
 	private ColorPicker displayColourPicker;
 	
 	
@@ -46,10 +46,10 @@ public SettingsBar(){
 
 //	setStyle("-fx-background-color: lightgray");
 	
-	Button startButton = new Button("Start");
-	startButton.setPrefSize(100, 20);
-	startButton.setOnAction(new EventHandler<ActionEvent>(){
-		@Override
+	//Button startButton = new Button("Start");
+	//startButton.setPrefSize(100, 20);
+	//startButton.setOnAction(new EventHandler<ActionEvent>(){
+/*		@Override
 		public void handle(ActionEvent event) {
 			System.out.println("start button clicked");
 			System.out.println(languageCB.getValue());
@@ -58,7 +58,7 @@ public SettingsBar(){
 		
 	});
 	
-	
+*/	
 	Label colourLabel = new Label("Pen Colour:");
 	Label languageLabel = new Label("Language Pack:");
 	
@@ -70,6 +70,10 @@ public SettingsBar(){
 	
 	languageCB = new ComboBox<String>();
 	languageCB.getItems().addAll("English", "Spanish", "Chinese");
+	languageCB.setOnAction((event) -> {
+	    System.out.println(languageCB.getSelectionModel().getSelectedItem());
+	   // System.out.println("ComboBox Action (selected: " + selectedPerson.toString() + ")");
+	});
 //	setMargin(languageCB, new Insets(6));
 //	setMargin(colourCB, new Insets(6));
 //	setMargin(colourLabel, new Insets(6));
@@ -77,7 +81,7 @@ public SettingsBar(){
 //	setMargin(startButton, new Insets(6));
 
 
-	this.getItems().addAll(colourLabel, colourCB, languageLabel, languageCB, startButton);
+	this.getItems().addAll(colourLabel, colourCB, languageLabel, languageCB);
 	//this.setPrefHeight(34);
 }
 	

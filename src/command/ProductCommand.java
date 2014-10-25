@@ -1,7 +1,6 @@
 package command;
 
 import java.util.List;
-
 import parser.Node;
 import workspace.Workspace;
 
@@ -11,7 +10,7 @@ public class ProductCommand extends Command {
 		super(s,2); 
 	}
 	@Override
-	public double execute(List<Node> inputs, Workspace workspace) {
+	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		double prod = 1;
 		for(Node n: inputs){
 			prod *= n.evaluate(workspace);

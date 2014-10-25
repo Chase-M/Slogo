@@ -3,7 +3,6 @@ package features;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import mainApplication.Controller;
 import components.BottomPane;
 import components.CenterPane;
@@ -24,6 +23,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
+
 public class RunButtonFeature extends Button implements Feature{
 	public RunButtonFeature(Map<String, Pane> componentMap, Controller myController){
 	super("Run");
@@ -35,6 +35,7 @@ public class RunButtonFeature extends Button implements Feature{
 		    	InfoPane infoPane = (InfoPane)componentMap.get("class components.InfoPane");
 
 		    	if(!bottomPane.myCommand.getText().isEmpty()){
+
 		    		try{
 				myController.parseAndEvaluate(bottomPane.myCommand.getText());
 		    	
@@ -64,7 +65,8 @@ public class RunButtonFeature extends Button implements Feature{
 				}
 		      //  infoPane.variableTab.updateVars(myController.getVariables());
 		        bottomPane.myCommand.clear();
-		    	}
+	                    }
+	                    
 		    	
 		    	catch(Exception n){
 		    		bottomPane.updateErrors(n);
@@ -81,4 +83,5 @@ public class RunButtonFeature extends Button implements Feature{
 		// TODO Auto-generated method stub
 		
 	}
+
 }
