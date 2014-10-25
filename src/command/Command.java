@@ -47,7 +47,9 @@ public abstract class Command {
     public String toString () {
         return myString;
     }
-
+    public boolean isList(){
+        return myListFlag==1 ? true:false;
+    }
     /**
      * Executes the command on the list of actors provided
      * based on the inputs given
@@ -58,5 +60,5 @@ public abstract class Command {
      * @throws Exception TODO
      */
     public abstract double execute (List<Node> inputs, Workspace workspace) throws Exception;
-
+    
 }

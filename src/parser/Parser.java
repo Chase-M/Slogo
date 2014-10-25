@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
+import exceptions.NotEnoughInputsException;
+import exceptions.UnclosedListException;
 import javafx.scene.input.KeyCode;
 
 public class Parser {
@@ -38,25 +40,6 @@ public class Parser {
        }
        return myTreeHeads;
    }
-   /**
-    * If user needs to give mouseinput to parser 
-    * @param x
-    * @param y
-    */
-   public void onClick(double x, double y){
-       
-   }
-   /**
-    * if user presses a key to give parser info
-    * @param key
-    */
-   public void onKeyPress(KeyCode key){
-       
-   }
-   /**
-    * Takes a string to change parser language
-    * @param language
-    */
    public void changeLanguage(String language){
        myLanguage=ResourceBundle.getBundle(RESOURCE_BUNDLE+language);
    }
@@ -65,11 +48,17 @@ public class Parser {
        
        myIndex++;
        Node next=null;
+       try{
        for(int i=0; i<node.getCommand().getNumInputs(next); i++){
               next=makeTree(s);
               node.addChild(next);          
        }
-       
+       }catch(Exception e){
+           if(node.getCommand().isList())
+               throw new UnclosedListException("");
+           else
+               throw new NotEnoughInputsException(node.getCommand().toString());
+       }
        return node;
    }
    private Node makeNode(String command) throws Exception{
