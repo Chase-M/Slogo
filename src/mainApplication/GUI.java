@@ -29,6 +29,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.Slider;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -95,12 +96,15 @@ public class GUI extends Pane implements Observer{
 		Button open = (Button) features.myFeatureMap.get("OPEN");
 		Button save = (Button) features.myFeatureMap.get("SAVE");
 		Button grid = (Button) features.myFeatureMap.get("GRID");
+		Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
 
 		myTopPane.addButton(open);
 		myTopPane.addButton(save);
 		myTopPane.addButton(grid);
 		myBottomPane.getChildren().add(CP);
 		myBottomPane.updateButton(run);
+		//myBottomPane.getChildren().add(penSlider);
+//		myTopPane.mySettingsBar.addSlider(penSlider);
 		//myBottomPane.getChildren().add(newTurtle);
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myCenterPane);	

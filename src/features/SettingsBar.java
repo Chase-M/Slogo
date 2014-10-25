@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.HBox;
@@ -45,39 +46,39 @@ public SettingsBar(){
 //	setSpacing(10);
 
 //	setStyle("-fx-background-color: lightgray");
-	
+//	
 	Button startButton = new Button("Start");
-	startButton.setPrefSize(100, 20);
-	startButton.setOnAction(new EventHandler<ActionEvent>(){
-		@Override
-		public void handle(ActionEvent event) {
-			System.out.println("start button clicked");
-			System.out.println(languageCB.getValue());
-			System.out.println(displayColourPicker.getValue());
-		}
-		
-	});
-	
-	
-	Label colourLabel = new Label("Pen Colour:");
-	Label languageLabel = new Label("Language Pack:");
-	
-	//displayColourPicker = new ColorPicker();
-	
-	colourCB = new ComboBox<String>();
-	colourCB.getItems().addAll("White", "Yellow", "Green");
-	
-	
-	languageCB = new ComboBox<String>();
-	languageCB.getItems().addAll("English", "Spanish", "Chinese");
+//	startButton.setPrefSize(100, 20);
+//	startButton.setOnAction(new EventHandler<ActionEvent>(){
+//		@Override
+//		public void handle(ActionEvent event) {
+//			System.out.println("start button clicked");
+//			System.out.println(languageCB.getValue());
+//			System.out.println(displayColourPicker.getValue());
+//		}
+//		
+//	});
+//	
+//	
+//	Label languageLabel = new Label("Language Pack:");
+//	
+//	displayColourPicker = new ColorPicker();
+//	
+//	colourCB = new ComboBox<String>();
+//	colourCB.getItems().addAll("White", "Yellow", "Green");
+//	
+//	
+//	languageCB = new ComboBox<String>();
+//	languageCB.getItems().addAll("English", "Spanish", "Chinese");
 //	setMargin(languageCB, new Insets(6));
 //	setMargin(colourCB, new Insets(6));
 //	setMargin(colourLabel, new Insets(6));
 //	setMargin(languageLabel, new Insets(6));
 //	setMargin(startButton, new Insets(6));
 
+	Label settingsBarLabel = new Label("Settings Bar:");
 
-	this.getItems().addAll(colourLabel,  languageLabel,startButton);
+	this.getItems().addAll(settingsBarLabel);
 	//this.setPrefHeight(34);
 }
 	
@@ -85,6 +86,13 @@ public void updateColorPicker(ColorPicker cp){
 	this.getItems().add(cp);
 }
 
+public void addSlider(Slider slider){
+	
+	Label penWidth = new Label("Pen Width: ");
+	this.getItems().addAll(penWidth, slider);
+
+	
+}
 
 @Override
 public void update() {

@@ -39,6 +39,9 @@ public class FeatureSetUp{
 		ToggleGridButtonFeature gridButton = new ToggleGridButtonFeature(myComponentMap);
 		myFeatureMap.put("GRID", gridButton);
 		
+		PenWidthSliderFeature penSlider = new PenWidthSliderFeature(myComponentMap, myController);
+		myFeatureMap.put("PENSLIDER", penSlider);
+		
 	}
 	
 	public Map<String,Pane> createComponentMap(List<Pane> myComponents){

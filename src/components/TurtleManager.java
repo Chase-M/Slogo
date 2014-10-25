@@ -44,8 +44,9 @@ public class TurtleManager {
 			turt = myTurtleMap.get(ID);		
 		turt.updatePenShow(props.isDown());
 		turt.myPen.updatePenWidth(props.size());
-		
 	}
+	
+
 	
 	public void clearScreen(boolean clear){
 		if(clear == true){			
