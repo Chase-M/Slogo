@@ -66,7 +66,6 @@ public class Controller {
 		myActiveWS.clear();
 	}
 	
-	
 
 	
 	public void saveMem(String s){
