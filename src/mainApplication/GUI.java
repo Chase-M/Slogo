@@ -126,16 +126,36 @@ public class GUI extends Pane implements Observer{
 				switch (event.getCode()) {
 				case W: 
 					System.out.println("up");
-					myController.parseAndEvaluate("setheading 90 fd 25");break;					
+					try {
+						myController.parseAndEvaluate("setheading 90 fd 25");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}break;					
 				case S:
 					System.out.println("down");
-					myController.parseAndEvaluate("setheading 270 fd 25");break;					
+					try {
+						myController.parseAndEvaluate("setheading 270 fd 25");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}break;					
 				case D:
 					System.out.println("right");
-					myController.parseAndEvaluate("setheading 0 fd 25");break;					
+					try {
+						myController.parseAndEvaluate("setheading 0 fd 25");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}break;					
 				case A:
 					System.out.println("left");
-					myController.parseAndEvaluate("setheading 180 fd 25"); break;
+					try {
+						myController.parseAndEvaluate("setheading 180 fd 25");
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} break;
 				}
 
 			}	
@@ -161,6 +181,7 @@ public class GUI extends Pane implements Observer{
 		}
 		if(props instanceof StageProperties){
 			System.out.println("Stage Prop runs");
+			myCenterPane.clearScreen(((StageProperties) props).isClear);
 			boolean b = ((StageProperties) props).isClear;
 		}
 		
