@@ -13,7 +13,7 @@ public class PenQueryCommand extends Command {
 	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
 		List<Turtle> turtles=workspace.getActiveTurtles();
 		Turtle turtle = turtles.get(turtles.size()-1);
-		return (turtle.getPen().isDown)? 1:0;
+		return (turtle.getPen().isDown())? 1:0;
 	}
 
 }
