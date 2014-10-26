@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javafx.scene.paint.Color;
 import properties.PenProperties;
 import properties.TurtleProperties;
 import features.DisplayTurtle;
@@ -12,6 +13,7 @@ import features.DisplayTurtle;
 public class TurtleManager {
 	Map<Integer, DisplayTurtle> myTurtleMap;
 	private CenterPane myCenterPane;
+	private Color testC;
 	
 	public TurtleManager(CenterPane pane){
 		myTurtleMap = new HashMap<Integer, DisplayTurtle>();
@@ -44,6 +46,7 @@ public class TurtleManager {
 			turt = myTurtleMap.get(ID);		
 		turt.updatePenShow(props.isDown());
 		turt.myPen.updatePenWidth(props.size());
+		turt.myPen.updatePenColor((Color) myCenterPane.colorsMap.get(props.getColorIndex()));
 	}
 	
 

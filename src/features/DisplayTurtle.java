@@ -68,7 +68,6 @@ public class DisplayTurtle {
 		turtleX = pos.getX();
 		turtleY = pos.getY();
 		turtleAngle = pos.getAngle();
-		System.out.println("angle:" + turtleAngle);
 		updateImage(turtleX, turtleY, turtleAngle);	
 		updateLine(turtleX, turtleY);	
 	
@@ -109,8 +108,7 @@ public class DisplayTurtle {
 //		tl.play();	
 //	}
 //	
-	public void updateTurtleShow(boolean show){	
-		System.out.println("show:" +show);		
+	public void updateTurtleShow(boolean show){			
 		isTurtleShowing = show;		
 		if(show == false){
 			myCenterPane.getChildren().remove(myImage);
@@ -132,12 +130,10 @@ public class DisplayTurtle {
 		if(penDown == true){
 		myCenterPane.getChildren().add(myLine);	
 		linesDrawn.add(myLine);
-		System.out.println("linesDrawn Size:" +linesDrawn.size());
 		}
 	}
 	
 	public void updatePenShow(boolean isPenDown){
-		System.out.println("PenDown:" +isPenDown);
 		penDown = isPenDown;		
 	}
 	

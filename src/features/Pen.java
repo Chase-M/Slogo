@@ -30,8 +30,7 @@ public class Pen extends GraphicObject{
 	}
 	public Line drawLine(double x, double y, double tWidth, double tHeight){
 		
-		System.out.println("drawn");
-		
+	
 		Line line = new Line();		
 		line.setStroke(penColor);		
 		line.setStrokeWidth(penWidth);		
@@ -49,14 +48,12 @@ public class Pen extends GraphicObject{
 	
 	
 	public void updatePenColor(Color color){
-		// what sort of colour information is backend going to send?
 		penColor = color;
 	}
 	
 	public void updatePenWidth(double width){
 		//default is 1	
 		penWidth = width;
-		System.out.println("PenWidth is:" +width);
 	}
 
 	public Color returnPenColor(){

@@ -37,6 +37,7 @@ import javafx.scene.control.Slider;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class GUI extends Pane implements Observer{
@@ -56,6 +57,8 @@ public class GUI extends Pane implements Observer{
 
 	private InfoPane myLeftPane;
 	private InfoPane myRightPane;
+	
+	private Map<Integer, Color> colorsMap;
 
 
 	private Controller myController;
@@ -66,6 +69,7 @@ public class GUI extends Pane implements Observer{
 
 	public GUI(Controller controller){
 		myController = controller;
+		//colorsMap = myController.getColors();
 
 	}
 
@@ -162,13 +166,33 @@ public class GUI extends Pane implements Observer{
 		
 	}
 	
+	@Override
+	public void update(Observable obs, Object props) {
+		if(props instanceof TurtleProperties){
+			myCenterPane.updateTurtlePosition((TurtleProperties) props);
+		}
+		if(props instanceof PenProperties){			
+			//TODO Implement this based on pen given back
+			System.out.println("Pen Prop runs");
+			myCenterPane.initiateColorsMap(myController.getColors());
+			myCenterPane.updatePenProperties((PenProperties) props);
+
+			//myCenterPane.updateTurtlePosition((Position)props);
+		}
+		if(props instanceof StageProperties){
+			System.out.println("Stage Prop runs");
+			myCenterPane.clearScreen(((StageProperties) props).isClear);
+			boolean b = ((StageProperties) props).isClear;
+		}
+		
+		
+	}
 	
 	public void initiateKeyPress(Scene s) {
 		s.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override public void handle(KeyEvent event) {
 				switch (event.getCode()) {
 				case W: 
-					System.out.println("up");
 					try {
 						myController.parseAndEvaluate("setheading 90 fd 25");
 					} catch (Exception e) {
@@ -176,7 +200,6 @@ public class GUI extends Pane implements Observer{
 						e.printStackTrace();
 					}break;					
 				case S:
-					System.out.println("down");
 					try {
 						myController.parseAndEvaluate("setheading 270 fd 25");
 					} catch (Exception e) {
@@ -184,7 +207,6 @@ public class GUI extends Pane implements Observer{
 						e.printStackTrace();
 					}break;					
 				case D:
-					System.out.println("right");
 					try {
 						myController.parseAndEvaluate("setheading 0 fd 25");
 					} catch (Exception e) {
@@ -192,7 +214,6 @@ public class GUI extends Pane implements Observer{
 						e.printStackTrace();
 					}break;					
 				case A:
-					System.out.println("left");
 					try {
 						myController.parseAndEvaluate("setheading 180 fd 25");
 					} catch (Exception e) {
@@ -206,28 +227,4 @@ public class GUI extends Pane implements Observer{
 	}
 
 	
-	
-	
-	@Override
-	public void update(Observable obs, Object props) {
-		if(props instanceof TurtleProperties){
-			myCenterPane.updateTurtlePosition((TurtleProperties) props);
-		}
-		if(props instanceof PenProperties){			
-			//TODO Implement this based on pen given back
-			System.out.println("Pen Prop runs");
-			
-			myCenterPane.updatePenProperties((PenProperties) props);
-			System.out.println("pen prop size: "+ ((PenProperties) props).size());
-			
-			//myCenterPane.updateTurtlePosition((Position)props);
-		}
-		if(props instanceof StageProperties){
-			System.out.println("Stage Prop runs");
-			myCenterPane.clearScreen(((StageProperties) props).isClear);
-			boolean b = ((StageProperties) props).isClear;
-		}
-		
-		
-	}
 }
