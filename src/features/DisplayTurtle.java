@@ -6,9 +6,15 @@ import java.util.List;
 
 import components.CenterPane;
 import properties.Position;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Line;
+import javafx.util.Duration;
 
 public class DisplayTurtle {
 	
@@ -26,6 +32,9 @@ public class DisplayTurtle {
 	private List linesDrawn;
 	private double middleX;
 	private double middleY;
+	private double currentX;
+	private double currentY;
+	private double theta;
 	
 	public Line myLine; 
 	
@@ -62,9 +71,44 @@ public class DisplayTurtle {
 		System.out.println("angle:" + turtleAngle);
 		updateImage(turtleX, turtleY, turtleAngle);	
 		updateLine(turtleX, turtleY);	
-		
+	
+	
 	}
 	
+	
+//	public void updatePosition(Position pos){
+//		turtleX = pos.getX();
+//		turtleY = pos.getY();
+//		turtleAngle = pos.getAngle();
+//		
+//		double xDiff = (pos.getX()+middleX)-currentX;
+//		double yDiff = currentY-(middleY-pos.getY());
+//		
+//		if(xDiff == 0){
+//			theta = 90;
+//		} else {
+//			theta = Math.atan(yDiff/xDiff);
+//		}
+//		
+//		double totaldistance = Math.sqrt(xDiff*xDiff + yDiff*yDiff);
+//		
+//		Timeline tl = new Timeline();
+//		tl.setCycleCount(totaldistance/10);
+//		KeyFrame update = new KeyFrame(Duration.seconds(0.05), 
+//				new EventHandler<ActionEvent>(){			
+//			public void handle(ActionEvent event){
+//				
+//				updateImage(turtleX, turtleY, turtleAngle);
+//				
+//				
+//			}
+//		
+//		});
+//		
+//		tl.getKeyFrames().add(update);
+//		tl.play();	
+//	}
+//	
 	public void updateTurtleShow(boolean show){	
 		System.out.println("show:" +show);		
 		isTurtleShowing = show;		
@@ -75,10 +119,12 @@ public class DisplayTurtle {
 		
 	}
 	
-	public void updateImage(double turtleX2, double turtleY2, double turtleAngle2){
-		myImage.setLayoutX(middleX+turtleX2);
-		myImage.setLayoutY(middleY-turtleY2);
+	public void updateImage(double moveX, double moveY, double turtleAngle2){
+		myImage.setLayoutX(middleX+moveX);
+		myImage.setLayoutY(middleY-moveY);
 		myImage.setRotate(90-Math.toDegrees(turtleAngle2));
+		currentX = middleX+moveX;
+		currentY = middleY+moveY;
 	}
 	
 	private void updateLine(double x, double y){

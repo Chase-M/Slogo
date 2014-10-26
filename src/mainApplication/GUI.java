@@ -31,6 +31,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.Slider;
@@ -114,6 +115,7 @@ public class GUI extends Pane implements Observer{
 		Button save = (Button) features.myFeatureMap.get("SAVE");
 		Button grid = (Button) features.myFeatureMap.get("GRID");
 		Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
+		ComboBox penType = (ComboBox) features.myFeatureMap.get("PENTYPE");
 
 		//String[] stringFeatures = new String[]{"OPEN", "SAVE", "GRID", "COLORPICK"};
 		//for(String s: stringFeatures){
@@ -121,12 +123,12 @@ public class GUI extends Pane implements Observer{
 		//}
 		myTopPane.addItems(open, save, grid, CP);
 		myBottomPane.updateButton(run);
-<<<<<<< HEAD
+
 		//myBottomPane.getChildren().add(penSlider);
 		myTopPane.mySettingsBar.addSlider(penSlider);
+		myTopPane.mySettingsBar.addComboBox(penType);
 		//myBottomPane.getChildren().add(newTurtle);
-=======
->>>>>>> 66f3a3cb1dc2b8c0a40faa966e212e4d3abe962c
+
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myScroller);	
 		pane.setTop(myTopPane);	
