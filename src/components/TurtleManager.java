@@ -1,8 +1,6 @@
 package components;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javafx.scene.image.ImageView;
@@ -10,7 +8,12 @@ import javafx.scene.paint.Color;
 import properties.PenProperties;
 import properties.TurtleProperties;
 import features.DisplayTurtle;
-
+/**
+ *  TurtleManager is a class that maintains a list of
+ *  graphic turtles that are displayed to the user.
+ *  It updates the pen and turtle positions.
+ *
+ */
 public class TurtleManager {
 	public Map<Integer, DisplayTurtle> myTurtleMap;
 	private CenterPane myCenterPane;
@@ -38,8 +41,6 @@ public class TurtleManager {
 			myTurtleMap.put(ID, turt);
 		}
 		turt.updateImageView(myImageMap.get(Integer.valueOf(props.getShape())));
-	//	}
-
 		turt.updatePosition(props.getPosition());
 		turt.updateTurtleShow(props.isShowing());
 

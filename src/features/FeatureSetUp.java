@@ -36,11 +36,7 @@ public class FeatureSetUp{
 		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
 		myFeatureMap.put("COLORPICK", colorPick);
 		
-	//	OpenButtonFeature open = new OpenButtonFeature(myController);
-	//	myFeatureMap.put("OPEN", open);
-		
-	//	SaveButtonFeature save = new SaveButtonFeature(myController);
-	//	myFeatureMap.put("SAVE", save);
+
 		
 		ToggleGridButtonFeature gridButton = new ToggleGridButtonFeature(myComponentMap);
 		myFeatureMap.put("GRID", gridButton);
@@ -75,7 +71,9 @@ public class FeatureSetUp{
 		Map<String, Pane> componentMap = new HashMap<String, Pane>();
 		  
 		for(Pane p:myComponents){
-			componentMap.put(p.getClass().toString(), p);	//Not a great solution
+
+			componentMap.put(p.getClass().toString(), p);
+
 		}
 		return componentMap;
 	}
