@@ -38,6 +38,10 @@ public class CenterPane extends Pane implements Feature {
 
     }
 
+    /**
+     * updates the turtle position using specified turlte ID
+     * @param pos: contains information on coordinates and angle
+     */
     public void updateTurtlePosition (TurtleProperties pos) {
         myTurtleManager.update(pos);
         for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
@@ -48,21 +52,35 @@ public class CenterPane extends Pane implements Feature {
             }
         }
     }
-
+    /**
+     * updates pen information
+     * @param props: contains pen property information
+     */
     public void updatePenProperties (PenProperties props) {
         myTurtleManager.updatePenProperties(props);
     }
-
+    /**
+     * clears the screen and resets to one turtle
+     * @param clear: states whether or not screen is to be cleared
+     */
     public void clearScreen (boolean clear) {
         myTurtleManager.clearScreen(clear);
     }
 
+    /**
+     * updates the pen style on all turtles in workspace
+     * @param type: integer that corresponds to a specific line style
+     */
     public void updatePenType (int type) {
         for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
             t.updatePenType(type);
         }
     }
 
+    /**
+     * updates the animation on/off on all turtles in workspace
+     * @param bool: states whether or not animation should be turned on
+     */
     public void updateAnimate (boolean bool) {
         animate = bool;
 
@@ -71,7 +89,10 @@ public class CenterPane extends Pane implements Feature {
         }
 
     }
-
+    /**
+     * creates and adds reference grid to center pane
+     * @return: gridpane that acts as reference grid
+     */
     private GridPane createReferenceGrid () {
 
         GridPane refGrid = new GridPane();
