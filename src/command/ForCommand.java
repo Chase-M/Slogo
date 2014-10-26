@@ -23,7 +23,7 @@ public class ForCommand extends BasicListCommand{
         Command make=new MakeCommand("make");
         make.execute(varInputs, workspace);
         for(int i=(int) inputs.get(2).evaluate(workspace); i<inputs.get(3).evaluate(workspace); i=(int) (i+inputs.get(4).evaluate(workspace))){
-            for(int j=5; j<getBracketIndex(inputs); j++){
+            for(int j=5; j<(inputs.size() - 1); j++){
                varInputs.remove(1);
                varInputs.add(new Node(new ConstCommand(Integer.toString(i))));
                make.execute(varInputs,workspace); 

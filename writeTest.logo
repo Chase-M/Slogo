@@ -1,0 +1,4 @@
+make :a 2.0
+make :b 4.0
+to tree
+    [ :size  ]    [  ifelse less? :size 5 [ forward :size back :size ] [ forward / :size 3 left 30 tree [ / * 2 :size 3 ] right 30 set :size * 3 / :size 2 forward / :size 6 right 25 tree [ / :size 2 ] left 25 set :size * :size 2 forward / :size 3 right 25 tree [ / :size 2 ] left 25 set :size * :size 2 forward / :size 6 back :size ]  ]
