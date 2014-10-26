@@ -16,8 +16,9 @@ public class StoredCommand extends BaseMakeVariableCommand {
 
     @Override
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
-        if(!workspace.getCommands().containsKey(toString()))
+        if (!workspace.getCommands().containsKey(toString())) { 
             throw new ParseException(toString());
+            }
         checkListException(inputs);
         CommandObject command = workspace.getCommands().get(myString);
         List<String> names = command.getMyVarNames();
@@ -25,7 +26,7 @@ public class StoredCommand extends BaseMakeVariableCommand {
         double ans = 0;
         if (command.getMyNumVars() == inputs.size() - 2) {
             for (int i = 1; i < inputs.size() - 1; i++) {
-          
+
                 makeVariable(names.get(i - 1), inputs.get(i).evaluate(workspace), workspace);
 
             }
@@ -39,6 +40,5 @@ public class StoredCommand extends BaseMakeVariableCommand {
         }
         return ans;
     }
-    
-   
+
 }

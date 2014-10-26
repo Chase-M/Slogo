@@ -20,9 +20,10 @@ public class ToCommand extends BasicListCommand {
         List<String> names = new ArrayList<String>();
         int numVars = varList.size() - 2;
         for (int i = 1; i < varList.size() - 1; i++) {
-            if(varList.get(i).getCommand() instanceof VariableCommand){
-            names.add(varList.get(i).getCommand().toString());
-            }else{
+            if (varList.get(i).getCommand() instanceof VariableCommand) {
+                names.add(varList.get(i).getCommand().toString());
+            }
+            else {
                 return 0;
             }
         }
