@@ -46,7 +46,7 @@ public class Main extends Application{
  */
 		
 		
-/*		GUI userFace2 = new GUI();
+	GUI userFace2 = new GUI(controller);
 		
 		userFace2.initiate();
 		TabPane tabPane = new TabPane();
@@ -59,7 +59,7 @@ public class Main extends Application{
 		 tab2.setContent(userFace2);
 		 tabPane.getTabs().add(tab2);
 		root.getChildren().add(tabPane);
-		*/
+		
 		root.getChildren().add(userFace);
 			stage.setScene(s);
 			stage.setResizable(false);

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
-import exceptions.IncorrectNumInputsException;
+//import exceptions.IncorrectNumInputsException;
 import exceptions.ParseException;
 import exceptions.UnclosedListException;
 import javafx.scene.input.KeyCode;
@@ -59,9 +59,9 @@ public class Parser {
                throw new UnclosedListException("");
            else if(e instanceof ParseException){
                throw e;
-           }else
-               throw new IncorrectNumInputsException(node.getCommand().toString());
-       }
+        //   }else
+      //         throw new IncorrectNumInputsException(node.getCommand().toString());
+       }}
        return node;
    }
    private Node makeNode(String command) throws Exception{

@@ -43,10 +43,10 @@ public class InfoPane2 extends FlowPane implements Feature {
 		setStyle("-fx-background-color: #336666");
 		setPrefHeight(500);
 		setPrefWidth(200);
-		historyTab = new InfoTab(s);
-		variableTab = new InfoTab(t);		
-		tabPane.getTabs().add(historyTab);
-		tabPane.getTabs().add(variableTab);
+		//historyTab = new InfoTab(s);
+		//variableTab = new InfoTab(t);		
+	//	tabPane.getTabs().add(historyTab);
+	//	tabPane.getTabs().add(variableTab);
 		ToolBar myToolBar = initiateToolBar(tabPane);		
 		this.getChildren().addAll(myToolBar, tabPane);
 	}
