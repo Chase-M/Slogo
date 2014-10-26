@@ -21,6 +21,7 @@ import components.TopPane;
 import components.CenterPane;
 import features.DisplayTurtle;
 import features.FeatureSetUp;
+import features.LanguageComboFeature;
 import parser.Parser;
 import properties.PenProperties;
 import properties.Position;
@@ -128,14 +129,14 @@ public class GUI extends Pane implements Observer{
 		Button grid = (Button) features.myFeatureMap.get("GRID");
 		Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
 		ComboBox penType = (ComboBox) features.myFeatureMap.get("PENTYPE");
-
+		LanguageComboFeature lang = (LanguageComboFeature) features.myFeatureMap.get("LANG");
 		//String[] stringFeatures = new String[]{"OPEN", "SAVE", "GRID", "COLORPICK"};
 		//for(String s: stringFeatures){
 		//	myTopPane.addItems(features.myFeatureMap.get(s));
 		//}
-		myTopPane.addItems(grid, new Separator(), CP);
+		myTopPane.addItems(grid, new Separator(), CP, new Separator(), lang);
 		myBottomPane.updateButton(run);
-
+		
 		//myBottomPane.getChildren().add(penSlider);
 		myTopPane.mySettingsBar.addSlider(penSlider);
 		myTopPane.mySettingsBar.addComboBox(penType);

@@ -72,7 +72,12 @@ public class GUIShell extends FlowPane{
 			@Override
 			public void handle(ActionEvent arg0) {
 				 File file = fileChooser.showSaveDialog(myStage);
-		    	 myController.saveMem(file);
+		    	 try {
+					myController.saveMem(file);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		    	 //myTabPane.getTabs().
 				
 			}
