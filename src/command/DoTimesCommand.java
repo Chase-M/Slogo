@@ -1,11 +1,10 @@
 package command;
 
-import java.util.ArrayList;
 import java.util.List;
 import parser.Node;
 import workspace.Workspace;
 
-public class DoTimesCommand extends BasicListCommand{
+public class DoTimesCommand extends BaseMakeVariableCommand{
 
     public DoTimesCommand (String s) {
         // TODO Auto-generated constructor stub
@@ -16,17 +15,11 @@ public class DoTimesCommand extends BasicListCommand{
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         // TODO Auto-generated method stub
         checkListException(inputs);
-        List<Node> varInputs=new ArrayList<Node>();
-        varInputs.add(inputs.get(1));
-        varInputs.add(new Node(new ConstCommand("0")));
-        Command make=new MakeCommand("make");
-        make.execute(varInputs, workspace);
         int index=getBracketIndex(inputs);
         double ans=0;
         for(int j=1; j<=inputs.get(2).evaluate(workspace); j++){
-            varInputs.remove(1);
-            varInputs.add(new Node(new ConstCommand(Integer.toString(j))));
-            make.execute(varInputs,workspace); 
+            makeVariable(inputs.get(1).getCommand().toString(),j,workspace); 
+
         for(int i=index; i<inputs.size()-1; i++){
             ans=inputs.get(i).evaluate(workspace);
         }
