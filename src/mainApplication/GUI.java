@@ -129,17 +129,25 @@ public class GUI extends Pane implements Observer{
 		Button grid = (Button) features.myFeatureMap.get("GRID");
 		Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
 		ComboBox penType = (ComboBox) features.myFeatureMap.get("PENTYPE");
+		Button animate = (Button) features.myFeatureMap.get("ANIMATE");
+		Slider animationSlider = (Slider) features.myFeatureMap.get("ANIMATIONSLIDER");
+
+
 		LanguageComboFeature lang = (LanguageComboFeature) features.myFeatureMap.get("LANG");
+
 		//String[] stringFeatures = new String[]{"OPEN", "SAVE", "GRID", "COLORPICK"};
 		//for(String s: stringFeatures){
 		//	myTopPane.addItems(features.myFeatureMap.get(s));
 		//}
 		myTopPane.addItems(grid, new Separator(), CP, new Separator(), lang);
 		myBottomPane.updateButton(run);
-		
+
+		myBottomPane.updateButton(animate);
+
 		//myBottomPane.getChildren().add(penSlider);
-		myTopPane.mySettingsBar.addSlider(penSlider);
+		myTopPane.mySettingsBar.addPenSlider(penSlider);
 		myTopPane.mySettingsBar.addComboBox(penType);
+		myTopPane.mySettingsBar.addAnimationSlider(animationSlider);
 		//myBottomPane.getChildren().add(newTurtle);
 
 		pane.setBottom(myBottomPane);
