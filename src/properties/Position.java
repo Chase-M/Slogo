@@ -8,8 +8,7 @@ public class Position {
 	public Position(double x, double y, double angle){
 		myPoint = new Point2D(x,y);
 		myAngle = angle;
-	}
-	
+	}	
 
 	public double getAngle(){
 		return myAngle;
