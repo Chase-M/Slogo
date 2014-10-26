@@ -17,13 +17,16 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class GUIShell extends FlowPane{
 	private ToolBar myToolBar;
 	private TabPane myTabPane;
 	private Controller myController;
-	public GUIShell(Controller controller){
+	private Stage myStage;
+	public GUIShell(Controller controller, Stage stage){
 		super();
+		myStage = stage;
 		myController = controller;
 		myToolBar = new ToolBar();
 		Button newButton = createNewButton();
@@ -32,7 +35,7 @@ public class GUIShell extends FlowPane{
 		myToolBar.setPrefWidth(1000);
 		myToolBar.getItems().addAll(newButton,new Separator(), saveButton, new Separator(), openButton);
 		myTabPane = new TabPane();		
-		GUI userFace = new GUI(myController);
+		GUI userFace = new GUI(myController, myStage.getScene());
 		userFace.initiate();
 		Tab first = new Tab("Untitled");
 		first.setContent(userFace);
@@ -47,7 +50,7 @@ public class GUIShell extends FlowPane{
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				GUI newUserFace = new GUI(myController);
+				GUI newUserFace = new GUI(myController, myStage.getScene());
 				newUserFace.initiate();
 				Tab userTab = new Tab("Untitled");
 				userTab.setContent(newUserFace);
@@ -68,8 +71,9 @@ public class GUIShell extends FlowPane{
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				 File file = fileChooser.showSaveDialog(myController.myStage);
+				 File file = fileChooser.showSaveDialog(myStage);
 		    	 myController.saveMem(file);
+		    	 //myTabPane.getTabs().
 				
 			}
 			
@@ -86,11 +90,11 @@ public class GUIShell extends FlowPane{
 			@Override
 			public void handle(ActionEvent arg0) {
 				
-				GUI newUserFace = new GUI(myController);
+				GUI newUserFace = new GUI(myController, myStage.getScene());
 				newUserFace.initiate();
 				
 				
-				 File file = fileChooser.showOpenDialog(myController.myStage);
+				 File file = fileChooser.showOpenDialog(myStage);
 				 
 				Tab userTab = new Tab(file.getName());
 				userTab.setContent(newUserFace);

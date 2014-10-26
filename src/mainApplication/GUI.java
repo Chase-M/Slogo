@@ -33,6 +33,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.control.Separator;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -64,13 +65,15 @@ public class GUI extends Pane implements Observer{
 
 
 	private Controller myController;
+	private Scene myScene;
 	
 	public static List<DisplayTurtle> myObjects;
 	
 	
 
-	public GUI(Controller controller){
+	public GUI(Controller controller, Scene s){
 		myController = controller;
+		myScene = s;
 		//colorsMap = myController.getColors();
 
 	}
@@ -82,7 +85,7 @@ public class GUI extends Pane implements Observer{
 		loadPanes();
 		myController.createWorkspace(this);
 		//updatePanes();
-		initiateKeyPress(myController.myScene);
+		initiateKeyPress(myScene);
 
 	}
 
@@ -120,8 +123,8 @@ public class GUI extends Pane implements Observer{
 		Button run = (Button) features.myFeatureMap.get("RUN");
 		ColorPicker CP = (ColorPicker) features.myFeatureMap.get("COLORPICK");
 		//Button newTurtle = (Button) features.myFeatureMap.get("NEWTURTLE");
-		Button open = (Button) features.myFeatureMap.get("OPEN");
-		Button save = (Button) features.myFeatureMap.get("SAVE");
+//		Button open = (Button) features.myFeatureMap.get("OPEN");
+//		Button save = (Button) features.myFeatureMap.get("SAVE");
 		Button grid = (Button) features.myFeatureMap.get("GRID");
 		Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
 		ComboBox penType = (ComboBox) features.myFeatureMap.get("PENTYPE");
@@ -130,7 +133,7 @@ public class GUI extends Pane implements Observer{
 		//for(String s: stringFeatures){
 		//	myTopPane.addItems(features.myFeatureMap.get(s));
 		//}
-		myTopPane.addItems(open, save, grid, CP);
+		myTopPane.addItems(grid, new Separator(), CP);
 		myBottomPane.updateButton(run);
 
 		//myBottomPane.getChildren().add(penSlider);

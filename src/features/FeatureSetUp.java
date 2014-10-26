@@ -33,8 +33,8 @@ public class FeatureSetUp{
 		OpenButtonFeature open = new OpenButtonFeature(myController);
 		myFeatureMap.put("OPEN", open);
 		
-		SaveButtonFeature save = new SaveButtonFeature(myController);
-		myFeatureMap.put("SAVE", save);
+	//	SaveButtonFeature save = new SaveButtonFeature(myController);
+	//	myFeatureMap.put("SAVE", save);
 		
 		ToggleGridButtonFeature gridButton = new ToggleGridButtonFeature(myComponentMap);
 		myFeatureMap.put("GRID", gridButton);

@@ -34,12 +34,12 @@ public class Main extends Application {
     public void start (Stage stage) throws Exception {
         Group root = new Group();
         Scene s = initiate(root);
-
-		Controller controller = new Controller(stage, s);
-		GUIShell shell = new GUIShell(controller);
+        stage.setScene(s);
+		Controller controller = new Controller();
+		GUIShell shell = new GUIShell(controller, stage);
 
 		root.getChildren().add(shell);
-			stage.setScene(s);
+			
 			stage.setResizable(false);
 			stage.show();
 	}

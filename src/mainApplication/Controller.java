@@ -22,13 +22,10 @@ public class Controller {
     private int myActive;
     private Workspace myActiveWS;
     // TEMPORARY, REMOVE STAGE
-    public Stage myStage;
-    protected Scene myScene;
 
-    public Controller (Stage stage, Scene s) {// TEMPORARY
-        myStage = stage; myScene = s;    
+
+    public Controller () {// TEMPORARY   
         myWorkspaces = new ArrayList<>();
-
         myParser = new Parser();
     }
 

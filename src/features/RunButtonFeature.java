@@ -32,42 +32,11 @@ public class RunButtonFeature extends Button implements Feature{
 	   this.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	BottomPane bottomPane = (BottomPane)componentMap.get("class components.BottomPane");
-		    	InfoPane rightPane = (RightPane)componentMap.get("class components.RightPane");
-		    	InfoPane infoPane = (LeftPane)componentMap.get("class components.LeftPane");
-		    	CenterPane centerPane = (CenterPane)componentMap.get("class components.CenterPane");
 
 		    	if(!bottomPane.myCommand.getText().isEmpty()){
-
 		    		try{
-				myController.parseAndEvaluate(bottomPane.myCommand.getText());
-		    	
-		        final Button button = new Button(bottomPane.myCommand.getText());
-		        button.setOnAction(new EventHandler<ActionEvent>() {
-				    @Override public void handle(ActionEvent e) {
-				    	bottomPane.myCommand.setText(button.getText());
-				    }	
-				    });
-
-		    //    Map<String, Object> paramMap = new HashMap<String, Object>();
-/*		        paramMap.put("class components.HistoryTab", button);
-		        paramMap.put("class components.VarsTab", myController.getVariables());
-		        paramMap.put("class components.ColorsTab", myController.getColors());
-		        paramMap.put("class components.TurtlesTab", centerPane.myTurtleManager.myTurtleMap);
-				Map<Integer, ImageView> imageMap = makeImageMap();
-				paramMap.put("class components.ImagesTab", imageMap);		        
-		        paramMap.put("class components.SavedTab", new Button("here"));
-		        List<InfoTab> list = infoPane.myTabs;
-				for(InfoTab t:list){
-					t.update(paramMap.get(t.getClass().toString()));
-					
-				}
-				List<InfoTab> list2 = rightPane.myTabs;
-				for(InfoTab t:list2){
-					t.update(paramMap.get(t.getClass().toString()));
-					
-				}
-		      //  infoPane.variableTab.updateVars(myController.getVariables());
-*/		        bottomPane.myCommand.clear();
+				myController.parseAndEvaluate(bottomPane.myCommand.getText());	
+		        bottomPane.myCommand.clear();
 	                    }
 	                    
 		    	
@@ -77,7 +46,6 @@ public class RunButtonFeature extends Button implements Feature{
 		    		
 		    	}
 		    }
-		        //bottomPane.update();
 		    }
 		});	   
 	
@@ -86,18 +54,6 @@ public class RunButtonFeature extends Button implements Feature{
 	public void update() {
 		// TODO Auto-generated method stub
 		
-	}
-	private Map<Integer, ImageView> makeImageMap(){
-		Map<Integer, ImageView> map = new HashMap<Integer, ImageView>();
-		String[] images = new String[]{"features/turtle.png"}; 
-		for(int i = 0; i< images.length; i++){
-			Image image = new Image(images[i]);
-			ImageView imageView = new ImageView(image);
-			imageView.setFitHeight(50);
-			imageView.setFitWidth(26);
-			map.put(i, imageView);
-		}
-		return map;
 	}
 
 }
