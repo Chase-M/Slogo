@@ -1,6 +1,7 @@
 package command;
 
 import java.util.List;
+import exceptions.IncorrectInputException;
 import parser.Node;
 import workspace.Workspace;
 
@@ -9,7 +10,7 @@ public class ForCommand extends BaseMakeVariableCommand {
 
     private static final int INPUTS_SIZE = 3;
     private static final int START_COMMANDS = 5;
-    
+
     public ForCommand (String s) {
         super(s, 2, 2);
 
@@ -18,6 +19,7 @@ public class ForCommand extends BaseMakeVariableCommand {
     @Override
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         checkListException(inputs);
+        checkCorrectInput(inputs, START_COMMANDS);
         double ans = 0;
         double[] values = new double[INPUTS_SIZE];
         for (int i = 0; i < values.length; i++) {
@@ -31,5 +33,6 @@ public class ForCommand extends BaseMakeVariableCommand {
         }
         return ans;
     }
+
 
 }

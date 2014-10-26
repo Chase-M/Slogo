@@ -7,6 +7,8 @@ import workspace.Workspace;
 
 public class DoTimesCommand extends BaseMakeVariableCommand {
 
+    private static final int MY_BRACKET_INDEX = 3;
+
     public DoTimesCommand (String s) {
         super(s, 1, 2);
     }
@@ -14,6 +16,7 @@ public class DoTimesCommand extends BaseMakeVariableCommand {
     @Override
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
         checkListException(inputs);
+        checkCorrectInput(inputs, MY_BRACKET_INDEX);
         int index = getBracketIndex(inputs);
         double ans = 0;
         for (int j = 1; j <= inputs.get(2).evaluate(workspace); j++) {
@@ -25,5 +28,7 @@ public class DoTimesCommand extends BaseMakeVariableCommand {
         }
         return ans;
     }
+
+
 
 }

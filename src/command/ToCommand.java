@@ -20,13 +20,17 @@ public class ToCommand extends BasicListCommand {
         List<String> names = new ArrayList<String>();
         int numVars = varList.size() - 2;
         for (int i = 1; i < varList.size() - 1; i++) {
+            if(varList.get(i).getCommand() instanceof VariableCommand){
             names.add(varList.get(i).getCommand().toString());
+            }else{
+                return 0;
+            }
         }
         List<Node> commands = new ArrayList<Node>(inputs);
         commands.remove(0);
         workspace.getCommands().put(inputs.get(0).getCommand().toString(),
                                     new CommandObject(numVars, names, commands));
-        return 0;
+        return 1;
     }
 
 }
