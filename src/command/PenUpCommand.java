@@ -1,10 +1,9 @@
 package command;
 
 import java.util.List;
-import actor.Turtle;
 import parser.Node;
-import properties.PenProperties;
 import workspace.Workspace;
+import actor.Turtle;
 
 public class PenUpCommand extends Command {
 	public PenUpCommand(String s){

@@ -1,13 +1,12 @@
 package command;
 
-import java.util.ArrayList;
 import java.util.List;
-import exceptions.IncorrectNumInputsException;
 import parser.CommandObject;
 import parser.Node;
 import workspace.Workspace;
+import exceptions.IncorrectNumInputsException;
 
-public class StoredCommand extends BasicListCommand{
+public class StoredCommand extends BaseMakeVariableCommand{
     
     public StoredCommand(String s){
         super(s,1,1);
@@ -23,13 +22,8 @@ public class StoredCommand extends BasicListCommand{
         double ans=0;
         if(command.getMyNumVars()==inputs.size()-2){
             for(int i=1; i<inputs.size()-1; i++){
-                Command make=new MakeCommand("make");
-                Node n1=new Node(new VariableCommand(names.get(i-1)));
-                Node n2=new Node(new ConstCommand(Double.toString(inputs.get(i).evaluate(workspace))));
-                List<Node> varInputs=new ArrayList<Node>();
-                varInputs.add(n1);
-                varInputs.add(n2);
-                make.execute(varInputs, workspace);
+                makeVariable(names.get(i-1),inputs.get(i).evaluate(workspace),workspace); 
+
             }
         
             for(int i=0; i<commands.size()-1; i++){
