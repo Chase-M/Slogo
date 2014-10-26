@@ -9,6 +9,12 @@ import exceptions.ParseException;
 import exceptions.UnclosedListException;
 
 
+/**
+ * Parser converts string to graph of nodes with commands contained inside
+ * 
+ * @author Chase Malik, Timesh Patel
+ *
+ */
 public class Parser {
 
     private static final String RESOURCE_BUNDLE = "resources.languages/";
@@ -50,10 +56,22 @@ public class Parser {
         return myTreeHeads;
     }
 
+    /**
+     * Change Language for parser
+     * 
+     * @param language
+     */
     public void changeLanguage (String language) {
         myLanguage = ResourceBundle.getBundle(RESOURCE_BUNDLE + language);
     }
 
+    /**
+     * Makes Tree of nodes with commands
+     * 
+     * @param s commands
+     * @return Head of Tree
+     * @throws Exception
+     */
     private Node makeTree (String[] s) throws Exception {
         Node node = makeNode(s[myIndex]);
 
@@ -79,6 +97,13 @@ public class Parser {
         return node;
     }
 
+    /**
+     * Makes Node with given command
+     * 
+     * @param command
+     * @return Node with command
+     * @throws Exception
+     */
     private Node makeNode (String command) throws Exception {
         CommandFactory factory = new BasicCommandCreator();
         Set<String> keys = myLanguage.keySet();

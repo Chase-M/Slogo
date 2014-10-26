@@ -3,6 +3,12 @@ package properties;
 import javafx.geometry.Point2D;
 
 
+/**
+ * Passive Data Object for Position
+ * 
+ * @author Chase Malik, Timesh Patel
+ *
+ */
 public class Position {
     private Point2D myPoint;
     private double myAngle;

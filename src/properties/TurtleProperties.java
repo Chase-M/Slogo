@@ -4,6 +4,12 @@ import actor.Pen;
 import actor.Turtle;
 
 
+/**
+ * Passive Data Object for Turtle
+ * 
+ * @author Chase Malik, Timesh Patel
+ *
+ */
 public class TurtleProperties {
     private int myID;
     private Pen myPen;
@@ -30,11 +36,11 @@ public class TurtleProperties {
     public Position getPosition () {
         return myPosition;
     }
-    
+
     public boolean isShowing () {
         return myShowing;
     }
-    
+
     public int getShape () {
         return myShape;
     }

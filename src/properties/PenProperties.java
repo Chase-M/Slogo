@@ -3,6 +3,12 @@ package properties;
 import actor.Pen;
 
 
+/**
+ * Passive Data Object for Pen
+ * 
+ * @author Chase Malik, Timesh Patel
+ *
+ */
 public class PenProperties {
     private Pen myPen;
 
