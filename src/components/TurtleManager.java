@@ -10,7 +10,7 @@ import properties.TurtleProperties;
 import features.DisplayTurtle;
 
 public class TurtleManager {
-	Map<Integer, DisplayTurtle> myTurtleMap;
+	public Map<Integer, DisplayTurtle> myTurtleMap;
 	private CenterPane myCenterPane;
 	
 	public TurtleManager(CenterPane pane){

@@ -13,12 +13,12 @@ import javafx.scene.shape.Line;
 public class DisplayTurtle {
 	
 	//private ImageView turtleGraphic;
-	private static double turtleX;
-	private static double turtleY;
-	private static double turtleAngle;
-	private static double turtleWidth;
-	private static double turtleHeight;
-	private static ImageView turtleGraphic;
+	public double turtleX;
+	public double turtleY;
+	public double turtleAngle;
+	private double turtleWidth;
+	private double turtleHeight;
+	private ImageView turtleGraphic;
 	public Pen myPen;
 	private CenterPane myCenterPane;
 	public boolean isTurtleShowing;

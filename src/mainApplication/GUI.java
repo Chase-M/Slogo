@@ -33,6 +33,8 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -94,6 +96,8 @@ public class GUI extends Pane implements Observer{
 		ScrollPane myScroller = new ScrollPane();
 		myScroller.setMaxHeight(500);
 		myScroller.setMaxWidth(600);
+		myScroller.setVbarPolicy(ScrollBarPolicy.ALWAYS);
+		myScroller.setHbarPolicy(ScrollBarPolicy.ALWAYS);
 		//myScroller.setVbarPolicy(ScrollBarPolicy.NEVER);
 		myScroller.setContent(myCenterPane);
 		pane.setLeft(myLeftPane);
@@ -131,12 +135,14 @@ public class GUI extends Pane implements Observer{
 		
 	}
 	private void updatePanes(){
+		Map<Integer, ImageView> imageMap = makeImageMap();
 		Map<String, Object> paramMap = new HashMap<String, Object>();
-		 paramMap.put("class components.HistoryTab", new Button("fd 50"));
+		 paramMap.put("class components.HistoryTab", new Button("fd 50"));//TODO Remove this, shouldn't update History
         paramMap.put("class components.VarsTab", myController.getVariables());
         paramMap.put("class components.TurtlesTab", myController.getVariables());
         paramMap.put("class components.ColorsTab", myController.getColors());        
         paramMap.put("class components.SavedTab", new Button("here"));
+        paramMap.put("class components.ImagesTab", imageMap);
         List<InfoTab> list = myLeftPane.myTabs;
 		for(InfoTab t:list){
 			//t.clear();
@@ -153,7 +159,18 @@ public class GUI extends Pane implements Observer{
 		}
 		
 	}
-	
+	private Map<Integer, ImageView> makeImageMap(){
+		Map<Integer, ImageView> map = new HashMap<Integer, ImageView>();
+		String[] images = new String[]{"features/turtle.png"}; 
+		for(int i = 0; i< images.length; i++){
+			Image image = new Image(images[i]);
+			ImageView imageView = new ImageView(image);
+			imageView.setFitHeight(50);
+			imageView.setFitWidth(26);
+			map.put(i, imageView);
+		}
+		return map;
+	}
 	
 	public void initiateKeyPress(Scene s) {
 		s.setOnKeyPressed(new EventHandler<KeyEvent>() {
