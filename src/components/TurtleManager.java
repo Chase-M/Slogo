@@ -11,7 +11,7 @@ import properties.TurtleProperties;
 import features.DisplayTurtle;
 
 public class TurtleManager {
-	Map<Integer, DisplayTurtle> myTurtleMap;
+	public Map<Integer, DisplayTurtle> myTurtleMap;
 	private CenterPane myCenterPane;
 	private Color testC;
 	
@@ -21,7 +21,7 @@ public class TurtleManager {
 		
 	}
 	public void update(TurtleProperties props){
-		int ID = props.myId;
+		int ID = props.getID();
 		DisplayTurtle turt;
 		if(myTurtleMap.containsKey(ID)){
 			turt = myTurtleMap.get(ID);
@@ -32,8 +32,8 @@ public class TurtleManager {
 			//turt.updatePosition
 		}
 		
-		turt.updatePosition(props.myPosition);
-		turt.updateTurtleShow(props.isShowing);
+		turt.updatePosition(props.getPosition());
+		turt.updateTurtleShow(props.isShowing());
 		//turt.updatePenShow(penProps.isDown());
 
 

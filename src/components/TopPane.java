@@ -13,15 +13,17 @@ public class TopPane extends FlowPane implements Feature {
 	
 	Toolbar myToolbar;
 	public SettingsBar mySettingsBar;
+	private SettingsBar myPenBar;
 	
 	public TopPane(){
 		super(Orientation.VERTICAL);
-		myToolbar = new Toolbar();
-		myToolbar.setPrefWidth(1000); //eliminate this num
-		myToolbar.setPrefHeight(33);
+	//	myToolbar = new Toolbar();
+	//	myToolbar.setPrefWidth(1000); //eliminate this num
+	//	myToolbar.setPrefHeight(33);
 		mySettingsBar = new SettingsBar();
-		this.getChildren().add(myToolbar);
-		this.getChildren().add(mySettingsBar);
+	//	myPenBar = new SettingsBar();
+	//	this.getChildren().add(myToolbar);
+		this.getChildren().addAll(mySettingsBar);
 		this.setPrefHeight(76);
 	}
 
@@ -31,7 +33,7 @@ public class TopPane extends FlowPane implements Feature {
 		
 	}
 	public void addItems(Node ... n){
-		myToolbar.getItems().addAll(n);
+		mySettingsBar.getItems().addAll(n);
 	}
 	
 	public void addSlider(Slider slider){

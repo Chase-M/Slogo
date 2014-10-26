@@ -14,7 +14,7 @@ import sun.misc.Queue;
 public class RightPane extends InfoPane implements Feature {
 
 	public RightPane(Controller c) {
-		super(c, new String[]{"ColorsTab"});
+		super(c, new String[]{"ColorsTab", "ImagesTab"});
 	}
 
 }

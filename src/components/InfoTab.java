@@ -35,7 +35,6 @@ public abstract class InfoTab extends Tab implements Feature{
 	protected GridPane myTextPane;
 	private ScrollPane myScrollPane;
 	protected VBox myDrawer;
-	//private VBox myDrawer;
 	protected int myTextIndex;
 	protected Controller myController;
 	public InfoTab(String s, Controller c){
@@ -44,7 +43,7 @@ public abstract class InfoTab extends Tab implements Feature{
 		setClosable(false);
 		myDrawer = new VBox();
 		myDrawer.setStyle("-fx-background-color: #336666");
-		myDrawer.setPrefHeight(425);
+		myDrawer.setPrefHeight(325);
 		myDrawer.setPrefWidth(200);
 		myTextIndex = 0;
 		myTextPane = new GridPane();
@@ -65,7 +64,7 @@ public abstract class InfoTab extends Tab implements Feature{
 		myTextIndex = 0;
 	}
 
-	private void addClear(VBox box){
+/*	private void addClear(VBox box){
 		Button clear = new Button("Clear");
 		clear.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -75,6 +74,7 @@ public abstract class InfoTab extends Tab implements Feature{
 		});
 		box.getChildren().add(clear);
 	}
+	*/
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
