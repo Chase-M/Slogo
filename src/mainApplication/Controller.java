@@ -13,6 +13,7 @@ import javafx.scene.paint.Color;
 import parser.CommandObject;
 import parser.Node;
 import parser.Parser;
+import properties.LanguageProperties;
 import workspace.Workspace;
 
 
@@ -22,18 +23,21 @@ public class Controller {
     private Parser myParser;
     private int myActive;
     private Workspace myActiveWS;
+
     /**
-     * Controller that coordinates between front end and back end 
+     * Controller that coordinates between front end and back end
      * keeps a list of workspaces and held by the GUI
-     * also contains the only  parser
+     * also contains the only parser
      */
     public Controller () {
         myWorkspaces = new ArrayList<>();
         myParser = new Parser();
     }
+
     /**
-     * takes a string and parses it into a graph of nodes which is 
+     * takes a string and parses it into a graph of nodes which is
      * then evaluated on over the current workspace
+     * 
      * @param s
      * @throws Exception
      */
@@ -41,9 +45,11 @@ public class Controller {
         List<Node> list = myParser.parse(s);
         myActiveWS.evaluate(list);
     }
+
     /**
-     * creates a new workspace, sets the gui it belongs to and add its as a 
+     * creates a new workspace, sets the gui it belongs to and add its as a
      * observer and creates its furst turtle
+     * 
      * @param gui
      * @return
      */
@@ -60,8 +66,10 @@ public class Controller {
 
         return myWorkspaces.size() - 1;
     }
+
     /**
      * sets active workspace
+     * 
      * @param id
      */
     public void setActive (int id) {
@@ -88,8 +96,10 @@ public class Controller {
     public void clear () {
         myActiveWS.clear();
     }
+
     /**
      * saves Variables and Stored commands
+     * 
      * @param f
      * @throws Exception
      */
@@ -105,6 +115,7 @@ public class Controller {
 
     public void setLanguage (String language) {
         myParser.changeLanguage(language);
+        LanguageProperties.Language = "Cool";
     }
 
 }

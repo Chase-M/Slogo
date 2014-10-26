@@ -210,8 +210,8 @@ public class GUI extends Pane implements Observer{
 			//myCenterPane.updateTurtlePosition((Position)props);
 		}
 		if(props instanceof StageProperties){
-
 			myCenterPane.clearScreen(((StageProperties) props).isClear());
+			myCenterPane.updateBackgroundColor(((StageProperties) props).getIndex());
 		}
 		
 		//updatePanes();

@@ -115,6 +115,18 @@ public class CenterPane extends Pane implements Feature{
 			
 		}
 	}
+	
+	public void updateBackgroundColor(int index){
+		Color newColor = (Color)colorsMap.get(index);
+		System.out.println(newColor);
+		String colorString = newColor.toString().substring(2);
+		
+		this.setStyle("-fx-background-color: #"+colorString);
+		
+		//newColor.toString();
+		//this.setStyle("-fx-background-color: " +newColor.toString());
+		
+	}
 
 
 }
