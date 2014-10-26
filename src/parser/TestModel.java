@@ -19,7 +19,7 @@ public class TestModel {
 	@Test
 	public void testPosition() throws Exception{
 		Parser parser=new Parser();
-		Workspace workspace=new Workspace(0);
+		Workspace workspace=new Workspace();
 		List<Node> list = parser.parse("forward 50");
 		assertEquals(50, list.get(0).evaluate(workspace), PRECISION);
 	}
@@ -48,7 +48,7 @@ public class TestModel {
 	}
 	@Test
 	public void testWrite() throws Exception{
-	    Workspace workspace=new Workspace(0);
+	    Workspace workspace=new Workspace();
 	    Parser parser=new Parser();
 	    List<Node> list=parser.parse("make :a 1 make :b 2 to square [ :var ] [ sum ( 90 101 10 )  fd 50 ]");
 	    for(Node n: list){

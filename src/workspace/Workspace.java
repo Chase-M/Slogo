@@ -23,16 +23,14 @@ public class Workspace extends Observable implements Observer {
     private static final String COLOR_PATH = "resources.constants/Color";
     private static final int DEFAULT_STAGE_COLOR = 0;
     private static final boolean NOT_CLEAR = false;
-    private int myID;
     private Map<Integer, Turtle> myTurtles;
     private StageProperties myStageProperties;
     private Map<String, Double> myVariables;
     private Map<String, CommandObject> myCommands;
     private Map<Integer, Color> myColors;
 
-    public Workspace (int id) {
+    public Workspace () {
         myTurtles = new HashMap<>();
-        myID = id;
         myVariables = new HashMap<String, Double>();
         myCommands = new HashMap<String, CommandObject>();
         myColors = new HashMap<>();

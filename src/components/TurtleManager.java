@@ -69,7 +69,8 @@ public class TurtleManager {
 	public void clearScreen(boolean clear){
 		if(clear == true){			
 			myTurtleMap.clear();
-			myCenterPane.getChildren().clear();			
+			myCenterPane.getChildren().clear();	
+			myCenterPane.getChildren().add(myCenterPane.referenceGrid);
 		}
 	}
 	

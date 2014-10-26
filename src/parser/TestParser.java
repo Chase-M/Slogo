@@ -105,7 +105,7 @@ public class TestParser {
         @Test
         public void TestIfElse() throws Exception{
                 Parser p=new Parser();
-                Workspace workspace=new Workspace(0);
+                Workspace workspace=new Workspace();
                 List<Node> list=p.parse("ifelse greater? sum 1 0 - 5 5 [ make :a 5 ] [ make :a 10 ] sum :a 0");
                 for(Node n: list){
                     n.evaluate(workspace);
@@ -131,7 +131,7 @@ public class TestParser {
 	@Test
 	public void TestForward() throws Exception{
 		Parser p=new Parser();
-		Workspace workspace=new Workspace(0);
+		Workspace workspace=new Workspace();
 		workspace.createTurtle(0);
 		List<Node> list=p.parse("forward 50");
 		assertEquals(50,list.get(0).evaluate(workspace), .00000001);
@@ -142,14 +142,14 @@ public class TestParser {
         public void TestMake() throws Exception{
                 Parser p=new Parser();
                 List<Node> list=p.parse("make :var sum sum 1 1 20 sum :var 15");
-                Workspace workspace=new Workspace(0);
+                Workspace workspace=new Workspace();
                 assertEquals(22,list.get(0).evaluate(workspace), .00000001);
                 assertEquals(37,list.get(1).evaluate(workspace), .00000001);
         }
         @Test
         public void TestRepeat() throws Exception{
                 Parser p=new Parser();
-                Workspace workspace=new Workspace(0);
+                Workspace workspace=new Workspace();
                 List<Node> list=p.parse("make :a 0 repeat 5 [ make :a sum :a 5 ] sum :a 0");
                 list.get(0).evaluate(workspace);
                 list.get(1).evaluate(workspace);
@@ -165,7 +165,7 @@ public class TestParser {
         public void TestTo() throws Exception{
             Parser p=new Parser();
             List<Node> list=p.parse("to square [ :var ] [ repeat 4 [ forward :var left 90 ] ] square [ 50 ] ");
-            Workspace workspace=new Workspace(0);
+            Workspace workspace=new Workspace();
             workspace.createTurtle(0);
             assertEquals(0,list.get(0).evaluate(workspace), .00000001);
             list.get(1).evaluate(workspace);
@@ -181,7 +181,7 @@ public class TestParser {
         public void TestRecursion() throws Exception{
             Parser p=new Parser();
             List<Node> list=p.parse("make :a 0 to r [ :var ] [ make :a sum :var :a if greater? :var 1 [ r [ - :var 1 ] ]  ] r [ 10 ] sum :a 0 ");
-            Workspace workspace=new Workspace(0);
+            Workspace workspace=new Workspace();
             for(Node n: list){
                 n.evaluate(workspace);
             }

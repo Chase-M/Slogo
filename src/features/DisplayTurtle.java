@@ -1,29 +1,24 @@
 package features;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import components.BottomPane;
+
+
 import components.CenterPane;
 import properties.Position;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.PathTransition;
+
 import javafx.animation.RotateTransition;
-import javafx.animation.Timeline;
+
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.shape.CubicCurveTo;
+
 import javafx.scene.shape.Line;
-import javafx.scene.shape.LineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
+
 import javafx.util.Duration;
 
 public class DisplayTurtle {
+
 
     // private ImageView turtleGraphic;
     public double turtleX;
@@ -31,29 +26,29 @@ public class DisplayTurtle {
     public double turtleAngle;
     private double turtleWidth;
     private double turtleHeight;
-    private ImageView turtleGraphic;
+
     public Pen myPen;
     private CenterPane myCenterPane;
     public boolean isTurtleShowing;
     private boolean penDown;
-    private List linesDrawn;
+
     private double middleX;
     private double middleY;
     private double currentX;
     private double currentY;
-    private double theta;
+;
 
     private int penType;
-    private Timeline tl;
+
     private boolean animate;
     private double currentAngle;
-    private Path myPath;
+
     public double animationSpeed;
     private double time;
 
     public Line myLine;
 
-    private int turtleID;
+
     public ImageView myImage;
 
     public DisplayTurtle (CenterPane pane) {
@@ -72,10 +67,9 @@ public class DisplayTurtle {
         myImage.setFitWidth(turtleWidth);
         myImage.setFitHeight(turtleHeight);
         updateImage(turtleX, turtleY, turtleAngle);
-        System.out.println("getXY: " + myImage.getX() + "  " + myImage.getY());
         myPen = new Pen();
         myCenterPane = pane;
-        linesDrawn = new ArrayList<Line>();
+
         penType = 1;
         animate = false;
         currentAngle = 0;
@@ -83,9 +77,7 @@ public class DisplayTurtle {
         time = 1;
     }
 
-    public void setTurtleID (int ID) {
-        turtleID = ID;
-    }
+
 
     public void updatePosition (Position pos) {
         turtleX = pos.getX();
@@ -96,7 +88,6 @@ public class DisplayTurtle {
         double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 
         time = distance / animationSpeed;
-        System.out.println("time is now:" + time);
 
         if (animate == false) {
             myImage.setTranslateX(0);
@@ -109,6 +100,7 @@ public class DisplayTurtle {
 
             animateTurtlePosition();
             animateTurtleAngle(turtleAngle);
+
 
         }
 
@@ -155,7 +147,6 @@ public class DisplayTurtle {
         isTurtleShowing = show;
         if (show == false) {
             myCenterPane.getChildren().remove(myImage);
-            // System.out.println("removed");
         }
 
     }
@@ -164,7 +155,7 @@ public class DisplayTurtle {
         myLine = myPen.drawLine(turtleX, turtleY, turtleWidth, turtleHeight, penType);
         if (penDown == true) {
             myCenterPane.getChildren().add(myLine);
-            linesDrawn.add(myLine);
+
         }
     }
 
@@ -194,5 +185,6 @@ public class DisplayTurtle {
         animationSpeed = speed;
         System.out.println("t.animationSpeed is now:  " + animationSpeed);
     }
+
 
 }
