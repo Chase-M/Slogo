@@ -30,6 +30,16 @@ public class Pen {
 		//line = new Line();
 		
 	}
+	
+	/**
+	 * 
+	 * @param x: new x coordinate
+	 * @param y: new y coordinate
+	 * @param tWidth: turtle width to take offset into consideration
+	 * @param tHeight: turtle height to take offset into consideration
+	 * @param type: integer that corresponds to the correct line style to be drawn
+	 * @return a line that is to be added to center pane
+	 */
 	public Line drawLine(double x, double y, double tWidth, double tHeight, int type){
 		
 		Line line = new Line();
@@ -60,32 +70,27 @@ public class Pen {
 		
 	}
 
-//	public void updatePenStyle(int a){
-//		if(a == 1){
-//			line.getStrokeDashArray().addAll();
-//		}else if(a == 2){
-//			line.getStrokeDashArray().addAll(25d, 10d);			
-//		}else if(a == 3){
-//			line.getStrokeDashArray().addAll(25d, 20d, 5d, 20d);
-//		}else if(a == 4){
-//			line.getStrokeDashArray().addAll(4d);
-//		}
-//		
-//	}
-	
-	
-	
+
+	/**
+	 * Updates the pen color
+	 * @param color: color that the pen is updated to
+	 */
 	public void updatePenColor(Color color){
 		penColor = color;
 	}
 	
+	/**
+	 * updates the size of pen (size of lines drawn)
+	 * @param width: size of pen(line) to be updated to
+	 */
 	public void updatePenWidth(double width){
 		//default is 1	
 		penWidth = width;
 	}
-
-	public Color returnPenColor(){
-		return penColor;
-	}
+	
+//
+//	public Color returnPenColor(){
+//		return penColor;
+//	}
 	
 }

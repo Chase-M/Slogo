@@ -40,29 +40,49 @@ public class SettingsBar extends ToolBar {
     public SettingsBar () {
         super();
     }
-
+    
+    /**
+     * adds color picker to the settings bar
+     * @param cp: color picker for display color
+     */
     public void updateColorPicker (ColorPicker cp) {
         this.getItems().add(cp);
     }
-
+    /**
+     *  adds slider to the settings bar
+     * @param slider: slider to adjust pen size
+     */
     public void addPenSlider (Slider slider) {
 
-        Label penWidth = new Label("Pen Width:     ");
+        Label penWidth = new Label("Pen Width: ");
         Label zero = new Label("0");
         Label ten = new Label("10");
         this.getItems().addAll(penWidth, zero, slider, ten);
     }
 
+    /**
+     * adds combo box to settings bar
+     * @param cb: combox box for pen style
+     */
     public void addComboBox (ComboBox cb) {
         Label penTypeLabel = new Label("Pen Type: ");
         this.getItems().addAll(penTypeLabel, cb);
     }
-
+    
+    
+/**
+ * adds slider to settings bar
+ * @param s: slider to adjust animation speed
+ */
     public void addAnimationSlider (Slider s) {
         Label animateLabel = new Label("Animation Speed:");
         this.getItems().addAll(animateLabel, s);
     }
 
+    /**
+     * adds button to settings bar
+     * @param b: button
+     */
     public void addButton (Button b) {
         this.getItems().addAll(b);
 

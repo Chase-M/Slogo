@@ -34,6 +34,12 @@ public class RunButtonFeature extends Button implements Feature{
 	private Button myButton;
 	public Map<Integer, ImageView> myImageMap;
 	
+	/**
+	 * Creates the run button that runs commands and also holds methods for interaction between command history and command area
+	 * @param componentMap
+	 * @param control
+	 */
+	
 	public RunButtonFeature(Map<String, Pane> componentMap, Controller control){
 	super("Run");
 	myController = control;

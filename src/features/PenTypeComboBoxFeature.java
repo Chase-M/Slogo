@@ -8,14 +8,18 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.layout.Pane;
 
 public class PenTypeComboBoxFeature extends ComboBox implements Feature {
+	
+	/**
+	 * Creates a combobox with styles of line the user can choose to draw
+	 * @param componentMap: map of strings to panes
+	 * @param myController: controller
+	 */
 
 	public PenTypeComboBoxFeature(Map<String, Pane> componentMap, Controller myController){
 		super();		
 		this.getItems().addAll("solid", "dashed", "dot dashed", "dot");
 
 		CenterPane centerPane = (CenterPane) componentMap.get("class components.CenterPane");
-
-
 		this.setOnAction((event) -> {
 			//System.out.println(PenTypeComboBoxFeature.this.getSelectionModel().getSelectedItem());
 

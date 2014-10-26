@@ -49,8 +49,6 @@ public class GUI extends Pane implements Observer {
      * Activates the necessary components for GUI
      */
 
-    // private RightPane myRightPane;
-    // private LeftPane myLeftPane;
     private Turtle myTurtle;
     private CenterPane myCenterPane;
     private Parser myParser;
@@ -71,8 +69,6 @@ public class GUI extends Pane implements Observer {
     public GUI (Controller controller, Scene s) {
         myController = controller;
         myScene = s;
-        // colorsMap = myController.getColors();
-
     }
 
     void initiate () {
@@ -85,13 +81,10 @@ public class GUI extends Pane implements Observer {
 
     private void loadPanes () {
         BorderPane pane = new BorderPane();
-        // myRightPane = new RightPane();
-        // myLeftPane = new LeftPane();
-        // myLeftPane = new InfoPane(myController, "VariableTab", "HistoryTab");
+
         PaneFactory paneFac = new PaneFactory();
         myLeftPane = paneFac.makePane(myController, "LeftPane");
         myRightPane = paneFac.makePane(myController, "RightPane");
-        // InfoPane2 rightPane = new InfoPane2("Colors", "Images");
         myTopPane = new TopPane();
         myBottomPane = new BottomPane();
         myCenterPane = new CenterPane();

@@ -10,6 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 
 public class AnimateButtonFeature extends Button implements Feature {
+	
+	/**
+	 * Creates Button that when selected, updates whether or not animation is turned on
+	 * @param componentMap: Map containing our collection of Panes
+	 */
     public AnimateButtonFeature (Map<String, Pane> componentMap) {
         super("Animate");
         CenterPane centerPane = (CenterPane) componentMap.get("class components.CenterPane");
@@ -18,8 +23,6 @@ public class AnimateButtonFeature extends Button implements Feature {
             @Override
             public void handle (ActionEvent event) {
                 centerPane.updateAnimate(!centerPane.animate);
-
-                // centerPane.animate = (!centerPane.animate);
             }
 
         });

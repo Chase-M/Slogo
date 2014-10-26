@@ -11,6 +11,11 @@ import javafx.scene.layout.Pane;
 import mainApplication.Controller;
 
 public class AnimationSpeedSliderFeature extends Slider implements Feature {
+	
+	/**
+	 * Creates slider that sets the speed of animation
+	 * @param componentMap: Map containing our collection of Panes
+	 */
 	public AnimationSpeedSliderFeature(Map<String, Pane> componentMap){	
 		super();
 		this.setMin(50);
@@ -22,8 +27,7 @@ public class AnimationSpeedSliderFeature extends Slider implements Feature {
 
 			@Override
 			public void handle(MouseEvent event) {				
-				centerPane.updateAnimationSpeed(AnimationSpeedSliderFeature.this.getValue());
-				System.out.println("slider event:" +AnimationSpeedSliderFeature.this.getValue());				
+				centerPane.updateAnimationSpeed(AnimationSpeedSliderFeature.this.getValue());				
 			}
 			
 		});
