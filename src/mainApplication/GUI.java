@@ -16,6 +16,7 @@ import components.InfoPane;
 import components.InfoPane2;
 import components.InfoTab;
 import components.LeftPane;
+import components.PaneFactory;
 import components.RightPane;
 import components.TopPane;
 import components.CenterPane;
@@ -30,6 +31,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.Slider;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -44,14 +47,15 @@ public class GUI extends Pane implements Observer{
 	 */
 
 	//private RightPane myRightPane;
-	private LeftPane myLeftPane;
+	//private LeftPane myLeftPane;
 	private Turtle myTurtle;
 	private CenterPane myCenterPane;
 	private Parser myParser;
 	private BottomPane myBottomPane;
 	private TopPane myTopPane;
 
-	private InfoPane myInfoPane;
+	private InfoPane myLeftPane;
+	private InfoPane myRightPane;
 
 
 	private Controller myController;
@@ -79,17 +83,25 @@ public class GUI extends Pane implements Observer{
 		BorderPane pane = new BorderPane();
 	//	myRightPane = new RightPane();		
 		//myLeftPane = new LeftPane();
-		myInfoPane = new InfoPane(myController, "VariableTab", "HistoryTab");
-		InfoPane2 rightPane = new InfoPane2("Colors", "Images");
+		//myLeftPane = new InfoPane(myController, "VariableTab", "HistoryTab");
+		PaneFactory paneFac = new PaneFactory();
+		myLeftPane = paneFac.makePane(myController, "LeftPane");
+		myRightPane = paneFac.makePane(myController, "RightPane");
+		//InfoPane2 rightPane = new InfoPane2("Colors", "Images");
 		myTopPane = new TopPane();
 		myBottomPane = new BottomPane();
 		myCenterPane = new CenterPane();
-		pane.setLeft(myInfoPane);
-		pane.setRight(rightPane);
+		ScrollPane myScroller = new ScrollPane();
+		myScroller.setMaxHeight(500);
+		myScroller.setMaxWidth(600);
+		//myScroller.setVbarPolicy(ScrollBarPolicy.NEVER);
+		myScroller.setContent(myCenterPane);
+		pane.setLeft(myLeftPane);
+		pane.setRight(myRightPane);
 
 		List<Pane> components = new ArrayList<Pane>();
-		components.add(rightPane);
-		components.add(myInfoPane);
+		components.add(myRightPane);
+		components.add(myLeftPane);
 		components.add(myTopPane);
 		components.add(myBottomPane);
 		components.add(myCenterPane);	
@@ -110,7 +122,7 @@ public class GUI extends Pane implements Observer{
 		myTopPane.addItems(open, save, grid, CP);
 		myBottomPane.updateButton(run);
 		pane.setBottom(myBottomPane);
-		pane.setCenter(myCenterPane);	
+		pane.setCenter(myScroller);	
 		pane.setTop(myTopPane);	
 		
 
