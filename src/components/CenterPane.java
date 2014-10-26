@@ -31,12 +31,17 @@ public class CenterPane extends Pane implements Feature{
 	public TurtleManager myTurtleManager;
 	public GridPane referenceGrid;
 	public Map<Integer, Color> colorsMap;
+	public boolean animate;
 
 	public CenterPane(){
 		super();
 		myTurtleManager = new TurtleManager(this);
 		this.setStyle("-fx-background-color: white");	
 		referenceGrid = createReferenceGrid();
+		animate = false;
+		myLabel = new Label("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
+		this.getChildren().add(myLabel);
+
 		this.getChildren().add(referenceGrid);
 		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
 				this.getChildren().add(t.myImage);		
@@ -67,6 +72,21 @@ public class CenterPane extends Pane implements Feature{
 	public void clearScreen(boolean clear){
 		myTurtleManager.clearScreen(clear);
 	}
+	
+	public void updatePenType(int type){
+		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
+			t.updatePenType(type);
+		}
+	}
+	
+	public void updateAnimate(boolean bool){
+		animate = bool;
+		
+		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
+			t.updateAnimate(bool);
+		}
+		
+	}
 
 	private GridPane createReferenceGrid(){
 		
@@ -89,6 +109,12 @@ public class CenterPane extends Pane implements Feature{
 		colorsMap = map;		
 	}
 	
+	public void updateAnimationSpeed(double speed){
+		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
+			t.updateSpeed(speed);
+			
+		}
+	}
 
 
 }
