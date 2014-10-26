@@ -109,7 +109,7 @@ public class GUIShell extends FlowPane{
 		    		 
 		    		 StringBuilder listString = new StringBuilder();
 		    		 for (String s : commands){
-		    		      listString.append(s+" ");
+		    		      listString.append(s.trim()+" \n");
 		    		 }
 					myController.parseAndEvaluate(listString.toString());
 				} catch (IOException e) {

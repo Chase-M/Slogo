@@ -14,7 +14,9 @@ public class Parser {
     private static final String RESOURCE_BUNDLE = "resources.languages/";
     private static final String COMMAND_BUNDLE = "resources.languages/Command";
     private static final String DEFAULT_LANGUAGE = "English";
-    
+    private static final String COMMENT_KEY = "Comment";
+    private static final String NEW_LINE_REGEX= "[\\\t|\\\n|\\\r]";
+    private static final String SPACE_REGEX = "\\s+";
     private List<Node> myTreeHeads;
     private int myIndex;
     private ResourceBundle myLanguage;
@@ -33,11 +35,12 @@ public class Parser {
      * @param string
      * @return the string used if the commands were successful
      */
-    public List<Node> parse (String str) throws Exception {
+    public List<Node> parse (String s) throws Exception {
         myTreeHeads.clear();
+        String str = s.replaceAll( myLanguage.getString(COMMENT_KEY), " ");
         String lString = str.toLowerCase();
-        String string = lString.replaceAll("[\\\t|\\\n|\\\r]", " ");
-        String[] commands = string.split("\\s+");
+        String string = lString.replaceAll(NEW_LINE_REGEX, " ");
+        String[] commands = string.split(SPACE_REGEX);
         myIndex = 0;
         while (myIndex < commands.length) {
             Node n = makeTree(commands);
@@ -46,6 +49,7 @@ public class Parser {
         }
         return myTreeHeads;
     }
+
 
     public void changeLanguage (String language) {
         myLanguage = ResourceBundle.getBundle(RESOURCE_BUNDLE + language);
