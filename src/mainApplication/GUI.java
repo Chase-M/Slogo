@@ -13,7 +13,6 @@ import java.util.Observer;
 
 import components.BottomPane;
 import components.InfoPane;
-import components.InfoPane2;
 import components.InfoTab;
 import components.LeftPane;
 import components.PaneFactory;
@@ -75,6 +74,7 @@ public class GUI extends Pane implements Observer{
 		myParser = new Parser();
 		loadPanes();
 		myController.createWorkspace(this);
+		updatePanes();
 
 	}
 
@@ -127,6 +127,31 @@ public class GUI extends Pane implements Observer{
 		
 
 		this.getChildren().add(pane);
+		
+		
+	}
+	private void updatePanes(){
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		 paramMap.put("class components.HistoryTab", new Button("fd 50"));
+        paramMap.put("class components.VarsTab", myController.getVariables());
+        paramMap.put("class components.TurtlesTab", myController.getVariables());
+        paramMap.put("class components.ColorsTab", myController.getColors());        
+        paramMap.put("class components.SavedTab", new Button("here"));
+        List<InfoTab> list = myLeftPane.myTabs;
+		for(InfoTab t:list){
+			//t.clear();
+			//System.out.println(paramMap.get(t.getClass().toString()));
+			t.update(paramMap.get(t.getClass().toString()));
+			
+		}
+		List<InfoTab> list2 = myRightPane.myTabs;
+		for(InfoTab t:list2){
+			//t.clear();
+			//System.out.println(paramMap.get(t.getClass().toString()));
+			t.update(paramMap.get(t.getClass().toString()));
+			
+		}
+		
 	}
 	
 	

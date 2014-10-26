@@ -6,10 +6,14 @@ package mainApplication;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
+import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.ToolBar;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -44,9 +48,13 @@ public class Main extends Application{
 /**
  * Below is prelim code for creating multiple tabs		
  */
-		
-		
-	GUI userFace2 = new GUI(controller);
+/*		ToolBar tools = new ToolBar();
+		FlowPane pane = new FlowPane(Orientation.HORIZONTAL);
+		tools.setPrefWidth(1000);
+		tools.getItems().addAll(new Button("New"), new Button("Open"), new Button("Save"));
+		pane.getChildren().add(tools);
+	Controller controller2 = new Controller(stage);	
+	GUI userFace2 = new GUI(controller2);
 		
 		userFace2.initiate();
 		TabPane tabPane = new TabPane();
@@ -58,8 +66,9 @@ public class Main extends Application{
 		 tab2.setText("new tab 2");
 		 tab2.setContent(userFace2);
 		 tabPane.getTabs().add(tab2);
-		root.getChildren().add(tabPane);
-		
+		 pane.getChildren().add(tabPane);
+		root.getChildren().add(pane);
+*/		
 		root.getChildren().add(userFace);
 			stage.setScene(s);
 			stage.setResizable(false);

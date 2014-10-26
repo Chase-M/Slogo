@@ -48,19 +48,18 @@ public class InfoPane extends FlowPane implements Feature {
 		setStyle("-fx-background-color: #336666");
 		setPrefHeight(500);
 		setPrefWidth(200);
+		setMaxWidth(200);
+		
 		myTabs = new ArrayList<InfoTab>();
 		for(String i:s){
 			InfoTab tab = tabFac.makeTab(i, c);
 			myTabs.add(tab);
 		}
-		//historyTab = tabFac.makeTab(className, tabHeader);
-		//variableTab = new InfoTab(t);
 		for(InfoTab tab:myTabs){
 			tabPane.getTabs().add(tab);
 		}
-		//tabPane.getTabs().add(historyTab);
-		//tabPane.getTabs().add(variableTab);
-		ToolBar myToolBar = initiateToolBar(tabPane);		
+		ToolBar myToolBar = initiateToolBar(tabPane);	
+		
 		this.getChildren().addAll(myToolBar, tabPane);
 	}
 	
@@ -72,6 +71,7 @@ public class InfoPane extends FlowPane implements Feature {
 	}
 	private ToolBar initiateToolBar(TabPane tabPane){
 		Map<CheckBox, Tab> checkMap = new HashMap<CheckBox, Tab>();
+		//List<CheckBox> checkList = new ArrayList<CheckBox>();
 		for(Tab t: tabPane.getTabs()){
 			CheckBox cb = new CheckBox();
 			cb.setSelected(true);
@@ -84,9 +84,13 @@ public class InfoPane extends FlowPane implements Feature {
 				}
 		    });
 			checkMap.put(cb, t);
+			//checkList.add(cb);
 		}
 		ToolBar toolBar = new ToolBar();
-		toolBar.getItems().addAll(checkMap.keySet());
+		for(CheckBox cb:checkMap.keySet()){
+			toolBar.getItems().addAll(new Label(checkMap.get(cb).getText().substring(0,1)), cb);
+		}
+		
 		return toolBar;
 	}
 
