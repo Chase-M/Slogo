@@ -5,16 +5,18 @@ import actor.Turtle;
 import parser.Node;
 import workspace.Workspace;
 
+
 public class HideTurtleCommand extends Command {
-	public HideTurtleCommand(String s){
-		super(s,0);
-	}
-	@Override
-	public double execute(List<Node> inputs, Workspace workspace) throws Exception {
-		for(Turtle turtle :workspace.getActiveTurtles()){
-			turtle.setShowing(false);
-		}
-		return 0;
-	}
+    public HideTurtleCommand (String s) {
+        super(s, 0);
+    }
+
+    @Override
+    public double execute (List<Node> inputs, Workspace workspace) throws Exception {
+        for (Turtle turtle : workspace.getActiveTurtles()) {
+            turtle.setShowing(false);
+        }
+        return 0;
+    }
 
 }
