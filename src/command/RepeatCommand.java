@@ -1,6 +1,5 @@
 package command;
 
-import java.util.ArrayList;
 import java.util.List;
 import parser.Node;
 import workspace.Workspace;
