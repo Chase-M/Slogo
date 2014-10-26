@@ -1,5 +1,8 @@
 package exceptions;
 
+import java.util.ResourceBundle;
+import properties.LanguageProperties;
+
 public class CustomException extends RuntimeException {
 
     /**
@@ -9,8 +12,9 @@ public class CustomException extends RuntimeException {
 
     private final String myMessage;
 
-    public CustomException (String message) {
-        myMessage = message;
+    public CustomException (String message, Object ... o) {
+        LanguageProperties props = new LanguageProperties();
+        myMessage = String.format(props.getResourceBundle().getString(message), o);
     }
 
     public String toString () {

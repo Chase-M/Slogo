@@ -6,13 +6,13 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import parser.CommandObject;
 import parser.Node;
 import parser.Parser;
+import properties.LanguageProperties;
 import workspace.Workspace;
 
 
@@ -86,6 +86,7 @@ public class Controller {
 
     public void setLanguage (String language) {
         myParser.changeLanguage(language);
+        LanguageProperties.Language = "Cool";
     }
 
 }
