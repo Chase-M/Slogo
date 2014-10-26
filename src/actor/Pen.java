@@ -15,9 +15,10 @@ public class Pen {
 		myColorIndex = DEFAULT_COLOR_INDEX;
 		myID = id;
 	}
-	public int getID(){
-		return myID;
-	}
+
+    public int getID () {
+        return myID;
+    }
 	public double getSize(){
 		return mySize;
 	}

@@ -4,22 +4,23 @@ import java.util.List;
 import parser.Node;
 import workspace.Workspace;
 
-public class VariableCommand extends Command{
-    
-    public VariableCommand(String s){
-        super(s,0);
+
+public class VariableCommand extends Command {
+
+    public VariableCommand (String s) {
+        super(s, 0);
     }
 
     @Override
     public double execute (List<Node> inputs, Workspace workspace) throws Exception {
-        // TODO Auto-generated method stub
-        if(workspace.getVariables().containsKey(toString()))
+        if (workspace.getVariables().containsKey(toString())) {
             return workspace.getVariables().get(toString());
-        else{
+        }
+        else {
             workspace.getVariables().put(toString(), 0.0);
             return 0;
         }
-            
+
     }
 
 }

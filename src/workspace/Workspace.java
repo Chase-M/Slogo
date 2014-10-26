@@ -5,22 +5,18 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 import javafx.scene.paint.Color;
-import actor.Pen;
-import actor.Turtle;
 import parser.CommandObject;
 import parser.Node;
-import properties.Position;
 import properties.StageProperties;
 import properties.TurtleProperties;
+import actor.Turtle;
 
 
 public class Workspace extends Observable implements Observer {
@@ -29,7 +25,6 @@ public class Workspace extends Observable implements Observer {
 	private static final boolean NOT_CLEAR = false;
 	private int myID;
 	private Map<Integer, Turtle> myTurtles;
-	private String myLanguage;
 	private StageProperties myStageProperties;
 	private Map<String, Double> myVariables;
 	private Map<String, CommandObject> myCommands;
