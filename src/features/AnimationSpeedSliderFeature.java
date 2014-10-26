@@ -38,4 +38,5 @@ public class AnimationSpeedSliderFeature extends Slider implements Feature {
 	}
 	
 	
+
 }

@@ -7,7 +7,6 @@ import java.util.Map;
 
 import mainApplication.Controller;
 import features.Feature;
-import features.TextDisplayFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;

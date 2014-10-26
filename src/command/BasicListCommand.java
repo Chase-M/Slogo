@@ -1,5 +1,7 @@
 package command;
-
+/**
+ * @author Timesh Patel, Chase Malik
+ */
 import java.util.List;
 import exceptions.NotEnoughListsException;
 import parser.Node;
@@ -8,7 +10,7 @@ import parser.Node;
 public abstract class BasicListCommand extends Command {
     private int myNumLists;
     private int myCheckList;
-
+    
     public BasicListCommand (String s, int numInputs, int numLists) {
         super(s, numInputs);
         myNumLists = numLists;

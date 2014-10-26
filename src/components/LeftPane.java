@@ -6,7 +6,7 @@ import java.util.Map;
 
 import mainApplication.Controller;
 import features.Feature;
-import features.TextDisplayFactory;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -29,7 +29,7 @@ import sun.misc.Queue;
 public class LeftPane extends InfoPane implements Feature {
 
 	public LeftPane(Controller c) {
-		super(c, new String[]{"VarsTab", "HistoryTab"});
+		super(c, new String[]{"VarsTab", "HistoryTab", "SavedTab"});
 	}
 
 }

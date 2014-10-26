@@ -25,103 +25,47 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
+public class SettingsBar extends ToolBar {
 
-public class SettingsBar extends ToolBar implements Feature{
-	
-	private int mySceneHeight;
-	private static int mySceneWidth;
-	private RightPane myRightPane;
-	private LeftPane myLeftPane;
-	private ResourceBundle myNumberResources;
-	private Turtle myTurtle;
-	private ComboBox<String> languageCB;
-	private ComboBox<String> colourCB;
-	private ColorPicker displayColourPicker;
-	
-	
-public SettingsBar(){
-	
-	super();
-//	setPrefWidth(mySceneWidth);
-//	setSpacing(10);
+    private int mySceneHeight;
+    private static int mySceneWidth;
+    private RightPane myRightPane;
+    private LeftPane myLeftPane;
+    private ResourceBundle myNumberResources;
+    private Turtle myTurtle;
+    private ComboBox<String> languageCB;
+    private ComboBox<String> colourCB;
+    private ColorPicker displayColourPicker;
 
-//	setStyle("-fx-background-color: lightgray");
-	
-	//Button startButton = new Button("Start");
-	//startButton.setPrefSize(100, 20);
-	//startButton.setOnAction(new EventHandler<ActionEvent>(){
-/*		@Override
-		public void handle(ActionEvent event) {
-			System.out.println("start button clicked");
-			System.out.println(languageCB.getValue());
-			System.out.println(displayColourPicker.getValue());
-		}
-		
-	});
-	
-*/	
-//	Label colourLabel = new Label("Pen Colour:");
-//	Label languageLabel = new Label("Language Pack:");
-	
-	//displayColourPicker = new ColorPicker();
-	
-//	colourCB = new ComboBox<String>();
-//	colourCB.getItems().addAll("White", "Yellow", "Green");
-	
-/*	languageCB = new ComboBox<String>();
-	languageCB.getItems().addAll("English", "Spanish", "Chinese");
-	languageCB.setOnAction((event) -> {
-	    System.out.println(languageCB.getSelectionModel().getSelectedItem());
-	   // System.out.println("ComboBox Action (selected: " + selectedPerson.toString() + ")");
-	});
-	*/
-//	setMargin(languageCB, new Insets(6));
-//	setMargin(colourCB, new Insets(6));
-//	setMargin(colourLabel, new Insets(6));
-//	setMargin(languageLabel, new Insets(6));
-//	setMargin(startButton, new Insets(6));
+    public SettingsBar () {
+        super();
+    }
 
-	//Label settingsBarLabel = new Label("Settings Bar:");
+    public void updateColorPicker (ColorPicker cp) {
+        this.getItems().add(cp);
+    }
 
+    public void addPenSlider (Slider slider) {
 
+        Label penWidth = new Label("Pen Width:     ");
+        Label zero = new Label("0");
+        Label ten = new Label("10");
+        this.getItems().addAll(penWidth, zero, slider, ten);
+    }
 
-//	this.getItems().addAll(colourLabel, colourCB, languageLabel);//, languageCB);
+    public void addComboBox (ComboBox cb) {
+        Label penTypeLabel = new Label("Pen Type: ");
+        this.getItems().addAll(penTypeLabel, cb);
+    }
 
-	//this.setPrefHeight(34);
-}
-	
-public void updateColorPicker(ColorPicker cp){
-	this.getItems().add(cp);
-}
+    public void addAnimationSlider (Slider s) {
+        Label animateLabel = new Label("Animation Speed:");
+        this.getItems().addAll(animateLabel, s);
+    }
 
-public void addPenSlider(Slider slider){
-	
-	Label penWidth = new Label("Pen Width:     ");
-	Label zero = new Label("0");
-	Label ten = new Label("10");
-	this.getItems().addAll(penWidth, zero, slider, ten);
-}
+    public void addButton (Button b) {
+        this.getItems().addAll(b);
 
-public void addComboBox(ComboBox cb){
-	Label penTypeLabel = new Label("Pen Type: ");
-	this.getItems().addAll(penTypeLabel, cb);
-}
-
-public void addAnimationSlider(Slider s){
-	Label animateLabel = new Label("Animation Speed:");
-	this.getItems().addAll(animateLabel, s);
-}
-
-public void addButton(Button b){
-	this.getItems().addAll(b);
-	
-}
-
-@Override
-public void update() {
-	// TODO Auto-generated method stub
-	
-}
-	
+    }
 
 }

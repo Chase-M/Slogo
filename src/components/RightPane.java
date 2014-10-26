@@ -5,7 +5,6 @@ import java.util.List;
 
 import mainApplication.Controller;
 import features.Feature;
-import features.TextDisplayFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import sun.misc.Queue;

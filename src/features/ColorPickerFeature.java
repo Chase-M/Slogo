@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class ColorPickerFeature extends ColorPicker implements Feature {
+
 	public ColorPickerFeature(Map<String, Pane> componentMap){
 		super();
 		CenterPane centerPane = (CenterPane)componentMap.get("class components.CenterPane");
@@ -34,11 +35,12 @@ public class ColorPickerFeature extends ColorPicker implements Feature {
 	
 		}
 
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-		
-	}
 
+
+    @Override
+    public void update () {
+        // TODO Auto-generated method stub
+
+    }
+
+}

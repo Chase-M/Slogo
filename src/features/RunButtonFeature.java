@@ -30,17 +30,22 @@ public class RunButtonFeature extends Button implements Feature{
 	private Controller myController;
 	private LeftPane myLeftPane;
 	private RightPane myRightPane;
+	private CenterPane myCenterPane;
 	private Button myButton;
+	public Map<Integer, ImageView> myImageMap;
 	
 	public RunButtonFeature(Map<String, Pane> componentMap, Controller control){
 	super("Run");
 	myController = control;
+	myImageMap = makeImageMap();
+	
 	   this.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	
 		    	BottomPane bottomPane = (BottomPane)componentMap.get("class components.BottomPane");
 		    	myLeftPane = (LeftPane)componentMap.get("class components.LeftPane");
 		    	myRightPane = (RightPane)componentMap.get("class components.RightPane");
+		    	myCenterPane = (CenterPane)componentMap.get("class components.CenterPane");
 		    	
 		    	if(!bottomPane.myCommand.getText().isEmpty()){
 		    		try{
@@ -73,14 +78,16 @@ public class RunButtonFeature extends Button implements Feature{
 	
 	
 	private void updatePanes(){
-		Map<Integer, ImageView> imageMap = makeImageMap();
+		//Map<Integer, ImageView> imageMap = makeImageMap();
+		myCenterPane.myTurtleManager.updateImageMap(myImageMap);
 		Map<String, Object> paramMap = new HashMap<String, Object>();
-		 paramMap.put("class components.HistoryTab", new Button("fd 50"));//TODO Remove this, shouldn't update History
+		
+		 paramMap.put("class components.HistoryTab", myButton);//TODO Remove this, shouldn't update History
         paramMap.put("class components.VarsTab", myController.getVariables());
         paramMap.put("class components.TurtlesTab", myController.getVariables());
         paramMap.put("class components.ColorsTab", myController.getColors());        
         paramMap.put("class components.SavedTab", myController.getCommands());
-        paramMap.put("class components.ImagesTab", imageMap);
+        paramMap.put("class components.ImagesTab", myImageMap);
         List<InfoTab> list = myLeftPane.myTabs;
 		for(InfoTab t:list){
 			//t.clear();
@@ -99,7 +106,7 @@ public class RunButtonFeature extends Button implements Feature{
 	}
 	private Map<Integer, ImageView> makeImageMap(){
 		Map<Integer, ImageView> map = new HashMap<Integer, ImageView>();
-		String[] images = new String[]{"features/turtle.png"}; 
+		String[] images = new String[]{"features/turtle.png", "features/rcd.jpg"}; 
 		for(int i = 0; i< images.length; i++){
 			Image image = new Image(images[i]);
 			ImageView imageView = new ImageView(image);

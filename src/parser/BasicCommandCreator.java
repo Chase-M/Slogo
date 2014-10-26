@@ -1,5 +1,7 @@
 package parser;
-
+/**
+ * @author Timesh Patel, Chase Malik
+ */
 import java.lang.reflect.InvocationTargetException;
 import command.Command;
 import exceptions.ParseException;
@@ -7,7 +9,9 @@ import exceptions.ParseException;
 
 public class BasicCommandCreator extends CommandFactory {
     private static final String COMMAND_PATH = "command.";
-
+    /**
+     * Command creator uses reflection
+     */
     @Override
     public Command createCommand (String name, String command) {
         String className = COMMAND_PATH + name;
