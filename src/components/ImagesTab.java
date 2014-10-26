@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import components.InfoTab;
-
 import mainApplication.Controller;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -16,25 +15,25 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
-public class ColorTab extends InfoTab{
-	Map<String, Double> myColors;
-	public ColorTab(String s, Controller c) { //Maybe change this to not have controller, give to "Save button" instead
+public class ImagesTab extends InfoTab{
+	Map<Integer, ImageView> myImages;
+	public ImagesTab(String s, Controller c) { //Maybe change this to not have controller, give to "Save button" instead
 		super(s, c);		
-		myColors = new HashMap<String, Double>();
+		myImages = new HashMap<Integer, ImageView>();
 		
 	}
 	@Override
 	public void update(Object o){
-		myColors = (Map<String,Double>) o;
+		myImages = (Map<Integer,ImageView>) o;
 		myTextPane.getChildren().clear();
 	myTextIndex = 0;
-	//if(!myColors.equals(null)){
-	for(String s:myColors.keySet()){
-		myTextPane.add(new Label(s), 0, myTextIndex);
-		myTextPane.add(new Label(myColors.get(s).toString()), 1, myTextIndex);
+	for(Integer i:myImages.keySet()){
+		myTextPane.add(new Label(i.toString()), 0, myTextIndex);
+		myTextPane.add(myImages.get(i), 1, myTextIndex);
 		myTextIndex++;
-	//}
+	
 	}
 
 

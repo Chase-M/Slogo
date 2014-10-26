@@ -50,7 +50,7 @@ public class CenterPane extends Pane implements Feature{
 		myTurtleManager.update(pos);
 		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
 			if(!this.getChildren().contains(t.myImage)){
-				if(t.isTurtleShowing == true){
+				if(t.isTurtleShowing){
 			this.getChildren().add(t.myImage);
 				}
 

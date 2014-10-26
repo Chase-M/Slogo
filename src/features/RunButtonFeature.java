@@ -7,7 +7,7 @@ import mainApplication.Controller;
 import components.BottomPane;
 import components.CenterPane;
 import components.InfoPane;
-import components.InfoPane2;
+
 import components.InfoTab;
 import components.LeftPane;
 import components.RightPane;
@@ -54,13 +54,23 @@ public class RunButtonFeature extends Button implements Feature{
 		        
 		        Map<String, Object> paramMap = new HashMap<String, Object>();
 		        paramMap.put("class components.HistoryTab", button);
-		        paramMap.put("class components.VariableTab", myController.getVariables());
-		     //   paramMap.put("class components.InfoTab", myController.getVariables());
-		        paramMap.put("class components.ColorTab", myController.getColors());
+		        paramMap.put("class components.VarsTab", myController.getVariables());
+		        paramMap.put("class components.TurtlesTab", myController.getVariables());
+		        paramMap.put("class components.ColorsTab", myController.getColors());
+		      //  System.out.println(myController.getColors());
 		        
+		        paramMap.put("class components.SavedTab", new Button("here"));
 		        List<InfoTab> list = infoPane.myTabs;
 				for(InfoTab t:list){
 					//t.clear();
+					//System.out.println(paramMap.get(t.getClass().toString()));
+					t.update(paramMap.get(t.getClass().toString()));
+					
+				}
+				List<InfoTab> list2 = rightPane.myTabs;
+				for(InfoTab t:list2){
+					//t.clear();
+					//System.out.println(paramMap.get(t.getClass().toString()));
 					t.update(paramMap.get(t.getClass().toString()));
 					
 				}
