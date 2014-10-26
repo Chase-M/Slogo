@@ -7,7 +7,7 @@ import javafx.scene.shape.Line;
 
 
 
-public class Pen extends GraphicObject{
+public class Pen {
 	
 	private double penX;
 	private double penY;
@@ -88,12 +88,4 @@ public class Pen extends GraphicObject{
 		return penColor;
 	}
 	
-	
-	@Override
-	public void update() {
-		
-		
-		
-	}
-
 }
