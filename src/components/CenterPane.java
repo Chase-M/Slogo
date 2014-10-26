@@ -2,21 +2,15 @@ package components;
 
 import java.util.Map;
 
-import mainApplication.GUI;
 import properties.PenProperties;
-import properties.Position;
 import properties.TurtleProperties;
 import features.DisplayTurtle;
 import features.Feature;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 
 
 public class CenterPane extends Pane implements Feature {
@@ -52,7 +46,6 @@ public class CenterPane extends Pane implements Feature {
                     this.getChildren().add(t.myImage);
                 }
             }
-            // myTurtlesTab.myPositionMap.put(t.myId, );
         }
     }
 
@@ -62,7 +55,6 @@ public class CenterPane extends Pane implements Feature {
 
     public void clearScreen (boolean clear) {
         myTurtleManager.clearScreen(clear);
-        // this.getChildren().add(referenceGrid);
     }
 
     public void updatePenType (int type) {
@@ -110,13 +102,8 @@ public class CenterPane extends Pane implements Feature {
 
     public void updateBackgroundColor (int index) {
         Color newColor = (colorsMap.get(index));
-        System.out.println(newColor);
         String colorString = newColor.toString().substring(2);
-
         this.setStyle("-fx-background-color: #" + colorString);
-
-        // newColor.toString();
-        // this.setStyle("-fx-background-color: " +newColor.toString());
 
     }
 

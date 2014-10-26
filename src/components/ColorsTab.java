@@ -18,26 +18,27 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class ColorsTab extends InfoTab{
-	Map<Integer, Color> myColors;
-	public ColorsTab(String s, Controller c) { //Maybe change this to not have controller, give to "Save button" instead
-		super(s, c);		
-		myColors = new HashMap<Integer, Color>();
-		
-	}
-	@Override
-	public void update(Object o){
-		myColors = (Map<Integer,Color>) o;
-		myTextPane.getChildren().clear();
-	myTextIndex = 0;
-	//if(!myColors.equals(null)){
-	for(Integer i:myColors.keySet()){
-		myTextPane.add(new Label(i.toString()), 0, myTextIndex);
-		myTextPane.add(new Rectangle(25, 25, myColors.get(i)), 1, myTextIndex);
-		myTextIndex++;
-	//}
-	}
+public class ColorsTab extends InfoTab {
+    Map<Integer, Color> myColors;
 
+    public ColorsTab (String s, Controller c) {
+        super(s, c);
+        myColors = new HashMap<Integer, Color>();
 
-	}
+    }
+
+    @Override
+    public void update (Object o) {
+        myColors = (Map<Integer, Color>) o;
+        myTextPane.getChildren().clear();
+        myTextIndex = 0;
+        // if(!myColors.equals(null)){
+        for (Integer i : myColors.keySet()) {
+            myTextPane.add(new Label(i.toString()), 0, myTextIndex);
+            myTextPane.add(new Rectangle(25, 25, myColors.get(i)), 1, myTextIndex);
+            myTextIndex++;
+            // }
+        }
+
+    }
 }

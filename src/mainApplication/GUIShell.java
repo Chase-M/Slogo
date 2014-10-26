@@ -152,16 +152,13 @@ public class GUIShell extends FlowPane{
 				userTab.setOnClosed(new EventHandler<Event>(){
 		            @Override
 		            public void handle (Event arg0) {
-		                // TODO Auto-generated method stub
 		                myController.removeWS(((GUI)userTab.getContent()).myGUIid);
 		            }
 		            
 		        });
-				//userTab.
 		        userTab.setOnSelectionChanged(new EventHandler<Event>(){
 		            @Override
 		            public void handle (Event arg0) {
-		                // TODO Auto-generated method stub
 		                if(userTab.isSelected()){
 		                myController.setActive(((GUI)userTab.getContent()).myGUIid);
 		                }
@@ -170,18 +167,13 @@ public class GUIShell extends FlowPane{
 		        });
 		    	 try {
 		    		 List<String> commands = Files.readAllLines(Paths.get(file.getPath()), StandardCharsets.UTF_8);
-		    		 
 		    		 StringBuilder listString = new StringBuilder();
 		    		 for (String s : commands){
 		    		      listString.append(s.trim()+" \n");
 		    		 }
 					myController.parseAndEvaluate(listString.toString());
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					newUserFace.myBottomPane.updateErrors(e);
 				}
 				
 			}
