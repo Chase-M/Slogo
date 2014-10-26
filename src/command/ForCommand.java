@@ -1,7 +1,6 @@
 package command;
 
 import java.util.List;
-import exceptions.IncorrectInputException;
 import parser.Node;
 import workspace.Workspace;
 
