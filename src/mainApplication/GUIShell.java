@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
@@ -34,11 +35,33 @@ public class GUIShell extends FlowPane{
 		Button openButton = createOpenButton();
 		myToolBar.setPrefWidth(1000);
 		myToolBar.getItems().addAll(newButton,new Separator(), saveButton, new Separator(), openButton);
-		myTabPane = new TabPane();		
+		myTabPane = new TabPane();
+		
 		GUI userFace = new GUI(myController, myStage.getScene());
 		userFace.initiate();
 		Tab first = new Tab("Untitled");
 		first.setContent(userFace);
+		
+		first.setOnClosed(new EventHandler<Event>(){
+            @Override
+            public void handle (Event arg0) {
+                // TODO Auto-generated method stub
+                myController.removeWS(((GUI)first.getContent()).myGUIid);
+                
+            }
+		    
+		});
+		first.setOnSelectionChanged(new EventHandler<Event>(){
+            @Override
+            public void handle (Event arg0) {
+                // TODO Auto-generated method stub
+                if(first.isSelected()){
+                myController.setActive(((GUI)first.getContent()).myGUIid);
+                }
+            }
+            
+        });
+		
 		
 		myTabPane.getTabs().add(first);
 		this.getChildren().addAll(myToolBar, myTabPane);
@@ -56,6 +79,26 @@ public class GUIShell extends FlowPane{
 				userTab.setContent(newUserFace);
 				myTabPane.getTabs().add(userTab);
 				myTabPane.getSelectionModel().select(userTab);
+				
+				userTab.setOnClosed(new EventHandler<Event>(){
+		            @Override
+		            public void handle (Event arg0) {
+		                // TODO Auto-generated method stub
+		                myController.removeWS(newUserFace.myGUIid);
+		            }
+		            
+		        });
+				
+		        userTab.setOnSelectionChanged(new EventHandler<Event>(){
+		            @Override
+		            public void handle (Event arg0) {
+		                // TODO Auto-generated method stub
+		                if(userTab.isSelected()){
+		                myController.setActive(newUserFace.myGUIid);
+		                }
+		            }
+		            
+		        });
 				
 			}
 			
@@ -106,6 +149,25 @@ public class GUIShell extends FlowPane{
 				userTab.setContent(newUserFace);
 				myTabPane.getTabs().add(userTab);
 				myTabPane.getSelectionModel().select(userTab);
+				userTab.setOnClosed(new EventHandler<Event>(){
+		            @Override
+		            public void handle (Event arg0) {
+		                // TODO Auto-generated method stub
+		                myController.removeWS(((GUI)userTab.getContent()).myGUIid);
+		            }
+		            
+		        });
+				//userTab.
+		        userTab.setOnSelectionChanged(new EventHandler<Event>(){
+		            @Override
+		            public void handle (Event arg0) {
+		                // TODO Auto-generated method stub
+		                if(userTab.isSelected()){
+		                myController.setActive(((GUI)userTab.getContent()).myGUIid);
+		                }
+		            }
+		            
+		        });
 		    	 try {
 		    		 List<String> commands = Files.readAllLines(Paths.get(file.getPath()), StandardCharsets.UTF_8);
 		    		 

@@ -57,6 +57,14 @@ public class RunButtonFeature extends Button implements Feature{
 		    		try{
 				myController.parseAndEvaluate(bottomPane.myCommand.getText());	
 				myButton = new Button(bottomPane.myCommand.getText());
+				myButton.setOnAction(new EventHandler<ActionEvent>(){
+                    @Override
+                    public void handle (ActionEvent arg0) {
+                        bottomPane.myCommand.setText(myButton.getText());
+                        
+                    }
+
+				});
 		        bottomPane.myCommand.clear();
 	
 	                    }

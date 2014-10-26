@@ -18,107 +18,106 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class CenterPane extends Pane implements Feature{
-	
-//	private VBox myDrawer;
-//	private ScrollPane myScroller;
-	private ImageView turtleGraphic;
-	private double turtleX;
-	private double turtleY;
-	private int turtleWidth = 26;
-	private int turtleHeight = 50;
-	private Label myLabel;
-	public TurtleManager myTurtleManager;
-	public GridPane referenceGrid;
-	public Map<Integer, Color> colorsMap;
-	public boolean animate;
 
-	public CenterPane(){
-		super();
-		myTurtleManager = new TurtleManager(this);
-		this.setStyle("-fx-background-color: white");	
-		referenceGrid = createReferenceGrid();
-		animate = false;
-		this.getChildren().add(referenceGrid);
-		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
-				this.getChildren().add(t.myImage);		
-		}
-		
-	}
-	@Override
-	public void update() {
+public class CenterPane extends Pane implements Feature {
 
-	}
+    public TurtleManager myTurtleManager;
+    public GridPane referenceGrid;
+    public Map<Integer, Color> colorsMap;
+    public boolean animate;
 
-	public void updateTurtlePosition(TurtleProperties pos){
-		myTurtleManager.update(pos);
-		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
-			if(!this.getChildren().contains(t.myImage)){
-				if(t.isTurtleShowing){
-			this.getChildren().add(t.myImage);
-				}
-			}
-			//myTurtlesTab.myPositionMap.put(t.myId, );
-		}
-		}
-	
-	public void updatePenProperties(PenProperties props){
-		myTurtleManager.updatePenProperties(props);		
-	}
+    public CenterPane () {
+        super();
+        myTurtleManager = new TurtleManager(this);
+        this.setStyle("-fx-background-color: white");
+        referenceGrid = createReferenceGrid();
+        animate = false;
+        this.getChildren().add(referenceGrid);
+        for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
+            this.getChildren().add(t.myImage);
+        }
 
-	public void clearScreen(boolean clear){
-		myTurtleManager.clearScreen(clear);
-	//	this.getChildren().add(referenceGrid);
-	}
-	
-	public void updatePenType(int type){
-		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
-			t.updatePenType(type);
-		}
-	}
-	
-	public void updateAnimate(boolean bool){
-		animate = bool;
-		
-		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
-			t.updateAnimate(bool);
-		}
-		
-	}
+    }
 
-	private GridPane createReferenceGrid(){
-		
-		GridPane refGrid = new GridPane();
-		refGrid.setPrefSize(600,400);
-		refGrid.getColumnConstraints().add(new ColumnConstraints(38));
-		refGrid.getRowConstraints().add(new RowConstraints(25));
-		for(int i = 0; i < 12; i++){
-		refGrid.getColumnConstraints().add(new ColumnConstraints(50));
-		}
-		for(int i = 0; i<10; i++){
-		refGrid.getRowConstraints().add(new RowConstraints(50));
-		}
-		
-		return refGrid;
-		
-	}
-	
-	public void initiateColorsMap(Map<Integer, Color> map ){	
-		colorsMap = map;		
-	}
-	
-	public void updateAnimationSpeed(double speed){
-		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
-			t.updateSpeed(speed);
-			
-		}
-	}
-	
-	public void updateBackgroundColor(int index){
-		Color newColor = (colorsMap.get(index));
-		String colorString = newColor.toString().substring(2);		
-		this.setStyle("-fx-background-color: #"+colorString);
-	}
+    @Override
+    public void update () {
 
+    }
+
+    public void updateTurtlePosition (TurtleProperties pos) {
+        myTurtleManager.update(pos);
+        for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
+            if (!this.getChildren().contains(t.myImage)) {
+                if (t.isTurtleShowing) {
+                    this.getChildren().add(t.myImage);
+                }
+            }
+            // myTurtlesTab.myPositionMap.put(t.myId, );
+        }
+    }
+
+    public void updatePenProperties (PenProperties props) {
+        myTurtleManager.updatePenProperties(props);
+    }
+
+    public void clearScreen (boolean clear) {
+        myTurtleManager.clearScreen(clear);
+        // this.getChildren().add(referenceGrid);
+    }
+
+    public void updatePenType (int type) {
+        for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
+            t.updatePenType(type);
+        }
+    }
+
+    public void updateAnimate (boolean bool) {
+        animate = bool;
+
+        for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
+            t.updateAnimate(bool);
+        }
+
+    }
+
+    private GridPane createReferenceGrid () {
+
+        GridPane refGrid = new GridPane();
+        refGrid.setPrefSize(600, 400);
+        refGrid.getColumnConstraints().add(new ColumnConstraints(38));
+        refGrid.getRowConstraints().add(new RowConstraints(25));
+        for (int i = 0; i < 12; i++) {
+            refGrid.getColumnConstraints().add(new ColumnConstraints(50));
+        }
+        for (int i = 0; i < 10; i++) {
+            refGrid.getRowConstraints().add(new RowConstraints(50));
+        }
+
+        return refGrid;
+
+    }
+
+    public void initiateColorsMap (Map<Integer, Color> map) {
+        colorsMap = map;
+    }
+
+    public void updateAnimationSpeed (double speed) {
+        for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
+            t.updateSpeed(speed);
+
+        }
+    }
+
+    public void updateBackgroundColor (int index) {
+        Color newColor = (colorsMap.get(index));
+        System.out.println(newColor);
+        String colorString = newColor.toString().substring(2);
+
+        this.setStyle("-fx-background-color: #" + colorString);
+
+        // newColor.toString();
+        // this.setStyle("-fx-background-color: " +newColor.toString());
+
+    }
 
 }
