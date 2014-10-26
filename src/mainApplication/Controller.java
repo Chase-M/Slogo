@@ -1,6 +1,8 @@
 package mainApplication;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -36,8 +38,9 @@ public class Controller {
 
     public int createWorkspace (GUI gui) {
         int i = 0;
-        if (myWorkspaces != null)
+        if (myWorkspaces != null) {
             i = myWorkspaces.size();
+        }
         myActiveWS = new Workspace(i);
         myActiveWS.addObserver(gui);
         myActiveWS.createTurtle(0);
@@ -61,7 +64,6 @@ public class Controller {
     }
 
     public Map<Integer, Color> getColors () {
-        System.out.println(myActiveWS.getColors().size());
         return myActiveWS.getColors();
     }
 
@@ -69,15 +71,18 @@ public class Controller {
         myActiveWS.clear();
     }
 
-    public void saveMem (File f) {
-        try {
+    public void saveMem (File f) throws Exception {
 
+        try {
             myActiveWS.writeMem(f);
         }
-        catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        catch (FileNotFoundException | UnsupportedEncodingException e) {
+            throw e;
         }
+    }
+
+    public void setLanguage (String language) {
+        myParser.changeLanguage(language);
     }
 
 }
