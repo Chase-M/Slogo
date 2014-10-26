@@ -53,7 +53,6 @@ public abstract class InfoTab extends Tab implements Feature{
 				
 		myDrawer.getChildren().add(myScrollPane);
 		VBox.setMargin(myScrollPane, new Insets(20));
-	//	addClear(myDrawer);
 		this.setContent(myDrawer);
 		
 
@@ -63,20 +62,9 @@ public abstract class InfoTab extends Tab implements Feature{
 		myTextIndex = 0;
 	}
 
-/*	private void addClear(VBox box){
-		Button clear = new Button("Clear");
-		clear.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				InfoTab.this.clear();
-			}		
-		});
-		box.getChildren().add(clear);
-	}
-	*/
+
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		
 	}
 	public void update(Object o){

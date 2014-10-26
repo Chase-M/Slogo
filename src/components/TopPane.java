@@ -23,7 +23,6 @@ public class TopPane extends FlowPane implements Feature {
 
     @Override
     public void update () {
-        // TODO Auto-generated method stub
 
     }
 
