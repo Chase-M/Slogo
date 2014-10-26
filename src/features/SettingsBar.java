@@ -84,7 +84,7 @@ public SettingsBar(){
 	Label settingsBarLabel = new Label("Settings Bar:");
 
 
-	this.getItems().addAll(colourLabel, colourCB, languageLabel, languageCB);
+	this.getItems().addAll(languageLabel, languageCB);
 
 	//this.setPrefHeight(34);
 }
@@ -93,7 +93,7 @@ public void updateColorPicker(ColorPicker cp){
 	this.getItems().add(cp);
 }
 
-public void addSlider(Slider slider){
+public void addPenSlider(Slider slider){
 	
 	Label penWidth = new Label("Pen Width:     ");
 	Label zero = new Label("0");
@@ -104,6 +104,16 @@ public void addSlider(Slider slider){
 public void addComboBox(ComboBox cb){
 	Label penTypeLabel = new Label("Pen Type: ");
 	this.getItems().addAll(penTypeLabel, cb);
+}
+
+public void addAnimationSlider(Slider s){
+	Label animateLabel = new Label("Animation Speed:");
+	this.getItems().addAll(animateLabel, s);
+}
+
+public void addButton(Button b){
+	this.getItems().addAll(b);
+	
 }
 
 @Override
