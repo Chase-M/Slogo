@@ -33,11 +33,18 @@ public class BottomPane extends HBox {
         scroller.setContent(myErrors);
         this.getChildren().addAll(myCommand, myErrors);
     }
-
+    /**
+     * adds a button to the bottom pane
+     * @param run: button to be added to bottom pane
+     */
     public void updateButton (Button run) {
         this.getChildren().add(run);
     }
 
+    /**
+     * displays errors in the right text areas
+     * @param e: errors that are to be displayed
+     */
     public void updateErrors (Exception e) {
         myErrors.setText("ERRORS:\n" + e.toString());
 
