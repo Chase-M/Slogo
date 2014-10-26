@@ -75,8 +75,7 @@ public class FeatureSetUp{
 		Map<String, Pane> componentMap = new HashMap<String, Pane>();
 		  
 		for(Pane p:myComponents){
-			componentMap.put(p.getClass().toString(), p);	//Not a great solution
-			System.out.println(p.getClass().toString());
+			componentMap.put(p.getClass().toString(), p);
 
 		}
 

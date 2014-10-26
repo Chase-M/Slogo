@@ -23,7 +23,6 @@ public class ColorPickerFeature extends ColorPicker implements Feature {
 		super();
 		CenterPane centerPane = (CenterPane)componentMap.get("class components.CenterPane");
 		LeftPane leftPane = ((LeftPane)componentMap.get("class components.LeftPane"));
-		//List<Integer> indexList = leftPane.myTabs.get
 		this.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent event) {				
@@ -36,7 +35,6 @@ public class ColorPickerFeature extends ColorPicker implements Feature {
 
     @Override
     public void update () {
-        // TODO Auto-generated method stub
 
     }
 
