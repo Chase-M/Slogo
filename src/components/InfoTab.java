@@ -39,7 +39,7 @@ public abstract class InfoTab extends Tab implements Feature{
 	protected int myTextIndex;
 	protected Controller myController;
 	public InfoTab(String s, Controller c){
-		super(s);
+		super(s.substring(0, s.length()-3));
 		myController = c;
 		setClosable(false);
 		myDrawer = new VBox();
@@ -55,7 +55,7 @@ public abstract class InfoTab extends Tab implements Feature{
 				
 		myDrawer.getChildren().add(myScrollPane);
 		VBox.setMargin(myScrollPane, new Insets(20));
-		addClear(myDrawer);
+	//	addClear(myDrawer);
 		this.setContent(myDrawer);
 		
 
@@ -64,20 +64,7 @@ public abstract class InfoTab extends Tab implements Feature{
 		myTextPane.getChildren().clear();
 		myTextIndex = 0;
 	}
-	//Code specific to implementation
-//	public void update(Node b){
-//		myTextPane.add(b, 0, myTextIndex);
-//		myTextIndex++;
-//	}
-	//Code specific to a type of tab
-//	public void updateVars(Map<String, Double> vars){
-//		myTextIndex = 0;
-//		for(String s:vars.keySet()){
-//			myTextPane.add(new Label(s), 0, myTextIndex);
-//			myTextPane.add(new Label(vars.get(s).toString()), 1, myTextIndex);
-//			myTextIndex++;
-//		}
-//	}
+
 	private void addClear(VBox box){
 		Button clear = new Button("Clear");
 		clear.setOnAction(new EventHandler<ActionEvent>() {

@@ -1,18 +1,13 @@
 package mainApplication;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import parser.Node;
-import parser.Parser;
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import view.View;
+import parser.Node;
+import parser.Parser;
 import workspace.Workspace;
 
 public class Controller {
@@ -21,7 +16,6 @@ public class Controller {
 	private Parser myParser;
 	private int myActive;
 	private Workspace myActiveWS;
-	private GUI myView;
 	//TEMPORARY, REMOVE STAGE
 	public Stage myStage;
 	
@@ -60,6 +54,7 @@ public class Controller {
 	}
 	
 	public Map<Integer, Color> getColors(){
+	    System.out.println(myActiveWS.getColors().size());
 		return myActiveWS.getColors();
 	}
 	public void clear(){

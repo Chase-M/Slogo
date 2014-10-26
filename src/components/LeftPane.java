@@ -29,7 +29,7 @@ import sun.misc.Queue;
 public class LeftPane extends InfoPane implements Feature {
 
 	public LeftPane(Controller c) {
-		super(c, new String[]{"VariableTab", "HistoryTab"});
+		super(c, new String[]{"VarsTab", "HistoryTab", "SavedTab"});
 	}
 
 }
