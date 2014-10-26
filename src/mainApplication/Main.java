@@ -39,7 +39,9 @@ public class Main extends Application {
 		GUIShell shell = new GUIShell(controller, stage);
 
 		root.getChildren().add(shell);
-			
+	//	GUI userFace = new GUI(controller, stage.getScene());
+	//	userFace.initiate();
+	//	root.getChildren().add(userFace);
 			stage.setResizable(false);
 			stage.show();
 	}

@@ -151,14 +151,14 @@ public class GUI extends Pane implements Observer{
 		
 		
 	}
-	private void updatePanes(){
+/*	private void updatePanes(){
 		Map<Integer, ImageView> imageMap = makeImageMap();
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		 paramMap.put("class components.HistoryTab", new Button("fd 50"));//TODO Remove this, shouldn't update History
         paramMap.put("class components.VarsTab", myController.getVariables());
         paramMap.put("class components.TurtlesTab", myController.getVariables());
         paramMap.put("class components.ColorsTab", myController.getColors());        
-        paramMap.put("class components.SavedTab", new Button("here"));
+        paramMap.put("class components.SavedTab", myController.getCommands());
         paramMap.put("class components.ImagesTab", imageMap);
         List<InfoTab> list = myLeftPane.myTabs;
 		for(InfoTab t:list){
@@ -188,6 +188,7 @@ public class GUI extends Pane implements Observer{
 		}
 		return map;
 	}
+	*/
 	@Override
 	public void update(Observable obs, Object props) {
 		if(props instanceof TurtleProperties){
@@ -205,7 +206,7 @@ public class GUI extends Pane implements Observer{
 			myCenterPane.clearScreen(((StageProperties) props).isClear());
 		}
 		
-		updatePanes();
+		//updatePanes();
 		
 		
 	}

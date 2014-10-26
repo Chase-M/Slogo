@@ -27,16 +27,27 @@ import javafx.scene.shape.Line;
 
 
 public class RunButtonFeature extends Button implements Feature{
-	public RunButtonFeature(Map<String, Pane> componentMap, Controller myController){
+	private Controller myController;
+	private LeftPane myLeftPane;
+	private RightPane myRightPane;
+	private Button myButton;
+	
+	public RunButtonFeature(Map<String, Pane> componentMap, Controller control){
 	super("Run");
+	myController = control;
 	   this.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
+		    	
 		    	BottomPane bottomPane = (BottomPane)componentMap.get("class components.BottomPane");
-
+		    	myLeftPane = (LeftPane)componentMap.get("class components.LeftPane");
+		    	myRightPane = (RightPane)componentMap.get("class components.RightPane");
+		    	
 		    	if(!bottomPane.myCommand.getText().isEmpty()){
 		    		try{
 				myController.parseAndEvaluate(bottomPane.myCommand.getText());	
+				myButton = new Button(bottomPane.myCommand.getText());
 		        bottomPane.myCommand.clear();
+	
 	                    }
 	                    
 		    	
@@ -46,7 +57,10 @@ public class RunButtonFeature extends Button implements Feature{
 		    		
 		    	}
 		    }
+		    	updatePanes();
 		    }
+		    
+		    
 		});	   
 	
 	}
@@ -54,6 +68,46 @@ public class RunButtonFeature extends Button implements Feature{
 	public void update() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	
+	
+	private void updatePanes(){
+		Map<Integer, ImageView> imageMap = makeImageMap();
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		 paramMap.put("class components.HistoryTab", new Button("fd 50"));//TODO Remove this, shouldn't update History
+        paramMap.put("class components.VarsTab", myController.getVariables());
+        paramMap.put("class components.TurtlesTab", myController.getVariables());
+        paramMap.put("class components.ColorsTab", myController.getColors());        
+        paramMap.put("class components.SavedTab", myController.getCommands());
+        paramMap.put("class components.ImagesTab", imageMap);
+        List<InfoTab> list = myLeftPane.myTabs;
+		for(InfoTab t:list){
+			//t.clear();
+			//System.out.println(paramMap.get(t.getClass().toString()));
+			t.update(paramMap.get(t.getClass().toString()));
+			
+		}
+		List<InfoTab> list2 = myRightPane.myTabs;
+		for(InfoTab t:list2){
+			//t.clear();
+			//System.out.println(paramMap.get(t.getClass().toString()));
+			t.update(paramMap.get(t.getClass().toString()));
+			
+		}
+		
+	}
+	private Map<Integer, ImageView> makeImageMap(){
+		Map<Integer, ImageView> map = new HashMap<Integer, ImageView>();
+		String[] images = new String[]{"features/turtle.png"}; 
+		for(int i = 0; i< images.length; i++){
+			Image image = new Image(images[i]);
+			ImageView imageView = new ImageView(image);
+			imageView.setFitHeight(50);
+			imageView.setFitWidth(26);
+			map.put(i, imageView);
+		}
+		return map;
 	}
 
 }

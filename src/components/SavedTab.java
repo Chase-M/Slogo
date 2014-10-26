@@ -23,17 +23,7 @@ public class SavedTab extends InfoTab{
 		myTextPane.getChildren().clear();
 		myTextIndex = 0;
 		for(String s:myCommandMap.keySet()){
-			Button b = new Button(s);
-			b.setOnAction(new EventHandler<ActionEvent>(){
-
-				@Override
-				public void handle(ActionEvent arg0) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-			});
-			myTextPane.add(b, 0, myTextIndex);
+			myTextPane.add(new Label(s), 0, myTextIndex);
 			myTextIndex++;
 		}
 	}

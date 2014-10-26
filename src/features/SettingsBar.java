@@ -60,13 +60,13 @@ public SettingsBar(){
 	});
 	
 */	
-	Label colourLabel = new Label("Pen Colour:");
-	Label languageLabel = new Label("Language Pack:");
+//	Label colourLabel = new Label("Pen Colour:");
+//	Label languageLabel = new Label("Language Pack:");
 	
 	//displayColourPicker = new ColorPicker();
 	
-	colourCB = new ComboBox<String>();
-	colourCB.getItems().addAll("White", "Yellow", "Green");
+//	colourCB = new ComboBox<String>();
+//	colourCB.getItems().addAll("White", "Yellow", "Green");
 	
 /*	languageCB = new ComboBox<String>();
 	languageCB.getItems().addAll("English", "Spanish", "Chinese");
@@ -81,10 +81,10 @@ public SettingsBar(){
 //	setMargin(languageLabel, new Insets(6));
 //	setMargin(startButton, new Insets(6));
 
-	Label settingsBarLabel = new Label("Settings Bar:");
+	//Label settingsBarLabel = new Label("Settings Bar:");
 
 
-	this.getItems().addAll(colourLabel, colourCB, languageLabel);//, languageCB);
+//	this.getItems().addAll(colourLabel, colourCB, languageLabel);//, languageCB);
 
 	//this.setPrefHeight(34);
 }
