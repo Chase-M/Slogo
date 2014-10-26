@@ -54,11 +54,7 @@ public class Controller {
      * @return
      */
     public int createWorkspace (GUI gui) {
-        int i = 0;
-        if (myWorkspaces != null) {
-            i = myWorkspaces.size();
-        }
-        myActiveWS = new Workspace(i);
+        myActiveWS = new Workspace();
         myActiveWS.addObserver(gui);
         myActiveWS.createTurtle(0);
 
