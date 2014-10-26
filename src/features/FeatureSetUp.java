@@ -21,6 +21,7 @@ public class FeatureSetUp{
 	public Map<String, Pane> myComponentMap;
 
 	public FeatureSetUp(List<Pane> myComponents, Controller myController){
+		
 		myComponentMap = createComponentMap(myComponents);
 		myFeatureMap = new HashMap<String, Feature>();
 		
@@ -30,11 +31,11 @@ public class FeatureSetUp{
 		ColorPickerFeature colorPick = new ColorPickerFeature(myComponentMap);
 		myFeatureMap.put("COLORPICK", colorPick);
 		
-		OpenButtonFeature open = new OpenButtonFeature(myController);
-		myFeatureMap.put("OPEN", open);
+	//	OpenButtonFeature open = new OpenButtonFeature(myController);
+	//	myFeatureMap.put("OPEN", open);
 		
-		SaveButtonFeature save = new SaveButtonFeature(myController);
-		myFeatureMap.put("SAVE", save);
+	//	SaveButtonFeature save = new SaveButtonFeature(myController);
+	//	myFeatureMap.put("SAVE", save);
 		
 		ToggleGridButtonFeature gridButton = new ToggleGridButtonFeature(myComponentMap);
 		myFeatureMap.put("GRID", gridButton);
@@ -44,6 +45,10 @@ public class FeatureSetUp{
 		
 		PenTypeComboBoxFeature penType = new PenTypeComboBoxFeature(myComponentMap, myController);
 		myFeatureMap.put("PENTYPE", penType);
+		
+		LanguageComboFeature lang = new LanguageComboFeature(myController, new String[]{"English", "Chinese"});
+		myFeatureMap.put("LANG", lang);
+		
 		
 	}
 	

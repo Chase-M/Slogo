@@ -28,21 +28,20 @@ public class CenterPane extends Pane implements Feature{
 	private int turtleWidth = 26;
 	private int turtleHeight = 50;
 	private Label myLabel;
-	private TurtleManager myTurtleManager = new TurtleManager(this);
+	public TurtleManager myTurtleManager;
 	public GridPane referenceGrid;
 	public Map<Integer, Color> colorsMap;
 
 	public CenterPane(){
 		super();
+		myTurtleManager = new TurtleManager(this);
 		this.setStyle("-fx-background-color: white");	
 		referenceGrid = createReferenceGrid();
-		myLabel = new Label("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
-		this.getChildren().add(myLabel);
 		this.getChildren().add(referenceGrid);
 		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
 				this.getChildren().add(t.myImage);		
 		}
-
+		
 	}
 	@Override
 	public void update() {
@@ -56,11 +55,10 @@ public class CenterPane extends Pane implements Feature{
 				if(t.isTurtleShowing){
 			this.getChildren().add(t.myImage);
 				}
-
 			}
+			//myTurtlesTab.myPositionMap.put(t.myId, );
 		}
-		myLabel.setText("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
-	}
+		}
 	
 	public void updatePenProperties(PenProperties props){
 		myTurtleManager.updatePenProperties(props);		
@@ -73,7 +71,7 @@ public class CenterPane extends Pane implements Feature{
 	private GridPane createReferenceGrid(){
 		
 		GridPane refGrid = new GridPane();
-		refGrid.setPrefSize(600,500);
+		refGrid.setPrefSize(600,400);
 		refGrid.getColumnConstraints().add(new ColumnConstraints(38));
 		refGrid.getRowConstraints().add(new RowConstraints(25));
 		for(int i = 0; i < 12; i++){

@@ -68,13 +68,13 @@ public SettingsBar(){
 	colourCB = new ComboBox<String>();
 	colourCB.getItems().addAll("White", "Yellow", "Green");
 	
-	
-	languageCB = new ComboBox<String>();
+/*	languageCB = new ComboBox<String>();
 	languageCB.getItems().addAll("English", "Spanish", "Chinese");
 	languageCB.setOnAction((event) -> {
 	    System.out.println(languageCB.getSelectionModel().getSelectedItem());
 	   // System.out.println("ComboBox Action (selected: " + selectedPerson.toString() + ")");
 	});
+	*/
 //	setMargin(languageCB, new Insets(6));
 //	setMargin(colourCB, new Insets(6));
 //	setMargin(colourLabel, new Insets(6));
@@ -84,7 +84,7 @@ public SettingsBar(){
 	Label settingsBarLabel = new Label("Settings Bar:");
 
 
-	this.getItems().addAll(colourLabel, colourCB, languageLabel, languageCB);
+	this.getItems().addAll(colourLabel, colourCB, languageLabel);//, languageCB);
 
 	//this.setPrefHeight(34);
 }

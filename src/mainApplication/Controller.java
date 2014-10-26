@@ -6,6 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import parser.CommandObject;
@@ -16,17 +18,16 @@ import workspace.Workspace;
 
 public class Controller {
 
+
     private List<Workspace> myWorkspaces;
     private Parser myParser;
     private int myActive;
     private Workspace myActiveWS;
     // TEMPORARY, REMOVE STAGE
-    public Stage myStage;
 
-    public Controller (Stage s) {// TEMPORARY
-        myStage = s;
+
+    public Controller () {// TEMPORARY   
         myWorkspaces = new ArrayList<>();
-
         myParser = new Parser();
     }
 
