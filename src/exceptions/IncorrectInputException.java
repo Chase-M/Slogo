@@ -1,6 +1,6 @@
 package exceptions;
 
-public class IncorrectInputException extends CustomException{
+public class IncorrectInputException extends CustomException {
 
     /**
      * 
@@ -9,7 +9,7 @@ public class IncorrectInputException extends CustomException{
 
     public IncorrectInputException (String message) {
         super("IncorrectInput", message);
-        
+
     }
 
 }

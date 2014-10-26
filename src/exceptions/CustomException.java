@@ -1,6 +1,5 @@
 package exceptions;
 
-import java.util.ResourceBundle;
 import properties.LanguageProperties;
 
 public class CustomException extends RuntimeException {
