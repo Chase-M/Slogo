@@ -78,6 +78,8 @@ public SettingsBar(){
 
 	Label settingsBarLabel = new Label("Settings Bar:");
 
+	//Slider test = new Slider(0,10,5);
+	
 	this.getItems().addAll(settingsBarLabel);
 	//this.setPrefHeight(34);
 }
@@ -88,8 +90,10 @@ public void updateColorPicker(ColorPicker cp){
 
 public void addSlider(Slider slider){
 	
-	Label penWidth = new Label("Pen Width: ");
-	this.getItems().addAll(penWidth, slider);
+	Label penWidth = new Label("Pen Width:     ");
+	Label zero = new Label("0");
+	Label ten = new Label("10");
+	this.getItems().addAll(penWidth, zero, slider, ten);
 
 	
 }

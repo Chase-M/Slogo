@@ -104,7 +104,7 @@ public class GUI extends Pane implements Observer{
 		myBottomPane.getChildren().add(CP);
 		myBottomPane.updateButton(run);
 		//myBottomPane.getChildren().add(penSlider);
-//		myTopPane.mySettingsBar.addSlider(penSlider);
+		myTopPane.mySettingsBar.addSlider(penSlider);
 		//myBottomPane.getChildren().add(newTurtle);
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myCenterPane);	
