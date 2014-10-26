@@ -59,6 +59,7 @@ public class GUI extends Pane implements Observer {
 
     private InfoPane myLeftPane;
     private InfoPane myRightPane;
+    public int myGUIid;
 
     private Map<Integer, Color> colorsMap;
 
@@ -78,7 +79,7 @@ public class GUI extends Pane implements Observer {
 
         myParser = new Parser();
         loadPanes();
-        myController.createWorkspace(this);
+        myGUIid = myController.createWorkspace(this);
         // updatePanes();
         initiateKeyPress(myScene);
 
