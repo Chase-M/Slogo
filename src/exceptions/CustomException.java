@@ -3,7 +3,6 @@ package exceptions;
 /**
  * @author Timesh Patel, Chase Malik
  */
-
 import properties.LanguageProperties;
 
 
