@@ -175,7 +175,6 @@ public class DisplayTurtle {
      * @param animateBool: boolean that states whether or not animation should be turned on
      */
     public void updateAnimate (boolean animateBool) {
-        System.out.println("updateAnimate in DT is called");
         animate = animateBool;
     }
     /**
