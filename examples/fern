@@ -1,0 +1,22 @@
+to fern [ :size :sign ] [
+  ifelse less? :size  1 [  ]  [
+  fd :size
+  rt * 70 :sign fern [ * :size  0.5 * :sign  -1 ] 
+set :size * :size 2 
+set :sign * :sign -1
+lt * 70  :sign
+  fd :size
+  lt * 70  :sign 
+fern [ * :size  0.5 :sign ]
+ rt * 70  :sign
+set :size * :size 2
+  rt * 7 :sign 
+fern [ - :size  1 :sign ] lt * 7  :sign
+set :size + :size 1  
+bk  * :size  2
+]
+]
+pu bk 150 pd
+setpalette 4 0 178 0 
+setpc 4
+fern [ 25 1 ]
