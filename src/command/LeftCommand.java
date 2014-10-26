@@ -1,11 +1,5 @@
 package command;
 
-import java.util.List;
-
-import actor.Turtle;
-import parser.Node;
-import workspace.Workspace;
-
 public class LeftCommand extends RotateCommand {
 
 	public LeftCommand(String s){
