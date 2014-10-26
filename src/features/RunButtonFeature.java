@@ -31,8 +31,8 @@ public class RunButtonFeature extends Button implements Feature{
 	   this.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent e) {
 		    	BottomPane bottomPane = (BottomPane)componentMap.get("class components.BottomPane");
-		    	InfoPane2 rightPane = (InfoPane2)componentMap.get("class components.InfoPane2");
-		    	InfoPane infoPane = (InfoPane)componentMap.get("class components.InfoPane");
+		    	InfoPane rightPane = (RightPane)componentMap.get("class components.RightPane");
+		    	InfoPane infoPane = (LeftPane)componentMap.get("class components.LeftPane");
 
 		    	if(!bottomPane.myCommand.getText().isEmpty()){
 
@@ -55,7 +55,8 @@ public class RunButtonFeature extends Button implements Feature{
 		        Map<String, Object> paramMap = new HashMap<String, Object>();
 		        paramMap.put("class components.HistoryTab", button);
 		        paramMap.put("class components.VariableTab", myController.getVariables());
-		        paramMap.put("class components.InfoTab", myController.getVariables());
+		     //   paramMap.put("class components.InfoTab", myController.getVariables());
+		        paramMap.put("class components.ColorTab", myController.getColors());
 		        
 		        List<InfoTab> list = infoPane.myTabs;
 				for(InfoTab t:list){
@@ -70,6 +71,7 @@ public class RunButtonFeature extends Button implements Feature{
 		    	
 		    	catch(Exception n){
 		    		bottomPane.updateErrors(n);
+		    		n.printStackTrace();
 		    		
 		    	}
 		    }

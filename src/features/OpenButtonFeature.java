@@ -1,6 +1,8 @@
 package features;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 
@@ -30,10 +32,26 @@ public class OpenButtonFeature extends Button implements Feature{
 		    @Override public void handle(ActionEvent e) {
 		    	//myController.
 		    	 File file = fileChooser.showOpenDialog(myController.myStage);
-                if (file != null) {
-                   // openFile(file);
-                }
-		        //bottomPane.update();
+		    	                 if (file != null) {
+                 // openFile(file);
+          //    	myController.
+              	String fileString = null;
+					try {
+						fileString = Files.readAllLines(Path.get(file.getPath())).toString();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+						System.out.println("IOException");
+					}
+              	try {
+						myController.parseAndEvaluate(fileString);
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+						System.out.println("Other");
+					}
+              	
+              }
 		    }
 		});	   
 	

@@ -17,7 +17,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class CenterPane extends Pane implements Feature{
-
+	
+//	private VBox myDrawer;
+//	private ScrollPane myScroller;
 	private ImageView turtleGraphic;
 	private double turtleX;
 	private double turtleY;
@@ -30,24 +32,10 @@ public class CenterPane extends Pane implements Feature{
 	public CenterPane(){
 		super();
 		this.setStyle("-fx-background-color: white");	
-		//		Image image = new Image("mainApplication/turtle.png");		
-		//		turtleView = new ImageView (image);
-		//		turtleView.setFitWidth(26);		
-		//		turtleView.setFitHeight(50);
-		//		turtleView.setLayoutX(275);
-		//		turtleView.setLayoutY(200);		
-		//		turtleX = 275;
-		//		turtleY = 200;
-
-
-		//turtleGraphic = firstTurtle.makeNewTurtle();
-		//GUI.myObjects.add(firstTurtle);
-		
 		referenceGrid = createReferenceGrid();
 		myLabel = new Label("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
 		this.getChildren().add(myLabel);
 		this.getChildren().add(referenceGrid);
-		//this.getChildren().add(turtleGraphic);
 		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
 				this.getChildren().add(t.myImage);		
 		}
@@ -68,12 +56,6 @@ public class CenterPane extends Pane implements Feature{
 
 			}
 		}
-		//	int ID = pos.myId;
-		//	double tempX = 275+pos.getPoint().getX();
-		//	double tempY = 200-pos.getPoint().getY();
-		//	drawLine(tempX, tempY);
-		//		turtleView.setLayoutX(turtleX);
-		//		turtleView.setLayoutY(turtleY);
 		myLabel.setText("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
 	}
 	
