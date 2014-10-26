@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import parser.Node;
@@ -18,9 +20,11 @@ public class Controller {
 	private Workspace myActiveWS;
 	//TEMPORARY, REMOVE STAGE
 	public Stage myStage;
+	public Scene myScene;
 	
-	public Controller(Stage s){//TEMPORARY
-		myStage = s;
+	public Controller(Stage stage, Scene s){//TEMPORARY
+		myStage = stage;
+		myScene = s;
 		myWorkspaces = new ArrayList<>();
 
 		myParser = new Parser();

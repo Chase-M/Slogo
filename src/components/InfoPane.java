@@ -46,7 +46,7 @@ public class InfoPane extends FlowPane implements Feature {
 		TabFactory tabFac = new TabFactory();
 		
 		setStyle("-fx-background-color: #336666");
-		setPrefHeight(500);
+		setPrefHeight(400);
 		setPrefWidth(200);
 		setMaxWidth(200);
 		

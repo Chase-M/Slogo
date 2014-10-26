@@ -14,12 +14,12 @@ public class PenWidthSliderFeature extends Slider implements Feature {
 		this.setMin(0);
 		this.setMax(10);
 		this.setValue(1);			
-		this.setShowTickLabels(true);
-		this.setShowTickMarks(true);
-		this.setMajorTickUnit(5);
-		this.setMinorTickCount(5);
-		this.setBlockIncrement(1);
-		
+//		this.setShowTickLabels(true);
+//		this.setShowTickMarks(true);
+//		this.setMajorTickUnit(5);
+//		this.setMinorTickCount(5);
+//		this.setBlockIncrement(1);
+//		
 		
 			this.setOnMouseReleased(new EventHandler<MouseEvent>() {
 				@Override

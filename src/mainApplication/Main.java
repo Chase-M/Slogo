@@ -39,37 +39,10 @@ public class Main extends Application{
 		Group root = new Group();
 		Scene s = initiate(root);
 
-		Controller controller = new Controller(stage);
-		GUI userFace = new GUI(controller);
-		//controller.updateGUI(userFace);
-		userFace.initiate();
-		userFace.initiateKeyPress(s);
+		Controller controller = new Controller(stage, s);
+		GUIShell shell = new GUIShell(controller);
 
-/**
- * Below is prelim code for creating multiple tabs		
- */
-/*		ToolBar tools = new ToolBar();
-		FlowPane pane = new FlowPane(Orientation.HORIZONTAL);
-		tools.setPrefWidth(1000);
-		tools.getItems().addAll(new Button("New"), new Button("Open"), new Button("Save"));
-		pane.getChildren().add(tools);
-	Controller controller2 = new Controller(stage);	
-	GUI userFace2 = new GUI(controller2);
-		
-		userFace2.initiate();
-		TabPane tabPane = new TabPane();
-		 Tab tab = new Tab();
-		 tab.setText("new tab");
-		 tab.setContent(userFace);
-		 tabPane.getTabs().add(tab);
-		 Tab tab2 = new Tab();
-		 tab2.setText("new tab 2");
-		 tab2.setContent(userFace2);
-		 tabPane.getTabs().add(tab2);
-		 pane.getChildren().add(tabPane);
-		root.getChildren().add(pane);
-*/		
-		root.getChildren().add(userFace);
+		root.getChildren().add(shell);
 			stage.setScene(s);
 			stage.setResizable(false);
 			stage.show();

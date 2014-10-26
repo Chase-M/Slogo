@@ -30,6 +30,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.Slider;
@@ -38,6 +39,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class GUI extends Pane implements Observer{
@@ -57,6 +59,8 @@ public class GUI extends Pane implements Observer{
 
 	private InfoPane myLeftPane;
 	private InfoPane myRightPane;
+	
+	private Map<Integer, Color> colorsMap;
 
 
 	private Controller myController;
@@ -67,6 +71,7 @@ public class GUI extends Pane implements Observer{
 
 	public GUI(Controller controller){
 		myController = controller;
+		//colorsMap = myController.getColors();
 
 	}
 
@@ -76,7 +81,8 @@ public class GUI extends Pane implements Observer{
 		myParser = new Parser();
 		loadPanes();
 		myController.createWorkspace(this);
-		updatePanes();
+		//updatePanes();
+		initiateKeyPress(myController.myScene);
 
 	}
 
@@ -94,7 +100,7 @@ public class GUI extends Pane implements Observer{
 		myBottomPane = new BottomPane();
 		myCenterPane = new CenterPane();
 		ScrollPane myScroller = new ScrollPane();
-		myScroller.setMaxHeight(500);
+		myScroller.setMaxHeight(400);
 		myScroller.setMaxWidth(600);
 		myScroller.setVbarPolicy(ScrollBarPolicy.ALWAYS);
 		myScroller.setHbarPolicy(ScrollBarPolicy.ALWAYS);
@@ -118,6 +124,7 @@ public class GUI extends Pane implements Observer{
 		Button save = (Button) features.myFeatureMap.get("SAVE");
 		Button grid = (Button) features.myFeatureMap.get("GRID");
 		Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
+		ComboBox penType = (ComboBox) features.myFeatureMap.get("PENTYPE");
 
 		//String[] stringFeatures = new String[]{"OPEN", "SAVE", "GRID", "COLORPICK"};
 		//for(String s: stringFeatures){
@@ -125,6 +132,12 @@ public class GUI extends Pane implements Observer{
 		//}
 		myTopPane.addItems(open, save, grid, CP);
 		myBottomPane.updateButton(run);
+
+		//myBottomPane.getChildren().add(penSlider);
+		myTopPane.mySettingsBar.addSlider(penSlider);
+		myTopPane.mySettingsBar.addComboBox(penType);
+		//myBottomPane.getChildren().add(newTurtle);
+
 		pane.setBottom(myBottomPane);
 		pane.setCenter(myScroller);	
 		pane.setTop(myTopPane);	
@@ -171,13 +184,35 @@ public class GUI extends Pane implements Observer{
 		}
 		return map;
 	}
+	@Override
+	public void update(Observable obs, Object props) {
+		if(props instanceof TurtleProperties){
+			myCenterPane.updateTurtlePosition((TurtleProperties) props);
+		}
+		if(props instanceof PenProperties){			
+			//TODO Implement this based on pen given back
+			//System.out.println("Pen Prop runs");
+			myCenterPane.initiateColorsMap(myController.getColors());
+			myCenterPane.updatePenProperties((PenProperties) props);
+
+			//myCenterPane.updateTurtlePosition((Position)props);
+		}
+		if(props instanceof StageProperties){
+			//System.out.println("Stage Prop runs");
+			myCenterPane.clearScreen(((StageProperties) props).isClear);
+			boolean b = ((StageProperties) props).isClear;
+		}
+		
+		updatePanes();
+		
+		
+	}
 	
 	public void initiateKeyPress(Scene s) {
 		s.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override public void handle(KeyEvent event) {
 				switch (event.getCode()) {
 				case W: 
-					System.out.println("up");
 					try {
 						myController.parseAndEvaluate("setheading 90 fd 25");
 					} catch (Exception e) {
@@ -185,7 +220,6 @@ public class GUI extends Pane implements Observer{
 						e.printStackTrace();
 					}break;					
 				case S:
-					System.out.println("down");
 					try {
 						myController.parseAndEvaluate("setheading 270 fd 25");
 					} catch (Exception e) {
@@ -193,7 +227,6 @@ public class GUI extends Pane implements Observer{
 						e.printStackTrace();
 					}break;					
 				case D:
-					System.out.println("right");
 					try {
 						myController.parseAndEvaluate("setheading 0 fd 25");
 					} catch (Exception e) {
@@ -201,7 +234,6 @@ public class GUI extends Pane implements Observer{
 						e.printStackTrace();
 					}break;					
 				case A:
-					System.out.println("left");
 					try {
 						myController.parseAndEvaluate("setheading 180 fd 25");
 					} catch (Exception e) {
@@ -215,28 +247,4 @@ public class GUI extends Pane implements Observer{
 	}
 
 	
-	
-	
-	@Override
-	public void update(Observable obs, Object props) {
-		if(props instanceof TurtleProperties){
-			myCenterPane.updateTurtlePosition((TurtleProperties) props);
-		}
-		if(props instanceof PenProperties){			
-			//TODO Implement this based on pen given back
-			System.out.println("Pen Prop runs");
-			
-			myCenterPane.updatePenProperties((PenProperties) props);
-			System.out.println("pen prop size: "+ ((PenProperties) props).size());
-			
-			//myCenterPane.updateTurtlePosition((Position)props);
-		}
-		if(props instanceof StageProperties){
-			System.out.println("Stage Prop runs");
-			myCenterPane.clearScreen(((StageProperties) props).isClear);
-			boolean b = ((StageProperties) props).isClear;
-		}
-		
-		
-	}
 }

@@ -1,12 +1,10 @@
 package command;
 
 import java.util.List;
-
-import exceptions.IncorrectIndexException;
-import actor.Turtle;
 import parser.Node;
-import properties.PenProperties;
 import workspace.Workspace;
+import actor.Turtle;
+import exceptions.IncorrectIndexException;
 
 public class SetPenColorCommand extends Command {
 

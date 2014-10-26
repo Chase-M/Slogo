@@ -1,6 +1,5 @@
 package properties;
 
-import workspace.Workspace;
 
 public class StageProperties {
 	

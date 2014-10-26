@@ -1,10 +1,9 @@
 package command;
 
-import java.util.ArrayList;
 import java.util.List;
-import actor.Turtle;
 import parser.Node;
 import workspace.Workspace;
+import actor.Turtle;
 
 
 public class AskCommand extends BaseMultiTurtleCommand {

@@ -6,6 +6,7 @@ import features.Toolbar;
 import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.FlowPane;
 
 public class TopPane extends FlowPane implements Feature {
@@ -31,6 +32,10 @@ public class TopPane extends FlowPane implements Feature {
 	}
 	public void addItems(Node ... n){
 		myToolbar.getItems().addAll(n);
+	}
+	
+	public void addSlider(Slider slider){
+		mySettingsBar.getItems().add(slider);
 	}
 	
 }

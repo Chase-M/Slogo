@@ -135,6 +135,7 @@ public class TestParser {
 		workspace.createTurtle(0);
 		List<Node> list=p.parse("forward 50");
 		assertEquals(50,list.get(0).evaluate(workspace), .00000001);
+		assertEquals(50,workspace.getActiveTurtles().get(0).getY(), .00000001);
 	}
 
         @Test

@@ -13,7 +13,7 @@ public class PenProperties{
 	public double size(){
 		return myPen.getSize();
 	}
-	public int getColorIndex(){
+	public Integer getColorIndex(){
 		return myPen.getColorIndex();
 	}
 	public int getID(){
