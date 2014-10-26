@@ -16,8 +16,9 @@ public class SetBackgroundCommand extends Command {
     public double execute (List<Node> inputs, Workspace workspace)
                                                                   throws Exception {
         double index = inputs.get(0).evaluate(workspace);
-        if (!workspace.getColors().containsKey((int)index))
+        if (!workspace.getColors().containsKey((int)index)) {
             throw new IncorrectIndexException((int)index);
+        }
         workspace.changeBackground((int)index);
         return index;
     }

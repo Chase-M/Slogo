@@ -5,52 +5,61 @@ import java.util.List;
 import workspace.Workspace;
 import command.Command;
 
+
 public class Node {
-	
-	List<Node> myChildren;
-	Command myCommand;
-	
+
+    private List<Node> myChildren;
+    private Command myCommand;
+
     /**
      * Node class takes a command to put in a tree for parsing
+     * 
      * @param com This nodes Command
      */
-    public Node(Command com){
+    public Node (Command com) {
         myChildren = new ArrayList<>();
         myCommand = com;
     }
+
     /**
-     * returns the value of the this command and executes this command as well 
-     * as all its children 
+     * returns the value of the this command and executes this command as well
+     * as all its children
+     * 
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
-    public double evaluate(Workspace workspace) throws Exception{
-        return myCommand.execute(myChildren,workspace);
+    public double evaluate (Workspace workspace) throws Exception {
+        return myCommand.execute(myChildren, workspace);
     }
+
     /**
-     * adds a child node which will be another command or int that this command needs to 
+     * adds a child node which will be another command or int that this command needs to
      * execute
-     * ie a forward command would need a child with an int parameter 
+     * ie a forward command would need a child with an int parameter
      */
-    public void addChild(Node node){
-    	myChildren.add(node);
+    public void addChild (Node node) {
+        myChildren.add(node);
     }
+
     /**
      * returns this nodes command
+     * 
      * @return
      */
-    public Command getCommand(){
+    public Command getCommand () {
         return myCommand;
     }
-    public List<Node> getChildren(){
+
+    public List<Node> getChildren () {
         return myChildren;
     }
-    public String toString(){
-        String string="";
-        for(Node n: myChildren){
-            string= string+n.toString();
+
+    public String toString () {
+        String string = "";
+        for (Node n : myChildren) {
+            string = string + n.toString();
         }
-        string= " "+getCommand().toString()+string;
+        string = " " + getCommand().toString() + string;
         return string;
     }
 }

@@ -173,16 +173,13 @@ public class GUI extends Pane implements Observer{
 		}
 		if(props instanceof PenProperties){			
 			//TODO Implement this based on pen given back
-			System.out.println("Pen Prop runs");
 			myCenterPane.initiateColorsMap(myController.getColors());
 			myCenterPane.updatePenProperties((PenProperties) props);
 
 			//myCenterPane.updateTurtlePosition((Position)props);
 		}
 		if(props instanceof StageProperties){
-			System.out.println("Stage Prop runs");
-			myCenterPane.clearScreen(((StageProperties) props).isClear);
-			boolean b = ((StageProperties) props).isClear;
+			myCenterPane.clearScreen(((StageProperties) props).isClear());
 		}
 		
 		

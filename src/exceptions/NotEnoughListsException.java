@@ -1,6 +1,6 @@
 package exceptions;
 
-public class NotEnoughListsException extends CustomException{
+public class NotEnoughListsException extends CustomException {
 
     /**
      * 
@@ -9,7 +9,6 @@ public class NotEnoughListsException extends CustomException{
 
     public NotEnoughListsException (String message) {
         super(String.format("%s does not have enough lists", message));
-        // TODO Auto-generated constructor stub
     }
-    
+
 }

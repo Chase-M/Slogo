@@ -17,8 +17,7 @@ public abstract class BasicListCommand extends Command {
 
     @Override
     public boolean checkListExit (Node node) {
-        myCheckList--;
-        return node.getCommand() instanceof ListEndCommand && myCheckList == 0;
+        return (node.getCommand() instanceof ListEndCommand && (myCheckList-=1)==0);
     }
 
     public void checkListException (List<Node> inputs) throws Exception {
