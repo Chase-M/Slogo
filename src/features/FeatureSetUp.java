@@ -46,9 +46,17 @@ public class FeatureSetUp{
 		PenTypeComboBoxFeature penType = new PenTypeComboBoxFeature(myComponentMap, myController);
 		myFeatureMap.put("PENTYPE", penType);
 		
+
+		AnimateButtonFeature animateButton = new AnimateButtonFeature(myComponentMap);
+		myFeatureMap.put("ANIMATE", animateButton);
+		
+		AnimationSpeedSliderFeature animationSlider = new AnimationSpeedSliderFeature(myComponentMap);
+		myFeatureMap.put("ANIMATIONSLIDER", animationSlider);
+
 		LanguageComboFeature lang = new LanguageComboFeature(myController, new String[]{"English", "Chinese"});
 		myFeatureMap.put("LANG", lang);
 		
+
 		
 	}
 	

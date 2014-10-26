@@ -35,11 +35,11 @@ public class TurtleManager {
 			turt = myTurtleMap.get(ID);
 		}
 		else{
-			turt = new DisplayTurtle(myCenterPane, myBottomPane);
+			turt = new DisplayTurtle(myCenterPane);
 			myTurtleMap.put(ID, turt);
 			//turt.updatePosition
 		}
-	//	System.out.println(myImageMap.get(Integer.valueOf(props.getShape())).toString());
+		System.out.println(myImageMap.get(Integer.valueOf(props.getShape())).toString());
 		//try{
 		turt.updateImageView(myImageMap.get(Integer.valueOf(props.getShape())));
 	//	}
