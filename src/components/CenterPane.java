@@ -39,9 +39,6 @@ public class CenterPane extends Pane implements Feature{
 		this.setStyle("-fx-background-color: white");	
 		referenceGrid = createReferenceGrid();
 		animate = false;
-		myLabel = new Label("Turtle X: "+(275-turtleX)+"\nTurtle Y: "+(200-turtleY));
-		this.getChildren().add(myLabel);
-
 		this.getChildren().add(referenceGrid);
 		for(DisplayTurtle t:myTurtleManager.myTurtleMap.values()){
 				this.getChildren().add(t.myImage);		
@@ -71,6 +68,7 @@ public class CenterPane extends Pane implements Feature{
 
 	public void clearScreen(boolean clear){
 		myTurtleManager.clearScreen(clear);
+	//	this.getChildren().add(referenceGrid);
 	}
 	
 	public void updatePenType(int type){
@@ -117,7 +115,7 @@ public class CenterPane extends Pane implements Feature{
 	}
 	
 	public void updateBackgroundColor(int index){
-		Color newColor = (Color)colorsMap.get(index);
+		Color newColor = (colorsMap.get(index));
 		System.out.println(newColor);
 		String colorString = newColor.toString().substring(2);
 		

@@ -14,7 +14,8 @@ public class AnimationSpeedSliderFeature extends Slider implements Feature {
 	public AnimationSpeedSliderFeature(Map<String, Pane> componentMap){	
 		super();
 		this.setMin(50);
-		this.setMax(2000);
+		this.setMax(4000
+				);
 		this.setValue(1);
 		CenterPane centerPane = (CenterPane)componentMap.get("class components.CenterPane");
 		this.setOnMouseReleased(new EventHandler<MouseEvent>() {

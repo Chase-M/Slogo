@@ -10,6 +10,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 public class ColorPickerFeature extends ColorPicker implements Feature {
 	public ColorPickerFeature(Map<String, Pane> componentMap){
@@ -23,7 +24,8 @@ public class ColorPickerFeature extends ColorPicker implements Feature {
 			public void handle(ActionEvent event) {
 				System.out.println(ColorPickerFeature.super.getValue());
 				
-				// TODO Fix this: poor solution
+
+
 				centerPane.setStyle("-fx-background-color: #"	
 									+ColorPickerFeature.super.getValue().toString().substring(2));
 				

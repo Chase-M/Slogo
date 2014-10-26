@@ -31,29 +31,21 @@ public class DisplayTurtle {
 	public double turtleAngle;
 	private double turtleWidth;
 	private double turtleHeight;
-	private ImageView turtleGraphic;
 	public Pen myPen;
 	private CenterPane myCenterPane;
 	public boolean isTurtleShowing;
 	private boolean penDown;
-	private List linesDrawn;
 	private double middleX;
 	private double middleY;
 	private double currentX;
 	private double currentY;
-	private double theta;
 	private int penType;
-	private Timeline tl;
 	private boolean animate;
 	private double currentAngle;
-	private Path myPath;
 	public double animationSpeed;
 	private double time;
-
-	public Line myLine; 
-
-	private int turtleID;
 	public ImageView myImage;
+	public Line myLine;
 
 
 	public DisplayTurtle(CenterPane pane){
@@ -71,11 +63,10 @@ public class DisplayTurtle {
 		myImage = new ImageView (image);
 		myImage.setFitWidth(turtleWidth);		
 		myImage.setFitHeight(turtleHeight);	
-		updateImage(turtleX, turtleY, turtleAngle);
+		updateImage();
 		System.out.println("getXY: "+myImage.getX()+ "  "+myImage.getY());
 		myPen = new Pen();
 		myCenterPane = pane;
-		linesDrawn = new ArrayList<Line>();
 		penType = 1;
 		animate = false;
 		currentAngle = 0;
@@ -83,9 +74,6 @@ public class DisplayTurtle {
 		time = 1;
 	}
 
-	public void setTurtleID(int ID){
-		turtleID = ID;	
-	}
 	public void updatePosition(Position pos){
 		turtleX = pos.getX();
 		turtleY = pos.getY();
@@ -93,53 +81,48 @@ public class DisplayTurtle {
 		double xDiff = turtleX-currentX;
 		double yDiff = turtleY-currentY;
 		double distance = Math.sqrt(xDiff*xDiff + yDiff*yDiff);
-		
+
 		time = distance/animationSpeed;
-		System.out.println("time is now:" +time);
-		
+
 		if(animate == false){
 			myImage.setTranslateX(0);
 			myImage.setTranslateY(0);
-		updateImage(pos.getX(), pos.getY(), turtleAngle);	
-		
-		updateLine(turtleX, turtleY);
-		
+			updateImage();	
+
+			updateLine();
+
 		} else if(animate == true){	
-			
-			
+
 			animateTurtlePosition();
 			animateTurtleAngle(turtleAngle);			
 
-			}
-		
+		}
+
 	}
-	
-	
-		
+
+
+
 	private void animateTurtlePosition(){
-		System.out.println("tt time:" +time);
 
 		TranslateTransition tt = new TranslateTransition(Duration.seconds(time), myImage);
-		
+
 		tt.setToX(myImage.getX()+turtleX);
 		tt.setToY(myImage.getY()-turtleY);
-		
-		updateLine(turtleX, turtleY);
-					
+
+		updateLine();
+
 		tt.play();	
 	}
-	
-	
-	private void animateTurtleAngle(double angle){
-		
-		
+
+
+	private void animateTurtleAngle(double angle){	
 		RotateTransition rt = new RotateTransition(Duration.millis(500), myImage);
 		rt.setFromAngle(currentAngle);
 		rt.setToAngle(90-Math.toDegrees(angle));
 		currentAngle = (90-Math.toDegrees(angle));
-		
+
 		rt.play();
-		
+
 	}
 
 	public void updatePenType(int type){
@@ -148,32 +131,29 @@ public class DisplayTurtle {
 
 
 
-	public void updateImage(double moveToX, double moveToY, double turtleAngle2){
+	public void updateImage(){
 		myImage.setLayoutX(middleX+turtleX);
 		myImage.setLayoutY(middleY-turtleY);
-		myImage.setRotate(90-Math.toDegrees(turtleAngle2));
-		
+		myImage.setRotate(90-Math.toDegrees(turtleAngle));
+
 		currentX = turtleX;
 		currentY = turtleY;
 	}
 
-	
+
 
 	public void updateTurtleShow(boolean show){			
 		isTurtleShowing = show;		
 		if(show == false){
 			myCenterPane.getChildren().remove(myImage);
-			System.out.println("removed");
 		}
-
 	}
 
 
-	private void updateLine(double x, double y){
+	private void updateLine(){
 		myLine = myPen.drawLine(turtleX, turtleY, turtleWidth, turtleHeight, penType);
 		if(penDown == true){
 			myCenterPane.getChildren().add(myLine);	
-			linesDrawn.add(myLine);
 		}
 	}
 
@@ -181,17 +161,13 @@ public class DisplayTurtle {
 		penDown = isPenDown;		
 	}
 
-	private void updateTurtleSize(double width, double height){
-		turtleWidth = width;
-		turtleHeight = height;
-	}
-	
+
 	public void updateAnimate(boolean bool){
 		System.out.println("updateAnimate in DT is called");
 		animate = bool;
 		System.out.println(animate);
 	}
-	
+
 	public void updateSpeed(double speed){
 		animationSpeed = speed;
 		System.out.println("t.animationSpeed is now:  "+animationSpeed);

@@ -22,6 +22,8 @@ public class Main extends Application {
         int sceneWidth = Integer
                 .parseInt(numResources.getString("Scene_width"));
         return new Scene(root, sceneWidth, sceneHeight, Color.GREY);
+        
+
     }
 
     @Override
@@ -36,4 +38,8 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.show();
     }
+    
+    
+    
+    
 }
