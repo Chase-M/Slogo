@@ -34,7 +34,6 @@ public class CommandObject {
         }
         string = string + " ]  ";
         for (Node n : myCommands) {
-            System.out.println(n.toString());
             string = " " + string + " " + n.toString();
         }
         return string;
