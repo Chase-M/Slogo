@@ -20,7 +20,6 @@ import javafx.util.Duration;
 public class DisplayTurtle {
 
 
-    // private ImageView turtleGraphic;
     public double turtleX;
     public double turtleY;
     public double turtleAngle;
@@ -178,7 +177,6 @@ public class DisplayTurtle {
     public void updateAnimate (boolean bool) {
         System.out.println("updateAnimate in DT is called");
         animate = bool;
-        System.out.println(animate);
     }
 
     public void updateSpeed (double speed) {

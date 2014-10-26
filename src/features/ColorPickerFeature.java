@@ -22,10 +22,7 @@ public class ColorPickerFeature extends ColorPicker implements Feature {
 		this.setOnAction(new EventHandler<ActionEvent>(){
 
 			@Override
-			public void handle(ActionEvent event) {
-				System.out.println(ColorPickerFeature.super.getValue());
-				
-
+			public void handle(ActionEvent event) {				
 
 				centerPane.setStyle("-fx-background-color: #"	
 									+ColorPickerFeature.super.getValue().toString().substring(2));

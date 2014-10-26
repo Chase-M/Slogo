@@ -24,11 +24,10 @@ public class BottomPane extends HBox {
         scroller.setHbarPolicy(ScrollBarPolicy.AS_NEEDED);
 
         setStyle("-fx-background-color: #336699;");
-        myErrors = new Label("ERRORS:\ntest");
+        myErrors = new Label("ERRORS:\n\n");
         myErrors.setStyle("-fx-background-color: #ffffff;"
                 + "-fx-border-width: 2;-fx-border-color: black;");
         myErrors.setPadding(new Insets(15, 12, 15, 12));
-        // myErrors.setPrefWidth(300);
         myErrors.setPrefHeight(100);
         myErrors.setMinWidth(300);
         scroller.setContent(myErrors);

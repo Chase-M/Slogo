@@ -54,7 +54,7 @@ public class GUI extends Pane implements Observer {
     private Turtle myTurtle;
     private CenterPane myCenterPane;
     private Parser myParser;
-    private BottomPane myBottomPane;
+    protected BottomPane myBottomPane;
     private TopPane myTopPane;
 
     private InfoPane myLeftPane;
@@ -76,11 +76,9 @@ public class GUI extends Pane implements Observer {
     }
 
     void initiate () {
-
-        myParser = new Parser();
         loadPanes();
+        myParser = new Parser();
         myGUIid = myController.createWorkspace(this);
-        // updatePanes();
         initiateKeyPress(myScene);
 
     }
@@ -103,7 +101,6 @@ public class GUI extends Pane implements Observer {
         myScroller.setMaxWidth(600);
         myScroller.setVbarPolicy(ScrollBarPolicy.ALWAYS);
         myScroller.setHbarPolicy(ScrollBarPolicy.ALWAYS);
-        // myScroller.setVbarPolicy(ScrollBarPolicy.NEVER);
         myScroller.setContent(myCenterPane);
         pane.setLeft(myLeftPane);
         pane.setRight(myRightPane);
@@ -118,66 +115,28 @@ public class GUI extends Pane implements Observer {
         FeatureSetUp features = new FeatureSetUp(components, myController);
         RunButtonFeature run = (RunButtonFeature) features.myFeatureMap.get("RUN");
         ColorPicker CP = (ColorPicker) features.myFeatureMap.get("COLORPICK");
-        // Button newTurtle = (Button) features.myFeatureMap.get("NEWTURTLE");
-        // Button open = (Button) features.myFeatureMap.get("OPEN");
-        // Button save = (Button) features.myFeatureMap.get("SAVE");
         Button grid = (Button) features.myFeatureMap.get("GRID");
         Slider penSlider = (Slider) features.myFeatureMap.get("PENSLIDER");
         ComboBox penType = (ComboBox) features.myFeatureMap.get("PENTYPE");
         Button animate = (Button) features.myFeatureMap.get("ANIMATE");
         Slider animationSlider = (Slider) features.myFeatureMap.get("ANIMATIONSLIDER");
         LanguageComboFeature lang = (LanguageComboFeature) features.myFeatureMap.get("LANG");
-        // String[] stringFeatures = new String[]{"OPEN", "SAVE", "GRID",
-        // "COLORPICK"};
-        // for(String s: stringFeatures){
-        // myTopPane.addItems(features.myFeatureMap.get(s));
-        // }
         myTopPane.addItems(grid, new Separator(), CP, new Separator(), lang);
         myBottomPane.updateButton(run);
         myBottomPane.updateButton(animate);
         myCenterPane.myTurtleManager.updateImageMap(run.myImageMap);
 
-        // myBottomPane.getChildren().add(penSlider);
         myTopPane.mySettingsBar.addPenSlider(penSlider);
         myTopPane.mySettingsBar.addAnimationSlider(animationSlider);
         myTopPane.mySettingsBar.addComboBox(penType);
-        // myBottomPane.getChildren().add(newTurtle);
 
         pane.setBottom(myBottomPane);
         pane.setCenter(myScroller);
         pane.setTop(myTopPane);
 
         this.getChildren().add(pane);
-
     }
 
-    /*
-     * private void updatePanes(){ Map<Integer, ImageView> imageMap =
-     * makeImageMap(); Map<String, Object> paramMap = new HashMap<String,
-     * Object>(); paramMap.put("class components.HistoryTab", new
-     * Button("fd 50"));//TODO Remove this, shouldn't update History
-     * paramMap.put("class components.VarsTab", myController.getVariables());
-     * paramMap.put("class components.TurtlesTab", myController.getVariables());
-     * paramMap.put("class components.ColorsTab", myController.getColors());
-     * paramMap.put("class components.SavedTab", myController.getCommands());
-     * paramMap.put("class components.ImagesTab", imageMap); List<InfoTab> list
-     * = myLeftPane.myTabs; for(InfoTab t:list){ //t.clear();
-     * //System.out.println(paramMap.get(t.getClass().toString()));
-     * t.update(paramMap.get(t.getClass().toString()));
-     * 
-     * } List<InfoTab> list2 = myRightPane.myTabs; for(InfoTab t:list2){
-     * //t.clear(); //System.out.println(paramMap.get(t.getClass().toString()));
-     * t.update(paramMap.get(t.getClass().toString()));
-     * 
-     * }
-     * 
-     * } private Map<Integer, ImageView> makeImageMap(){ Map<Integer, ImageView>
-     * map = new HashMap<Integer, ImageView>(); String[] images = new
-     * String[]{"features/turtle.png"}; for(int i = 0; i< images.length; i++){
-     * Image image = new Image(images[i]); ImageView imageView = new
-     * ImageView(image); imageView.setFitHeight(50); imageView.setFitWidth(26);
-     * map.put(i, imageView); } return map; }
-     */
     @Override
     public void update (Observable obs, Object props) {
         if (props instanceof TurtleProperties) {
@@ -188,11 +147,9 @@ public class GUI extends Pane implements Observer {
             }
         }
         if (props instanceof PenProperties) {
-            // TODO Implement this based on pen given back
             myCenterPane.initiateColorsMap(myController.getColors());
             myCenterPane.updatePenProperties((PenProperties) props);
 
-            // myCenterPane.updateTurtlePosition((Position)props);
         }
         if (props instanceof StageProperties) {
 
@@ -200,7 +157,6 @@ public class GUI extends Pane implements Observer {
             myCenterPane.updateBackgroundColor(((StageProperties) props).getIndex());
         }
 
-        // updatePanes();
 
     }
 

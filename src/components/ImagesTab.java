@@ -19,7 +19,7 @@ import javafx.scene.image.ImageView;
 
 public class ImagesTab extends InfoTab{
 	Map<Integer, ImageView> myImages;
-	public ImagesTab(String s, Controller c) { //Maybe change this to not have controller, give to "Save button" instead
+	public ImagesTab(String s, Controller c) {
 		super(s, c);		
 		myImages = new HashMap<Integer, ImageView>();
 		
