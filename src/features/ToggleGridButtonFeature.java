@@ -14,19 +14,18 @@ import javafx.scene.layout.RowConstraints;
 
 public class ToggleGridButtonFeature extends Button implements Feature {
 	
+	/**
+	 * Toggles upon click the visiblity of the grid in center pane
+	 * @param componentMap
+	 */
+	
 	public ToggleGridButtonFeature(Map<String, Pane> componentMap){
 		super("Grid");		
 		CenterPane centerPane = (CenterPane)componentMap.get("class components.CenterPane");
 		this.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent event) {
-				// TODO Auto-generated method stub	
-//				if(centerPane.referenceGrid.isGridLinesVisible()==false){
-//					centerPane.referenceGrid.setGridLinesVisible(true);
-//				}else if(centerPane.referenceGrid.isGridLinesVisible()==true){
-//					centerPane.referenceGrid.setGridLinesVisible(false);			
-//				}	
-				
+
 				centerPane.referenceGrid.setGridLinesVisible(!centerPane.referenceGrid.isGridLinesVisible());			
 			}		
 		});
@@ -34,27 +33,7 @@ public class ToggleGridButtonFeature extends Button implements Feature {
 	}
 	 
 	
-	
-	
-	
-//	private GridPane createReferenceGrid(){
-//		
-//		GridPane refGrid = new GridPane();
-//		refGrid.setPrefSize(600,500);
-//		for(int i = 0; i < 12; i++){
-//		refGrid.getColumnConstraints().add(new ColumnConstraints(50));
-//		}
-//		for(int i = 0; i<10; i++){
-//		refGrid.getRowConstraints().add(new RowConstraints(50));
-//		}
-//		
-//		return refGrid;
-//		
-//	}
-//	
-	
-	
-	
+
 	
 	
 	

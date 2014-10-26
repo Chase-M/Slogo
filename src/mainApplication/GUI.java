@@ -138,8 +138,8 @@ public class GUI extends Pane implements Observer {
 
         // myBottomPane.getChildren().add(penSlider);
         myTopPane.mySettingsBar.addPenSlider(penSlider);
-        myTopPane.mySettingsBar.addAnimationSlider(animationSlider);
         myTopPane.mySettingsBar.addComboBox(penType);
+        myTopPane.mySettingsBar.addAnimationSlider(animationSlider);
         // myBottomPane.getChildren().add(newTurtle);
 
         pane.setBottom(myBottomPane);
@@ -212,32 +212,28 @@ public class GUI extends Pane implements Observer {
                     try {
                         myController.parseAndEvaluate("setheading 90 fd 25");
                     } catch (Exception e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
+                    	myBottomPane.updateErrors(e);
                     }
                     break;
                 case S:
                     try {
                         myController.parseAndEvaluate("setheading 270 fd 25");
                     } catch (Exception e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
+                    	myBottomPane.updateErrors(e);
                     }
                     break;
                 case D:
                     try {
                         myController.parseAndEvaluate("setheading 0 fd 25");
                     } catch (Exception e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
+                    	myBottomPane.updateErrors(e);
                     }
                     break;
                 case A:
                     try {
                         myController.parseAndEvaluate("setheading 180 fd 25");
                     } catch (Exception e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
+                    	myBottomPane.updateErrors(e);
                     }
                     break;
                 }

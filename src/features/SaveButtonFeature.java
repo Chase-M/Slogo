@@ -17,6 +17,11 @@ import javafx.scene.control.TextField;
 
 public class SaveButtonFeature extends Button{
 	Map<String, Double> myVars;
+	
+	/**
+	 * 
+	 * @param c
+	 */
 	public SaveButtonFeature(Controller c) { //Maybe change this to not have controller, give to "Save button" instead
 		super("Edit");		
 	//	Button edit = new Button("Edit");
