@@ -4,6 +4,7 @@ package features;
 import java.util.ArrayList;
 import java.util.List;
 
+import components.BottomPane;
 import components.CenterPane;
 import properties.Position;
 import javafx.animation.Animation;
@@ -35,14 +36,15 @@ public class DisplayTurtle {
 	private double currentX;
 	private double currentY;
 	private double theta;
-	
+	private BottomPane myBottomPane;
 	public Line myLine; 
 	
 	private int turtleID;
 	public ImageView myImage;
 	
 
-	public DisplayTurtle(CenterPane pane){
+	public DisplayTurtle(CenterPane pane, BottomPane bPane){
+		myBottomPane = bPane;
 		turtleWidth = 26;
 		turtleHeight = 50;
 		turtleX = 0;
@@ -112,7 +114,7 @@ public class DisplayTurtle {
 		isTurtleShowing = show;		
 		if(show == false){
 			myCenterPane.getChildren().remove(myImage);
-			System.out.println("removed");
+		//	System.out.println("removed");
 		}
 		
 	}
@@ -140,6 +142,13 @@ public class DisplayTurtle {
 	private void updateTurtleSize(double width, double height){
 		turtleWidth = width;
 		turtleHeight = height;
+	}
+
+	public void updateImageView(ImageView imageView) {
+		myImage.setImage(imageView.getImage());
+		//myCenterPane.getChildren().add(myImage);
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

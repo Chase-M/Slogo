@@ -55,6 +55,7 @@ public class GUIShell extends FlowPane{
 				Tab userTab = new Tab("Untitled");
 				userTab.setContent(newUserFace);
 				myTabPane.getTabs().add(userTab);
+				myTabPane.getSelectionModel().select(userTab);
 				
 			}
 			
@@ -104,6 +105,7 @@ public class GUIShell extends FlowPane{
 				Tab userTab = new Tab(file.getName());
 				userTab.setContent(newUserFace);
 				myTabPane.getTabs().add(userTab);
+				myTabPane.getSelectionModel().select(userTab);
 		    	 try {
 		    		 List<String> commands = Files.readAllLines(Paths.get(file.getPath()), StandardCharsets.UTF_8);
 		    		 
