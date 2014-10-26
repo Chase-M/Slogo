@@ -1,15 +1,15 @@
 package mainApplication;
 
+/**
+ * @author Timesh Patel, Chase Malik
+ */
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import parser.CommandObject;
 import parser.Node;
 import parser.Parser;
@@ -18,24 +18,35 @@ import workspace.Workspace;
 
 public class Controller {
 
-
     private List<Workspace> myWorkspaces;
     private Parser myParser;
     private int myActive;
     private Workspace myActiveWS;
-    // TEMPORARY, REMOVE STAGE
-
-
-    public Controller () {// TEMPORARY   
+    /**
+     * Controller that coordinates between front end and back end 
+     * keeps a list of workspaces and held by the GUI
+     * also contains the only  parser
+     */
+    public Controller () {
         myWorkspaces = new ArrayList<>();
         myParser = new Parser();
     }
-
+    /**
+     * takes a string and parses it into a graph of nodes which is 
+     * then evaluated on over the current workspace
+     * @param s
+     * @throws Exception
+     */
     public void parseAndEvaluate (String s) throws Exception {
         List<Node> list = myParser.parse(s);
         myActiveWS.evaluate(list);
     }
-
+    /**
+     * creates a new workspace, sets the gui it belongs to and add its as a 
+     * observer and creates its furst turtle
+     * @param gui
+     * @return
+     */
     public int createWorkspace (GUI gui) {
         int i = 0;
         if (myWorkspaces != null) {
@@ -49,12 +60,16 @@ public class Controller {
 
         return myWorkspaces.size() - 1;
     }
-
+    /**
+     * sets active workspace
+     * @param id
+     */
     public void setActive (int id) {
         myActive = id;
         myActiveWS = myWorkspaces.get(myActive);
     }
-    public void removeWS (int id){
+
+    public void removeWS (int id) {
         myWorkspaces.remove(id);
     }
 
@@ -73,7 +88,11 @@ public class Controller {
     public void clear () {
         myActiveWS.clear();
     }
-
+    /**
+     * saves Variables and Stored commands
+     * @param f
+     * @throws Exception
+     */
     public void saveMem (File f) throws Exception {
 
         try {

@@ -1,5 +1,8 @@
 package actor;
 
+/**
+ * @author Timesh Patel, Chase Malik
+ */
 public class Pen {
 
     private static final double DEFAULT_SIZE = 1;
@@ -9,6 +12,13 @@ public class Pen {
     private int myColorIndex;
     private int myID;
 
+    /**
+     * Pen class represents the pen of a turtle
+     * has size, width, a color index, id of the turtle it belongs to
+     * and whether its up or down
+     * 
+     * @param id
+     */
     public Pen (int id) {
         myDown = true;
         mySize = DEFAULT_SIZE;
