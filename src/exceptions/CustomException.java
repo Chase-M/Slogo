@@ -1,11 +1,15 @@
 package exceptions;
 
+/**
+ * @author Timesh Patel, Chase Malik
+ */
 import properties.LanguageProperties;
+
 
 public class CustomException extends RuntimeException {
 
     /**
-     * 
+     * base exception for Custom exceptions to handle errors in slogo
      */
     protected static final long serialVersionUID = 1L;
 

@@ -1,5 +1,8 @@
 package actor;
 
+/**
+ * @author Timesh Patel, Chase Malik
+ */
 import java.util.Observable;
 import properties.PenProperties;
 import properties.Position;
@@ -17,6 +20,15 @@ public class Turtle extends Observable {
     private boolean myShowing;
     private int myShape;
 
+    /**
+     * Turtle class represents the turtle in the backend 
+     * contains a default shape index, a position, a pen, an id
+     * and active and showing booleans
+     * the turtle has get methods on some its properties for 
+     * convenience
+     * @param pos
+     * @param id
+     */
     public Turtle (Position pos, int id) {
         myPosition = pos;
         myID = id;
