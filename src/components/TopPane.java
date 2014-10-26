@@ -17,7 +17,8 @@ public class TopPane extends FlowPane implements Feature {
         super(Orientation.VERTICAL);
         mySettingsBar = new SettingsBar();
         this.getChildren().addAll(mySettingsBar);
-        this.setPrefHeight(76);
+        this.setPrefHeight(36);
+        mySettingsBar.setPrefWidth(1000);
     }
 
     @Override
