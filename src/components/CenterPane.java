@@ -1,5 +1,7 @@
 package components;
 
+import java.util.Map;
+
 import mainApplication.GUI;
 import properties.PenProperties;
 import properties.Position;
@@ -28,6 +30,7 @@ public class CenterPane extends Pane implements Feature{
 	private Label myLabel;
 	private TurtleManager myTurtleManager = new TurtleManager(this);
 	public GridPane referenceGrid;
+	public Map<Integer, Color> colorsMap;
 
 	public CenterPane(){
 		super();
@@ -71,6 +74,8 @@ public class CenterPane extends Pane implements Feature{
 		
 		GridPane refGrid = new GridPane();
 		refGrid.setPrefSize(600,500);
+		refGrid.getColumnConstraints().add(new ColumnConstraints(38));
+		refGrid.getRowConstraints().add(new RowConstraints(25));
 		for(int i = 0; i < 12; i++){
 		refGrid.getColumnConstraints().add(new ColumnConstraints(50));
 		}
@@ -80,6 +85,10 @@ public class CenterPane extends Pane implements Feature{
 		
 		return refGrid;
 		
+	}
+	
+	public void initiateColorsMap(Map<Integer, Color> map ){	
+		colorsMap = map;		
 	}
 	
 

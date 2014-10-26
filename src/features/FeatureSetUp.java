@@ -42,6 +42,9 @@ public class FeatureSetUp{
 		PenWidthSliderFeature penSlider = new PenWidthSliderFeature(myComponentMap, myController);
 		myFeatureMap.put("PENSLIDER", penSlider);
 		
+		PenTypeComboBoxFeature penType = new PenTypeComboBoxFeature(myComponentMap, myController);
+		myFeatureMap.put("PENTYPE", penType);
+		
 	}
 	
 	public Map<String,Pane> createComponentMap(List<Pane> myComponents){
