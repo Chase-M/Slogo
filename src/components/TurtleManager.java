@@ -21,7 +21,6 @@ public class TurtleManager {
 	public TurtleManager(CenterPane pane){
 		myTurtleMap = new HashMap<Integer, DisplayTurtle>();
 		myCenterPane = pane;
-		//myBottomPane = bPane;
 		myImageMap = new HashMap<Integer, ImageView>();
 		
 	}
@@ -37,26 +36,18 @@ public class TurtleManager {
 		else{
 			turt = new DisplayTurtle(myCenterPane);
 			myTurtleMap.put(ID, turt);
-			//turt.updatePosition
 		}
-		System.out.println(myImageMap.get(Integer.valueOf(props.getShape())).toString());
-		//try{
 		turt.updateImageView(myImageMap.get(Integer.valueOf(props.getShape())));
 	//	}
-	//	catch(NullPointerException e){
-		//	myBottomPane.myErrors.setText("ERRORS:\nImage Index out of Palette Bounds");
-		//}
+
 		turt.updatePosition(props.getPosition());
 		turt.updateTurtleShow(props.isShowing());
-		//turt.updatePenShow(penProps.isDown());
-
 
 	}
 
 	
 	public void updatePenProperties(PenProperties props){
 		int ID = props.getID();
-	//	System.out.println("updatePenProperties");
 		DisplayTurtle turt;
 			turt = myTurtleMap.get(ID);		
 		turt.updatePenShow(props.isDown());

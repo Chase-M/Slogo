@@ -2,21 +2,15 @@ package components;
 
 import java.util.Map;
 
-import mainApplication.GUI;
 import properties.PenProperties;
-import properties.Position;
 import properties.TurtleProperties;
 import features.DisplayTurtle;
 import features.Feature;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 
 
 public class CenterPane extends Pane implements Feature {
@@ -44,6 +38,10 @@ public class CenterPane extends Pane implements Feature {
 
     }
 
+    /**
+     * updates the turtle position using specified turlte ID
+     * @param pos: contains information on coordinates and angle
+     */
     public void updateTurtlePosition (TurtleProperties pos) {
         myTurtleManager.update(pos);
         for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
@@ -52,25 +50,37 @@ public class CenterPane extends Pane implements Feature {
                     this.getChildren().add(t.myImage);
                 }
             }
-            // myTurtlesTab.myPositionMap.put(t.myId, );
         }
     }
-
+    /**
+     * updates pen information
+     * @param props: contains pen property information
+     */
     public void updatePenProperties (PenProperties props) {
         myTurtleManager.updatePenProperties(props);
     }
-
+    /**
+     * clears the screen and resets to one turtle
+     * @param clear: states whether or not screen is to be cleared
+     */
     public void clearScreen (boolean clear) {
         myTurtleManager.clearScreen(clear);
-        // this.getChildren().add(referenceGrid);
     }
 
+    /**
+     * updates the pen style on all turtles in workspace
+     * @param type: integer that corresponds to a specific line style
+     */
     public void updatePenType (int type) {
         for (DisplayTurtle t : myTurtleManager.myTurtleMap.values()) {
             t.updatePenType(type);
         }
     }
 
+    /**
+     * updates the animation on/off on all turtles in workspace
+     * @param bool: states whether or not animation should be turned on
+     */
     public void updateAnimate (boolean bool) {
         animate = bool;
 
@@ -79,7 +89,10 @@ public class CenterPane extends Pane implements Feature {
         }
 
     }
-
+    /**
+     * creates and adds reference grid to center pane
+     * @return: gridpane that acts as reference grid
+     */
     private GridPane createReferenceGrid () {
 
         GridPane refGrid = new GridPane();
@@ -110,13 +123,8 @@ public class CenterPane extends Pane implements Feature {
 
     public void updateBackgroundColor (int index) {
         Color newColor = (colorsMap.get(index));
-        System.out.println(newColor);
         String colorString = newColor.toString().substring(2);
-
         this.setStyle("-fx-background-color: #" + colorString);
-
-        // newColor.toString();
-        // this.setStyle("-fx-background-color: " +newColor.toString());
 
     }
 

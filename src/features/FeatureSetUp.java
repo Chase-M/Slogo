@@ -76,10 +76,7 @@ public class FeatureSetUp{
 		  
 		for(Pane p:myComponents){
 			componentMap.put(p.getClass().toString(), p);	//Not a great solution
-			System.out.println(p.getClass().toString());
-
 		}
-
 		return componentMap;
 	}
 }

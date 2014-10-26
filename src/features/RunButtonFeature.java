@@ -76,7 +76,7 @@ public class RunButtonFeature extends Button implements Feature{
 		    		
 		    	}
 		    }
-		    	updatePanes();
+		    	update();
 		    }
 		    
 		    
@@ -85,34 +85,37 @@ public class RunButtonFeature extends Button implements Feature{
 	}
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+	    updatePanes();
 	}
 	
 	
 	
 	private void updatePanes(){
-		//Map<Integer, ImageView> imageMap = makeImageMap();
+	    if((myCenterPane)!=(null)){
 		myCenterPane.myTurtleManager.updateImageMap(myImageMap);
+	    }
 		Map<String, Object> paramMap = new HashMap<String, Object>();
 		
-		 paramMap.put("class components.HistoryTab", myButton);//TODO Remove this, shouldn't update History
+		paramMap.put("class components.HistoryTab", myButton);
         paramMap.put("class components.VarsTab", myController.getVariables());
         paramMap.put("class components.TurtlesTab", myController.getVariables());
         paramMap.put("class components.ColorsTab", myController.getColors());        
         paramMap.put("class components.SavedTab", myController.getCommands());
         paramMap.put("class components.ImagesTab", myImageMap);
         List<InfoTab> list = myLeftPane.myTabs;
+        
 		for(InfoTab t:list){
-			//t.clear();
-			//System.out.println(paramMap.get(t.getClass().toString()));
+		    if(paramMap.get(t.getClass().toString())!=null){
 			t.update(paramMap.get(t.getClass().toString()));
+		    }
+
+
 			
 		}
+		
 		List<InfoTab> list2 = myRightPane.myTabs;
 		for(InfoTab t:list2){
-			//t.clear();
-			//System.out.println(paramMap.get(t.getClass().toString()));
+
 			t.update(paramMap.get(t.getClass().toString()));
 			
 		}
