@@ -54,6 +54,9 @@ public class Controller {
         myActive = id;
         myActiveWS = myWorkspaces.get(myActive);
     }
+    public void removeWS (int id){
+        myWorkspaces.remove(id);
+    }
 
     public Map<String, Double> getVariables () {
         return myActiveWS.getVariables();

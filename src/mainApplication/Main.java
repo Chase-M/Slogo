@@ -2,14 +2,8 @@ package mainApplication;
 
 import java.util.ResourceBundle;
 import javafx.application.Application;
-import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.ToolBar;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -35,14 +29,11 @@ public class Main extends Application {
         Group root = new Group();
         Scene s = initiate(root);
         stage.setScene(s);
-		Controller controller = new Controller();
-		GUIShell shell = new GUIShell(controller, stage);
+        Controller controller = new Controller();
+        GUIShell shell = new GUIShell(controller, stage);
 
-		root.getChildren().add(shell);
-	//	GUI userFace = new GUI(controller, stage.getScene());
-	//	userFace.initiate();
-	//	root.getChildren().add(userFace);
-			stage.setResizable(false);
-			stage.show();
-	}
+        root.getChildren().add(shell);
+        stage.setResizable(false);
+        stage.show();
+    }
 }
