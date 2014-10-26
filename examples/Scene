@@ -1,0 +1,55 @@
+to tree [ :size ] [
+   ifelse less? :size  5 [ forward :size back :size ] [
+   forward / :size 3
+   left 30 
+tree [ / * 2 :size 3 ] 
+right 30
+set :size * 3 / :size 2   
+forward / :size 6
+   right 25 
+tree [ / :size 2  ] 
+left 25
+set :size * :size 2  
+forward / :size 3
+ right 25 
+tree [ / :size 2 ]
+ left 25
+set :size * :size 2  
+forward / :size 6
+   back :size
+]
+]
+
+setpalette 4 0 150 0
+setpalette 5 0 200 0
+setpalette 6 0 125 0
+
+pu setxy -150 -150
+tell [ 1 ] pu setxy 0 -150
+tell [ 2 ] pu setxy 150 -150
+tell [ 0 1 2 ] pd askwith [ less? 0 1 ] [ setpc + id 4 ] tree [ 200 ]
+ht
+
+setpalette 10 160 82 45
+tell [ 0 ]
+
+setpc 10 left 90 pd fd 125 pu bk 125 bk 450
+
+pd fd 450 right 90 ht
+pu setpalette 7 255 255 0
+right 90
+home
+setxy 290 225 seth - 360 55
+setpensize 5 setpc 7 pd fd 30
+setpensize 20 bk 30
+ht
+pu home
+seth 90
+bk 250
+fd 100
+bk 55
+rt 90
+bk 300
+setpc 10 pd setpensize 55 fd 600
+setpensize 110 bk 600 ht pu home
+pu ht home
