@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// Chase Malik
 package parser;
 /**
  * @author Timesh Patel, Chase Malik

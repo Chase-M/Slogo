@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// Chase Malik
 package parser;
 
 import java.util.ArrayList;
@@ -17,12 +19,14 @@ import exceptions.UnclosedListException;
  */
 public class Parser {
 
+    private static final String ERROR = "Error";
     private static final String RESOURCE_BUNDLE = "resources.languages/";
     private static final String COMMAND_BUNDLE = "resources.languages/Command";
     private static final String DEFAULT_LANGUAGE = "English";
     private static final String COMMENT_KEY = "Comment";
     private static final String NEW_LINE_REGEX = "[\\\t|\\\n|\\\r]";
     private static final String SPACE_REGEX = "\\s+";
+    private static final String COMMAND_NAME = "Command";
     private List<Node> myTreeHeads;
     private int myIndex;
     private ResourceBundle myLanguage;
@@ -35,11 +39,12 @@ public class Parser {
     }
 
     /**
-     * takes in a string and parses it by puts all commands into a graph
-     * of Nodes
+     * Takes in a string and converts it into a graph of nodes,
+     * where each node contains a command with its children nodes as
+     * the command's inputs
      * 
-     * @param string
-     * @return the string used if the commands were successful
+     * @param s string of commands
+     * @return The graph of nodes that represent the string of commands
      */
     public List<Node> parse (String s) throws Exception {
         myTreeHeads.clear();
@@ -70,7 +75,8 @@ public class Parser {
      * 
      * @param s commands
      * @return Head of Tree
-     * @throws Exception
+     * @throws Exception if there is a parse exception, or an unclosed list exception, or
+     * an incorrect number of inputs exception
      */
     private Node makeTree (String[] s) throws Exception {
         Node node = makeNode(s[myIndex]);
@@ -98,21 +104,21 @@ public class Parser {
     }
 
     /**
-     * Makes Node with given command
+     * Makes Node with given command by using regex found in resources.languages files
      * 
-     * @param command
+     * @param command individual string command
      * @return Node with command
-     * @throws Exception
+     * @throws Exception if the string was not found as a result of a parsing exception
      */
     private Node makeNode (String command) throws Exception {
         CommandFactory factory = new BasicCommandCreator();
         Set<String> keys = myLanguage.keySet();
-        String name = "Error";
+        String name = ERROR;
         for (String key : keys) {
             String value = myLanguage.getString(key);
             if (command.matches(value)) {
                 name = myCommands.getString(key);
-                if (!key.equals("Command")) {
+                if (!key.equals(COMMAND_NAME)) {
                     break;
                 }
             }
