@@ -1,3 +1,5 @@
+// This entire file is part of my masterpiece.
+// Timesh Patel
 package parser;
 
 import java.util.ArrayList;
