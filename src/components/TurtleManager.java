@@ -52,8 +52,8 @@ public class TurtleManager {
 		DisplayTurtle turt;
 			turt = myTurtleMap.get(ID);		
 		turt.updatePenShow(props.isDown());
-		turt.myPen.updatePenWidth(props.size());
-		turt.myPen.updatePenColor((Color) myCenterPane.colorsMap.get(props.getColorIndex()));
+		turt.updatePenWidth(props.size());
+		turt.updatePenColor((Color) myCenterPane.colorsMap.get(props.getColorIndex()));
 	}
 	
 

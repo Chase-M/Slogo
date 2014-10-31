@@ -11,12 +11,12 @@ public class Pen {
 	
 	private double penX;
 	private double penY;
-	private double penWidth;
+	public double penWidth;
 	private double turtleWidth;
 	private double turtleHeight;
 	public double middleX;
 	public double middleY;
-	private Color penColor;
+	public Color penColor;
 	//private Line line;
 	
 	
@@ -59,9 +59,6 @@ public class Pen {
 		line.setStartY(penY+(tHeight/2));		
 		line.setEndX(middleX+x+(tWidth/2));		
 		line.setEndY(middleY-y+(tHeight/2));
-		
-
-
 		//default pen width is 1
 		
 		penX = middleX+x;		
@@ -70,27 +67,5 @@ public class Pen {
 		
 	}
 
-
-	/**
-	 * Updates the pen color
-	 * @param color: color that the pen is updated to
-	 */
-	public void updatePenColor(Color color){
-		penColor = color;
-	}
-	
-	/**
-	 * updates the size of pen (size of lines drawn)
-	 * @param width: size of pen(line) to be updated to
-	 */
-	public void updatePenWidth(double width){
-		//default is 1	
-		penWidth = width;
-	}
-	
-//
-//	public Color returnPenColor(){
-//		return penColor;
-//	}
 	
 }

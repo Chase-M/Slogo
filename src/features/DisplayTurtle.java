@@ -1,8 +1,7 @@
+//This entire file is my masterpiece
+// David Zhang
+
 package features;
-
-
-
-
 import java.util.ResourceBundle;
 
 import components.CenterPane;
@@ -11,59 +10,73 @@ import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
-
 public class DisplayTurtle {
 
-    public double turtleX;
-    public double turtleY;
-    public double turtleAngle;
+    private ResourceBundle numResources;
+    private Pen myPen;
+    private CenterPane myCenterPane;
+    public ImageView myImage;
     private double turtleWidth;
     private double turtleHeight;
-    public Pen myPen;
-    private CenterPane myCenterPane;
-    public boolean isTurtleShowing;
-    private boolean penDown;
+    public double turtleX;
+    public double turtleY;
     private double middleX;
     private double middleY;
     private double currentX;
     private double currentY;
+    public double turtleAngle;
+    private double currentAngle;  
+    private Line myLine;
     private int penType;
-    private boolean animate;
-    private double currentAngle;
-    public double animationSpeed;
+    private boolean penDown;
+    public boolean isTurtleShowing;
+    private boolean animate; 
+    private double animationSpeed;
     private double time;
-    public Line myLine;
-    public ImageView myImage;
+
 
     public DisplayTurtle (CenterPane pane) {
-    	ResourceBundle numResources = ResourceBundle.getBundle("resources/constants/numbers");
-        turtleWidth = Integer.parseInt(numResources.getString("Turtle_Width"));               
-        turtleHeight = Integer.parseInt(numResources.getString("Turtle_Height"));
-        turtleX = 0;
-        turtleY = 0;
-        turtleAngle = 90;
-        middleX = 275;
-        middleY = 200;
-        currentX = 0;
-        currentY = 0;
-        penDown = true;
-        Image image = new Image("features/turtle.png");
-        myImage = new ImageView(image);
-        myImage.setFitWidth(turtleWidth);
-        myImage.setFitHeight(turtleHeight);
-        updateImage();
+    	numResources = ResourceBundle.getBundle("resources/constants/numbers");   
         myPen = new Pen();
         myCenterPane = pane;
-        penType = 1;
+        initializeTurtlePosition();
+        intializeTurtleImage();
+        initializePenProps();
         animate = false;
-        currentAngle = 0;
         animationSpeed = 50;
         time = 1;
+        isTurtleShowing = true;
+    }
+    
+    private void initializeTurtlePosition(){
+    	turtleX = 0;
+    	turtleY = 0;
+    	currentX = turtleX;
+    	currentY = turtleY;
+    	middleX = Integer.parseInt(numResources.getString("CenterPane_MiddleX"));
+    	middleY = Integer.parseInt(numResources.getString("CenterPane_MiddleY"));
+    	turtleAngle = 90;
+    	currentAngle = 0;
+    }
+    
+    private void intializeTurtleImage(){
+        turtleWidth = Integer.parseInt(numResources.getString("Turtle_Width"));               
+        turtleHeight = Integer.parseInt(numResources.getString("Turtle_Height"));
+    	Image image = new Image("features/turtle.png");
+    	myImage = new ImageView(image);
+    	myImage.setFitWidth(turtleWidth);
+    	myImage.setFitHeight(turtleHeight);
+    	updateImage();
     }
 
+    private void initializePenProps(){
+    	penDown = true;
+    	penType = 1;
+    }
 
 /**
  * Receives position and angle information and calls the appropriate methods to move turtle
@@ -73,6 +86,7 @@ public class DisplayTurtle {
         turtleX = pos.getX();
         turtleY = pos.getY();
         turtleAngle = pos.getAngle();
+        
         double xDiff = turtleX - currentX;
         double yDiff = turtleY - currentY;
         double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
@@ -84,16 +98,26 @@ public class DisplayTurtle {
             myImage.setTranslateY(0);
             updateImage();
             updateLine();
-
         } else if (animate == true) {
-
             animateTurtlePosition();
             animateTurtleAngle();
-
-
         }
 
     }
+    
+
+    /**
+     * Updates the image position as well as angle (no animation)
+     */
+    private void updateImage () {
+        myImage.setLayoutX(middleX + turtleX);
+        myImage.setLayoutY(middleY - turtleY);
+        myImage.setRotate(90 - Math.toDegrees(turtleAngle));
+
+        currentX = turtleX;
+        currentY = turtleY;
+    }
+    
 /**
  * Calls the Translate Transition when animation is turned on and turtle needs to be moved.
  */
@@ -109,13 +133,22 @@ public class DisplayTurtle {
      * Calls the Rotate Transition which animates the rotation of turtle
      */
     private void animateTurtleAngle () {
-
         RotateTransition rt = new RotateTransition(Duration.millis(500), myImage);
         rt.setFromAngle(currentAngle);
         rt.setToAngle(90 - Math.toDegrees(turtleAngle));
         currentAngle = (90 - Math.toDegrees(turtleAngle));
         rt.play();
+    }
+    
+    /**
+     * draws the line by calling appropriate method in pen class and displays it if needed
+     */
+    private void updateLine () {
+       myLine = myPen.drawLine(turtleX, turtleY, turtleWidth, turtleHeight, penType);
+        if (penDown == true) {
+            myCenterPane.getChildren().add(myLine);
 
+        }
     }
 
     /**
@@ -125,18 +158,23 @@ public class DisplayTurtle {
     public void updatePenType (int type) {
         penType = type;
     }
-
+    
     /**
-     * Updates the image position as well as angle (no animation)
+     * updates the pen color
+     * @param color: new color of pen
      */
-    public void updateImage () {
-        myImage.setLayoutX(middleX + turtleX);
-        myImage.setLayoutY(middleY - turtleY);
-        myImage.setRotate(90 - Math.toDegrees(turtleAngle));
-
-        currentX = turtleX;
-        currentY = turtleY;
+    public void updatePenColor(Color color){
+    	myPen.penColor = color;
     }
+    
+    /**
+     * updates the pen width
+     * @param width: new width of pen
+     */
+	public void updatePenWidth(double width){
+		myPen.penWidth = width;
+	}
+
 
     /**
      * updates the turtle image to show or hide
@@ -146,18 +184,6 @@ public class DisplayTurtle {
         isTurtleShowing = show;
         if (show == false) {
             myCenterPane.getChildren().remove(myImage);
-        }
-
-    }
-
-    /**
-     * draws the line by calling appropriate method in pen class and displays it if needed
-     */
-    private void updateLine () {
-        myLine = myPen.drawLine(turtleX, turtleY, turtleWidth, turtleHeight, penType);
-        if (penDown == true) {
-            myCenterPane.getChildren().add(myLine);
-
         }
     }
     
@@ -188,13 +214,7 @@ public class DisplayTurtle {
     
     public void updateImageView (ImageView imageView) {
         myImage.setImage(imageView.getImage());
-        // myCenterPane.getChildren().add(myImage);
-        // TODO Auto-generated method stub
 
     }
-
-
-
-
 
 }
