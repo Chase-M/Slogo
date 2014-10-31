@@ -1,74 +1,88 @@
+// This entire file is part of my masterpiece
+// KEVIN BUTTON
 
 package components;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.ResourceBundle;
 
 import mainApplication.Controller;
-import features.Feature;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.ToolBar;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import sun.misc.Queue;
 
+public abstract class InfoTab extends Tab {
 
-public abstract class InfoTab extends Tab implements Feature{
-	
-	/**
-	 * Initializes the display area for console history as well as error display
-	 */
-	protected GridPane myTextPane;
-	private ScrollPane myScrollPane;
-	protected VBox myDrawer;
-	protected int myTextIndex;
-	protected Controller myController;
-	public InfoTab(String s, Controller c){
-		super(s.substring(0, s.length()-3));
-		myController = c;
-		setClosable(false);
-		myDrawer = new VBox();
-		myDrawer.setStyle("-fx-background-color: #336666");
-		myDrawer.setPrefHeight(325);
-		myDrawer.setPrefWidth(200);
-		myTextIndex = 0;
-		myTextPane = new GridPane();
-		myScrollPane = new ScrollPane();
-		myScrollPane.setContent(myTextPane);
-		myScrollPane.setPrefHeight(450);
-		myScrollPane.setPrefWidth(200);
-				
-		myDrawer.getChildren().add(myScrollPane);
-		VBox.setMargin(myScrollPane, new Insets(20));
-		this.setContent(myDrawer);
-		
+    /**
+     * Initializes the display area for console history as well as error display
+     */
+    private GridPane myTextPane;
+    private ScrollPane myScrollPane;
+    private VBox myDrawer;
+    private int myTextIndex;
+    private int myWidth;
+    private Controller myController;
+    private ResourceBundle myNumResources;
 
-	}
-	public void clear(){
-		myTextPane.getChildren().clear();
-		myTextIndex = 0;
-	}
+    public InfoTab (String s, Controller c) {
+        super(s.substring(0, s.length() - 3));        
+        myTextIndex = 0;
+        myController = c;
+        myNumResources = ResourceBundle.getBundle("resources/constants/numbers");
+        myWidth = Integer.parseInt(myNumResources.getString("InfoTab_Width"));
+        setClosable(false);
+        createDrawer();
+        createScrollAndTextPanes();
+        myDrawer.getChildren().add(myScrollPane);
+        VBox.setMargin(myScrollPane, new Insets(
+                Integer.parseInt(myNumResources.getString("InfoTab_Insets"))));
+        this.setContent(myDrawer);
 
+    }
+    
+    private void createDrawer () {
+        myDrawer = new VBox();
+        myDrawer.setStyle("-fx-background-color: #336666");
+        myDrawer.setPrefHeight(
+                Integer.parseInt(myNumResources.getString("InfoTab_InnerHeight")));
+        myDrawer.setPrefWidth(myWidth);
+    }
+    
+    private void createScrollAndTextPanes () {
+        myTextPane = new GridPane();
+        myScrollPane = new ScrollPane();
+        myScrollPane.setContent(myTextPane);
+        myScrollPane.setPrefHeight(
+                Integer.parseInt(myNumResources.getString("InfoTab_Height")));
+        myScrollPane.setPrefWidth(myWidth);
+    }
 
-	@Override
-	public void update() {
-		
-	}
-	public void update(Object o){
-	}
+    public void clear () {
+        myTextPane.getChildren().clear();
+        myTextIndex = 0;
+    }
 
+    public void update (Object o) {
+    }
+
+    protected VBox getDrawer () {
+        return myDrawer;
+    }
+
+    protected GridPane getTextPane () {
+        return myTextPane;
+    }
+
+    protected int getTextIndex () {
+        return myTextIndex;
+    }
+
+    protected void setTextIndex (int i) {
+        myTextIndex = i;
+    }
+
+    protected Controller getController () {
+        return myController;
+    }
 }
-
