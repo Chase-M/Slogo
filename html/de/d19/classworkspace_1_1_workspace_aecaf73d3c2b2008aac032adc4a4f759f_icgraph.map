@@ -1,0 +1,16 @@
+<map id="workspace.Workspace.createTurtle" name="workspace.Workspace.createTurtle">
+<area shape="rect" id="node2" href="$de/d19/classworkspace_1_1_workspace.html#a645b162e34e52069e1a18fa5c57daa41" title="workspace.Workspace.clear" alt="" coords="302,53,498,80"/>
+<area shape="rect" id="node5" href="$d7/da1/classmain_application_1_1_controller.html#a14cb8c148061cb04d6968d56f26e4c82" title="mainApplication.Controller.create\lWorkspace" alt="" coords="283,105,517,146"/>
+<area shape="rect" id="node10" href="$db/d0a/classcommand_1_1_base_multi_turtle_command.html#a18475dfa4cad362fd566082a1cba7f59" title="command.BaseMultiTurtleCommand.tell" alt="" coords="261,171,539,197"/>
+<area shape="rect" id="node14" href="$de/d33/classparser_1_1_test_parser.html#a616e3d3359a2feaf24149915c6aea8c8" title="parser.TestParser.TestForward" alt="" coords="295,221,505,248"/>
+<area shape="rect" id="node15" href="$de/d33/classparser_1_1_test_parser.html#a93efc93146678909fa1c24a6727460ae" title="parser.TestParser.TestTo" alt="" coords="314,272,486,299"/>
+<area shape="rect" id="node3" href="$d7/da1/classmain_application_1_1_controller.html#a0ce45e0f09c24ab78746a0d3bce7550f" title="mainApplication.Controller.clear" alt="" coords="620,5,844,32"/>
+<area shape="rect" id="node4" href="$d5/d9e/classcommand_1_1_clear_screen_command.html#a5860aeadd96cfbade9a5ea48d7ae60fc" title="command.ClearScreenCommand.execute" alt="" coords="587,56,877,83"/>
+<area shape="rect" id="node6" href="$d3/de0/classmain_application_1_1_g_u_i.html#af6bd387013dbd1d1daf030117da66c0e" title="mainApplication.GUI.initiate" alt="" coords="633,111,831,137"/>
+<area shape="rect" id="node7" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#a9df214dfffdce7a39bc6ac5e84ca1f0f" title="mainApplication.GUIShell.create\lNewButton" alt="" coords="925,45,1152,86"/>
+<area shape="rect" id="node8" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#ac525a3e483dbe24e5f9f0257fe54521d" title="mainApplication.GUIShell.\lGUIShell" alt="" coords="1200,103,1387,145"/>
+<area shape="rect" id="node9" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#af2f106fa7786f13ccc0202db53b559b9" title="mainApplication.GUIShell.create\lOpenButton" alt="" coords="925,162,1152,203"/>
+<area shape="rect" id="node11" href="$db/d24/classcommand_1_1_ask_command.html#a512723f6475d7ed90cb6639c5eec3adb" title="command.AskCommand.execute" alt="" coords="614,161,850,188"/>
+<area shape="rect" id="node12" href="$d6/de2/classcommand_1_1_tell_command.html#ad12c8eb44a4dc930037355278c0aee33" title="command.TellCommand.execute" alt="" coords="616,212,848,239"/>
+<area shape="rect" id="node13" href="$dc/daf/classcommand_1_1_ask_with_command.html#aa8274e05370a4e3f6ad3e2d7e86ec7f0" title="command.AskWithCommand.execute" alt="" coords="601,263,863,289"/>
+</map>

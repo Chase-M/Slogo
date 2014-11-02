@@ -1,0 +1,5 @@
+<map id="properties.StageProperties.setClear" name="properties.StageProperties.setClear">
+<area shape="rect" id="node2" href="$de/d19/classworkspace_1_1_workspace.html#a645b162e34e52069e1a18fa5c57daa41" title="workspace.Workspace.clear" alt="" coords="273,31,469,57"/>
+<area shape="rect" id="node3" href="$d5/d9e/classcommand_1_1_clear_screen_command.html#a5860aeadd96cfbade9a5ea48d7ae60fc" title="command.ClearScreenCommand.execute" alt="" coords="517,5,808,32"/>
+<area shape="rect" id="node4" href="$d7/da1/classmain_application_1_1_controller.html#a0ce45e0f09c24ab78746a0d3bce7550f" title="mainApplication.Controller.clear" alt="" coords="551,56,775,83"/>
+</map>

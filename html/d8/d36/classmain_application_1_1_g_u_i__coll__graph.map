@@ -1,0 +1,18 @@
+<map id="mainApplication.GUI" name="mainApplication.GUI">
+<area shape="rect" id="node24" href="$da/d5b/classcomponents_1_1_center_pane.html" title="components.CenterPane" alt="" coords="1439,1185,1619,1212"/>
+<area shape="rect" id="node9" href="$de/d19/classworkspace_1_1_workspace.html" title="workspace.Workspace" alt="" coords="1082,719,1243,745"/>
+<area shape="rect" id="node4" href="$d7/da1/classmain_application_1_1_controller.html" title="mainApplication.Controller" alt="" coords="1434,705,1625,732"/>
+<area shape="rect" id="node5" href="$d6/d95/classparser_1_1_parser.html" title="parser.Parser" alt="" coords="1109,589,1216,616"/>
+<area shape="rect" id="node37" href="$d6/d14/classfeatures_1_1_settings_bar.html" title="features.SettingsBar" alt="" coords="1085,321,1240,348"/>
+<area shape="rect" id="node32" href="$d4/d4a/classactor_1_1_turtle.html" title="actor.Turtle" alt="" coords="710,99,802,125"/>
+<area shape="rect" id="node13" href="$de/d1c/classproperties_1_1_stage_properties.html" title="properties.StageProperties" alt="" coords="659,723,853,749"/>
+<area shape="rect" id="node16" href="$db/d7f/classcomponents_1_1_info_pane.html" title="components.InfoPane" alt="" coords="315,200,475,227"/>
+<area shape="rect" id="node40" href="$d5/d01/classcomponents_1_1_right_pane.html" title="components.RightPane" alt="" coords="671,301,841,328"/>
+<area shape="rect" id="node41" href="$db/d9a/classcomponents_1_1_left_pane.html" title="components.LeftPane" alt="" coords="675,200,837,227"/>
+<area shape="rect" id="node36" href="$d7/d3c/classcomponents_1_1_top_pane.html" title="components.TopPane" alt="" coords="1450,381,1609,408"/>
+<area shape="rect" id="node18" href="$d2/dfc/interfacefeatures_1_1_feature.html" title="features.Feature" alt="" coords="43,352,170,379"/>
+<area shape="rect" id="node20" href="$d9/d58/classcomponents_1_1_bottom_pane.html" title="components.BottomPane" alt="" coords="1437,1027,1622,1053"/>
+<area shape="rect" id="node25" href="$d6/d68/classcomponents_1_1_turtle_manager.html" title="components.TurtleManager" alt="" coords="1803,1253,1999,1280"/>
+<area shape="rect" id="node33" href="$da/d54/classproperties_1_1_position.html" title="properties.Position" alt="" coords="324,60,465,87"/>
+<area shape="rect" id="node35" href="$da/d85/classactor_1_1_pen.html" title="actor.Pen" alt="" coords="353,111,436,137"/>
+</map>

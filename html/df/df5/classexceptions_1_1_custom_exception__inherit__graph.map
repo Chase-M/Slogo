@@ -1,0 +1,7 @@
+<map id="exceptions.CustomException" name="exceptions.CustomException">
+<area shape="rect" id="node3" href="$d5/d03/classexceptions_1_1_incorrect_index_exception.html" title="exceptions.IncorrectIndex\lException" alt="" coords="463,5,649,46"/>
+<area shape="rect" id="node4" href="$d7/dfc/classexceptions_1_1_incorrect_input_exception.html" title="exceptions.IncorrectInput\lException" alt="" coords="465,70,647,111"/>
+<area shape="rect" id="node5" href="$d3/db5/classexceptions_1_1_incorrect_num_inputs_exception.html" title="exceptions.IncorrectNumInputs\lException" alt="" coords="445,135,667,177"/>
+<area shape="rect" id="node6" href="$d0/db8/classexceptions_1_1_not_enough_lists_exception.html" title="exceptions.NotEnoughLists\lException" alt="" coords="459,201,653,242"/>
+<area shape="rect" id="node7" href="$d4/d0b/classexceptions_1_1_parse_exception.html" title="exceptions.ParseException" alt="" coords="460,267,652,293"/>
+</map>

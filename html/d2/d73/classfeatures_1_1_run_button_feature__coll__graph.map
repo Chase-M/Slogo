@@ -1,0 +1,13 @@
+<map id="features.RunButtonFeature" name="features.RunButtonFeature">
+<area shape="rect" id="node3" href="$d2/dfc/interfacefeatures_1_1_feature.html" title="features.Feature" alt="" coords="53,173,179,200"/>
+<area shape="rect" id="node18" href="$d5/d01/classcomponents_1_1_right_pane.html" title="components.RightPane" alt="" coords="801,173,970,200"/>
+<area shape="rect" id="node19" href="$db/d7f/classcomponents_1_1_info_pane.html" title="components.InfoPane" alt="" coords="433,56,593,83"/>
+<area shape="rect" id="node22" href="$da/d5b/classcomponents_1_1_center_pane.html" title="components.CenterPane" alt="" coords="423,491,603,517"/>
+<area shape="rect" id="node32" href="$db/d9a/classcomponents_1_1_left_pane.html" title="components.LeftPane" alt="" coords="805,123,966,149"/>
+<area shape="rect" id="node4" href="$d7/da1/classmain_application_1_1_controller.html" title="mainApplication.Controller" alt="" coords="790,691,981,717"/>
+<area shape="rect" id="node5" href="$d6/d95/classparser_1_1_parser.html" title="parser.Parser" alt="" coords="460,943,567,969"/>
+<area shape="rect" id="node9" href="$de/d19/classworkspace_1_1_workspace.html" title="workspace.Workspace" alt="" coords="433,717,594,744"/>
+<area shape="rect" id="node14" href="$de/d1c/classproperties_1_1_stage_properties.html" title="properties.StageProperties" alt="" coords="19,835,213,861"/>
+<area shape="rect" id="node24" href="$d6/d68/classcomponents_1_1_turtle_manager.html" title="components.TurtleManager" alt="" coords="787,424,983,451"/>
+<area shape="rect" id="node26" href="$d9/d58/classcomponents_1_1_bottom_pane.html" title="components.BottomPane" alt="" coords="421,403,606,429"/>
+</map>

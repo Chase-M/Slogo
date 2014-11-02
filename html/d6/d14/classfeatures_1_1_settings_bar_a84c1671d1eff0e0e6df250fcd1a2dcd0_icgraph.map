@@ -1,0 +1,7 @@
+<map id="features.SettingsBar.addComboBox" name="features.SettingsBar.addComboBox">
+<area shape="rect" id="node2" href="$d3/de0/classmain_application_1_1_g_u_i.html#a5b9d9bebac3a8ce813b0134ecdafc66d" title="mainApplication.GUI.load\lPanes" alt="" coords="235,25,418,66"/>
+<area shape="rect" id="node3" href="$d3/de0/classmain_application_1_1_g_u_i.html#af6bd387013dbd1d1daf030117da66c0e" title="mainApplication.GUI.initiate" alt="" coords="467,32,666,59"/>
+<area shape="rect" id="node4" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#ac525a3e483dbe24e5f9f0257fe54521d" title="mainApplication.GUIShell.\lGUIShell" alt="" coords="989,25,1176,66"/>
+<area shape="rect" id="node5" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#a9df214dfffdce7a39bc6ac5e84ca1f0f" title="mainApplication.GUIShell.create\lNewButton" alt="" coords="715,25,941,66"/>
+<area shape="rect" id="node6" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#af2f106fa7786f13ccc0202db53b559b9" title="mainApplication.GUIShell.create\lOpenButton" alt="" coords="715,90,941,132"/>
+</map>

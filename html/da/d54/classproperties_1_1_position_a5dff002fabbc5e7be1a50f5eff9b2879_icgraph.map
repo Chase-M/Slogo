@@ -1,0 +1,8 @@
+<map id="properties.Position.getAngle" name="properties.Position.getAngle">
+<area shape="rect" id="node2" href="$d4/d4a/classactor_1_1_turtle.html#ac14c312749b99c1dc8619a8feab8d283" title="actor.Turtle.getAngle" alt="" coords="283,5,437,32"/>
+<area shape="rect" id="node4" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a06ca557d3458cbcec4fda12263280cc2" title="features.DisplayTurtle.update\lPosition" alt="" coords="256,57,464,98"/>
+<area shape="rect" id="node3" href="$d9/da8/classcommand_1_1_heading_command.html#a2330c46d5e28bd54d62104b7578fb7fb" title="command.HeadingCommand.execute" alt="" coords="512,5,779,32"/>
+<area shape="rect" id="node5" href="$d6/d68/classcomponents_1_1_turtle_manager.html#aebd8b3f5c5eae3df7add8ce3d690aa47" title="components.TurtleManager.update" alt="" coords="523,64,767,91"/>
+<area shape="rect" id="node6" href="$da/d5b/classcomponents_1_1_center_pane.html#a97ff274041990d893a5eb4eaefc27ce0" title="components.CenterPane.update\lTurtlePosition" alt="" coords="827,57,1056,98"/>
+<area shape="rect" id="node7" href="$d3/de0/classmain_application_1_1_g_u_i.html#ad575c58d2f282f0123d80fb31c11553e" title="mainApplication.GUI.update" alt="" coords="1104,64,1304,91"/>
+</map>

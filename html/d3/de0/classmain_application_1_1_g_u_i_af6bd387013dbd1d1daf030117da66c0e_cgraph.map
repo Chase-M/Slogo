@@ -1,0 +1,26 @@
+<map id="mainApplication.GUI.initiate" name="mainApplication.GUI.initiate">
+<area shape="rect" id="node2" href="$d7/da1/classmain_application_1_1_controller.html#a14cb8c148061cb04d6968d56f26e4c82" title="mainApplication.Controller.create\lWorkspace" alt="" coords="253,29,488,70"/>
+<area shape="rect" id="node5" href="$d3/de0/classmain_application_1_1_g_u_i.html#a60b2e396c945ac173bfd82f207f42000" title="mainApplication.GUI.initiate\lKeyPress" alt="" coords="271,94,470,135"/>
+<area shape="rect" id="node18" href="$d3/de0/classmain_application_1_1_g_u_i.html#a5b9d9bebac3a8ce813b0134ecdafc66d" title="mainApplication.GUI.load\lPanes" alt="" coords="279,295,462,337"/>
+<area shape="rect" id="node3" href="$de/d19/classworkspace_1_1_workspace.html#aecaf73d3c2b2008aac032adc4a4f759f" title="workspace.Workspace.create\lTurtle" alt="" coords="559,29,766,70"/>
+<area shape="rect" id="node4" href="$d4/d4a/classactor_1_1_turtle.html#aef4e04d5061408a3d5c35eb27cc7f96f" title="actor.Turtle.setChangedand\lNotify" alt="" coords="849,29,1047,70"/>
+<area shape="rect" id="node6" href="$d7/da1/classmain_application_1_1_controller.html#a6e9afc2e53e6adb01a2b73794a319b63" title="mainApplication.Controller.parse\lAndEvaluate" alt="" coords="548,94,777,135"/>
+<area shape="rect" id="node7" href="$de/d19/classworkspace_1_1_workspace.html#a3a9437dc7cd23ecdf0d20e29e577ae9b" title="workspace.Workspace.evaluate" alt="" coords="838,97,1058,124"/>
+<area shape="rect" id="node8" href="$d6/d95/classparser_1_1_parser.html#a5e98fdfffe49478864dc1b22371d6cb1" title="parser.Parser.parse" alt="" coords="875,148,1021,175"/>
+<area shape="rect" id="node9" href="$d6/d95/classparser_1_1_parser.html#a2fe30e8a728e36fd2626587f059c4b95" title="parser.Parser.makeTree" alt="" coords="1107,148,1277,175"/>
+<area shape="rect" id="node10" href="$d6/d95/classparser_1_1_parser.html#ad5386cfbaf84af60512e31503fda19ed" title="parser.Parser.makeNode" alt="" coords="1363,17,1541,44"/>
+<area shape="rect" id="node12" href="$d3/dcc/classparser_1_1_node.html#a7dfaaf7e60998705460f304c5d56ca6f" title="parser.Node.getCommand" alt="" coords="1920,123,2112,149"/>
+<area shape="rect" id="node13" href="$d7/d35/classcommand_1_1_command.html#a81d128e8b4ac11d732d24edcbc5c2a88" title="command.Command.getNumInputs" alt="" coords="1325,123,1579,149"/>
+<area shape="rect" id="node15" href="$d3/dcc/classparser_1_1_node.html#ae9a17458b710c179f741464ca6e9048a" title="parser.Node.addChild" alt="" coords="1373,173,1531,200"/>
+<area shape="rect" id="node16" href="$d7/d35/classcommand_1_1_command.html#ab994c7989255741306855f258b1c2191" title="command.Command.isList" alt="" coords="1355,224,1549,251"/>
+<area shape="rect" id="node17" href="$d7/d35/classcommand_1_1_command.html#ac2df873d4926bc6e08dba8c6272cff7e" title="command.Command.toString" alt="" coords="1345,275,1559,301"/>
+<area shape="rect" id="node11" href="$d1/dd5/classparser_1_1_command_factory.html#a6907bbeefbe406c17766a1e350fc359f" title="parser.CommandFactory.create\lCommand" alt="" coords="1638,6,1861,47"/>
+<area shape="rect" id="node14" href="$d7/d35/classcommand_1_1_command.html#a30463654f906e5bcf507ab33bd5d8bff" title="command.Command.checkListExit" alt="" coords="1627,173,1871,200"/>
+<area shape="rect" id="node19" href="$d6/d8b/classcomponents_1_1_pane_factory.html#a749d9694305a5e64344c7f0b2eb1ec46" title="components.PaneFactory.makePane" alt="" coords="537,160,789,187"/>
+<area shape="rect" id="node20" href="$d7/d3c/classcomponents_1_1_top_pane.html#a1239f7bb3356707158d40b0b41b4ca0b" title="components.TopPane.addItems" alt="" coords="551,211,774,237"/>
+<area shape="rect" id="node21" href="$d9/d58/classcomponents_1_1_bottom_pane.html#a8c0188cd8a7650eb5b180930298a44a2" title="components.BottomPane.update\lButton" alt="" coords="545,262,780,303"/>
+<area shape="rect" id="node22" href="$d6/d68/classcomponents_1_1_turtle_manager.html#a4359c3b1142a696d251e7fc017729efb" title="components.TurtleManager.update\lImageMap" alt="" coords="541,327,785,369"/>
+<area shape="rect" id="node23" href="$d6/d14/classfeatures_1_1_settings_bar.html#a0087ffd8c4aeedd07998a8a058cc9209" title="features.SettingsBar.add\lPenSlider" alt="" coords="572,393,753,434"/>
+<area shape="rect" id="node24" href="$d6/d14/classfeatures_1_1_settings_bar.html#a06ac68340b6f5f59f638db75870f7d33" title="features.SettingsBar.add\lAnimationSlider" alt="" coords="572,458,753,499"/>
+<area shape="rect" id="node25" href="$d6/d14/classfeatures_1_1_settings_bar.html#a84c1671d1eff0e0e6df250fcd1a2dcd0" title="features.SettingsBar.add\lComboBox" alt="" coords="572,523,753,565"/>
+</map>

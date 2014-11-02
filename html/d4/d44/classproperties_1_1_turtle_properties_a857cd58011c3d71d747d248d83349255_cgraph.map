@@ -1,0 +1,7 @@
+<map id="properties.TurtleProperties.TurtleProperties" name="properties.TurtleProperties.TurtleProperties">
+<area shape="rect" id="node2" href="$d4/d4a/classactor_1_1_turtle.html#aeec77465f9668364231c328b9093a76c" title="actor.Turtle.getID" alt="" coords="267,5,397,32"/>
+<area shape="rect" id="node3" href="$d4/d4a/classactor_1_1_turtle.html#ae431de4e8d24c665f1f49ea5bd77ca09" title="actor.Turtle.getPen" alt="" coords="261,56,403,83"/>
+<area shape="rect" id="node4" href="$d4/d4a/classactor_1_1_turtle.html#ab6166eee34863bdaa71b57814c365fe3" title="actor.Turtle.getPosition" alt="" coords="249,107,415,133"/>
+<area shape="rect" id="node5" href="$d4/d4a/classactor_1_1_turtle.html#a1bde4a1c1524a6e2bd1f2c05ffdd5732" title="actor.Turtle.getShape" alt="" coords="253,157,411,184"/>
+<area shape="rect" id="node6" href="$d4/d4a/classactor_1_1_turtle.html#a1295afe28e780a51dbe296868fbe6e0e" title="actor.Turtle.isShowing" alt="" coords="253,208,411,235"/>
+</map>

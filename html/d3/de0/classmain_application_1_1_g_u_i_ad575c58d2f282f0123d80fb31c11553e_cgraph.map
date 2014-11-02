@@ -1,0 +1,34 @@
+<map id="mainApplication.GUI.update" name="mainApplication.GUI.update">
+<area shape="rect" id="node2" href="$da/d5b/classcomponents_1_1_center_pane.html#a4808a85532892fb8ea07949c2d56d9d4" title="components.CenterPane.clear\lScreen" alt="" coords="261,5,475,46"/>
+<area shape="rect" id="node4" href="$d7/da1/classmain_application_1_1_controller.html#a952b8306c4c1217626fcae679705ec24" title="mainApplication.Controller.get\lColors" alt="" coords="261,70,475,111"/>
+<area shape="rect" id="node6" href="$da/d5b/classcomponents_1_1_center_pane.html#a86f0fb4d78b260f372d03d2ee037c938" title="components.CenterPane.initiate\lColorsMap" alt="" coords="255,135,481,177"/>
+<area shape="rect" id="node7" href="$da/d5b/classcomponents_1_1_center_pane.html#aa633ecbb1cbbb893b48a084abeacf226" title="components.CenterPane.update\lBackgroundColor" alt="" coords="253,201,483,242"/>
+<area shape="rect" id="node8" href="$da/d5b/classcomponents_1_1_center_pane.html#a081e5354b96cbd91679d1ce0c60aa1d2" title="components.CenterPane.update\lPenProperties" alt="" coords="253,266,483,307"/>
+<area shape="rect" id="node21" href="$da/d5b/classcomponents_1_1_center_pane.html#a97ff274041990d893a5eb4eaefc27ce0" title="components.CenterPane.update\lTurtlePosition" alt="" coords="253,397,483,438"/>
+<area shape="rect" id="node3" href="$d6/d68/classcomponents_1_1_turtle_manager.html#aaf3a408cf70aec99b41ab0d29d62bcbc" title="components.TurtleManager.clear\lScreen" alt="" coords="538,5,769,46"/>
+<area shape="rect" id="node5" href="$de/d19/classworkspace_1_1_workspace.html#a029cef83f88faaebaa49ffdc6466b0a3" title="workspace.Workspace.getColors" alt="" coords="540,77,767,104"/>
+<area shape="rect" id="node9" href="$d6/d68/classcomponents_1_1_turtle_manager.html#adfed5450fa1785d7798cf070dd4cba86" title="components.TurtleManager.update\lPenProperties" alt="" coords="531,197,775,238"/>
+<area shape="rect" id="node10" href="$de/ddd/classproperties_1_1_pen_properties.html#a905443cc129f202868f6593fe93e878e" title="properties.PenProperties.get\lColorIndex" alt="" coords="836,11,1041,53"/>
+<area shape="rect" id="node12" href="$de/ddd/classproperties_1_1_pen_properties.html#a155b49da571ebf565b00bc25497dd9d8" title="properties.PenProperties.getID" alt="" coords="829,77,1048,104"/>
+<area shape="rect" id="node14" href="$de/ddd/classproperties_1_1_pen_properties.html#ab2d006d729cd90544169d82369be8fb1" title="properties.PenProperties.isDown" alt="" coords="824,128,1053,155"/>
+<area shape="rect" id="node16" href="$de/ddd/classproperties_1_1_pen_properties.html#a158bdc5096ec8a8bf108208c7be3e0a0" title="properties.PenProperties.size" alt="" coords="834,179,1043,205"/>
+<area shape="rect" id="node18" href="$da/da7/classfeatures_1_1_pen.html#a62bdeb4b8d9d23793ed71d120a724974" title="features.Pen.updatePenColor" alt="" coords="834,229,1043,256"/>
+<area shape="rect" id="node19" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a992e42bf8586f0685a7ec80cbe6127a9" title="features.DisplayTurtle.update\lPenShow" alt="" coords="835,281,1043,322"/>
+<area shape="rect" id="node20" href="$da/da7/classfeatures_1_1_pen.html#a0931e00763a8a6a5f0a26c8833b7cebc" title="features.Pen.updatePenWidth" alt="" coords="833,347,1044,373"/>
+<area shape="rect" id="node11" href="$da/d85/classactor_1_1_pen.html#aafee390410894877f7eda8b67ea07920" title="actor.Pen.getColorIndex" alt="" coords="1122,19,1297,45"/>
+<area shape="rect" id="node13" href="$da/d85/classactor_1_1_pen.html#a7e619e33164eded3efcf4a326e081f9b" title="actor.Pen.getID" alt="" coords="1149,77,1269,104"/>
+<area shape="rect" id="node15" href="$da/d85/classactor_1_1_pen.html#a0855052755119e7371ad0a3eb268b3a9" title="actor.Pen.isDown" alt="" coords="1144,128,1275,155"/>
+<area shape="rect" id="node17" href="$da/d85/classactor_1_1_pen.html#a441b34fa126f398b351f26aec6a89084" title="actor.Pen.getSize" alt="" coords="1142,179,1277,205"/>
+<area shape="rect" id="node22" href="$d6/d68/classcomponents_1_1_turtle_manager.html#aebd8b3f5c5eae3df7add8ce3d690aa47" title="components.TurtleManager.update" alt="" coords="531,439,775,465"/>
+<area shape="rect" id="node23" href="$dc/d0a/classfeatures_1_1_display_turtle.html#ab5a7279e9876151c36b72b8aa63bcb3b" title="features.DisplayTurtle.update\lImageView" alt="" coords="835,398,1043,439"/>
+<area shape="rect" id="node24" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a06ca557d3458cbcec4fda12263280cc2" title="features.DisplayTurtle.update\lPosition" alt="" coords="835,463,1043,505"/>
+<area shape="rect" id="node33" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a2f27d1e94dbcd404e51ef72440786676" title="features.DisplayTurtle.update\lTurtleShow" alt="" coords="835,529,1043,570"/>
+<area shape="rect" id="node25" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a73aeed13803987df257034705ee6eaff" title="features.DisplayTurtle.animate\lTurtleAngle" alt="" coords="1101,289,1317,330"/>
+<area shape="rect" id="node26" href="$dc/d0a/classfeatures_1_1_display_turtle.html#aac090a97a844a60109816520333f7866" title="features.DisplayTurtle.animate\lTurtlePosition" alt="" coords="1101,354,1317,395"/>
+<area shape="rect" id="node27" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a62391c3999d131300823b851b0f5b90b" title="features.DisplayTurtle.updateLine" alt="" coords="1365,391,1600,417"/>
+<area shape="rect" id="node29" href="$da/d54/classproperties_1_1_position.html#a5dff002fabbc5e7be1a50f5eff9b2879" title="properties.Position.getAngle" alt="" coords="1108,471,1311,497"/>
+<area shape="rect" id="node30" href="$da/d54/classproperties_1_1_position.html#a038c69f0a24a47be9e1602695a2c5b61" title="properties.Position.getX" alt="" coords="1122,521,1297,548"/>
+<area shape="rect" id="node31" href="$da/d54/classproperties_1_1_position.html#a0e2fa1786b2b6cbed8f91d02e624d3ec" title="properties.Position.getY" alt="" coords="1123,572,1296,599"/>
+<area shape="rect" id="node32" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a0974c08e12b3bea1d0c5a00359ffab13" title="features.DisplayTurtle.update\lImage" alt="" coords="1105,623,1313,665"/>
+<area shape="rect" id="node28" href="$da/da7/classfeatures_1_1_pen.html#accc955328a7a1e73f6e512116eb3ca70" title="features.Pen.drawLine" alt="" coords="1648,391,1811,417"/>
+</map>

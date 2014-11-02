@@ -1,0 +1,13 @@
+<map id="components.TurtleManager.updatePenProperties" name="components.TurtleManager.updatePenProperties">
+<area shape="rect" id="node2" href="$de/ddd/classproperties_1_1_pen_properties.html#a905443cc129f202868f6593fe93e878e" title="properties.PenProperties.get\lColorIndex" alt="" coords="311,5,516,46"/>
+<area shape="rect" id="node4" href="$de/ddd/classproperties_1_1_pen_properties.html#a155b49da571ebf565b00bc25497dd9d8" title="properties.PenProperties.getID" alt="" coords="304,71,523,97"/>
+<area shape="rect" id="node6" href="$de/ddd/classproperties_1_1_pen_properties.html#ab2d006d729cd90544169d82369be8fb1" title="properties.PenProperties.isDown" alt="" coords="299,121,528,148"/>
+<area shape="rect" id="node8" href="$de/ddd/classproperties_1_1_pen_properties.html#a158bdc5096ec8a8bf108208c7be3e0a0" title="properties.PenProperties.size" alt="" coords="309,172,518,199"/>
+<area shape="rect" id="node10" href="$da/da7/classfeatures_1_1_pen.html#a62bdeb4b8d9d23793ed71d120a724974" title="features.Pen.updatePenColor" alt="" coords="309,223,518,249"/>
+<area shape="rect" id="node11" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a992e42bf8586f0685a7ec80cbe6127a9" title="features.DisplayTurtle.update\lPenShow" alt="" coords="309,274,517,315"/>
+<area shape="rect" id="node12" href="$da/da7/classfeatures_1_1_pen.html#a0931e00763a8a6a5f0a26c8833b7cebc" title="features.Pen.updatePenWidth" alt="" coords="308,340,519,367"/>
+<area shape="rect" id="node3" href="$da/d85/classactor_1_1_pen.html#aafee390410894877f7eda8b67ea07920" title="actor.Pen.getColorIndex" alt="" coords="577,12,751,39"/>
+<area shape="rect" id="node5" href="$da/d85/classactor_1_1_pen.html#a7e619e33164eded3efcf4a326e081f9b" title="actor.Pen.getID" alt="" coords="604,71,724,97"/>
+<area shape="rect" id="node7" href="$da/d85/classactor_1_1_pen.html#a0855052755119e7371ad0a3eb268b3a9" title="actor.Pen.isDown" alt="" coords="599,121,729,148"/>
+<area shape="rect" id="node9" href="$da/d85/classactor_1_1_pen.html#a441b34fa126f398b351f26aec6a89084" title="actor.Pen.getSize" alt="" coords="597,172,731,199"/>
+</map>

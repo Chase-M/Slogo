@@ -1,0 +1,5 @@
+<map id="command.RightCommand" name="command.RightCommand">
+<area shape="rect" id="node2" href="$d8/d0b/classcommand_1_1_rotate_command.html" title="command.RotateCommand" alt="" coords="86,80,284,107"/>
+<area shape="rect" id="node3" href="$d7/d35/classcommand_1_1_command.html" title="command.Command" alt="" coords="5,5,163,32"/>
+<area shape="rect" id="node4" href="$d0/d0e/interfacecommand_1_1_position_interface.html" title="command.PositionInterface" alt="" coords="188,5,385,32"/>
+</map>

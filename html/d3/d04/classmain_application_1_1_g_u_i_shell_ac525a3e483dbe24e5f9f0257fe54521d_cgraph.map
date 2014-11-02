@@ -1,0 +1,35 @@
+<map id="mainApplication.GUIShell.GUIShell" name="mainApplication.GUIShell.GUIShell">
+<area shape="rect" id="node2" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#a9df214dfffdce7a39bc6ac5e84ca1f0f" title="mainApplication.GUIShell.create\lNewButton" alt="" coords="240,330,467,371"/>
+<area shape="rect" id="node3" href="$d3/de0/classmain_application_1_1_g_u_i.html#af6bd387013dbd1d1daf030117da66c0e" title="mainApplication.GUI.initiate" alt="" coords="547,337,746,364"/>
+<area shape="rect" id="node28" href="$d7/da1/classmain_application_1_1_controller.html#a3c8a855bb9f69883e28749335a8448aa" title="mainApplication.Controller.removeWS" alt="" coords="515,388,778,415"/>
+<area shape="rect" id="node29" href="$d7/da1/classmain_application_1_1_controller.html#a7144249536d1002f84892898a5cc9c71" title="mainApplication.Controller.set\lActive" alt="" coords="540,269,753,310"/>
+<area shape="rect" id="node30" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#af2f106fa7786f13ccc0202db53b559b9" title="mainApplication.GUIShell.create\lOpenButton" alt="" coords="240,265,467,306"/>
+<area shape="rect" id="node32" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#a549d0a037ecb8f4823d9878e4b602f0d" title="mainApplication.GUIShell.create\lSaveButton" alt="" coords="240,498,467,539"/>
+<area shape="rect" id="node4" href="$d7/da1/classmain_application_1_1_controller.html#a14cb8c148061cb04d6968d56f26e4c82" title="mainApplication.Controller.create\lWorkspace" alt="" coords="827,418,1061,459"/>
+<area shape="rect" id="node7" href="$d3/de0/classmain_application_1_1_g_u_i.html#a60b2e396c945ac173bfd82f207f42000" title="mainApplication.GUI.initiate\lKeyPress" alt="" coords="845,234,1043,275"/>
+<area shape="rect" id="node20" href="$d3/de0/classmain_application_1_1_g_u_i.html#a5b9d9bebac3a8ce813b0134ecdafc66d" title="mainApplication.GUI.load\lPanes" alt="" coords="853,342,1035,383"/>
+<area shape="rect" id="node5" href="$de/d19/classworkspace_1_1_workspace.html#aecaf73d3c2b2008aac032adc4a4f759f" title="workspace.Workspace.create\lTurtle" alt="" coords="1133,610,1339,651"/>
+<area shape="rect" id="node6" href="$d4/d4a/classactor_1_1_turtle.html#aef4e04d5061408a3d5c35eb27cc7f96f" title="actor.Turtle.setChangedand\lNotify" alt="" coords="1423,610,1620,651"/>
+<area shape="rect" id="node8" href="$d7/da1/classmain_application_1_1_controller.html#a6e9afc2e53e6adb01a2b73794a319b63" title="mainApplication.Controller.parse\lAndEvaluate" alt="" coords="1121,114,1351,155"/>
+<area shape="rect" id="node9" href="$de/d19/classworkspace_1_1_workspace.html#a3a9437dc7cd23ecdf0d20e29e577ae9b" title="workspace.Workspace.evaluate" alt="" coords="1411,96,1631,123"/>
+<area shape="rect" id="node10" href="$d6/d95/classparser_1_1_parser.html#a5e98fdfffe49478864dc1b22371d6cb1" title="parser.Parser.parse" alt="" coords="1449,147,1594,173"/>
+<area shape="rect" id="node11" href="$d6/d95/classparser_1_1_parser.html#a2fe30e8a728e36fd2626587f059c4b95" title="parser.Parser.makeTree" alt="" coords="1680,147,1851,173"/>
+<area shape="rect" id="node12" href="$d6/d95/classparser_1_1_parser.html#ad5386cfbaf84af60512e31503fda19ed" title="parser.Parser.makeNode" alt="" coords="1936,16,2115,43"/>
+<area shape="rect" id="node14" href="$d3/dcc/classparser_1_1_node.html#a7dfaaf7e60998705460f304c5d56ca6f" title="parser.Node.getCommand" alt="" coords="2493,121,2685,148"/>
+<area shape="rect" id="node15" href="$d7/d35/classcommand_1_1_command.html#a81d128e8b4ac11d732d24edcbc5c2a88" title="command.Command.getNumInputs" alt="" coords="1899,121,2152,148"/>
+<area shape="rect" id="node17" href="$d3/dcc/classparser_1_1_node.html#ae9a17458b710c179f741464ca6e9048a" title="parser.Node.addChild" alt="" coords="1946,172,2105,199"/>
+<area shape="rect" id="node18" href="$d7/d35/classcommand_1_1_command.html#ab994c7989255741306855f258b1c2191" title="command.Command.isList" alt="" coords="1928,223,2123,249"/>
+<area shape="rect" id="node19" href="$d7/d35/classcommand_1_1_command.html#ac2df873d4926bc6e08dba8c6272cff7e" title="command.Command.toString" alt="" coords="1919,273,2132,300"/>
+<area shape="rect" id="node13" href="$d1/dd5/classparser_1_1_command_factory.html#a6907bbeefbe406c17766a1e350fc359f" title="parser.CommandFactory.create\lCommand" alt="" coords="2211,5,2434,46"/>
+<area shape="rect" id="node16" href="$d7/d35/classcommand_1_1_command.html#a30463654f906e5bcf507ab33bd5d8bff" title="command.Command.checkListExit" alt="" coords="2201,172,2445,199"/>
+<area shape="rect" id="node21" href="$d6/d14/classfeatures_1_1_settings_bar.html#a06ac68340b6f5f59f638db75870f7d33" title="features.SettingsBar.add\lAnimationSlider" alt="" coords="1145,362,1327,403"/>
+<area shape="rect" id="node22" href="$d6/d14/classfeatures_1_1_settings_bar.html#a84c1671d1eff0e0e6df250fcd1a2dcd0" title="features.SettingsBar.add\lComboBox" alt="" coords="1145,427,1327,469"/>
+<area shape="rect" id="node23" href="$d7/d3c/classcomponents_1_1_top_pane.html#a1239f7bb3356707158d40b0b41b4ca0b" title="components.TopPane.addItems" alt="" coords="1125,493,1347,520"/>
+<area shape="rect" id="node24" href="$d6/d14/classfeatures_1_1_settings_bar.html#a0087ffd8c4aeedd07998a8a058cc9209" title="features.SettingsBar.add\lPenSlider" alt="" coords="1145,545,1327,586"/>
+<area shape="rect" id="node25" href="$d6/d8b/classcomponents_1_1_pane_factory.html#a749d9694305a5e64344c7f0b2eb1ec46" title="components.PaneFactory.makePane" alt="" coords="1110,180,1362,207"/>
+<area shape="rect" id="node26" href="$d9/d58/classcomponents_1_1_bottom_pane.html#a8c0188cd8a7650eb5b180930298a44a2" title="components.BottomPane.update\lButton" alt="" coords="1119,231,1353,273"/>
+<area shape="rect" id="node27" href="$d6/d68/classcomponents_1_1_turtle_manager.html#a4359c3b1142a696d251e7fc017729efb" title="components.TurtleManager.update\lImageMap" alt="" coords="1114,297,1358,338"/>
+<area shape="rect" id="node31" href="$d9/d58/classcomponents_1_1_bottom_pane.html#aa3c0513c0aa7abdfbf6ec6a7dd74463c" title="components.BottomPane.update\lErrors" alt="" coords="529,203,764,245"/>
+<area shape="rect" id="node33" href="$d7/da1/classmain_application_1_1_controller.html#ae6de41a0b39ca44633f5d6205edd6ddb" title="mainApplication.Controller.saveMem" alt="" coords="519,505,774,532"/>
+<area shape="rect" id="node34" href="$de/d19/classworkspace_1_1_workspace.html#a492d55dbd2a67c35624a37089be4a94a" title="workspace.Workspace.writeMem" alt="" coords="831,505,1057,532"/>
+</map>

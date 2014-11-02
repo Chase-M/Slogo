@@ -1,0 +1,36 @@
+<map id="command.Command.getNumInputs" name="command.Command.getNumInputs">
+<area shape="rect" id="node2" href="$d6/d95/classparser_1_1_parser.html#a2fe30e8a728e36fd2626587f059c4b95" title="parser.Parser.makeTree" alt="" coords="307,724,477,751"/>
+<area shape="rect" id="node3" href="$d6/d95/classparser_1_1_parser.html#a5e98fdfffe49478864dc1b22371d6cb1" title="parser.Parser.parse" alt="" coords="526,724,671,751"/>
+<area shape="rect" id="node4" href="$d7/da1/classmain_application_1_1_controller.html#a6e9afc2e53e6adb01a2b73794a319b63" title="mainApplication.Controller.parse\lAndEvaluate" alt="" coords="720,135,949,177"/>
+<area shape="rect" id="node14" href="$d8/dc3/classparser_1_1_test_model.html#ab542659caca299017b423f7b3b3f648a" title="parser.TestModel.testPosition" alt="" coords="731,201,939,228"/>
+<area shape="rect" id="node15" href="$d8/dc3/classparser_1_1_test_model.html#ac4fd1124818e321c4a686cc1cf973254" title="parser.TestModel.testParse\lException" alt="" coords="738,253,931,294"/>
+<area shape="rect" id="node16" href="$d8/dc3/classparser_1_1_test_model.html#a023bd16aca0a843ec8f4772c96ec2ffb" title="parser.TestModel.testWrite" alt="" coords="740,319,929,345"/>
+<area shape="rect" id="node17" href="$de/d33/classparser_1_1_test_parser.html#a2211bce31efddb4c523112a488c02e92" title="parser.TestParser.TestSum" alt="" coords="740,369,929,396"/>
+<area shape="rect" id="node18" href="$de/d33/classparser_1_1_test_parser.html#ae799f71307e31127e497d20afdc506ec" title="parser.TestParser.TestDif" alt="" coords="747,420,923,447"/>
+<area shape="rect" id="node19" href="$de/d33/classparser_1_1_test_parser.html#a8844bf15d0fe9e809fb466cb35b0ae20" title="parser.TestParser.TestProd" alt="" coords="741,471,929,497"/>
+<area shape="rect" id="node20" href="$de/d33/classparser_1_1_test_parser.html#a9bcfbde1999d45577d42211fcd593121" title="parser.TestParser.TestQuotient" alt="" coords="727,521,942,548"/>
+<area shape="rect" id="node21" href="$de/d33/classparser_1_1_test_parser.html#acd110a622f9ac5ef4b4246ea997ec102" title="parser.TestParser.TestRemainder" alt="" coords="721,572,948,599"/>
+<area shape="rect" id="node22" href="$de/d33/classparser_1_1_test_parser.html#af2b64ced840e8e10f33f74dce480218a" title="parser.TestParser.TestMinus" alt="" coords="737,623,933,649"/>
+<area shape="rect" id="node23" href="$de/d33/classparser_1_1_test_parser.html#ac13478be4d51a5b8db30db117f6098c8" title="parser.TestParser.TestRandom" alt="" coords="729,673,941,700"/>
+<area shape="rect" id="node24" href="$de/d33/classparser_1_1_test_parser.html#aa7724ec4a132ca195c3bd3ee1c81ad73" title="parser.TestParser.TestTrig" alt="" coords="745,724,925,751"/>
+<area shape="rect" id="node25" href="$de/d33/classparser_1_1_test_parser.html#ada92f24240fae7dfec207bad127e31e7" title="parser.TestParser.TestPow" alt="" coords="743,775,927,801"/>
+<area shape="rect" id="node26" href="$de/d33/classparser_1_1_test_parser.html#a3f8cee68556948d08c53a574a72c8356" title="parser.TestParser.TestBoolean" alt="" coords="729,825,940,852"/>
+<area shape="rect" id="node27" href="$de/d33/classparser_1_1_test_parser.html#a39be8e4aca3871ce6f29a482a52bcd71" title="parser.TestParser.TestIf" alt="" coords="751,876,918,903"/>
+<area shape="rect" id="node28" href="$de/d33/classparser_1_1_test_parser.html#ac22ad278ed612557e83ed90884fedff4" title="parser.TestParser.TestIfElse" alt="" coords="739,927,931,953"/>
+<area shape="rect" id="node29" href="$de/d33/classparser_1_1_test_parser.html#aac27b9d8c48ae78dd9252dd65be9aeea" title="parser.TestParser.TestSum2" alt="" coords="736,977,933,1004"/>
+<area shape="rect" id="node30" href="$de/d33/classparser_1_1_test_parser.html#a616e3d3359a2feaf24149915c6aea8c8" title="parser.TestParser.TestForward" alt="" coords="730,1028,939,1055"/>
+<area shape="rect" id="node31" href="$de/d33/classparser_1_1_test_parser.html#a914384055dd7ca9ea5c617ab0bb5e0c0" title="parser.TestParser.TestMake" alt="" coords="738,1079,931,1105"/>
+<area shape="rect" id="node32" href="$de/d33/classparser_1_1_test_parser.html#a7861269b842fcf079433cbe0a933e8db" title="parser.TestParser.TestRepeat" alt="" coords="733,1129,936,1156"/>
+<area shape="rect" id="node33" href="$de/d33/classparser_1_1_test_parser.html#ad6cc42523d881f5a69c5cf307364ce38" title="parser.TestParser.TestFor" alt="" coords="745,1180,924,1207"/>
+<area shape="rect" id="node34" href="$de/d33/classparser_1_1_test_parser.html#a93efc93146678909fa1c24a6727460ae" title="parser.TestParser.TestTo" alt="" coords="749,1231,921,1257"/>
+<area shape="rect" id="node35" href="$de/d33/classparser_1_1_test_parser.html#a3ab06721c75424d63da6d4380ae7ad5e" title="parser.TestParser.TestRecursion" alt="" coords="725,1281,945,1308"/>
+<area shape="rect" id="node5" href="$d4/d3f/classcomponents_1_1_vars_tab.html#aa51dee8d24322ee37e4399858794ee8b" title="components.VarsTab.setTab\lEditable" alt="" coords="1011,5,1211,46"/>
+<area shape="rect" id="node7" href="$dd/dca/classfeatures_1_1_pen_width_slider_feature.html#aac6e7c0d0c6f5e1afde3d8a3c8e788e6" title="features.PenWidthSliderFeature.\lPenWidthSliderFeature" alt="" coords="997,70,1224,111"/>
+<area shape="rect" id="node8" href="$de/d10/classfeatures_1_1_run_button_feature.html#ada33a09e0a0259486754b597f2d7b0c7" title="features.RunButtonFeature.\lRunButtonFeature" alt="" coords="1012,135,1209,177"/>
+<area shape="rect" id="node9" href="$d3/de0/classmain_application_1_1_g_u_i.html#a60b2e396c945ac173bfd82f207f42000" title="mainApplication.GUI.initiate\lKeyPress" alt="" coords="1011,201,1210,242"/>
+<area shape="rect" id="node13" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#af2f106fa7786f13ccc0202db53b559b9" title="mainApplication.GUIShell.create\lOpenButton" alt="" coords="1528,263,1755,305"/>
+<area shape="rect" id="node6" href="$d4/d3f/classcomponents_1_1_vars_tab.html#a1e48c3f7ead529596e018a72cd6ef159" title="components.VarsTab.VarsTab" alt="" coords="1272,12,1480,39"/>
+<area shape="rect" id="node10" href="$d3/de0/classmain_application_1_1_g_u_i.html#af6bd387013dbd1d1daf030117da66c0e" title="mainApplication.GUI.initiate" alt="" coords="1277,207,1475,233"/>
+<area shape="rect" id="node11" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#ac525a3e483dbe24e5f9f0257fe54521d" title="mainApplication.GUIShell.\lGUIShell" alt="" coords="1803,198,1989,239"/>
+<area shape="rect" id="node12" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#a9df214dfffdce7a39bc6ac5e84ca1f0f" title="mainApplication.GUIShell.create\lNewButton" alt="" coords="1528,198,1755,239"/>
+</map>

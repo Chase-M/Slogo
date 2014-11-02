@@ -1,0 +1,7 @@
+<map id="actor.Pen.isDown" name="actor.Pen.isDown">
+<area shape="rect" id="node2" href="$df/de8/classcommand_1_1_pen_query_command.html#a6983b86a954355246cf2eefda673a8f4" title="command.PenQueryCommand.execute" alt="" coords="184,5,459,32"/>
+<area shape="rect" id="node3" href="$de/ddd/classproperties_1_1_pen_properties.html#ab2d006d729cd90544169d82369be8fb1" title="properties.PenProperties.isDown" alt="" coords="207,56,436,83"/>
+<area shape="rect" id="node4" href="$d6/d68/classcomponents_1_1_turtle_manager.html#adfed5450fa1785d7798cf070dd4cba86" title="components.TurtleManager.update\lPenProperties" alt="" coords="507,49,751,90"/>
+<area shape="rect" id="node5" href="$da/d5b/classcomponents_1_1_center_pane.html#a081e5354b96cbd91679d1ce0c60aa1d2" title="components.CenterPane.update\lPenProperties" alt="" coords="800,49,1029,90"/>
+<area shape="rect" id="node6" href="$d3/de0/classmain_application_1_1_g_u_i.html#ad575c58d2f282f0123d80fb31c11553e" title="mainApplication.GUI.update" alt="" coords="1077,56,1277,83"/>
+</map>

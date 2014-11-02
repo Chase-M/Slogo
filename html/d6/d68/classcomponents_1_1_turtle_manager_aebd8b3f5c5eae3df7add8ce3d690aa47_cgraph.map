@@ -1,0 +1,13 @@
+<map id="components.TurtleManager.update" name="components.TurtleManager.update">
+<area shape="rect" id="node2" href="$dc/d0a/classfeatures_1_1_display_turtle.html#ab5a7279e9876151c36b72b8aa63bcb3b" title="features.DisplayTurtle.update\lImageView" alt="" coords="299,93,507,134"/>
+<area shape="rect" id="node3" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a06ca557d3458cbcec4fda12263280cc2" title="features.DisplayTurtle.update\lPosition" alt="" coords="299,158,507,199"/>
+<area shape="rect" id="node12" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a2f27d1e94dbcd404e51ef72440786676" title="features.DisplayTurtle.update\lTurtleShow" alt="" coords="299,223,507,265"/>
+<area shape="rect" id="node4" href="$da/d54/classproperties_1_1_position.html#a038c69f0a24a47be9e1602695a2c5b61" title="properties.Position.getX" alt="" coords="575,5,750,32"/>
+<area shape="rect" id="node5" href="$da/d54/classproperties_1_1_position.html#a0e2fa1786b2b6cbed8f91d02e624d3ec" title="properties.Position.getY" alt="" coords="576,56,749,83"/>
+<area shape="rect" id="node6" href="$da/d54/classproperties_1_1_position.html#a5dff002fabbc5e7be1a50f5eff9b2879" title="properties.Position.getAngle" alt="" coords="561,107,764,133"/>
+<area shape="rect" id="node7" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a0974c08e12b3bea1d0c5a00359ffab13" title="features.DisplayTurtle.update\lImage" alt="" coords="559,158,767,199"/>
+<area shape="rect" id="node8" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a62391c3999d131300823b851b0f5b90b" title="features.DisplayTurtle.updateLine" alt="" coords="819,253,1053,280"/>
+<area shape="rect" id="node10" href="$dc/d0a/classfeatures_1_1_display_turtle.html#aac090a97a844a60109816520333f7866" title="features.DisplayTurtle.animate\lTurtlePosition" alt="" coords="555,275,771,317"/>
+<area shape="rect" id="node11" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a73aeed13803987df257034705ee6eaff" title="features.DisplayTurtle.animate\lTurtleAngle" alt="" coords="555,341,771,382"/>
+<area shape="rect" id="node9" href="$da/da7/classfeatures_1_1_pen.html#accc955328a7a1e73f6e512116eb3ca70" title="features.Pen.drawLine" alt="" coords="1101,253,1264,280"/>
+</map>

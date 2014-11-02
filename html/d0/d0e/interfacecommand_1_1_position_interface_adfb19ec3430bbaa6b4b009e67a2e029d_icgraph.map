@@ -1,0 +1,4 @@
+<map id="command.PositionInterface.getDirection" name="command.PositionInterface.getDirection">
+<area shape="rect" id="node2" href="$d8/d0b/classcommand_1_1_rotate_command.html#a1f439d0711b2e759e39cd06f0a37d62f" title="command.RotateCommand.execute" alt="" coords="278,5,533,32"/>
+<area shape="rect" id="node3" href="$d5/da3/classcommand_1_1_move_command.html#a1b10efbcf1189150c59ffcb4b957f7f2" title="command.MoveCommand.execute" alt="" coords="282,56,529,83"/>
+</map>

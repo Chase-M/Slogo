@@ -1,0 +1,10 @@
+<map id="features.DisplayTurtle.updatePosition" name="features.DisplayTurtle.updatePosition">
+<area shape="rect" id="node2" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a73aeed13803987df257034705ee6eaff" title="features.DisplayTurtle.animate\lTurtleAngle" alt="" coords="261,5,477,46"/>
+<area shape="rect" id="node3" href="$dc/d0a/classfeatures_1_1_display_turtle.html#aac090a97a844a60109816520333f7866" title="features.DisplayTurtle.animate\lTurtlePosition" alt="" coords="261,70,477,111"/>
+<area shape="rect" id="node4" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a62391c3999d131300823b851b0f5b90b" title="features.DisplayTurtle.updateLine" alt="" coords="525,107,760,133"/>
+<area shape="rect" id="node6" href="$da/d54/classproperties_1_1_position.html#a5dff002fabbc5e7be1a50f5eff9b2879" title="properties.Position.getAngle" alt="" coords="268,187,471,213"/>
+<area shape="rect" id="node7" href="$da/d54/classproperties_1_1_position.html#a038c69f0a24a47be9e1602695a2c5b61" title="properties.Position.getX" alt="" coords="282,237,457,264"/>
+<area shape="rect" id="node8" href="$da/d54/classproperties_1_1_position.html#a0e2fa1786b2b6cbed8f91d02e624d3ec" title="properties.Position.getY" alt="" coords="283,288,456,315"/>
+<area shape="rect" id="node9" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a0974c08e12b3bea1d0c5a00359ffab13" title="features.DisplayTurtle.update\lImage" alt="" coords="265,339,473,381"/>
+<area shape="rect" id="node5" href="$da/da7/classfeatures_1_1_pen.html#accc955328a7a1e73f6e512116eb3ca70" title="features.Pen.drawLine" alt="" coords="808,107,971,133"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="actor.Pen.getID" name="actor.Pen.getID">
+<area shape="rect" id="node2" href="$de/ddd/classproperties_1_1_pen_properties.html#a155b49da571ebf565b00bc25497dd9d8" title="properties.PenProperties.getID" alt="" coords="173,12,392,39"/>
+<area shape="rect" id="node3" href="$d6/d68/classcomponents_1_1_turtle_manager.html#adfed5450fa1785d7798cf070dd4cba86" title="components.TurtleManager.update\lPenProperties" alt="" coords="441,5,685,46"/>
+<area shape="rect" id="node4" href="$da/d5b/classcomponents_1_1_center_pane.html#a081e5354b96cbd91679d1ce0c60aa1d2" title="components.CenterPane.update\lPenProperties" alt="" coords="733,5,963,46"/>
+<area shape="rect" id="node5" href="$d3/de0/classmain_application_1_1_g_u_i.html#ad575c58d2f282f0123d80fb31c11553e" title="mainApplication.GUI.update" alt="" coords="1011,12,1211,39"/>
+</map>

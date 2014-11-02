@@ -1,0 +1,7 @@
+<map id="features.DisplayTurtle.updateImage" name="features.DisplayTurtle.updateImage">
+<area shape="rect" id="node2" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a1008d75c3665a92063df645fc7b562d4" title="features.DisplayTurtle.Display\lTurtle" alt="" coords="262,5,471,46"/>
+<area shape="rect" id="node3" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a06ca557d3458cbcec4fda12263280cc2" title="features.DisplayTurtle.update\lPosition" alt="" coords="263,70,471,111"/>
+<area shape="rect" id="node4" href="$d6/d68/classcomponents_1_1_turtle_manager.html#aebd8b3f5c5eae3df7add8ce3d690aa47" title="components.TurtleManager.update" alt="" coords="521,77,765,104"/>
+<area shape="rect" id="node5" href="$da/d5b/classcomponents_1_1_center_pane.html#a97ff274041990d893a5eb4eaefc27ce0" title="components.CenterPane.update\lTurtlePosition" alt="" coords="813,70,1043,111"/>
+<area shape="rect" id="node6" href="$d3/de0/classmain_application_1_1_g_u_i.html#ad575c58d2f282f0123d80fb31c11553e" title="mainApplication.GUI.update" alt="" coords="1091,77,1291,104"/>
+</map>

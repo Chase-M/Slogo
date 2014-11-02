@@ -1,0 +1,7 @@
+<map id="actor.Pen.getColorIndex" name="actor.Pen.getColorIndex">
+<area shape="rect" id="node2" href="$d5/d3d/classcommand_1_1_get_pen_color_command.html#a094c0c27dead6aa3fe8800111a2601a2" title="command.GetPenColorCommand.execute" alt="" coords="229,5,523,32"/>
+<area shape="rect" id="node3" href="$de/ddd/classproperties_1_1_pen_properties.html#a905443cc129f202868f6593fe93e878e" title="properties.PenProperties.get\lColorIndex" alt="" coords="273,57,479,98"/>
+<area shape="rect" id="node4" href="$d6/d68/classcomponents_1_1_turtle_manager.html#adfed5450fa1785d7798cf070dd4cba86" title="components.TurtleManager.update\lPenProperties" alt="" coords="571,57,815,98"/>
+<area shape="rect" id="node5" href="$da/d5b/classcomponents_1_1_center_pane.html#a081e5354b96cbd91679d1ce0c60aa1d2" title="components.CenterPane.update\lPenProperties" alt="" coords="864,57,1093,98"/>
+<area shape="rect" id="node6" href="$d3/de0/classmain_application_1_1_g_u_i.html#ad575c58d2f282f0123d80fb31c11553e" title="mainApplication.GUI.update" alt="" coords="1141,64,1341,91"/>
+</map>

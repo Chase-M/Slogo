@@ -1,0 +1,5 @@
+<map id="actor.Turtle.getPen" name="actor.Turtle.getPen">
+<area shape="rect" id="node2" href="$df/de8/classcommand_1_1_pen_query_command.html#a6983b86a954355246cf2eefda673a8f4" title="command.PenQueryCommand.execute" alt="" coords="204,5,479,32"/>
+<area shape="rect" id="node3" href="$d5/d3d/classcommand_1_1_get_pen_color_command.html#a094c0c27dead6aa3fe8800111a2601a2" title="command.GetPenColorCommand.execute" alt="" coords="195,56,488,83"/>
+<area shape="rect" id="node4" href="$d4/d44/classproperties_1_1_turtle_properties.html#a857cd58011c3d71d747d248d83349255" title="properties.TurtleProperties.\lTurtleProperties" alt="" coords="244,107,439,149"/>
+</map>

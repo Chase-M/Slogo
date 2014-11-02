@@ -1,0 +1,8 @@
+<map id="features.Pen.drawLine" name="features.Pen.drawLine">
+<area shape="rect" id="node2" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a62391c3999d131300823b851b0f5b90b" title="features.DisplayTurtle.updateLine" alt="" coords="216,41,451,68"/>
+<area shape="rect" id="node3" href="$dc/d0a/classfeatures_1_1_display_turtle.html#aac090a97a844a60109816520333f7866" title="features.DisplayTurtle.animate\lTurtlePosition" alt="" coords="499,5,715,46"/>
+<area shape="rect" id="node4" href="$dc/d0a/classfeatures_1_1_display_turtle.html#a06ca557d3458cbcec4fda12263280cc2" title="features.DisplayTurtle.update\lPosition" alt="" coords="763,34,971,75"/>
+<area shape="rect" id="node5" href="$d6/d68/classcomponents_1_1_turtle_manager.html#aebd8b3f5c5eae3df7add8ce3d690aa47" title="components.TurtleManager.update" alt="" coords="1019,41,1263,68"/>
+<area shape="rect" id="node6" href="$da/d5b/classcomponents_1_1_center_pane.html#a97ff274041990d893a5eb4eaefc27ce0" title="components.CenterPane.update\lTurtlePosition" alt="" coords="1312,34,1541,75"/>
+<area shape="rect" id="node7" href="$d3/de0/classmain_application_1_1_g_u_i.html#ad575c58d2f282f0123d80fb31c11553e" title="mainApplication.GUI.update" alt="" coords="1589,41,1789,68"/>
+</map>

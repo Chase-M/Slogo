@@ -1,0 +1,8 @@
+<map id="command.ClearScreenCommand.execute" name="command.ClearScreenCommand.execute">
+<area shape="rect" id="node2" href="$de/d19/classworkspace_1_1_workspace.html#a645b162e34e52069e1a18fa5c57daa41" title="workspace.Workspace.clear" alt="" coords="359,77,555,104"/>
+<area shape="rect" id="node7" href="$de/d19/classworkspace_1_1_workspace.html#aaea1cb2eb261be3e966bb85bc2bfbd51" title="workspace.Workspace.getTurtles" alt="" coords="344,128,571,155"/>
+<area shape="rect" id="node3" href="$de/d1c/classproperties_1_1_stage_properties.html#a872541d70d9ae0b1a8d1c8cb909c34f8" title="properties.StageProperties.set\lClear" alt="" coords="643,5,861,46"/>
+<area shape="rect" id="node4" href="$de/d19/classworkspace_1_1_workspace.html#a197988cb471cd86b0a164f735a366be7" title="workspace.Workspace.setChangedand\lNotify" alt="" coords="619,70,885,111"/>
+<area shape="rect" id="node5" href="$de/d19/classworkspace_1_1_workspace.html#aecaf73d3c2b2008aac032adc4a4f759f" title="workspace.Workspace.create\lTurtle" alt="" coords="649,135,855,177"/>
+<area shape="rect" id="node6" href="$d4/d4a/classactor_1_1_turtle.html#aef4e04d5061408a3d5c35eb27cc7f96f" title="actor.Turtle.setChangedand\lNotify" alt="" coords="933,135,1131,177"/>
+</map>

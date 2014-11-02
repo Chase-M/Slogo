@@ -1,0 +1,25 @@
+<map id="features.RunButtonFeature.RunButtonFeature" name="features.RunButtonFeature.RunButtonFeature">
+<area shape="rect" id="node2" href="$de/d10/classfeatures_1_1_run_button_feature.html#a062b3f5a4307f10b039c13ef39fa3a6a" title="features.RunButtonFeature.make\lImageMap" alt="" coords="255,178,489,219"/>
+<area shape="rect" id="node3" href="$d7/da1/classmain_application_1_1_controller.html#a6e9afc2e53e6adb01a2b73794a319b63" title="mainApplication.Controller.parse\lAndEvaluate" alt="" coords="257,243,487,285"/>
+<area shape="rect" id="node15" href="$de/d10/classfeatures_1_1_run_button_feature.html#aafdb4dfb72af2439264ef4a329b35c41" title="features.RunButtonFeature.update" alt="" coords="251,309,493,336"/>
+<area shape="rect" id="node24" href="$d9/d58/classcomponents_1_1_bottom_pane.html#aa3c0513c0aa7abdfbf6ec6a7dd74463c" title="components.BottomPane.update\lErrors" alt="" coords="255,361,489,402"/>
+<area shape="rect" id="node4" href="$d6/d95/classparser_1_1_parser.html#a5e98fdfffe49478864dc1b22371d6cb1" title="parser.Parser.parse" alt="" coords="590,187,735,213"/>
+<area shape="rect" id="node14" href="$de/d19/classworkspace_1_1_workspace.html#a3a9437dc7cd23ecdf0d20e29e577ae9b" title="workspace.Workspace.evaluate" alt="" coords="553,251,773,277"/>
+<area shape="rect" id="node5" href="$d6/d95/classparser_1_1_parser.html#a2fe30e8a728e36fd2626587f059c4b95" title="parser.Parser.makeTree" alt="" coords="869,172,1040,199"/>
+<area shape="rect" id="node6" href="$d6/d95/classparser_1_1_parser.html#ad5386cfbaf84af60512e31503fda19ed" title="parser.Parser.makeNode" alt="" coords="1167,16,1345,43"/>
+<area shape="rect" id="node8" href="$d3/dcc/classparser_1_1_node.html#a7dfaaf7e60998705460f304c5d56ca6f" title="parser.Node.getCommand" alt="" coords="1728,121,1920,148"/>
+<area shape="rect" id="node9" href="$d7/d35/classcommand_1_1_command.html#a81d128e8b4ac11d732d24edcbc5c2a88" title="command.Command.getNumInputs" alt="" coords="1129,121,1383,148"/>
+<area shape="rect" id="node11" href="$d3/dcc/classparser_1_1_node.html#ae9a17458b710c179f741464ca6e9048a" title="parser.Node.addChild" alt="" coords="1177,172,1335,199"/>
+<area shape="rect" id="node12" href="$d7/d35/classcommand_1_1_command.html#ab994c7989255741306855f258b1c2191" title="command.Command.isList" alt="" coords="1159,223,1353,249"/>
+<area shape="rect" id="node13" href="$d7/d35/classcommand_1_1_command.html#ac2df873d4926bc6e08dba8c6272cff7e" title="command.Command.toString" alt="" coords="1149,273,1363,300"/>
+<area shape="rect" id="node7" href="$d1/dd5/classparser_1_1_command_factory.html#a6907bbeefbe406c17766a1e350fc359f" title="parser.CommandFactory.create\lCommand" alt="" coords="1446,5,1669,46"/>
+<area shape="rect" id="node10" href="$d7/d35/classcommand_1_1_command.html#a30463654f906e5bcf507ab33bd5d8bff" title="command.Command.checkListExit" alt="" coords="1435,172,1679,199"/>
+<area shape="rect" id="node16" href="$de/d10/classfeatures_1_1_run_button_feature.html#a7516c5daca232e22a89ef380f60d2272" title="features.RunButtonFeature.update\lPanes" alt="" coords="541,309,784,350"/>
+<area shape="rect" id="node17" href="$d6/d68/classcomponents_1_1_turtle_manager.html#a4359c3b1142a696d251e7fc017729efb" title="components.TurtleManager.update\lImageMap" alt="" coords="833,243,1077,285"/>
+<area shape="rect" id="node18" href="$d7/da1/classmain_application_1_1_controller.html#a133505f3ac4d32291a6017ba7f367fb9" title="mainApplication.Controller.get\lVariables" alt="" coords="847,309,1062,350"/>
+<area shape="rect" id="node20" href="$d7/da1/classmain_application_1_1_controller.html#a952b8306c4c1217626fcae679705ec24" title="mainApplication.Controller.get\lColors" alt="" coords="847,374,1062,415"/>
+<area shape="rect" id="node22" href="$d7/da1/classmain_application_1_1_controller.html#ab99acfabe99cc2e0bdca80f0ad4ee99b" title="mainApplication.Controller.get\lCommands" alt="" coords="847,439,1062,481"/>
+<area shape="rect" id="node19" href="$de/d19/classworkspace_1_1_workspace.html#a85d7692f63e805af8424da4116f233fa" title="workspace.Workspace.getVariables" alt="" coords="1134,324,1378,351"/>
+<area shape="rect" id="node21" href="$de/d19/classworkspace_1_1_workspace.html#a029cef83f88faaebaa49ffdc6466b0a3" title="workspace.Workspace.getColors" alt="" coords="1143,381,1369,408"/>
+<area shape="rect" id="node23" href="$de/d19/classworkspace_1_1_workspace.html#a31b9c29f587cb0c2d504cf0eaae5e208" title="workspace.Workspace.getCommands" alt="" coords="1126,447,1386,473"/>
+</map>

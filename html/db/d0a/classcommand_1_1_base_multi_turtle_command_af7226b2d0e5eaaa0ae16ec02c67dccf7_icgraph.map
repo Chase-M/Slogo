@@ -1,0 +1,4 @@
+<map id="command.BaseMultiTurtleCommand.getIdsList" name="command.BaseMultiTurtleCommand.getIdsList">
+<area shape="rect" id="node2" href="$db/d24/classcommand_1_1_ask_command.html#a512723f6475d7ed90cb6639c5eec3adb" title="command.AskCommand.execute" alt="" coords="334,5,570,32"/>
+<area shape="rect" id="node3" href="$d6/de2/classcommand_1_1_tell_command.html#ad12c8eb44a4dc930037355278c0aee33" title="command.TellCommand.execute" alt="" coords="336,56,568,83"/>
+</map>

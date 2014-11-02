@@ -1,0 +1,4 @@
+<map id="command.GetPenColorCommand.execute" name="command.GetPenColorCommand.execute">
+<area shape="rect" id="node2" href="$da/d85/classactor_1_1_pen.html#aafee390410894877f7eda8b67ea07920" title="actor.Pen.getColorIndex" alt="" coords="347,5,522,32"/>
+<area shape="rect" id="node3" href="$d4/d4a/classactor_1_1_turtle.html#ae431de4e8d24c665f1f49ea5bd77ca09" title="actor.Turtle.getPen" alt="" coords="364,56,505,83"/>
+</map>

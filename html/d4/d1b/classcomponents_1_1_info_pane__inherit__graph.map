@@ -1,0 +1,5 @@
+<map id="components.InfoPane" name="components.InfoPane">
+<area shape="rect" id="node4" href="$db/d9a/classcomponents_1_1_left_pane.html" title="components.LeftPane" alt="" coords="5,155,165,181"/>
+<area shape="rect" id="node5" href="$d5/d01/classcomponents_1_1_right_pane.html" title="components.RightPane" alt="" coords="190,155,359,181"/>
+<area shape="rect" id="node3" href="$d2/dfc/interfacefeatures_1_1_feature.html" title="features.Feature" alt="" coords="181,5,307,32"/>
+</map>

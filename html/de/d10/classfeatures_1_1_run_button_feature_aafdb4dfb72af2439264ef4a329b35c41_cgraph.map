@@ -1,0 +1,10 @@
+<map id="features.RunButtonFeature.update" name="features.RunButtonFeature.update">
+<area shape="rect" id="node2" href="$de/d10/classfeatures_1_1_run_button_feature.html#a7516c5daca232e22a89ef380f60d2272" title="features.RunButtonFeature.update\lPanes" alt="" coords="296,103,539,145"/>
+<area shape="rect" id="node3" href="$d6/d68/classcomponents_1_1_turtle_manager.html#a4359c3b1142a696d251e7fc017729efb" title="components.TurtleManager.update\lImageMap" alt="" coords="587,5,831,46"/>
+<area shape="rect" id="node4" href="$d7/da1/classmain_application_1_1_controller.html#a133505f3ac4d32291a6017ba7f367fb9" title="mainApplication.Controller.get\lVariables" alt="" coords="602,70,817,111"/>
+<area shape="rect" id="node6" href="$d7/da1/classmain_application_1_1_controller.html#a952b8306c4c1217626fcae679705ec24" title="mainApplication.Controller.get\lColors" alt="" coords="602,135,817,177"/>
+<area shape="rect" id="node8" href="$d7/da1/classmain_application_1_1_controller.html#ab99acfabe99cc2e0bdca80f0ad4ee99b" title="mainApplication.Controller.get\lCommands" alt="" coords="602,201,817,242"/>
+<area shape="rect" id="node5" href="$de/d19/classworkspace_1_1_workspace.html#a85d7692f63e805af8424da4116f233fa" title="workspace.Workspace.getVariables" alt="" coords="889,77,1133,104"/>
+<area shape="rect" id="node7" href="$de/d19/classworkspace_1_1_workspace.html#a029cef83f88faaebaa49ffdc6466b0a3" title="workspace.Workspace.getColors" alt="" coords="897,143,1124,169"/>
+<area shape="rect" id="node9" href="$de/d19/classworkspace_1_1_workspace.html#a31b9c29f587cb0c2d504cf0eaae5e208" title="workspace.Workspace.getCommands" alt="" coords="881,208,1141,235"/>
+</map>

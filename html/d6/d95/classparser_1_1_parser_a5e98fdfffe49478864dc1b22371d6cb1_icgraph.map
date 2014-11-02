@@ -1,0 +1,34 @@
+<map id="parser.Parser.parse" name="parser.Parser.parse">
+<area shape="rect" id="node2" href="$d7/da1/classmain_application_1_1_controller.html#a6e9afc2e53e6adb01a2b73794a319b63" title="mainApplication.Controller.parse\lAndEvaluate" alt="" coords="200,129,429,170"/>
+<area shape="rect" id="node12" href="$de/d33/classparser_1_1_test_parser.html#a3f8cee68556948d08c53a574a72c8356" title="parser.TestParser.TestBoolean" alt="" coords="209,195,420,221"/>
+<area shape="rect" id="node13" href="$de/d33/classparser_1_1_test_parser.html#ae799f71307e31127e497d20afdc506ec" title="parser.TestParser.TestDif" alt="" coords="227,245,403,272"/>
+<area shape="rect" id="node14" href="$de/d33/classparser_1_1_test_parser.html#ad6cc42523d881f5a69c5cf307364ce38" title="parser.TestParser.TestFor" alt="" coords="225,296,404,323"/>
+<area shape="rect" id="node15" href="$de/d33/classparser_1_1_test_parser.html#a616e3d3359a2feaf24149915c6aea8c8" title="parser.TestParser.TestForward" alt="" coords="210,347,419,373"/>
+<area shape="rect" id="node16" href="$de/d33/classparser_1_1_test_parser.html#a39be8e4aca3871ce6f29a482a52bcd71" title="parser.TestParser.TestIf" alt="" coords="231,397,398,424"/>
+<area shape="rect" id="node17" href="$de/d33/classparser_1_1_test_parser.html#ac22ad278ed612557e83ed90884fedff4" title="parser.TestParser.TestIfElse" alt="" coords="219,448,411,475"/>
+<area shape="rect" id="node18" href="$de/d33/classparser_1_1_test_parser.html#a914384055dd7ca9ea5c617ab0bb5e0c0" title="parser.TestParser.TestMake" alt="" coords="218,499,411,525"/>
+<area shape="rect" id="node19" href="$de/d33/classparser_1_1_test_parser.html#af2b64ced840e8e10f33f74dce480218a" title="parser.TestParser.TestMinus" alt="" coords="217,549,413,576"/>
+<area shape="rect" id="node20" href="$d8/dc3/classparser_1_1_test_model.html#ac4fd1124818e321c4a686cc1cf973254" title="parser.TestModel.testParse\lException" alt="" coords="218,601,411,642"/>
+<area shape="rect" id="node21" href="$d8/dc3/classparser_1_1_test_model.html#ab542659caca299017b423f7b3b3f648a" title="parser.TestModel.testPosition" alt="" coords="211,667,419,693"/>
+<area shape="rect" id="node22" href="$de/d33/classparser_1_1_test_parser.html#ada92f24240fae7dfec207bad127e31e7" title="parser.TestParser.TestPow" alt="" coords="223,717,407,744"/>
+<area shape="rect" id="node23" href="$de/d33/classparser_1_1_test_parser.html#a8844bf15d0fe9e809fb466cb35b0ae20" title="parser.TestParser.TestProd" alt="" coords="221,768,409,795"/>
+<area shape="rect" id="node24" href="$de/d33/classparser_1_1_test_parser.html#a9bcfbde1999d45577d42211fcd593121" title="parser.TestParser.TestQuotient" alt="" coords="207,819,422,845"/>
+<area shape="rect" id="node25" href="$de/d33/classparser_1_1_test_parser.html#ac13478be4d51a5b8db30db117f6098c8" title="parser.TestParser.TestRandom" alt="" coords="209,869,421,896"/>
+<area shape="rect" id="node26" href="$de/d33/classparser_1_1_test_parser.html#a3ab06721c75424d63da6d4380ae7ad5e" title="parser.TestParser.TestRecursion" alt="" coords="205,920,425,947"/>
+<area shape="rect" id="node27" href="$de/d33/classparser_1_1_test_parser.html#acd110a622f9ac5ef4b4246ea997ec102" title="parser.TestParser.TestRemainder" alt="" coords="201,971,428,997"/>
+<area shape="rect" id="node28" href="$de/d33/classparser_1_1_test_parser.html#a7861269b842fcf079433cbe0a933e8db" title="parser.TestParser.TestRepeat" alt="" coords="213,1021,416,1048"/>
+<area shape="rect" id="node29" href="$de/d33/classparser_1_1_test_parser.html#a2211bce31efddb4c523112a488c02e92" title="parser.TestParser.TestSum" alt="" coords="220,1072,409,1099"/>
+<area shape="rect" id="node30" href="$de/d33/classparser_1_1_test_parser.html#aac27b9d8c48ae78dd9252dd65be9aeea" title="parser.TestParser.TestSum2" alt="" coords="216,1123,413,1149"/>
+<area shape="rect" id="node31" href="$de/d33/classparser_1_1_test_parser.html#a93efc93146678909fa1c24a6727460ae" title="parser.TestParser.TestTo" alt="" coords="229,1173,401,1200"/>
+<area shape="rect" id="node32" href="$de/d33/classparser_1_1_test_parser.html#aa7724ec4a132ca195c3bd3ee1c81ad73" title="parser.TestParser.TestTrig" alt="" coords="225,1224,405,1251"/>
+<area shape="rect" id="node33" href="$d8/dc3/classparser_1_1_test_model.html#a023bd16aca0a843ec8f4772c96ec2ffb" title="parser.TestModel.testWrite" alt="" coords="220,1275,409,1301"/>
+<area shape="rect" id="node3" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#af2f106fa7786f13ccc0202db53b559b9" title="mainApplication.GUIShell.create\lOpenButton" alt="" coords="1008,5,1235,46"/>
+<area shape="rect" id="node5" href="$d3/de0/classmain_application_1_1_g_u_i.html#a60b2e396c945ac173bfd82f207f42000" title="mainApplication.GUI.initiate\lKeyPress" alt="" coords="491,63,690,105"/>
+<area shape="rect" id="node8" href="$dd/dca/classfeatures_1_1_pen_width_slider_feature.html#aac6e7c0d0c6f5e1afde3d8a3c8e788e6" title="features.PenWidthSliderFeature.\lPenWidthSliderFeature" alt="" coords="477,129,704,170"/>
+<area shape="rect" id="node9" href="$de/d10/classfeatures_1_1_run_button_feature.html#ada33a09e0a0259486754b597f2d7b0c7" title="features.RunButtonFeature.\lRunButtonFeature" alt="" coords="492,194,689,235"/>
+<area shape="rect" id="node10" href="$d4/d3f/classcomponents_1_1_vars_tab.html#aa51dee8d24322ee37e4399858794ee8b" title="components.VarsTab.setTab\lEditable" alt="" coords="491,259,691,301"/>
+<area shape="rect" id="node4" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#ac525a3e483dbe24e5f9f0257fe54521d" title="mainApplication.GUIShell.\lGUIShell" alt="" coords="1283,63,1469,105"/>
+<area shape="rect" id="node6" href="$d3/de0/classmain_application_1_1_g_u_i.html#af6bd387013dbd1d1daf030117da66c0e" title="mainApplication.GUI.initiate" alt="" coords="757,71,955,97"/>
+<area shape="rect" id="node7" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#a9df214dfffdce7a39bc6ac5e84ca1f0f" title="mainApplication.GUIShell.create\lNewButton" alt="" coords="1008,122,1235,163"/>
+<area shape="rect" id="node11" href="$d4/d3f/classcomponents_1_1_vars_tab.html#a1e48c3f7ead529596e018a72cd6ef159" title="components.VarsTab.VarsTab" alt="" coords="752,267,960,293"/>
+</map>

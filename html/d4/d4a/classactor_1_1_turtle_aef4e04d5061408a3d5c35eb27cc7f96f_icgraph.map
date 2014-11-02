@@ -1,0 +1,21 @@
+<map id="actor.Turtle.setChangedandNotify" name="actor.Turtle.setChangedandNotify">
+<area shape="rect" id="node2" href="$d4/d4a/classactor_1_1_turtle.html#a8d43e4c33317318940882b7aa2cd7a10" title="actor.Turtle.changedPen" alt="" coords="267,96,442,123"/>
+<area shape="rect" id="node3" href="$d4/d4a/classactor_1_1_turtle.html#a0dcf130646f1d94fe9ec9cc5f8797bc5" title="actor.Turtle.changeShape" alt="" coords="263,147,447,173"/>
+<area shape="rect" id="node4" href="$de/d19/classworkspace_1_1_workspace.html#aecaf73d3c2b2008aac032adc4a4f759f" title="workspace.Workspace.create\lTurtle" alt="" coords="251,198,458,239"/>
+<area shape="rect" id="node19" href="$d4/d4a/classactor_1_1_turtle.html#a5669e2c0d75b1f50b23a8d992028b0eb" title="actor.Turtle.setShowing" alt="" coords="270,264,439,291"/>
+<area shape="rect" id="node20" href="$d4/d4a/classactor_1_1_turtle.html#a597265394c6feccaee35f9470fad39b4" title="actor.Turtle.updatePosition" alt="" coords="259,315,450,341"/>
+<area shape="rect" id="node5" href="$db/d0a/classcommand_1_1_base_multi_turtle_command.html#a18475dfa4cad362fd566082a1cba7f59" title="command.BaseMultiTurtleCommand.tell" alt="" coords="507,67,784,93"/>
+<area shape="rect" id="node9" href="$d7/da1/classmain_application_1_1_controller.html#a14cb8c148061cb04d6968d56f26e4c82" title="mainApplication.Controller.create\lWorkspace" alt="" coords="528,139,763,181"/>
+<area shape="rect" id="node14" href="$de/d33/classparser_1_1_test_parser.html#a616e3d3359a2feaf24149915c6aea8c8" title="parser.TestParser.TestForward" alt="" coords="541,205,750,232"/>
+<area shape="rect" id="node15" href="$de/d33/classparser_1_1_test_parser.html#a93efc93146678909fa1c24a6727460ae" title="parser.TestParser.TestTo" alt="" coords="559,256,731,283"/>
+<area shape="rect" id="node16" href="$de/d19/classworkspace_1_1_workspace.html#a645b162e34e52069e1a18fa5c57daa41" title="workspace.Workspace.clear" alt="" coords="547,307,743,333"/>
+<area shape="rect" id="node6" href="$db/d24/classcommand_1_1_ask_command.html#a512723f6475d7ed90cb6639c5eec3adb" title="command.AskCommand.execute" alt="" coords="859,5,1095,32"/>
+<area shape="rect" id="node7" href="$dc/daf/classcommand_1_1_ask_with_command.html#aa8274e05370a4e3f6ad3e2d7e86ec7f0" title="command.AskWithCommand.execute" alt="" coords="846,56,1109,83"/>
+<area shape="rect" id="node8" href="$d6/de2/classcommand_1_1_tell_command.html#ad12c8eb44a4dc930037355278c0aee33" title="command.TellCommand.execute" alt="" coords="861,107,1093,133"/>
+<area shape="rect" id="node10" href="$d3/de0/classmain_application_1_1_g_u_i.html#af6bd387013dbd1d1daf030117da66c0e" title="mainApplication.GUI.initiate" alt="" coords="878,157,1077,184"/>
+<area shape="rect" id="node11" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#ac525a3e483dbe24e5f9f0257fe54521d" title="mainApplication.GUIShell.\lGUIShell" alt="" coords="1445,150,1632,191"/>
+<area shape="rect" id="node12" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#a9df214dfffdce7a39bc6ac5e84ca1f0f" title="mainApplication.GUIShell.create\lNewButton" alt="" coords="1171,150,1397,191"/>
+<area shape="rect" id="node13" href="$d3/d04/classmain_application_1_1_g_u_i_shell.html#af2f106fa7786f13ccc0202db53b559b9" title="mainApplication.GUIShell.create\lOpenButton" alt="" coords="1171,215,1397,257"/>
+<area shape="rect" id="node17" href="$d5/d9e/classcommand_1_1_clear_screen_command.html#a5860aeadd96cfbade9a5ea48d7ae60fc" title="command.ClearScreenCommand.execute" alt="" coords="832,281,1123,308"/>
+<area shape="rect" id="node18" href="$d7/da1/classmain_application_1_1_controller.html#a0ce45e0f09c24ab78746a0d3bce7550f" title="mainApplication.Controller.clear" alt="" coords="865,332,1089,359"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="mainApplication.GUI.loadPanes" name="mainApplication.GUI.loadPanes">
+<area shape="rect" id="node2" href="$d6/d14/classfeatures_1_1_settings_bar.html#a06ac68340b6f5f59f638db75870f7d33" title="features.SettingsBar.add\lAnimationSlider" alt="" coords="273,5,455,46"/>
+<area shape="rect" id="node3" href="$d6/d14/classfeatures_1_1_settings_bar.html#a84c1671d1eff0e0e6df250fcd1a2dcd0" title="features.SettingsBar.add\lComboBox" alt="" coords="273,70,455,111"/>
+<area shape="rect" id="node4" href="$d7/d3c/classcomponents_1_1_top_pane.html#a1239f7bb3356707158d40b0b41b4ca0b" title="components.TopPane.addItems" alt="" coords="253,136,475,163"/>
+<area shape="rect" id="node5" href="$d6/d14/classfeatures_1_1_settings_bar.html#a0087ffd8c4aeedd07998a8a058cc9209" title="features.SettingsBar.add\lPenSlider" alt="" coords="273,187,455,229"/>
+<area shape="rect" id="node6" href="$d6/d8b/classcomponents_1_1_pane_factory.html#a749d9694305a5e64344c7f0b2eb1ec46" title="components.PaneFactory.makePane" alt="" coords="238,253,490,280"/>
+<area shape="rect" id="node7" href="$d9/d58/classcomponents_1_1_bottom_pane.html#a8c0188cd8a7650eb5b180930298a44a2" title="components.BottomPane.update\lButton" alt="" coords="247,305,481,346"/>
+<area shape="rect" id="node8" href="$d6/d68/classcomponents_1_1_turtle_manager.html#a4359c3b1142a696d251e7fc017729efb" title="components.TurtleManager.update\lImageMap" alt="" coords="242,370,486,411"/>
+</map>

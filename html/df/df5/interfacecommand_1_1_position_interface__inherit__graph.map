@@ -1,0 +1,8 @@
+<map id="command.PositionInterface" name="command.PositionInterface">
+<area shape="rect" id="node2" href="$d5/da3/classcommand_1_1_move_command.html" title="command.MoveCommand" alt="" coords="227,80,419,107"/>
+<area shape="rect" id="node5" href="$d8/d0b/classcommand_1_1_rotate_command.html" title="command.RotateCommand" alt="" coords="443,80,641,107"/>
+<area shape="rect" id="node3" href="$d7/d49/classcommand_1_1_back_command.html" title="command.BackCommand" alt="" coords="5,155,195,181"/>
+<area shape="rect" id="node4" href="$df/d28/classcommand_1_1_forward_command.html" title="command.ForwardCommand" alt="" coords="219,155,427,181"/>
+<area shape="rect" id="node6" href="$d7/d34/classcommand_1_1_left_command.html" title="command.LeftCommand" alt="" coords="451,155,633,181"/>
+<area shape="rect" id="node7" href="$da/ddd/classcommand_1_1_right_command.html" title="command.RightCommand" alt="" coords="658,155,848,181"/>
+</map>

@@ -1,0 +1,22 @@
+<map id="features.Feature" name="features.Feature">
+<area shape="rect" id="node2" href="$da/d5b/classcomponents_1_1_center_pane.html" title="components.CenterPane" alt="" coords="210,5,390,32"/>
+<area shape="rect" id="node3" href="$db/d7f/classcomponents_1_1_info_pane.html" title="components.InfoPane" alt="" coords="220,107,380,133"/>
+<area shape="rect" id="node4" href="$db/d9a/classcomponents_1_1_left_pane.html" title="components.LeftPane" alt="" coords="474,56,635,83"/>
+<area shape="rect" id="node5" href="$d5/d01/classcomponents_1_1_right_pane.html" title="components.RightPane" alt="" coords="470,107,639,133"/>
+<area shape="rect" id="node6" href="$df/df3/classcomponents_1_1_info_tab.html" title="components.InfoTab" alt="" coords="225,208,375,235"/>
+<area shape="rect" id="node13" href="$d7/d3c/classcomponents_1_1_top_pane.html" title="components.TopPane" alt="" coords="221,259,379,285"/>
+<area shape="rect" id="node14" href="$d8/da9/classfeatures_1_1_animate_button_feature.html" title="features.AnimateButtonFeature" alt="" coords="188,309,412,336"/>
+<area shape="rect" id="node15" href="$db/d05/classfeatures_1_1_animation_speed_slider_feature.html" title="features.AnimationSpeedSlider\lFeature" alt="" coords="189,361,411,402"/>
+<area shape="rect" id="node16" href="$d3/d06/classfeatures_1_1_color_picker_feature.html" title="features.ColorPickerFeature" alt="" coords="201,427,399,453"/>
+<area shape="rect" id="node17" href="$da/d5c/classfeatures_1_1_language_combo_feature.html" title="features.LanguageComboFeature" alt="" coords="182,477,418,504"/>
+<area shape="rect" id="node18" href="$dc/d76/classfeatures_1_1_pen_type_combo_box_feature.html" title="features.PenTypeComboBox\lFeature" alt="" coords="199,529,401,570"/>
+<area shape="rect" id="node19" href="$dd/dca/classfeatures_1_1_pen_width_slider_feature.html" title="features.PenWidthSliderFeature" alt="" coords="189,595,411,621"/>
+<area shape="rect" id="node20" href="$de/d10/classfeatures_1_1_run_button_feature.html" title="features.RunButtonFeature" alt="" coords="203,645,397,672"/>
+<area shape="rect" id="node21" href="$df/d39/classfeatures_1_1_toggle_grid_button_feature.html" title="features.ToggleGridButton\lFeature" alt="" coords="206,697,394,738"/>
+<area shape="rect" id="node7" href="$da/d83/classcomponents_1_1_colors_tab.html" title="components.ColorsTab" alt="" coords="471,157,638,184"/>
+<area shape="rect" id="node8" href="$d1/dfd/classcomponents_1_1_history_tab.html" title="components.HistoryTab" alt="" coords="469,208,641,235"/>
+<area shape="rect" id="node9" href="$dc/db7/classcomponents_1_1_images_tab.html" title="components.ImagesTab" alt="" coords="467,259,642,285"/>
+<area shape="rect" id="node10" href="$d1/de7/classcomponents_1_1_saved_tab.html" title="components.SavedTab" alt="" coords="471,309,638,336"/>
+<area shape="rect" id="node11" href="$d6/d82/classcomponents_1_1_turtles_tab.html" title="components.TurtlesTab" alt="" coords="471,360,639,387"/>
+<area shape="rect" id="node12" href="$d4/d3f/classcomponents_1_1_vars_tab.html" title="components.VarsTab" alt="" coords="477,411,632,437"/>
+</map>

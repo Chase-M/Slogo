@@ -1,0 +1,9 @@
+<map id="features.SettingsBar" name="features.SettingsBar">
+<area shape="rect" id="node5" href="$d5/d01/classcomponents_1_1_right_pane.html" title="components.RightPane" alt="" coords="646,159,815,185"/>
+<area shape="rect" id="node6" href="$db/d7f/classcomponents_1_1_info_pane.html" title="components.InfoPane" alt="" coords="315,209,475,236"/>
+<area shape="rect" id="node15" href="$db/d9a/classcomponents_1_1_left_pane.html" title="components.LeftPane" alt="" coords="650,209,811,236"/>
+<area shape="rect" id="node8" href="$d2/dfc/interfacefeatures_1_1_feature.html" title="features.Feature" alt="" coords="43,143,170,169"/>
+<area shape="rect" id="node10" href="$d4/d4a/classactor_1_1_turtle.html" title="actor.Turtle" alt="" coords="685,260,777,287"/>
+<area shape="rect" id="node12" href="$da/d54/classproperties_1_1_position.html" title="properties.Position" alt="" coords="324,311,465,337"/>
+<area shape="rect" id="node14" href="$da/d85/classactor_1_1_pen.html" title="actor.Pen" alt="" coords="353,361,436,388"/>
+</map>

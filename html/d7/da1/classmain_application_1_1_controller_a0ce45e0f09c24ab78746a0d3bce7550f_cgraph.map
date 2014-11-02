@@ -1,0 +1,7 @@
+<map id="mainApplication.Controller.clear" name="mainApplication.Controller.clear">
+<area shape="rect" id="node2" href="$de/d19/classworkspace_1_1_workspace.html#a645b162e34e52069e1a18fa5c57daa41" title="workspace.Workspace.clear" alt="" coords="278,77,474,104"/>
+<area shape="rect" id="node3" href="$de/d1c/classproperties_1_1_stage_properties.html#a872541d70d9ae0b1a8d1c8cb909c34f8" title="properties.StageProperties.set\lClear" alt="" coords="547,5,765,46"/>
+<area shape="rect" id="node4" href="$de/d19/classworkspace_1_1_workspace.html#a197988cb471cd86b0a164f735a366be7" title="workspace.Workspace.setChangedand\lNotify" alt="" coords="523,70,789,111"/>
+<area shape="rect" id="node5" href="$de/d19/classworkspace_1_1_workspace.html#aecaf73d3c2b2008aac032adc4a4f759f" title="workspace.Workspace.create\lTurtle" alt="" coords="553,135,759,177"/>
+<area shape="rect" id="node6" href="$d4/d4a/classactor_1_1_turtle.html#aef4e04d5061408a3d5c35eb27cc7f96f" title="actor.Turtle.setChangedand\lNotify" alt="" coords="837,135,1035,177"/>
+</map>
